@@ -1,0 +1,13 @@
+{
+    "name": "openy/openy_memberships",
+    "type": "drupal-module",
+    "description": "Implement Membership Framework for OpenY and Drupal community",
+    "keywords": [
+    ],
+    "homepage": "https://github.com/ymcatwincities/openy_memberships",
+    "minimum-stability": "dev",
+    "support": {
+        "issues": "https://github.com/ymcatwincities/openy_memberships/issues",
+        "source": "https://github.com/ymcatwincities/openy_memberships.git"
+    }
+}
