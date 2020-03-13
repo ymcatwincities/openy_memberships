@@ -1,0 +1,29 @@
+name: 'Open Y Memberships'
+description: Provides the functionality of Open Y Memberships.
+type: module
+core: 8.x
+dependencies:
+  - address
+  - commerce
+  - commerce_cart
+  - commerce_checkout
+  - commerce_number_pattern
+  - commerce_order
+  - commerce_price
+  - commerce_product
+  - commerce_store
+  - datalayer
+  - default_content
+  - entity_reference_revisions
+  - field
+  - inline_entity_form
+  - language
+  - node
+  - options
+  - path
+  - profile
+  - state_machine
+  - text
+  - user
+  - views
+core_incompatible: false
