@@ -17,6 +17,7 @@
         }
     },
     "require": {
-        "drupal/default_content": "1.x-dev"
+        "drupal/default_content": "1.x-dev",
+        "drupal/commerce": "2.16"
     }
 }
