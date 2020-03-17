@@ -18,6 +18,9 @@
     },
     "require": {
         "drupal/default_content": "1.x-dev",
-        "drupal/commerce": "2.16"
+        "drupal/commerce": "2.16",
+        "openy/openy_prgf_sidebar_menu": "dev-master",
+        "openy/openy_block_modal": "dev-master",
+        "openy/paragraph_skins": "dev-master"
     }
 }
