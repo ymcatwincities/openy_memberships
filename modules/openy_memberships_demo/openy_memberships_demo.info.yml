@@ -1,0 +1,10 @@
+name: 'Open Y Memberships Demo'
+description: Provides demo content for Open Y Memberships.
+type: module
+core: 8.x
+dependencies:
+  - openy_memberships
+  - openy_block_modal
+  - paragraph_skins
+  - openy_prgf_sidebar_menu
+core_incompatible: false
