@@ -1,0 +1,8 @@
+uuid: ae0fce49-f310-4f37-879a-d96012327967
+langcode: en
+status: true
+dependencies: {  }
+id: membership-sidebar
+label: 'Membership sidebar'
+description: 'Membership sidebar'
+locked: false
