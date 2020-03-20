@@ -19,12 +19,8 @@
         
 
       <div>
-        <div>
-          <div>
-            <loading :active.sync="isLoading"></loading>
-            <locations :locations="locations" />
-          </div>
-        </div>
+        <loading :active.sync="isLoading"></loading>
+        <locations :locations="locations" />
       </div>
     </div>
   </section>

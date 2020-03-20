@@ -6,12 +6,9 @@
       :vertical="ips_vertical"
       :disabled="ips_disabled"
       v-model="ips_value">
-      <template slot="decrement"> .</template>
-    
-      <template slot="increment"> .</template>
     </integer-plusminus>
   </span>
- </template>
+</template>
 
 <script>
 import { IntegerPlusminus } from 'vue-integer-plusminus'
