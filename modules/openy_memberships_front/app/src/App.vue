@@ -57,6 +57,7 @@ export default {
   #app {
     .btn {
       &.btn-next {
+        padding: 15px 40px;
         background: #92278F 0% 0% no-repeat padding-box;
         border-radius: 5px;
         text-align: center;

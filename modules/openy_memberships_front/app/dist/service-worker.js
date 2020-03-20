@@ -14,10 +14,10 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.397ef32793c0073dc0d77a70e45c6fac.js"
+  "/precache-manifest.12bd22e1f8ba4c403695811ac43ad798.js"
 );
 
-workbox.core.setCacheNameDetails({prefix: "app3"});
+workbox.core.setCacheNameDetails({prefix: "openy_memberships"});
 
 self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {

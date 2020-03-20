@@ -16,13 +16,13 @@
         
       <div class="family-wrapper">
         <div class="label-row">
-          <div class="label">Adults (18-54 yrs)</div><div class="value"><integer-minus-plus @input="updateFamily('adults', $event)" /></div>   
+          <div class="label">Adults (18-54 yrs)</div><div class="value"><integer-minus-plus :value="$store.state.family.adults" @input="updateFamily('adults', $event)" /></div>   
         </div>
         <div class="label-row">
-          <div class="label">Youth (0-17 yrs)</div><div class="value"><integer-minus-plus @input="updateFamily('youth', $event)" /></div>
+          <div class="label">Youth (0-17 yrs)</div><div class="value"><integer-minus-plus :value="$store.state.family.youth" @input="updateFamily('youth', $event)" /></div>
         </div>
         <div class="label-row">
-          <div class="label">Seniors (55+ yrs)</div><div class="value"><integer-minus-plus @input="updateFamily('seniors', $event)" /></div>
+          <div class="label">Seniors (55+ yrs)</div><div class="value"><integer-minus-plus :value="$store.state.family.seniors" @input="updateFamily('seniors', $event)" /></div>
         </div>
       </div>
     </div>
