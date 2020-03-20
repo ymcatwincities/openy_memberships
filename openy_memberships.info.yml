@@ -26,4 +26,5 @@ dependencies:
   - text
   - user
   - views
+  - openy_memberships_front
 core_incompatible: false
