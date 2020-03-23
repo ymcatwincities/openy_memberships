@@ -1,5 +1,5 @@
 name: 'Open Y Memberships'
-description: Provides the functionality of Open Y Memberships.
+description: 'Provides the functionality of Open Y Memberships.'
 type: module
 core: 8.x
 dependencies:
@@ -19,6 +19,7 @@ dependencies:
   - inline_entity_form
   - language
   - node
+  - openy_loc_branch
   - options
   - path
   - profile

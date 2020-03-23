@@ -1,0 +1,33 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.membership
+    - field.storage.commerce_product.field_product_branch
+    - node.type.branch
+  module:
+    - datalayer
+third_party_settings:
+  datalayer:
+    expose: 0
+    label: field_product_branch
+id: commerce_product.membership.field_product_branch
+field_name: field_product_branch
+entity_type: commerce_product
+bundle: membership
+label: 'Branches in the product'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      branch: branch
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference
