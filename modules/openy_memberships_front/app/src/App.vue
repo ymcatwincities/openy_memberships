@@ -1,9 +1,7 @@
 <template>
   <div id="app" :class="$router.currentRoute.name">
-    <router-view />
-    <div class="navigation container" v-if="$store.state.location">
-      <button class="btn btn-next" @click="goNext">Next</button>
-    </div>
+    <router-view @go-next="goNext" />
+    
   </div>
 </template>
 

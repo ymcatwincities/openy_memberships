@@ -15,7 +15,10 @@
       </div>
       <div>
         <loading :active.sync="isLoading"></loading>
-        <products :products="products" />
+        <products v-if="this.products.length" :products="products" />
+        <div v-if="!this.products.length">
+          No suitable products was found.
+        </div>
       </div>
     </div>
   </section>
@@ -30,8 +33,32 @@ export default {
   mounted() {
     this.isLoading = true;
     window.jQuery.ajax({
-      url: '/jsonapi/commerce_product/membership?include=variations',
-      dataType: 'json'
+      url: '/jsonapi/commerce_product/membership?include=variations,field_product_branch',
+      dataType: 'json',
+      data: {
+        filter: {
+          'branch-group' : {
+            'group': {
+              'conjunction': 'OR'
+            }
+          },
+          'branch-filter': {
+            'condition': {
+              'path': 'field_product_branch.drupal_internal__nid',
+              'operator': '=',
+              'value': this.$store.state.location,
+              'memberOf': 'branch-group'
+            }
+          },
+          'branch-filter-null': {
+            'condition': {
+              'path': 'field_product_branch.drupal_internal__nid',
+              'operator': 'IS NULL',
+              'memberOf': 'branch-group'
+            }
+          }
+        }
+      }
     }).then((data)=>{
       this.isLoading = false
       let included = {}
@@ -44,9 +71,12 @@ export default {
         let variants = data.data[key].relationships.variations.data.map(variant => {
           return included[variant.id];
         })
+        let branch = data.data[key].relationships.field_product_branch.data;
+        branch = branch && branch.id ? included[branch.id] :  null;
         return {
           ...product,
-          variants
+          variants,
+          branch
         }
       })
     }).catch(() => {

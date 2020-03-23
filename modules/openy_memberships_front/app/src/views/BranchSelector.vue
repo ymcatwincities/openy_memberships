@@ -23,6 +23,9 @@
         <locations :locations="locations" />
       </div>
     </div>
+    <div class="navigation container" v-if="$store.state.location">
+      <button class="btn btn-next" @click="$emit('go-next')">Next</button>
+    </div>
   </section>
 </template>
 
