@@ -26,6 +26,9 @@
         </div>
       </div>
     </div>
+    <div class="navigation container" v-if="totalCount">
+      <button class="btn btn-next" @click="$emit('go-next')">Next</button>
+    </div>
   </section>
 </template>
 

@@ -10,5 +10,8 @@ export default {
   },
   setFamily(state, family) {
     state.family = family
+  },
+  setProduct(state, product) {
+    state.product = product
   }
 }

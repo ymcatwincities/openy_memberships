@@ -2,6 +2,7 @@ import BranchSelector from '../views/BranchSelector.vue'
 import Summary from '../views/Summary.vue'
 import DiscountFinder from '../views/DiscountFinder.vue'
 import Family from '../views/Family.vue'
+import Results from '../views/Results.vue'
 
 export default [
   {
@@ -23,5 +24,10 @@ export default [
     path: '/memberships/summary',
     name: 'Summary',
     component: Summary
+  },
+  {
+    path: '/memberships/results',
+    name: 'Results',
+    component: Results
   }
 ]

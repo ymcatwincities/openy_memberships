@@ -1,0 +1,7 @@
+openy_memberships_front.openy_memberships:
+  title: 'Settings'
+  route_name: 'openy_memberships_front.settings'
+  parent: 'openy_memberships.openy_memberships'
+  description: 'Provide Memberships Settings.'
+  position: left
+  weight: -10

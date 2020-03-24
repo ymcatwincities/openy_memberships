@@ -16,8 +16,5 @@ module.exports = {
     "svg": {
       "data": {}
     }
-  },
-  // "transpileDependencies": [
-  //   "vuetify"
-  // ]
+  }
 }

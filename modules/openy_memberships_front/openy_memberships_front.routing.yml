@@ -8,3 +8,11 @@ openy_memberships_front.memberships:
     # http://symfony.com/doc/current/cookbook/routing/slash_in_parameter.html
     filepath: .+
     _access: 'TRUE'
+
+openy_memberships_front.settings:
+  path: /admin/openy/memberships/settings'
+  defaults:
+    _form: '\Drupal\openy_memberships_front\Form\MembershipSettingsForm'
+    _title: 'Settings'
+  requirements:
+    _permission: 'administer site configuration'

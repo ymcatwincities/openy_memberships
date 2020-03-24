@@ -6,9 +6,14 @@
       <div>
         <div class="title">Purchase Options</div>
         <div class="options">
+          <div class="branch">
+            {{product.branch && product.branch.attributes.title}}
+            {{product.branch === null && 'All branches'}}
+          </div>
           <select v-model="variant">
             <option :value="key" :key="variant.id" v-for="(variant, key) in product.variants"> {{variant.attributes.title}}</option>
           </select>
+          <div v-if="product.variants[variant].attributes.field_best_value">Best value</div> 
         </div>
       </div>
       <div>
@@ -25,9 +30,9 @@
         </div>
       </div>
     </div>
-    <div class="select">
+    <a @click="selectProduct" class="select">
       SELECT
-    </div>
+    </a>
   </div>
 </template>
 <script>
@@ -47,6 +52,13 @@ export default {
   methods: {
     updateValue() {
       this.$emit('input', this.val)
+    },
+    selectProduct() {
+      this.$store.commit('setProduct', {
+        ...this.product,
+        variant: this.variant
+      })
+      this.$emit('go-next')
     }
   }
 }
@@ -73,12 +85,20 @@ export default {
     text-align: center;
     padding: 15px;
     margin: 10px -10px -10px;
+    text-decoration: none;
+    cursor: pointer;
+    display: block;
   }
   .product-columns {
     display: flex;
     flex-wrap: wrap;
     .options {
       margin: 5px;
+      .branch {
+        font: Bold 14px/21px Verdana;
+        letter-spacing: 0;
+        color: #231F20;
+      }
     }
     .title {
       padding: 5px;
