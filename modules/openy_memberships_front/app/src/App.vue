@@ -1,5 +1,5 @@
 <template>
-  <div id="app" :class="$router.currentRoute.name">
+  <div id="app" :class="'membership-app ' + $router.currentRoute.name">
     <router-view @go-next="goNext" />
     
   </div>
@@ -19,7 +19,7 @@ export default {
     let step = this.$store.state.step;
     let steps = this.$store.state.steps;
     if (steps[step] && this.$route.name != steps[step]) {
-      this.$router.replace({ name:  steps[step] })
+      //this.$router.replace({ name:  steps[step] })
     }
   },
   data: () => ({
@@ -52,14 +52,20 @@ export default {
 };
 </script>
 <style lang="scss">
-  #app {
+  .membership-app {
+    .navigation {
+      border-top: 5px solid rgba(112, 112, 112, 0.2);
+      text-align: right;
+    }
+    
     .btn {
       &.btn-next {
         padding: 15px 40px;
         background: #92278F 0% 0% no-repeat padding-box;
         border-radius: 5px;
         text-align: center;
-        font: Medium 24px/26px Cachet;
+        font: 500 24px/26px 'Cachet', Verdana, sans-serif;
+
         letter-spacing: 0;
         color: #FFFFFF;
         text-transform: uppercase;
@@ -67,12 +73,14 @@ export default {
       }
     }
     h1.title {
+      color: #231F20;
       margin: 30px 0;
+      font: 500 48px/72px Cachet, Verdana, sans-serif;
     }
     .description {
-      .description-text {
-        margin-bottom: 30px;
-      }
+      margin-bottom: 30px;
+      color: #231F20;
+      font: Regular 14px/21px Verdana;
     }
   }
 </style>

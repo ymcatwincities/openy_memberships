@@ -23,6 +23,7 @@ export default {
 </script>
 
 <style lang="scss">
+.membership-app {
   .location {
     position: relative;
     cursor: pointer;
@@ -82,4 +83,5 @@ export default {
       }
     }
   }
+}
 </style>

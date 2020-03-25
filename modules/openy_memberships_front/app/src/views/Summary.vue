@@ -1,5 +1,5 @@
 <template>
-  <section class="container">
+  <section class="app-container">
     <div>
       <h1 class="title">
         Results
