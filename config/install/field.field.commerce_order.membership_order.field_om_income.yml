@@ -1,0 +1,28 @@
+uuid: f56ad29c-d7f5-4d0a-8a39-b344fe9742e1
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_order.commerce_order_type.membership_order
+    - field.storage.commerce_order.field_om_income
+  module:
+    - commerce_price
+    - datalayer
+third_party_settings:
+  datalayer:
+    expose: 0
+    label: field_om_income
+id: commerce_order.membership_order.field_om_income
+field_name: field_om_income
+entity_type: commerce_order
+bundle: membership_order
+label: Income
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  available_currencies:
+    - USD
+field_type: commerce_price
