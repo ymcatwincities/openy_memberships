@@ -1,0 +1,29 @@
+uuid: 0ec9ce2f-ef5a-4d05-bf8d-23069749413d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_om_health_insurance
+    - profile.type.family_members
+  module:
+    - datalayer
+third_party_settings:
+  datalayer:
+    expose: 0
+    label: field_om_health_insurance
+id: profile.family_members.field_om_health_insurance
+field_name: field_om_health_insurance
+entity_type: profile
+bundle: family_members
+label: 'Health Insurance'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: '1'
+  off_label: '0'
+field_type: boolean
