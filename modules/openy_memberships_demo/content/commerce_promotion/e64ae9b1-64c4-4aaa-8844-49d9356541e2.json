@@ -1,0 +1,118 @@
+{
+    "_links": {
+        "self": {
+            "href": ""
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/commerce_promotion\/commerce_promotion"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/commerce_promotion\/commerce_promotion\/stores": [
+            {
+                "href": "http:\/\/default\/store\/1?_format=hal_json",
+                "lang": "en"
+            }
+        ]
+    },
+    "promotion_id": [
+        {
+            "value": 1
+        }
+    ],
+    "uuid": [
+        {
+            "value": "e64ae9b1-64c4-4aaa-8844-49d9356541e2"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "name": [
+        {
+            "value": "Promotion Income",
+            "lang": "en"
+        }
+    ],
+    "order_types": [
+        {
+            "target_id": "membership_order",
+            "lang": "en"
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/commerce_promotion\/commerce_promotion\/stores": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/store\/1?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/commerce_store\/online"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "191a9fed-f857-4ce5-aff5-caea69880745"
+                    }
+                ],
+                "lang": "en"
+            }
+        ]
+    },
+    "offer": [
+        {
+            "target_plugin_id": "order_fixed_amount_off",
+            "target_plugin_configuration": {
+                "amount": {
+                    "number": "30.00",
+                    "currency_code": "USD"
+                }
+            }
+        }
+    ],
+    "conditions": [
+        {
+            "target_plugin_id": "openy_memberships_income",
+            "target_plugin_configuration": {
+                "operator": ">",
+                "amount": {
+                    "number": "999.00",
+                    "currency_code": "USD"
+                }
+            }
+        }
+    ],
+    "condition_operator": [
+        {
+            "value": "AND"
+        }
+    ],
+    "start_date": [
+        {
+            "value": "2020-03-24T11:39:20-04:00"
+        }
+    ],
+    "compatibility": [
+        {
+            "value": "any"
+        }
+    ],
+    "status": [
+        {
+            "value": true
+        }
+    ],
+    "weight": [
+        {
+            "value": 0
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ]
+}
