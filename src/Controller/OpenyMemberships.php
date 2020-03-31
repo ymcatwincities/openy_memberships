@@ -132,14 +132,14 @@ class OpenyMemberships extends ControllerBase {
               if ($isHealthInsuranceChecked) {
                 $membersHaveHealthInsuranceCount++;
               }
-              $data['discounts']['members'][$profile->field_first_name->value]['health_insurance'] = $isHealthInsuranceChecked;
+              $data['members'][$profile->field_first_name->value]['health_insurance'] = $isHealthInsuranceChecked;
             }
             if ($profile->hasField('field_om_military_service')) {
               $isMilitaryServiceChecked = $profile->field_om_military_service->value;
               if ($isMilitaryServiceChecked) {
                 $membersHaveMilitaryServiceCount++;
               }
-              $data['discounts']['members'][$profile->field_first_name->value]['military_service'] = $isMilitaryServiceChecked;
+              $data['members'][$profile->field_first_name->value]['military_service'] = $isMilitaryServiceChecked;
             }
           }
           if ($data['discounts']['health_insurance']['amount']) {
