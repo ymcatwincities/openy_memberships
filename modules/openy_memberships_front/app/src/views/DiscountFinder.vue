@@ -45,13 +45,99 @@
 <script>
 export default {
   mounted() {
-    
+    this.getUserInfo().then((json) => {
+      let user_id = json.meta ? json.meta.links.me.meta.id : null;
+      return this.getOrders(user_id);
+    }).then((json) => {
+      if (json.data.length) {
+        json.data.forEach((order) => {
+          let members = order.relationships.field_family.data;
+          if (members && members.length) {
+            return this.removeMembers(members).then(() => {
+              return this.removeOrder(order)
+            }).catch(() => {
+              return this.removeOrder(order)
+            })
+          }
+        })
+      }
+    }).then(() => {
+      console.log('order was deleted')
+    });
   },
   data () {
     return {
       isLoading: false,
       discounts: [],
-      addons: []
+      addons: [],
+      token: null
+    }
+  },
+  methods: {
+    createOrder() {
+      return window.jQuery.ajax({
+        url: '/jsonapi/commerce_order/membership_order',
+        dataType: 'json',
+        type: 'POST',
+        headers: {
+          "X-CSRF-Token": this.token,
+        },
+        data: {
+          data: {
+            "type": "commerce_order--membership_order",
+            "attributes": {
+              "state": "draft",
+            },
+          }
+        }
+      })
+    },
+    getToken() {
+      return window.jQuery.ajax({
+        url: '/session/token',
+      }).then((token) => {
+        this.token = token;
+      })
+    },
+    getUserInfo() {
+      return this.getToken().then(() => {
+        return window.jQuery.ajax({
+          url: '/jsonapi',
+          dataType: 'json',
+          headers: {
+            "X-CSRF-Token": this.token,
+          }
+        })
+      })
+    },
+    getOrders(id) {
+      return window.jQuery.ajax({
+        url: '/jsonapi/commerce_order/membership_order' + (id ? '?filter[uid.id]=' + id : ''),
+        dataType: 'json'
+      })
+    },
+    removeMembers(members) {
+      let membersPromise = members.map((member) => {
+        return window.jQuery.ajax({
+          url: '/jsonapi/profile/family_members/' + member.id,
+          dataType: 'json',
+          type: 'DELETE',
+          headers: {
+            "X-CSRF-Token": this.token,
+          }
+        })
+      });
+      return Promise.all(membersPromise)
+    },
+    removeOrder(order) {
+      return window.jQuery.ajax({
+        url: '/jsonapi/commerce_order/membership_order/' + order.id,
+        dataType: 'json',
+        type: 'DELETE',
+        headers: {
+          "X-CSRF-Token": this.token,
+        }
+      })
     }
   }
 }
