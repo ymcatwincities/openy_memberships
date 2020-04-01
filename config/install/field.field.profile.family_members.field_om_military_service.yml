@@ -1,0 +1,29 @@
+uuid: b4b5440a-4431-466c-a8bf-5d7182a5aaba
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_om_military_service
+    - profile.type.family_members
+  module:
+    - datalayer
+third_party_settings:
+  datalayer:
+    expose: 0
+    label: field_om_military_service
+id: profile.family_members.field_om_military_service
+field_name: field_om_military_service
+entity_type: profile
+bundle: family_members
+label: 'Military Service'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: '1'
+  off_label: '0'
+field_type: boolean
