@@ -29,4 +29,5 @@ dependencies:
   - user
   - views
   - openy_memberships_front
+  - commerce_cart_api
 core_incompatible: false
