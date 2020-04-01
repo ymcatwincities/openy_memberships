@@ -1,6 +1,6 @@
 <template>
-  <section class="container">
-    <div>
+  <section class="app-container">
+    <div class="container">
       <div class="">
         <div class="">
           <h1 class="title">
@@ -13,7 +13,7 @@
           Select your preferred YMCA branch.
         </div>
         <div class="text-align-right">
-          <a >link</a>
+          <a class="view-loactions" href="/locations">View Locations <ViewLocationIcon /></a>
         </div>
       </div>
         
@@ -23,8 +23,10 @@
         <locations :locations="locations" />
       </div>
     </div>
-    <div class="navigation container" v-if="$store.state.location">
-      <button class="btn btn-next" @click="$emit('go-next')">Next</button>
+    <div class="navigation" v-if="$store.state.location">
+      <div class="container">
+        <button class="btn btn-next" @click="$emit('go-next')">Next</button>
+      </div>
     </div>
   </section>
 </template>
@@ -33,6 +35,9 @@
 import Locations from '@/components/Locations';
 import Loading from 'vue-loading-overlay';
 import 'vue-loading-overlay/dist/vue-loading.css';
+
+import ViewLocationIcon from "@/assets/launch.svg?inline";
+
 // import { LMap, LTileLayer, LMarker } from 'vue2-leaflet';
 // import 'leaflet/dist/leaflet.css';
 // import { Icon } from 'leaflet';
@@ -73,7 +78,8 @@ export default {
   },
   components: {
     Locations,
-    Loading
+    Loading,
+    ViewLocationIcon
   },
   data () {
     return {
@@ -91,6 +97,22 @@ export default {
 </script>
 
 <style lang="scss">
-
+  a.view-loactions {
+    display: inline-flex;
+    align-items: center;
+    svg {
+      margin: 5px;
+    }
+    font: Bold 14px/21px Verdana;
+    letter-spacing: 0;
+    color: #0060AF;
+  }
+</style>
+<style lang="scss" scoped>
+.description {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 </style>
 

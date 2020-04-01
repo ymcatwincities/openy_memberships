@@ -1,6 +1,6 @@
 <template>
-  <section class="container">
-    <div>
+  <section class="app-container">
+    <div class="container">
       <div class="">
         <div class="">
           <h1 class="title">

@@ -1,6 +1,6 @@
 <template>
-  <section class="container">
-    <div>
+  <section class="app-container">
+    <div class="container">
       <div class="">
         <div class="">
           <h1 class="title">
@@ -26,8 +26,10 @@
         </div>
       </div>
     </div>
-    <div class="navigation container" v-if="totalCount">
-      <button class="btn btn-next" @click="$emit('go-next')">Next</button>
+    <div class="navigation" v-if="totalCount">
+      <div class="container">
+        <button class="btn btn-next" @click="$emit('go-next')">Next</button>
+      </div>
     </div>
   </section>
 </template>
