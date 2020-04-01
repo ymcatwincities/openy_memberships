@@ -1,0 +1,19 @@
+uuid: 84801b5a-e218-42e9-b105-9b577c2c0e9c
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_order
+    - commerce_price
+id: commerce_order.field_om_income
+field_name: field_om_income
+entity_type: commerce_order
+type: commerce_price
+settings: {  }
+module: commerce_price
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

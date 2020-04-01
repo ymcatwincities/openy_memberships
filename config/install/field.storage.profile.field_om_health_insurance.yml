@@ -1,0 +1,18 @@
+uuid: 3999ce48-2eba-42d6-9060-0a4861150f38
+langcode: en
+status: true
+dependencies:
+  module:
+    - profile
+id: profile.field_om_health_insurance
+field_name: field_om_health_insurance
+entity_type: profile
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

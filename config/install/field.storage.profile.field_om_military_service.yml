@@ -1,0 +1,18 @@
+uuid: 4dca4ee3-f115-49c6-aae6-796d01db0f7f
+langcode: en
+status: true
+dependencies:
+  module:
+    - profile
+id: profile.field_om_military_service
+field_name: field_om_military_service
+entity_type: profile
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

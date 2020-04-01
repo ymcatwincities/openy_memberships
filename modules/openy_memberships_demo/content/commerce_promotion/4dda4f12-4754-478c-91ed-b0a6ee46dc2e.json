@@ -1,0 +1,114 @@
+{
+    "_links": {
+        "self": {
+            "href": ""
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/commerce_promotion\/commerce_promotion"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/commerce_promotion\/commerce_promotion\/stores": [
+            {
+                "href": "http:\/\/default\/store\/1?_format=hal_json",
+                "lang": "en"
+            }
+        ]
+    },
+    "promotion_id": [
+        {
+            "value": 3
+        }
+    ],
+    "uuid": [
+        {
+            "value": "4dda4f12-4754-478c-91ed-b0a6ee46dc2e"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "name": [
+        {
+            "value": "Promotion Military Service",
+            "lang": "en"
+        }
+    ],
+    "order_types": [
+        {
+            "target_id": "membership_order",
+            "lang": "en"
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/commerce_promotion\/commerce_promotion\/stores": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/store\/1?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/commerce_store\/online"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "191a9fed-f857-4ce5-aff5-caea69880745"
+                    }
+                ],
+                "lang": "en"
+            }
+        ]
+    },
+    "offer": [
+        {
+            "target_plugin_id": "openy_memberships_order_household_off",
+            "target_plugin_configuration": {
+                "amount": {
+                    "number": "10",
+                    "currency_code": "USD"
+                }
+            }
+        }
+    ],
+    "conditions": [
+        {
+            "target_plugin_id": "openy_memberships_military_service",
+            "target_plugin_configuration": {
+                "military_service": "1"
+            }
+        }
+    ],
+    "condition_operator": [
+        {
+            "value": "AND"
+        }
+    ],
+    "start_date": [
+        {
+            "value": "2020-03-29T13:27:44-04:00"
+        }
+    ],
+    "compatibility": [
+        {
+            "value": "any"
+        }
+    ],
+    "status": [
+        {
+            "value": true
+        }
+    ],
+    "weight": [
+        {
+            "value": 0
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ]
+}

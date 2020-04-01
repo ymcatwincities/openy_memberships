@@ -1,9 +1,12 @@
+uuid: a2465a2e-a4e6-4037-818d-9199e8c07e9c
 langcode: en
 status: true
 dependencies:
   config:
     - field.field.profile.family_members.field_age
     - field.field.profile.family_members.field_first_name
+    - field.field.profile.family_members.field_om_health_insurance
+    - field.field.profile.family_members.field_om_military_service
     - profile.type.family_members
 id: profile.family_members.default
 targetEntityType: profile
@@ -24,6 +27,20 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: string_textfield
+    region: content
+  field_om_health_insurance:
+    weight: 28
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_om_military_service:
+    weight: 29
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
     region: content
 hidden:
   is_default: true

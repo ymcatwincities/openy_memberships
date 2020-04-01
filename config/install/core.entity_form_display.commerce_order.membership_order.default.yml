@@ -1,11 +1,14 @@
+uuid: bd929c23-5736-405b-82bd-516e29290dac
 langcode: en
 status: true
 dependencies:
   config:
     - commerce_order.commerce_order_type.membership_order
     - field.field.commerce_order.membership_order.field_family
+    - field.field.commerce_order.membership_order.field_om_income
   module:
     - commerce_order
+    - commerce_price
     - inline_entity_form
 id: commerce_order.membership_order.default
 targetEntityType: commerce_order
@@ -42,6 +45,12 @@ content:
       collapsed: false
     third_party_settings: {  }
     type: inline_entity_form_simple
+    region: content
+  field_om_income:
+    weight: 24
+    settings: {  }
+    third_party_settings: {  }
+    type: commerce_price_default
     region: content
   order_items:
     type: inline_entity_form_complex
