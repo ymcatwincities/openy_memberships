@@ -1,0 +1,17 @@
+openy_memberships.paragraph_skins:
+  - name: openy-memberships-block
+    label: 'Membership Block'
+    paragraph_type: 1c
+    library: 'openy_memberships/style'
+#    theme_library:
+#      openy_carnation: 'openy_carnation/feature-card'
+
+  - name: openy-memberships-block
+    label: 'Membership Block'
+    paragraph_type: 2c
+    library: 'openy_memberships/style'
+
+  - name: openy-memberships-block
+    label: 'Membership Block'
+    paragraph_type: 3c
+    library: 'openy_memberships/style'
