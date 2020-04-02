@@ -27,6 +27,23 @@
             {
                 "href": ""
             }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/membership\/field_om_addons": [
+            {
+                "href": ""
+            },
+            {
+                "href": ""
+            },
+            {
+                "href": ""
+            },
+            {
+                "href": ""
+            },
+            {
+                "href": ""
+            }
         ]
     },
     "product_id": [
@@ -86,7 +103,7 @@
                 },
                 "uuid": [
                     {
-                        "value": "2eedf4ac-518d-45df-94aa-c0ef4b15fd31"
+                        "value": "9d2bedd6-9c35-4b3d-bd8a-5e429f22bacc"
                     }
                 ],
                 "lang": "en"
@@ -119,7 +136,7 @@
                 },
                 "uuid": [
                     {
-                        "value": "960c9da7-8328-44f3-8b71-2998ff14530e"
+                        "value": "8b0ba051-9d66-4396-86b1-0c6da75e7d7f"
                     }
                 ]
             },
@@ -134,7 +151,84 @@
                 },
                 "uuid": [
                     {
-                        "value": "8b0ba051-9d66-4396-86b1-0c6da75e7d7f"
+                        "value": "960c9da7-8328-44f3-8b71-2998ff14530e"
+                    }
+                ]
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/membership\/field_om_addons": [
+            {
+                "_links": {
+                    "self": {
+                        "href": ""
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/commerce_addon\/membership_addon"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "97777c7f-c2e5-470a-9e30-63381d329f5f"
+                    }
+                ]
+            },
+            {
+                "_links": {
+                    "self": {
+                        "href": ""
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/commerce_addon\/membership_addon"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "e29c97b7-b021-4aca-bec9-820905b394fc"
+                    }
+                ]
+            },
+            {
+                "_links": {
+                    "self": {
+                        "href": ""
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/commerce_addon\/membership_addon"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "dc549b27-15f5-4b08-833a-1fcafc3dd5f4"
+                    }
+                ]
+            },
+            {
+                "_links": {
+                    "self": {
+                        "href": ""
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/commerce_addon\/membership_addon"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "c29f2ff0-d66d-4bcf-8bde-e49bf3c1a827"
+                    }
+                ]
+            },
+            {
+                "_links": {
+                    "self": {
+                        "href": ""
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/commerce_addon\/membership_addon"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "daec0fb9-e756-4eaa-99a4-651f9520f975"
                     }
                 ]
             }
@@ -163,7 +257,7 @@
     ],
     "changed": [
         {
-            "value": "2020-03-13T09:40:08+00:00",
+            "value": "2020-04-02T15:33:40+00:00",
             "lang": "en",
             "format": "Y-m-d\\TH:i:sP"
         }
@@ -177,8 +271,8 @@
     "metatag": [
         {
             "value": {
-                "title": "| Site-Install",
-                "canonical_url": "http:\/\/default\/node\/36"
+                "title": "| OpenY",
+                "canonical_url": "http:\/\/default\/node\/37"
             }
         }
     ],
