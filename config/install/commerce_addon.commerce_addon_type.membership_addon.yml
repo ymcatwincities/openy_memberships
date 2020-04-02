@@ -1,0 +1,5 @@
+langcode: en
+status: true
+dependencies: {  }
+label: 'Membership Addon'
+id: membership_addon

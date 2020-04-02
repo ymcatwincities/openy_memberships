@@ -4,6 +4,8 @@ dependencies:
   config:
     - commerce_product.commerce_product_type.membership
     - field.field.commerce_product.membership.field_description
+    - field.field.commerce_product.membership.field_om_addons
+    - field.field.commerce_product.membership.field_product_branch
   module:
     - commerce
     - path
@@ -27,6 +29,16 @@ content:
       rows: 5
       placeholder: ''
     third_party_settings: {  }
+  field_om_addons:
+    weight: 8
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
   langcode:
     type: language_select
     weight: 3
@@ -76,4 +88,5 @@ content:
       placeholder: ''
     third_party_settings: {  }
 hidden:
+  field_product_branch: true
   variations: true
