@@ -1,26 +1,25 @@
 <template>
   <section class="app-container">
     <div class="container">
-      <div class="">
-        <div class="">
-          <h1 class="title">
-            Adjustments
-          </h1>
+      <div class>
+        <div class>
+          <h1 class="title">Adjustments</h1>
         </div>
       </div>
-      <div class="adjustments">  
+      <div class="adjustments">
         <div class="discounts">
           <h2>Discounts</h2>
           <h3>Income</h3>
           <p>You may be eligible for a Scholarship discount depending on your income level.</p>
           <div class="annual-income">
             <label>Annual Income (Household)</label>
-            <input  /> <button>Check</button>
+            <input />
+            <button>Check</button>
           </div>
           <div class="discount">
             <div class="checkbox">
               <label class="container-checkbox">
-                <input type="checkbox" checked="checked">
+                <input type="checkbox" checked="checked" />
                 <span class="checkmark"></span>
               </label>
             </div>
@@ -29,13 +28,13 @@
               <p>Has health insurance with one of the following providers:</p>
             </div>
           </div>
-
         </div>
         <div class="addons">
           <h2>Add-Ons</h2>
           <h3>Members</h3>
           <p>One Adult (80-54 yrs.) and all Youth (0-17yrs) are covered by the base Household membership:</p>
-          <a>Add Adult ($10 /mo.)</a> <a>Add Senior ($5 /mo.)</a>
+          <a>Add Adult ($10 /mo.)</a>
+          <a>Add Senior ($5 /mo.)</a>
         </div>
       </div>
     </div>
@@ -45,130 +44,214 @@
 <script>
 export default {
   mounted() {
-    this.getUserInfo().then((json) => {
-      let user_id = json.meta ? json.meta.links.me.meta.id : null;
-      return this.getOrders(user_id);
-    }).then((json) => {
-      if (json.data.length) {
-        json.data.forEach((order) => {
-          let members = order.relationships.field_family.data;
-          if (members && members.length) {
-            return this.removeMembers(members).then(() => {
-              return this.removeOrder(order)
-            }).catch(() => {
-              return this.removeOrder(order)
-            })
-          }
-          return this.removeOrder(order)
-        })
-      }
-    }).then(() => {
-      console.log('order was deleted');
-      this.createOrder().then(data => {
-        console.log(data);
+    this.getUserInfo()
+      .then(json => {
+        let user_id = json.meta ? json.meta.links.me.meta.id : null;
+        return this.getOrders(user_id);
       })
-    });
+      .then(json => {
+        if (json.data.length) {
+          json.data.forEach(order => {
+            let members = order.relationships.field_family.data;
+            if (members && members.length) {
+              return this.removeMembers(members)
+                .then(() => {
+                  return this.removeOrder(order);
+                })
+                .catch(() => {
+                  return this.removeOrder(order);
+                });
+            }
+            return this.removeOrder(order);
+          });
+        }
+      })
+      .then(() => {
+        console.log("order was deleted");
+        this.createOrder();
+      });
   },
-  data () {
+  data() {
     return {
       isLoading: false,
       discounts: [],
       addons: [],
       token: null
-    }
+    };
   },
   methods: {
-    createOrder() {
+    createMember(member) {
       return window.jQuery.ajax({
-        url: '/cart/add?_format=json',
-        contentType: "application/json",
-        dataType: 'json',
-        type: 'POST',
+        url: "/jsonapi/profile/family_members",
+        contentType: "application/vnd.api+json",
+        type: "POST",
+        dataType: "json",
         headers: {
-          "X-CSRF-Token": this.token,
+          "X-CSRF-Token": this.token
         },
-        data: JSON.stringify([
-          { "purchased_entity_type": "commerce_product_variation", "purchased_entity_id": "1", "quantity": "1"}
-        ])
-      }).then((json) => {
-        let order_uuid = json[0].uuid;
-        //let order_id = json[0].id;
-        
-        return window.jQuery.ajax({
-          url: '/jsonapi/commerce_order_item/membership_order_item/' + order_uuid,
-          contentType: "application/vnd.api+json",
-          type: 'PATCH',
-          dataType: 'json',
+        data: JSON.stringify({
+          data: {
+            type: "profile--family_members",
+            attributes: {
+              field_first_name: member.name
+            }
+          }
+        })
+      });
+    },
+    createOrder() {
+      return window.jQuery
+        .ajax({
+          url: "/cart/add?_format=json",
+          contentType: "application/json",
+          dataType: "json",
+          type: "POST",
           headers: {
-            "X-CSRF-Token": this.token,
+            "X-CSRF-Token": this.token
           },
-          data:  JSON.stringify({
-            "data": {
-              "type": "commerce_order_item--commerce_order_item",
-              "id": order_uuid,
-              "relationships": {
-                "field_family": {
-                  "data": [{
-                    "type": "profile--family_members",
-                    "field_first_name": "Test 1"
-                  }]
+          data: JSON.stringify([
+            {
+              purchased_entity_type: "commerce_product_variation",
+              purchased_entity_id: "1",
+              quantity: "1"
+            }
+          ])
+        })
+        .then(() => {
+          return this.getCart();
+        })
+        .then(async json => {
+          let order_uuid = json[0].uuid;
+          //let order_id = json[0].id;
+          let family = this.$store.state.family;
+          let adults = family.adults;
+          let youth = family.youth;
+          let seniors = family.seniors;
+          let members = 0;
+          let family_members = [];
+          for (let i = 1; i <= adults; i++) {
+            members++;
+            await this.createMember({
+              name: "Member " + members,
+              type: "adults"
+            }).then(member => {
+              family_members.push({
+                type: member.data.type,
+                id: member.data.id
+              });
+            });
+          }
+          for (let i = 1; i <= youth; i++) {
+            members++;
+            await this.createMember({
+              name: "Member " + members,
+              type: "youth"
+            }).then(member => {
+              family_members.push({
+                type: member.data.type,
+                id: member.data.id
+              });
+            });
+          }
+          for (let i = 1; i <= seniors; i++) {
+            members++;
+            await this.createMember({
+              name: "Member " + members,
+              type: "seniors"
+            }).then(member => {
+              family_members.push({
+                type: member.data.type,
+                id: member.data.id
+              });
+            });
+          }
+
+          return window.jQuery.ajax({
+            url: "/jsonapi/commerce_order/membership_order/" + order_uuid,
+            contentType: "application/vnd.api+json",
+            type: "PATCH",
+            dataType: "json",
+            headers: {
+              "X-CSRF-Token": this.token
+            },
+            data: JSON.stringify({
+              data: {
+                type: "commerce_order--membership_order",
+                id: order_uuid,
+                relationships: {
+                  field_family: {
+                    data: family_members
+                  }
                 }
               }
-            }
-          })
-        })
-      })
+            })
+          });
+        });
     },
     getToken() {
-      return window.jQuery.ajax({
-        url: '/session/token',
-      }).then((token) => {
-        this.token = token;
-      })
+      return window.jQuery
+        .ajax({
+          url: "/session/token"
+        })
+        .then(token => {
+          this.token = token;
+        });
     },
     getUserInfo() {
       return this.getToken().then(() => {
         return window.jQuery.ajax({
-          url: '/jsonapi',
-          dataType: 'json',
+          url: "/jsonapi",
+          dataType: "json",
           headers: {
-            "X-CSRF-Token": this.token,
+            "X-CSRF-Token": this.token
           }
-        })
-      })
+        });
+      });
     },
     getOrders(id) {
       return window.jQuery.ajax({
-        url: '/jsonapi/commerce_order/membership_order' + (id ? '?filter[uid.id]=' + id : ''),
-        dataType: 'json'
-      })
+        url:
+          "/jsonapi/commerce_order/membership_order" +
+          (id ? "?filter[uid.id]=" + id : ""),
+        dataType: "json"
+      });
     },
     removeMembers(members) {
-      let membersPromise = members.map((member) => {
+      let membersPromise = members.map(member => {
         return window.jQuery.ajax({
-          url: '/jsonapi/profile/family_members/' + member.id,
-          dataType: 'json',
-          type: 'DELETE',
+          url: "/jsonapi/profile/family_members/" + member.id,
+          dataType: "json",
+          type: "DELETE",
           headers: {
-            "X-CSRF-Token": this.token,
+            "X-CSRF-Token": this.token
           }
-        })
+        });
       });
-      return Promise.all(membersPromise)
+      return Promise.all(membersPromise);
     },
     removeOrder(order) {
       let id = order.attributes.drupal_internal__order_id;
       return window.jQuery.ajax({
-        url: '/cart/' + id + '/items',
-        dataType: 'json',
-        type: 'DELETE',
+        url: "/cart/" + id + "/items",
+        dataType: "json",
+        type: "DELETE",
         headers: {
-          "X-CSRF-Token": this.token,
+          "X-CSRF-Token": this.token
         }
-      })
+      });
+    },
+    getCart() {
+      return window.jQuery.ajax({
+        url: "/cart?_format=json",
+        dataType: "json",
+        type: "GET",
+        headers: {
+          "X-CSRF-Token": this.token
+        }
+      });
     }
   }
-}
+};
 </script>
 <style lang="scss">
 .container-checkbox {
@@ -228,7 +311,6 @@ export default {
 }
 </style>
 <style lang="scss" scoped>
-
 .discount {
   display: flex;
   .checkbox {
@@ -247,7 +329,7 @@ export default {
       flex-wrap: wrap;
       align-items: center;
       padding: 15px;
-      border: 1px solid #F2F2F2;
+      border: 1px solid #f2f2f2;
       label {
         width: 100%;
       }
@@ -258,7 +340,7 @@ export default {
       button {
         border: none;
         border-radius: 5px;
-        background-color: #0060AF;
+        background-color: #0060af;
         color: #fff;
         text-transform: uppercase;
         padding: 10px;

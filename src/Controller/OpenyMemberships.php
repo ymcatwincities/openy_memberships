@@ -95,6 +95,25 @@ class OpenyMemberships extends ControllerBase {
           }
         }
         $cart->save();
+        $promotions = $this->entityTypeManger->getStorage('commerce_promotion')->loadMultiple();
+        foreach ($promotions as $promotion) {
+          $conditions = $promotion->get('conditions');
+          $condition_values = $conditions->getValue();
+          foreach ($condition_values as $condition_value) {
+            if ($condition_value['target_plugin_id'] == 'openy_memberships_health_insurance') {
+              $data['member_promotions']['health_insurance'] = [
+                'amount' => $promotion->offer->getValue()[0]['target_plugin_configuration']['amount']['number'],
+                'currency' => $promotion->offer->getValue()[0]['target_plugin_configuration']['amount']['currency_code'],
+              ];
+            }
+            if ($condition_value['target_plugin_id'] == 'openy_memberships_military_service') {
+              $data['member_promotions']['military_service'] = [
+                'amount' => $promotion->offer->getValue()[0]['target_plugin_configuration']['amount']['number'],
+                'currency' => $promotion->offer->getValue()[0]['target_plugin_configuration']['amount']['currency_code'],
+              ];
+            }
+          }
+        }
         foreach ($cart->getItems() as $order_item) {
           $adjustments = $order_item->getAdjustments();
           foreach ($adjustments as $adjustment) {
