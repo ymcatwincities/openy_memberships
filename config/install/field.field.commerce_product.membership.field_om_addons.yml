@@ -1,0 +1,33 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_addon.commerce_addon_type.membership_addon
+    - commerce_product.commerce_product_type.membership
+    - field.storage.commerce_product.field_om_addons
+  module:
+    - datalayer
+third_party_settings:
+  datalayer:
+    expose: 0
+    label: field_om_addons
+id: commerce_product.membership.field_om_addons
+field_name: field_om_addons
+entity_type: commerce_product
+bundle: membership
+label: Add-Ons
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:commerce_addon'
+  handler_settings:
+    target_bundles:
+      membership_addon: membership_addon
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

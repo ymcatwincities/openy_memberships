@@ -1,0 +1,25 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_addon.commerce_addon_type.membership_addon
+    - field.storage.commerce_addon.field_om_addon_type
+  module:
+    - datalayer
+    - options
+third_party_settings:
+  datalayer:
+    expose: 0
+    label: field_om_addon_type
+id: commerce_addon.membership_addon.field_om_addon_type
+field_name: field_om_addon_type
+entity_type: commerce_addon
+bundle: membership_addon
+label: Type
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string
