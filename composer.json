@@ -23,5 +23,13 @@
         "openy/openy_block_modal": "dev-master",
         "openy/paragraph_skins": "dev-master",
         "drupal/commerce_cart_api": "1.x-dev"
+    },
+    "extra": {
+        "patches": {
+            "drupal/core": {
+                "2996114 - JSON:API Argument error": "https://www.drupal.org/files/issues/2020-02-11/2996114-124.patch",
+                "3025372 - Impossible to filter for resources with an empty relationship object": "https://www.drupal.org/files/issues/2020-03-24/3025372-33.patch"
+            }
+        }
     }
 }
