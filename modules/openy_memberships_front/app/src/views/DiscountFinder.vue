@@ -59,10 +59,14 @@ export default {
               return this.removeOrder(order)
             })
           }
+          return this.removeOrder(order)
         })
       }
     }).then(() => {
-      console.log('order was deleted')
+      console.log('order was deleted');
+      this.createOrder().then(data => {
+        console.log(data);
+      })
     });
   },
   data () {
@@ -76,20 +80,43 @@ export default {
   methods: {
     createOrder() {
       return window.jQuery.ajax({
-        url: '/jsonapi/commerce_order/membership_order',
+        url: '/cart/add?_format=json',
+        contentType: "application/json",
         dataType: 'json',
         type: 'POST',
         headers: {
           "X-CSRF-Token": this.token,
         },
-        data: {
-          data: {
-            "type": "commerce_order--membership_order",
-            "attributes": {
-              "state": "draft",
-            },
-          }
-        }
+        data: JSON.stringify([
+          { "purchased_entity_type": "commerce_product_variation", "purchased_entity_id": "1", "quantity": "1"}
+        ])
+      }).then((json) => {
+        let order_uuid = json[0].uuid;
+        //let order_id = json[0].id;
+        
+        return window.jQuery.ajax({
+          url: '/jsonapi/commerce_order_item/membership_order_item/' + order_uuid,
+          contentType: "application/vnd.api+json",
+          type: 'PATCH',
+          dataType: 'json',
+          headers: {
+            "X-CSRF-Token": this.token,
+          },
+          data:  JSON.stringify({
+            "data": {
+              "type": "commerce_order_item--commerce_order_item",
+              "id": order_uuid,
+              "relationships": {
+                "field_family": {
+                  "data": [{
+                    "type": "profile--family_members",
+                    "field_first_name": "Test 1"
+                  }]
+                }
+              }
+            }
+          })
+        })
       })
     },
     getToken() {
@@ -130,8 +157,9 @@ export default {
       return Promise.all(membersPromise)
     },
     removeOrder(order) {
+      let id = order.attributes.drupal_internal__order_id;
       return window.jQuery.ajax({
-        url: '/jsonapi/commerce_order/membership_order/' + order.id,
+        url: '/cart/' + id + '/items',
         dataType: 'json',
         type: 'DELETE',
         headers: {
