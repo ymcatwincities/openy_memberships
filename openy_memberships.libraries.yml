@@ -1,0 +1,7 @@
+style:
+  version: 1.x
+
+  css:
+    theme:
+      dist/css/style.css: { minified: true}
+
