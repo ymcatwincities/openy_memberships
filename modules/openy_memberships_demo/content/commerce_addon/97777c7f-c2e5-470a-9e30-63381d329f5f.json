@@ -1,0 +1,87 @@
+{
+    "_links": {
+        "self": {
+            "href": ""
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/commerce_addon\/membership_addon"
+        }
+    },
+    "addon_id": [
+        {
+            "value": 4
+        }
+    ],
+    "uuid": [
+        {
+            "value": "97777c7f-c2e5-470a-9e30-63381d329f5f"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "type": [
+        {
+            "target_id": "membership_addon"
+        }
+    ],
+    "title": [
+        {
+            "value": "Premium",
+            "lang": "en"
+        }
+    ],
+    "price": [
+        {
+            "number": "500.000000",
+            "currency_code": "USD",
+            "formatted": "$500.00"
+        }
+    ],
+    "status": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "created": [
+        {
+            "value": "2020-04-02T15:09:08+00:00",
+            "lang": "en",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "changed": [
+        {
+            "value": "2020-04-02T15:15:18+00:00",
+            "lang": "en",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "field_om_addon_description": [
+        {
+            "value": "<p>Access to the following benefits:<\/p>\r\n\r\n<ul>\r\n\t<li>Open&nbsp;Y'ed Sponsorship<\/li>\r\n\t<li>Free Towels<\/li>\r\n\t<li>Fitness Assessment<\/li>\r\n<\/ul>\r\n",
+            "format": "full_html",
+            "processed": "<p>Access to the following benefits:<\/p>\n\n<ul><li>Open\u00a0Y'ed Sponsorship<\/li>\n\t<li>Free Towels<\/li>\n\t<li>Fitness Assessment<\/li>\n<\/ul>"
+        }
+    ],
+    "field_om_addon_type": [
+        {
+            "value": "benefits_packages"
+        }
+    ],
+    "field_om_frequency": [
+        {
+            "value": "mo"
+        }
+    ]
+}

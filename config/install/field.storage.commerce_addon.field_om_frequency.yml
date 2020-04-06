@@ -1,0 +1,26 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_addon
+    - options
+id: commerce_addon.field_om_frequency
+field_name: field_om_frequency
+entity_type: commerce_addon
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: mo
+      label: Monthly
+    -
+      value: one-time
+      label: One-time
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,9 @@
+id: om_summary
+plugin_id: openy_memberships_summary
+granularity: method
+configuration:
+  GET:
+    supported_formats:
+      - json
+    supported_auth:
+      - cookie

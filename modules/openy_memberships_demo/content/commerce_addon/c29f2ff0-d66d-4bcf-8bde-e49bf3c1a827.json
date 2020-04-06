@@ -1,0 +1,80 @@
+{
+    "_links": {
+        "self": {
+            "href": ""
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/commerce_addon\/membership_addon"
+        }
+    },
+    "addon_id": [
+        {
+            "value": 6
+        }
+    ],
+    "uuid": [
+        {
+            "value": "c29f2ff0-d66d-4bcf-8bde-e49bf3c1a827"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "type": [
+        {
+            "target_id": "membership_addon"
+        }
+    ],
+    "title": [
+        {
+            "value": "Fitness Assessment ",
+            "lang": "en"
+        }
+    ],
+    "price": [
+        {
+            "number": "10.000000",
+            "currency_code": "USD",
+            "formatted": "$10.00"
+        }
+    ],
+    "status": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "created": [
+        {
+            "value": "2020-04-02T15:10:12+00:00",
+            "lang": "en",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "changed": [
+        {
+            "value": "2020-04-02T15:15:28+00:00",
+            "lang": "en",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "field_om_addon_type": [
+        {
+            "value": "benefits"
+        }
+    ],
+    "field_om_frequency": [
+        {
+            "value": "one-time"
+        }
+    ]
+}

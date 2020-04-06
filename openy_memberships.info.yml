@@ -5,6 +5,7 @@ core: 8.x
 dependencies:
   - address
   - commerce
+  - commerce_addon
   - commerce_cart
   - commerce_checkout
   - commerce_number_pattern

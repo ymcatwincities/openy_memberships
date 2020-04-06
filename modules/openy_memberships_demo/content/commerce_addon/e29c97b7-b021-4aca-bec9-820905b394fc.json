@@ -1,0 +1,80 @@
+{
+    "_links": {
+        "self": {
+            "href": ""
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/commerce_addon\/membership_addon"
+        }
+    },
+    "addon_id": [
+        {
+            "value": 2
+        }
+    ],
+    "uuid": [
+        {
+            "value": "e29c97b7-b021-4aca-bec9-820905b394fc"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "type": [
+        {
+            "target_id": "membership_addon"
+        }
+    ],
+    "title": [
+        {
+            "value": "Adult",
+            "lang": "en"
+        }
+    ],
+    "price": [
+        {
+            "number": "10.000000",
+            "currency_code": "USD",
+            "formatted": "$10.00"
+        }
+    ],
+    "status": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "created": [
+        {
+            "value": "2020-04-02T15:06:22+00:00",
+            "lang": "en",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "changed": [
+        {
+            "value": "2020-04-02T15:15:07+00:00",
+            "lang": "en",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "field_om_addon_type": [
+        {
+            "value": "members"
+        }
+    ],
+    "field_om_frequency": [
+        {
+            "value": "mo"
+        }
+    ]
+}

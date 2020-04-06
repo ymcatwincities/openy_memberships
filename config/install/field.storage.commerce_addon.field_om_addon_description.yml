@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_addon
+    - text
+id: commerce_addon.field_om_addon_description
+field_name: field_om_addon_description
+entity_type: commerce_addon
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
