@@ -24,7 +24,5 @@ openy_memberships.paragraph_skins:
   - name: openy-memberships-modal-block
     label: 'Memberships Modal Block'
     paragraph_type: 2c
-    theme_library:
-      openy_carnation: 'openy_carnation/modal-card'
-#    library: 'openy_memberships/style'
+    library: 'openy_memberships/style'
 
