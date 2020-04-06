@@ -21,6 +21,9 @@ export default {
     if (steps[step] && this.$route.name != steps[step]) {
       //this.$router.replace({ name:  steps[step] })
     }
+    if (!this.$route.name) {
+      this.$router.replace({ name:  steps[0] })
+    }
   },
   data: () => ({
     //
