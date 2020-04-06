@@ -1,0 +1,38 @@
+@import 'reset';
+@import 'blocks/2c-openy-memberships-modal-block';
+
+.ps-3c-openy-memberships-block.block-description--3 {
+  display: flex;
+  padding: 0 5px;
+
+  .field-prgf-3c-left, .field-prgf-3c-center, .field-prgf-3c-right {
+    border: solid 1px #92278f;
+    border-top: solid 5px #92278f;
+
+    padding-bottom: 5px;
+
+    .media img {
+      height: auto;
+      width: 100%;
+    }
+
+    h2.with-icon {
+      color: black;
+      font-family: "Cachet Medium", Verdana, Geneva, sans-serif;
+      font-size: 18px;
+      line-height: 27px;
+      padding: 5px;
+    }
+
+    .field-sb-body {
+      color: black;
+      font-size: 12px;
+      line-height: 18px;
+      padding: 0 5px 5px;
+    }
+
+    a.btn {
+      margin: 0;
+    }
+  }
+}
