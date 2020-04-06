@@ -21,6 +21,7 @@
         "drupal/commerce": "2.16",
         "openy/openy_prgf_sidebar_menu": "dev-master",
         "openy/openy_block_modal": "dev-master",
-        "openy/paragraph_skins": "dev-master"
+        "openy/paragraph_skins": "dev-master",
+        "drupal/commerce_cart_api": "1.x-dev"
     }
 }
