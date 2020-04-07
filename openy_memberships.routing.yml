@@ -13,3 +13,15 @@ openy_memberships.checkDiscounts:
     _permission: 'access content'
   options:
     no_cache: TRUE
+openy_memberships.products:
+  path: /memberships/api/products/{branch}
+  defaults:
+    _controller: '\Drupal\openy_memberships\Controller\OpenyMemberships::getProductsInBranch'
+    branch: null
+  requirements:
+    _permission: 'access content'
+  options:
+    no_cache: TRUE
+    parameters:
+      branch:
+        type: 'entity:node'

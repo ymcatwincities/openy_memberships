@@ -1,19 +1,18 @@
 <template>
   <div class="product">
-    <div class="product-title"><h2>{{product.attributes.title}}</h2></div>
-    <div class="product-description"><p v-html="product.attributes.field_description && product.attributes.field_description.processed"></p></div>
+    <div class="product-title"><h2>{{product.title}}</h2></div>
+    <div class="product-description"><p v-html="product.field_description"></p></div>
     <div class="product-columns">
       <div>
         <div class="title">Purchase Options</div>
         <div class="options">
           <div class="branch">
-            {{product.branch && product.branch.attributes.title}}
+            {{product.branch && product.branch.title}}
             {{product.branch === null && 'All branches'}}
           </div>
 
           <v-select :reduce="data => data.value" :clearable="false" :searchable="false" v-model="variant" :options="variants"></v-select>
-
-          <div class="best-value" v-if="product.variants[variant].attributes.field_best_value">Best value</div> 
+          <div class="best-value" v-if="product.variations[variant].field_best_value == 1">Best value</div> 
         </div>
       </div>
       <div>
@@ -50,15 +49,15 @@ export default {
       if (!this.product) {
         return []
       }
-      return this.product.variants.map((variant, index) => {
+      return this.product.variations.map((variant, index) => {
         return {
-          label: variant.attributes.title,
+          label: variant.title,
           value: index
         }
       })
     },
     price() {
-      let price = this.product.variants && this.product.variants[this.variant] ? this.product.variants[this.variant].attributes.price.formatted : 'NaN';
+      let price = this.product.variations && this.product.variations[this.variant] ? this.product.variations[this.variant].price : 'NaN';
       return price
     }
   },

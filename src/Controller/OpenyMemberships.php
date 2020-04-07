@@ -95,6 +95,25 @@ class OpenyMemberships extends ControllerBase {
           }
         }
         $cart->save();
+        $promotions = $this->entityTypeManger->getStorage('commerce_promotion')->loadMultiple();
+        foreach ($promotions as $promotion) {
+          $conditions = $promotion->get('conditions');
+          $condition_values = $conditions->getValue();
+          foreach ($condition_values as $condition_value) {
+            if ($condition_value['target_plugin_id'] == 'openy_memberships_health_insurance') {
+              $data['member_promotions']['health_insurance'] = [
+                'amount' => $promotion->offer->getValue()[0]['target_plugin_configuration']['amount']['number'],
+                'currency' => $promotion->offer->getValue()[0]['target_plugin_configuration']['amount']['currency_code'],
+              ];
+            }
+            if ($condition_value['target_plugin_id'] == 'openy_memberships_military_service') {
+              $data['member_promotions']['military_service'] = [
+                'amount' => $promotion->offer->getValue()[0]['target_plugin_configuration']['amount']['number'],
+                'currency' => $promotion->offer->getValue()[0]['target_plugin_configuration']['amount']['currency_code'],
+              ];
+            }
+          }
+        }
         foreach ($cart->getItems() as $order_item) {
           $adjustments = $order_item->getAdjustments();
           foreach ($adjustments as $adjustment) {
@@ -153,9 +172,49 @@ class OpenyMemberships extends ControllerBase {
     }
 
     $data['total_price'] = $cart->getTotalPrice()->getNumber();
+    $data['subtotal_price'] = $cart->getSubtotalPrice()->getNumber();
     $data['currency'] = $cart->getTotalPrice()->getCurrencyCode();
 
     return new JsonResponse($data);
+  }
+
+  public function getProductsInBranch($branch) {
+    $storage = $this->entityTypeManger->getStorage('commerce_product');
+    $query = $storage->getQuery();
+    $orGroup = $query->orConditionGroup()
+      ->condition('field_product_branch', NULL, 'IS NULL');
+    if ($branch) {
+      $orGroup->condition('field_product_branch', $branch->id());
+    }
+    $ids = $query->execute();
+    $products = [];
+    foreach ($ids as $id) {
+      $product = $storage->load($id);
+      if ($product) {
+        $products[$product->uuid()] = [
+          'uuid' => $product->uuid(),
+          'id' => $product->id(),
+          'title' => $product->label(),
+          'field_description' => $product->field_description->value,
+          'branch' => $product->field_product_branch && $product->field_product_branch->entity ? [
+            'uuid' => $product->field_product_branch->entity->uuid(),
+            'id' => $product->field_product_branch->entity->id(),
+            'title' => $product->field_product_branch->entity->label(),
+          ] : NULL,
+          'variations' => [],
+        ];
+        foreach ($product->variations as $variant) {
+          $products[$product->uuid()]['variations'][] = [
+            'uuid' => $variant->entity->uuid(),
+            'id' => $variant->entity->id(),
+            'price' => $variant->entity->getPrice()->__toString(), //toArray(),
+            'field_best_value' => $variant->entity->field_best_value->value,
+            'title' => $variant->entity->label(),
+          ];
+        }
+      }
+    }
+    return new JsonResponse($products);
   }
 
 }

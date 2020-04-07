@@ -32,53 +32,15 @@ import Products from '../components/Products'
 export default {
   mounted() {
     this.isLoading = true;
+    
     window.jQuery.ajax({
-      url: '/jsonapi/commerce_product/membership?include=variations,field_product_branch',
+      url: '/memberships/api/products/' + (this.$store.state.location ? this.$store.state.location : ''),
       dataType: 'json',
-      data: {
-        filter: {
-          'branch-group' : {
-            'group': {
-              'conjunction': 'OR'
-            }
-          },
-          'branch-filter': {
-            'condition': {
-              'path': 'field_product_branch.drupal_internal__nid',
-              'operator': '=',
-              'value': this.$store.state.location,
-              'memberOf': 'branch-group'
-            }
-          },
-          'branch-filter-null': {
-            'condition': {
-              'path': 'field_product_branch.drupal_internal__nid',
-              'operator': 'IS NULL',
-              'memberOf': 'branch-group'
-            }
-          }
-        }
-      }
-    }).then((data)=>{
+      data: {}
+    }
+    ).then((data)=>{
       this.isLoading = false
-      let included = {}
-      Object.keys(data.included).forEach(key => {
-        let variant = data.included[key];
-        included[variant.id] = variant
-      })
-      this.products = Object.keys(data.data).map(key => {
-        let product = data.data[key];
-        let variants = data.data[key].relationships.variations.data.map(variant => {
-          return included[variant.id];
-        })
-        let branch = data.data[key].relationships.field_product_branch.data;
-        branch = branch && branch.id ? included[branch.id] :  null;
-        return {
-          ...product,
-          variants,
-          branch
-        }
-      })
+      this.products = Object.keys(data).map(product => data[product]);
     }).catch(() => {
       this.isLoading = false
     })
