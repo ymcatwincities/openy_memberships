@@ -1,0 +1,14 @@
+.ps-sidebar_menu-openy-memberships-sidebar-menu {
+  margin-top: 30px; }
+  .ps-sidebar_menu-openy-memberships-sidebar-menu ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0; }
+    .ps-sidebar_menu-openy-memberships-sidebar-menu ul li {
+      border-top: 1px solid black;
+      padding: 15px 15px 15px 0; }
+      .ps-sidebar_menu-openy-memberships-sidebar-menu ul li a {
+        font-size: 14px;
+        line-height: 21px;
+        font-weight: bold !important;
+        color: #0060af; }
