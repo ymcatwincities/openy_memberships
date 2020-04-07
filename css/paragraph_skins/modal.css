@@ -1,0 +1,81 @@
+.ps-2c-openy-memberships-modal {
+  padding: 30px 0 0 0;
+  margin: 0 !important;
+  display: grid !important;
+  grid-gap: 30px;
+  grid-template-columns: auto auto; }
+  @media all and (max-width: 1000px) {
+    .ps-2c-openy-memberships-modal {
+      grid-gap: 20px; } }
+  @media all and (max-width: 1000px) {
+    .ps-2c-openy-memberships-modal {
+      grid-gap: 20px; } }
+  .ps-2c-openy-memberships-modal .field-prgf-2c-left, .ps-2c-openy-memberships-modal .field-prgf-2c-right {
+    border: solid 1px #92278f;
+    border-top: solid 5px #92278f;
+    padding: 0; }
+    .ps-2c-openy-memberships-modal .field-prgf-2c-left h4, .ps-2c-openy-memberships-modal .field-prgf-2c-right h4 {
+      display: none; }
+    .ps-2c-openy-memberships-modal .field-prgf-2c-left .container, .ps-2c-openy-memberships-modal .field-prgf-2c-right .container {
+      padding: 0; }
+      .ps-2c-openy-memberships-modal .field-prgf-2c-left .container .field-title, .ps-2c-openy-memberships-modal .field-prgf-2c-right .container .field-title {
+        color: black;
+        font-family: "Cachet Medium", Verdana, Geneva, sans-serif;
+        font-size: 24px;
+        line-height: 36px;
+        padding: 15px 15px 0 15px; }
+      .ps-2c-openy-memberships-modal .field-prgf-2c-left .container .field-description, .ps-2c-openy-memberships-modal .field-prgf-2c-right .container .field-description {
+        color: black;
+        font-size: 14px;
+        line-height: 21px;
+        padding: 15px; }
+      .ps-2c-openy-memberships-modal .field-prgf-2c-left .container .field-link-title, .ps-2c-openy-memberships-modal .field-prgf-2c-right .container .field-link-title {
+        text-align: center; }
+        .ps-2c-openy-memberships-modal .field-prgf-2c-left .container .field-link-title a, .ps-2c-openy-memberships-modal .field-prgf-2c-left .container .field-link-title a:hover, .ps-2c-openy-memberships-modal .field-prgf-2c-right .container .field-link-title a, .ps-2c-openy-memberships-modal .field-prgf-2c-right .container .field-link-title a:hover {
+          display: block;
+          background-color: #0060af;
+          padding: 14px;
+          color: white;
+          font: Medium 18px/27px Cachet;
+          text-transform: uppercase; }
+      .ps-2c-openy-memberships-modal .field-prgf-2c-left .container .modal, .ps-2c-openy-memberships-modal .field-prgf-2c-right .container .modal {
+        opacity: 1; }
+        .ps-2c-openy-memberships-modal .field-prgf-2c-left .container .modal .modal-backdrop, .ps-2c-openy-memberships-modal .field-prgf-2c-right .container .modal .modal-backdrop {
+          opacity: .5; }
+        .ps-2c-openy-memberships-modal .field-prgf-2c-left .container .modal .modal-dialog, .ps-2c-openy-memberships-modal .field-prgf-2c-right .container .modal .modal-dialog {
+          z-index: 1050;
+          width: fit-content; }
+          .ps-2c-openy-memberships-modal .field-prgf-2c-left .container .modal .modal-dialog .modal-content, .ps-2c-openy-memberships-modal .field-prgf-2c-right .container .modal .modal-dialog .modal-content {
+            border-radius: 0; }
+            .ps-2c-openy-memberships-modal .field-prgf-2c-left .container .modal .modal-dialog .modal-content .modal-header, .ps-2c-openy-memberships-modal .field-prgf-2c-right .container .modal .modal-dialog .modal-content .modal-header {
+              padding: 0;
+              border-radius: 0; }
+              .ps-2c-openy-memberships-modal .field-prgf-2c-left .container .modal .modal-dialog .modal-content .modal-header .modal-title, .ps-2c-openy-memberships-modal .field-prgf-2c-right .container .modal .modal-dialog .modal-content .modal-header .modal-title {
+                font-size: 18px;
+                padding: 14px 10px;
+                text-transform: uppercase;
+                color: gray; }
+              .ps-2c-openy-memberships-modal .field-prgf-2c-left .container .modal .modal-dialog .modal-content .modal-header .close, .ps-2c-openy-memberships-modal .field-prgf-2c-right .container .modal .modal-dialog .modal-content .modal-header .close {
+                color: white;
+                padding: 16px;
+                background-color: #0060af !important;
+                margin: 0;
+                opacity: 1; }
+            .ps-2c-openy-memberships-modal .field-prgf-2c-left .container .modal .modal-dialog .modal-content .modal-body, .ps-2c-openy-memberships-modal .field-prgf-2c-right .container .modal .modal-dialog .modal-content .modal-body {
+              padding: 10px; }
+            .ps-2c-openy-memberships-modal .field-prgf-2c-left .container .modal .modal-dialog .modal-content .modal-footer, .ps-2c-openy-memberships-modal .field-prgf-2c-right .container .modal .modal-dialog .modal-content .modal-footer {
+              border-radius: 0;
+              border: 0;
+              padding: 0 10px 10px 10px; }
+              .ps-2c-openy-memberships-modal .field-prgf-2c-left .container .modal .modal-dialog .modal-content .modal-footer .btn, .ps-2c-openy-memberships-modal .field-prgf-2c-right .container .modal .modal-dialog .modal-content .modal-footer .btn {
+                background-color: #92278f;
+                color: white;
+                width: 100%;
+                height: 48px; }
+              .ps-2c-openy-memberships-modal .field-prgf-2c-left .container .modal .modal-dialog .modal-content .modal-footer .btn-blue, .ps-2c-openy-memberships-modal .field-prgf-2c-right .container .modal .modal-dialog .modal-content .modal-footer .btn-blue {
+                background-color: #0060af; }
+            .ps-2c-openy-memberships-modal .field-prgf-2c-left .container .modal .modal-dialog .modal-content .modal-footer > *, .ps-2c-openy-memberships-modal .field-prgf-2c-right .container .modal .modal-dialog .modal-content .modal-footer > * {
+              margin: 0; }
+
+div.ps-2c-openy-memberships-modal:last-child {
+  margin-bottom: 30px !important; }
