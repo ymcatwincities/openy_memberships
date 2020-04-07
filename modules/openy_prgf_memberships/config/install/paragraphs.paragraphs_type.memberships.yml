@@ -1,0 +1,8 @@
+langcode: en
+status: true
+dependencies: {  }
+id: memberships
+label: Memberships
+icon_uuid: null
+description: 'Provides Memberships finder.'
+behavior_plugins: {  }

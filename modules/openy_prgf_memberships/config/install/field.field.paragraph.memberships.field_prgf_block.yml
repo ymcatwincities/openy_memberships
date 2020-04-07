@@ -1,0 +1,33 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_prgf_block
+    - paragraphs.paragraphs_type.memberships
+  module:
+    - datalayer
+    - plugin
+third_party_settings:
+  datalayer:
+    expose: 0
+    label: field_prgf_block
+id: paragraph.memberships.field_prgf_block
+field_name: field_prgf_block
+entity_type: paragraph
+bundle: memberships
+label: Block
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    plugin_id: memberships_block
+    plugin_configuration:
+      id: memberships_block
+      label: 'Memberships Block'
+      provider: openy_memberships_front
+      label_display: '0'
+    plugin_configuration_schema_id: block.settings.memberships_block
+default_value_callback: ''
+settings: {  }
+field_type: 'plugin:block'

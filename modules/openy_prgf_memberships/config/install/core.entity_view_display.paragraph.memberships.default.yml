@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.memberships.field_prgf_block
+    - paragraphs.paragraphs_type.memberships
+  module:
+    - plugin
+id: paragraph.memberships.default
+targetEntityType: paragraph
+bundle: memberships
+mode: default
+content:
+  field_prgf_block:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: plugin_block_built
+    region: content
+hidden: {  }

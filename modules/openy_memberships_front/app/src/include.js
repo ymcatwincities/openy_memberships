@@ -9,7 +9,7 @@ Vue.use(Vuex);
 
 export default {
   init(storeData, routes) {
-    
+
     const vuexPersist = new VuexPersist({
       key: 'memberships',
       storage: window.localStorage
@@ -19,12 +19,12 @@ export default {
       plugins: [vuexPersist.plugin]
     }
     const router = new VueRouter({
-      mode: 'history',
+      mode: 'hash',
       base: process.env.BASE_URL,
       routes
     })
     const store = new Vuex.Store(storeData)
-    
+
     new Vue({
       store,
       router,
