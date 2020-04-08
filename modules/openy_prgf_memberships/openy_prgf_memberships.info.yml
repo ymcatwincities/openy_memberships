@@ -1,0 +1,12 @@
+name: 'OpenY Paragraph Memberships'
+description: 'Feature with Memberships paragraph.'
+type: module
+core: 8.x
+dependencies:
+  - datalayer
+  - field
+  - openy_prgf
+  - paragraphs
+  - plugin
+  - openy_memberships_front
+core_incompatible: false

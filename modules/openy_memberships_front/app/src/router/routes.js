@@ -6,27 +6,27 @@ import Results from '../views/Results.vue'
 
 export default [
   {
-    path: '/memberships/branch-selector',
+    path: '/branch-selector',
     name: 'BranchSelectorHome',
     component: BranchSelector
   },
   {
-    path: '/memberships/discount-finder',
+    path: '/discount-finder',
     name: 'DiscountFinder',
     component: DiscountFinder
   },
   {
-    path: '/memberships/family',
+    path: '/family',
     name: 'Family',
     component: Family
   },
   {
-    path: '/memberships/summary',
+    path: '/summary',
     name: 'Summary',
     component: Summary
   },
   {
-    path: '/memberships/results',
+    path: '/results',
     name: 'Results',
     component: Results
   }
