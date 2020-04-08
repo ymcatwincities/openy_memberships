@@ -21,4 +21,8 @@ function mymodule_install() {
   $role_object->grantPermission('view own family_members profile');
   $role_object->grantPermission('update own family_members profile');
   $role_object->save();
+
+  \Drupal::config('jsonapi.settings')
+    ->set('read_only', FALSE)
+    ->save();
 }
