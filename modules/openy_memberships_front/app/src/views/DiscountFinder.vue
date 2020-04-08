@@ -13,7 +13,12 @@
           <h3>Income</h3>
           <p>You may be eligible for a Scholarship discount depending on your income level.</p>
           <div v-if="discounts && discounts.income" class="annual-income">
-            {{discounts.income.amount}} {{discounts.income.currency}}
+            <div class="income-wrapper">
+              <div class="price">
+                {{discounts.income.amount}} {{discounts.income.currency}} 
+              </div>
+              <div class="btn-remove"><button class="remove-income" @click="removeIncome">X</button></div>
+            </div>
           </div>
           <div v-else class="annual-income">
             <label>Annual Income (Household)</label>
@@ -30,7 +35,7 @@
                 </label>
               </div>
               <div class="description">
-                <h3>Health Insurance (- $10 / mo.)*</h3>
+                <h3>Health Insurance (- ${{member_promotions.health_insurance && member_promotions.health_insurance.amount}} / mo.)*</h3>
                 <p>Has health insurance with one of the following providers:</p>
               </div>
             </div>
@@ -42,7 +47,7 @@
                 </label>
               </div>
               <div class="description">
-                <h3>Military Service (- $10 / mo.)*</h3>
+                <h3>Military Service (- ${{member_promotions.military_service && member_promotions.military_service.amount}} / mo.)*</h3>
                 <p>Has health insurance with one of the following providers:</p>
               </div>
             </div>
@@ -59,7 +64,7 @@
     </div>
     <div class="navigation" v-if="parseFloat(this.total_price) != parseFloat(this.subtotal_price)">
       <div class="container">
-        Discounts & Add-Ons: {{ parseFloat(this.total_price) > parseFloat(this.subtotal_price) ? '+' : '-'}}{{ parseFloat(this.subtotal_price) - parseFloat(this.total_price) }} USD<button class="btn btn-next" @click="$emit('go-next')">Next</button>
+        Discounts & Add-Ons: {{discount_addons}} USD<button class="btn btn-next" @click="$emit('go-next')">Next</button>
       </div>
     </div>
   </section>
@@ -70,6 +75,17 @@ import Loading from 'vue-loading-overlay';
 import 'vue-loading-overlay/dist/vue-loading.css';
 
 export default {
+  computed: {
+    discount_addons() {
+      let total_price = parseFloat(this.total_price);
+      let subtotal_price = parseFloat(this.subtotal_price);
+      let count = total_price - subtotal_price;
+      if (count > 0) {
+        return '+' + count;
+      }
+      return count;
+    }
+  },
   mounted() {
     this.isLoading = true;
     this.getUserInfo()
@@ -119,9 +135,14 @@ export default {
       family_members: [],
       total_price: 0,
       subtotal_price: 0,
+      member_promotions: {},
     };
   },
   methods: {
+    removeIncome() {
+      this.income = 0;
+      this.checkDiscounts();
+    },
     createMember(member) {
       return window.jQuery.ajax({
         url: "/jsonapi/profile/family_members",
@@ -260,8 +281,8 @@ export default {
       }).then((data) => {
         this.discounts = data.discounts;
         this.total_price = data.total_price;
-        this.total_price = data.total_price;
         this.subtotal_price = data.subtotal_price;
+        this.member_promotions = data.member_promotions;
       });
     },
     buildDiscounts() {
@@ -336,6 +357,12 @@ export default {
 };
 </script>
 <style lang="scss">
+.income-wrapper {
+  display: flex;
+  flex: 1;    
+  align-items: center;
+  justify-content: space-between;
+}
 .container-checkbox {
   display: block;
   position: relative;
