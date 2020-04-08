@@ -1,0 +1,12 @@
+.ps-simple_content-openy-memberships-button a {
+  padding: 15px;
+  width: 100%;
+  font-size: 24px;
+  line-height: 36px;
+  font-weight: normal !important;
+  text-transform: uppercase;
+  background-color: #92278f; }
+
+.ps-simple_content-openy-memberships-button a:hover {
+  background-color: #92278f;
+  border-color: #92278f; }

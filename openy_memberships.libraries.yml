@@ -1,7 +1,29 @@
-style:
+block:
   version: 1.x
-
   css:
     theme:
-      dist/css/style.css: { minified: true}
+      css/paragraph_skins/block.css: {}
 
+modal:
+  version: 1.x
+  css:
+    theme:
+      css/paragraph_skins/modal.css: {}
+
+sidebar-menu:
+  version: 1.x
+  css:
+    theme:
+      css/paragraph_skins/sidebar-menu.css: {}
+
+button:
+  version: 1.x
+  css:
+    theme:
+      css/paragraph_skins/button.css: {}
+
+feature-card:
+  version: 1.x
+  css:
+    theme:
+      css/paragraph_skins/feature-card.css: {}
