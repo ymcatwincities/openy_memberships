@@ -89,13 +89,23 @@ export default {
   mounted() {
     this.isLoading = true;
     this.getUserInfo()
-      .then(json => {
-        let user_id = json.meta ? json.meta.links.me.meta.id : null;
-        return this.getOrders(user_id);
+      .then(() => {
+        // let user_id = json.meta ? json.meta.links.me.meta.id : null;
+        return this.getOrders();
       })
       .then(json => {
-        if (json.data.length) {
-          let removes = json.data.map(order => {
+        if (json.length) {
+          let orders = json.map(order => {
+            return this.getOrder(order.uuid);
+          })
+          return Promise.all(orders)
+        }
+        return json;
+      })
+      .then(json => {
+        if (json.length) {
+          let removes = json.map(json => {
+            let order = json.data;
             let members = order.relationships.field_family.data;
             if (members && members.length) {
               return this.removeMembers(members)
@@ -110,6 +120,7 @@ export default {
           });
           return Promise.all(removes)
         }
+        return json;
       })
       .then(() => {
         return this.createOrder().then(json => {
@@ -308,11 +319,19 @@ export default {
         });
       });
     },
-    getOrders(id) {
+    getOrder(uuid) {
+      return window.jQuery.ajax({
+        url: "/jsonapi/commerce_order/membership_order/" + uuid,
+        dataType: "json",
+        headers: {
+          "X-CSRF-Token": this.token
+        }
+      });
+    },
+    getOrders() {
       return window.jQuery.ajax({
         url:
-          "/jsonapi/commerce_order/membership_order" +
-          (id ? "?filter[uid.id]=" + id : ""),
+          "/cart?_format=json",
         dataType: "json"
       });
     },
