@@ -4,22 +4,22 @@ use Drupal\user\Entity\Role;
 function mymodule_install() {
   $role_object = Role::load('anonymous');
   $role_object->grantPermission('create family_members profile');
-  $role_object->grantPermission('update membership_order commerce_order');
   $role_object->grantPermission('delete own family_members profile');
-  $role_object->grantPermission('view membership commerce_product');
-  $role_object->grantPermission('view own commerce_order');
   $role_object->grantPermission('view own family_members profile');
   $role_object->grantPermission('update own family_members profile');
+  $role_object->grantPermission('update membership_order commerce_order');
+  $role_object->grantPermission('view membership commerce_product');
+  $role_object->grantPermission('view own commerce_order');
   $role_object->save();
 
   $role_object = Role::load('authenticated');
   $role_object->grantPermission('create family_members profile');
-  $role_object->grantPermission('update membership_order commerce_order');
-  $role_object->grantPermission('delete own family_members profile');
-  $role_object->grantPermission('view membership commerce_product');
-  $role_object->grantPermission('view own commerce_order');
   $role_object->grantPermission('view own family_members profile');
   $role_object->grantPermission('update own family_members profile');
+  $role_object->grantPermission('delete own family_members profile');
+  $role_object->grantPermission('update membership_order commerce_order');
+  $role_object->grantPermission('view membership commerce_product');
+  $role_object->grantPermission('view own commerce_order');
   $role_object->save();
 
   \Drupal::config('jsonapi.settings')
