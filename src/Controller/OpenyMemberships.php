@@ -104,12 +104,16 @@ class OpenyMemberships extends ControllerBase {
               $data['member_promotions']['health_insurance'] = [
                 'amount' => $promotion->offer->getValue()[0]['target_plugin_configuration']['amount']['number'],
                 'currency' => $promotion->offer->getValue()[0]['target_plugin_configuration']['amount']['currency_code'],
+                'label' => $promotion->label(),
+                'description' => $promotion->description->value,
               ];
             }
             if ($condition_value['target_plugin_id'] == 'openy_memberships_military_service') {
               $data['member_promotions']['military_service'] = [
                 'amount' => $promotion->offer->getValue()[0]['target_plugin_configuration']['amount']['number'],
                 'currency' => $promotion->offer->getValue()[0]['target_plugin_configuration']['amount']['currency_code'],
+                'label' => $promotion->label(),
+                'description' => $promotion->description->value,
               ];
             }
           }
