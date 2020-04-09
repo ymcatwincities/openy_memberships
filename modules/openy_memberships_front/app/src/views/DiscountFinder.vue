@@ -119,7 +119,7 @@ export default {
             }
             return this.removeOrder(order);
           });
-          return Promise.all(removes)
+          return Promise.all(removes);
         }
         return json;
       })
