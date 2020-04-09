@@ -42,6 +42,9 @@
                 {{discount.title }}: {{discount.amount }}
                 <p>{{discount.member_name}}</p>
               </div>
+              <div :key="index" v-for="(addon, index) in addons">
+                {{addon.title }}: {{addon.amount }}
+              </div>
             </div>
           </div>
           <div>
@@ -79,6 +82,7 @@ export default {
   data() {
     return {
       discounts: [],
+      addons: [],
       isLoading: false,
       total_price: 0,
       currency: "USD"
@@ -94,7 +98,10 @@ export default {
         data: {}
       })
       .then(json => {
-        this.discounts = json.discounts;
+        this.discounts = json.discounts.filter((item) => {
+          return item.title != null
+        });
+        this.addons = json.addons;
         this.total_price = json.total_price;
         this.currency = json.currency;
         this.isLoading = false;
