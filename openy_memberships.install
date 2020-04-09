@@ -1,7 +1,7 @@
 <?php 
 use Drupal\user\Entity\Role;
 
-function mymodule_install() {
+function openy_memberships_install() {
   $role_object = Role::load('anonymous');
   $role_object->grantPermission('create family_members profile');
   $role_object->grantPermission('delete own family_members profile');
@@ -25,4 +25,24 @@ function mymodule_install() {
   \Drupal::config('jsonapi.settings')
     ->set('read_only', FALSE)
     ->save();
+}
+
+
+/**
+ * Update order type for addons.
+ */
+function openy_memberships_update_8001() {
+  $config_factory = \Drupal::configFactory();
+  $config = $config_factory->getEditable('commerce_order.commerce_order_item_type.addon');
+  $config->set('orderType', 'membership_order')->save();
+
+  $role_object = Role::load('anonymous');
+  $role_object->grantPermission('view membership_addon commerce_addon');
+  $role_object->grantPermission('view commerce_addon');
+  $role_object->save();
+
+  $role_object = Role::load('authenticated');
+  $role_object->grantPermission('view membership_addon commerce_addon');
+  $role_object->grantPermission('view commerce_addon');
+  $role_object->save();
 }
