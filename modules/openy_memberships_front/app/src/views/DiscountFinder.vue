@@ -14,41 +14,42 @@
           <p>You may be eligible for a Scholarship discount depending on your income level.</p>
           <div v-if="discounts && discounts.income" class="annual-income">
             <div class="income-wrapper">
+              <div class="eligible">Eligible</div>
               <div class="price">
-                {{discounts.income.amount}} {{discounts.income.currency}} 
+                - ${{-discounts.income.amount}} / mo
               </div>
-              <div class="btn-remove"><button class="remove-income" @click="removeIncome">X</button></div>
+              <div class="btn-remove"><button class="remove-income" @click="removeIncome">×</button></div>
             </div>
           </div>
           <div v-else class="annual-income">
             <label>Annual Income (Household)</label>
             <input v-model="income" />
-            <button @click="checkDiscounts">Check</button>
+            <button @click="checkDiscounts(true)">Check</button>
           </div>
           <div :key="index" v-for="(member, index) in members">
             <h3>{{family_members[index].attributes.field_first_name}}</h3>
             <div class="discount">
               <div class="checkbox">
                 <label class="container-checkbox">
-                  <input @change="checkDiscounts" type="checkbox" v-model="members[index][0]" />
+                  <input @change="checkDiscounts(true)" type="checkbox" v-model="members[index][0]" />
                   <span class="checkmark"></span>
                 </label>
               </div>
               <div class="description">
-                <h3>Health Insurance (- ${{member_promotions.health_insurance && member_promotions.health_insurance.amount}} / mo.)*</h3>
-                <p>Has health insurance with one of the following providers:</p>
+                <h3>{{member_promotions.health_insurance && member_promotions.health_insurance.label}} (- ${{member_promotions.health_insurance && member_promotions.health_insurance.amount}} / mo.)*</h3>
+                <p v-html="member_promotions.health_insurance && member_promotions.health_insurance.description"></p>
               </div>
             </div>
             <div class="discount">
               <div class="checkbox">
                 <label class="container-checkbox">
-                  <input @change="checkDiscounts" type="checkbox" v-model="members[index][1]" />
+                  <input @change="checkDiscounts(true)" type="checkbox" v-model="members[index][1]" />
                   <span class="checkmark"></span>
                 </label>
               </div>
               <div class="description">
-                <h3>Military Service (- ${{member_promotions.military_service && member_promotions.military_service.amount}} / mo.)*</h3>
-                <p>Has health insurance with one of the following providers:</p>
+                <h3>{{member_promotions.military_service && member_promotions.military_service.label}} (- ${{member_promotions.military_service && member_promotions.military_service.amount}} / mo.)*</h3>
+                <p v-html="member_promotions.military_service && member_promotions.military_service.description"></p>
               </div>
             </div>
           </div>
@@ -57,9 +58,8 @@
           <h2>Add-Ons</h2>
           <h3>Members</h3>
           <p>One Adult (80-54 yrs.) and all Youth (0-17yrs) are covered by the base Household membership:</p>
-          <a>Add Adult ($10 /mo.)</a>
-          <a>Add Senior ($5 /mo.)</a>
-        </div>
+          <a @click="addAddon(addon)" :key="addon.id" v-for="addon in addons.members">Add {{addon.attributes.title}} ({{addon.attributes.price.formatted}} / {{addon.attributes.field_om_frequency}}.)</a>
+          </div>
       </div>
     </div>
     <div class="navigation" v-if="parseFloat(this.total_price) != parseFloat(this.subtotal_price)">
@@ -91,6 +91,7 @@ export default {
     this.getUserInfo()
       .then(() => {
         // let user_id = json.meta ? json.meta.links.me.meta.id : null;
+        this.getAddons();
         return this.getOrders();
       })
       .then(json => {
@@ -118,7 +119,7 @@ export default {
             }
             return this.removeOrder(order);
           });
-          return Promise.all(removes)
+          return Promise.all(removes);
         }
         return json;
       })
@@ -139,7 +140,7 @@ export default {
     return {
       isLoading: false,
       discounts: null,
-      addons: [],
+      addons: {},
       token: null,
       income: 0,
       members: {},
@@ -152,7 +153,7 @@ export default {
   methods: {
     removeIncome() {
       this.income = 0;
-      this.checkDiscounts();
+      this.checkDiscounts(true);
     },
     createMember(member) {
       return window.jQuery.ajax({
@@ -273,7 +274,7 @@ export default {
         return [0, 0]
       })
     },
-    checkDiscounts() {
+    checkDiscounts(show_loader) {
       let checkboxes = this.members.reduce((total, currentValue) => {
         if (total != '') {
           total += '_';
@@ -281,6 +282,9 @@ export default {
         return  total + currentValue.map(el => +el).join(',');
       }, '');
       let income = parseInt(this.income);
+      if (show_loader) {
+        this.isLoading = true;
+      }
       return window.jQuery.ajax({
         url: "/memberships/check/discounts/" + income + '/' + checkboxes,
         type: "GET",
@@ -294,6 +298,9 @@ export default {
         this.total_price = data.total_price;
         this.subtotal_price = data.subtotal_price;
         this.member_promotions = data.member_promotions;
+        this.isLoading = false;
+      }).catch(() => {
+        this.isLoading = false;
       });
     },
     buildDiscounts() {
@@ -368,6 +375,44 @@ export default {
           "X-CSRF-Token": this.token
         }
       });
+    },
+    getAddons() {
+      return window.jQuery.ajax({
+        url: "/jsonapi/commerce_addon/membership_addon",
+        dataType: "json",
+        type: "GET",
+        headers: {
+          "X-CSRF-Token": this.token
+        }
+      }).then((json) => {
+        json.data.forEach((addon) => {
+          let type = addon.attributes.field_om_addon_type;
+          if (!this.addons[type]) {
+            this.addons[type] = [];
+          }
+          this.addons[type].push(addon);
+        })
+        return this.addons;
+      });
+    },
+    addAddon(addon) {
+      return window.jQuery.ajax({
+        url: "/cart/add?_format=json",
+        contentType: "application/json",
+        dataType: "json",
+        type: "POST",
+        headers: {
+          "X-CSRF-Token": this.token
+        },
+        data: JSON.stringify([
+          {
+            purchased_entity_type: "commerce_addon",
+            purchased_entity_id: addon.attributes.drupal_internal__addon_id,
+            quantity: "1",
+            combine: false
+          }
+        ])
+      });
     }
   },
   components: {
@@ -376,11 +421,17 @@ export default {
 };
 </script>
 <style lang="scss">
+
 .income-wrapper {
   display: flex;
   flex: 1;    
   align-items: center;
   justify-content: space-between;
+  .price {
+    font-weight: 600;
+    margin-right: auto;
+    margin-left: 15px;
+  }
 }
 .container-checkbox {
   display: block;
@@ -452,6 +503,10 @@ export default {
   .discounts {
     width: 50%;
     padding: 10px;
+    @media (max-width: 960px) {
+      width: 100%;
+    }
+
     .annual-income {
       display: flex;
       flex-wrap: wrap;
@@ -464,6 +519,7 @@ export default {
       input {
         padding: 10px;
         margin-right: 10px;
+        width: calc(100% - 100px);
       }
       button {
         border: none;
@@ -472,12 +528,23 @@ export default {
         color: #fff;
         text-transform: uppercase;
         padding: 10px;
+        margin-left: auto;
+        width: 90px;
+        &.remove-income {
+          font-size: 20px;
+          color: #0060af;
+          background-color: transparent;
+          width: auto;
+        }
       }
     }
   }
   .addons {
     padding: 10px;
     width: 50%;
+    @media (max-width: 960px) {
+      width: 100%;
+    }
   }
 }
 </style>
