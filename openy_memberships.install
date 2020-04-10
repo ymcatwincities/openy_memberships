@@ -12,6 +12,7 @@ function openy_memberships_install() {
   $role_object->grantPermission('view own commerce_order');
   $role_object->grantPermission('view membership_addon commerce_addon');
   $role_object->grantPermission('view commerce_addon');
+  $role_object->grantPermission('restful get openy_memberships_summary');
   $role_object->save();
 
   $role_object = Role::load('authenticated');
@@ -24,6 +25,7 @@ function openy_memberships_install() {
   $role_object->grantPermission('view own commerce_order');
   $role_object->grantPermission('view membership_addon commerce_addon');
   $role_object->grantPermission('view commerce_addon');
+  $role_object->grantPermission('restful get openy_memberships_summary');
   $role_object->save();
 
   $config_factory = \Drupal::configFactory();
@@ -47,10 +49,12 @@ function openy_memberships_update_8001() {
   $role_object = Role::load('anonymous');
   $role_object->grantPermission('view membership_addon commerce_addon');
   $role_object->grantPermission('view commerce_addon');
+  $role_object->grantPermission('restful get openy_memberships_summary');
   $role_object->save();
 
   $role_object = Role::load('authenticated');
   $role_object->grantPermission('view membership_addon commerce_addon');
   $role_object->grantPermission('view commerce_addon');
+  $role_object->grantPermission('restful get openy_memberships_summary');
   $role_object->save();
 }
