@@ -1,0 +1,34 @@
+uuid: 66a7ad5c-90a3-455b-b206-0e716ffaad56
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.feature_card
+    - field.storage.block_content.field_fc_image
+    - media.type.image
+  module:
+    - datalayer
+third_party_settings:
+  datalayer:
+    expose: 0
+    label: field_fc_image
+id: block_content.feature_card.field_fc_image
+field_name: field_fc_image
+entity_type: block_content
+bundle: feature_card
+label: Image
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,28 @@
+uuid: 4007bec9-9f8f-4d6e-a1f6-8af8db561eea
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.feature_card
+    - field.storage.block_content.field_fc_link
+  module:
+    - datalayer
+    - link
+third_party_settings:
+  datalayer:
+    expose: 0
+    label: field_fc_link
+id: block_content.feature_card.field_fc_link
+field_name: field_fc_link
+entity_type: block_content
+bundle: feature_card
+label: Link
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

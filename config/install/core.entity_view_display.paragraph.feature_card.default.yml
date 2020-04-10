@@ -1,0 +1,22 @@
+uuid: 7321c67e-39a6-4722-80a1-0940a70b2a98
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.feature_card.field_block
+    - paragraphs.paragraphs_type.feature_card
+id: paragraph.feature_card.default
+targetEntityType: paragraph
+bundle: feature_card
+mode: default
+content:
+  field_block:
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: full
+      link: false
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+hidden: {  }

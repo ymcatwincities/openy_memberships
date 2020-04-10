@@ -1,0 +1,28 @@
+uuid: 89c98f11-a62d-4a23-8aba-6a9630a3acbf
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.feature_card
+    - field.storage.block_content.field_fc_body
+  module:
+    - datalayer
+    - text
+third_party_settings:
+  datalayer:
+    expose: 0
+    label: field_fc_body
+id: block_content.feature_card.field_fc_body
+field_name: field_fc_body
+entity_type: block_content
+bundle: feature_card
+label: Body
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+field_type: text_with_summary

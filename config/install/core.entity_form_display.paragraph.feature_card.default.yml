@@ -1,0 +1,37 @@
+uuid: 86480d4c-1269-4ef6-b30d-a9a842891e84
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.feature_card.field_block
+    - paragraphs.paragraphs_type.feature_card
+  module:
+    - entity_browser_entity_form
+    - inline_entity_form
+id: paragraph.feature_card.default
+targetEntityType: paragraph
+bundle: feature_card
+mode: default
+content:
+  field_block:
+    weight: -4
+    settings:
+      form_mode: default
+      label_singular: ''
+      label_plural: ''
+      allow_new: true
+      allow_existing: true
+      match_operator: CONTAINS
+      override_labels: false
+      collapsible: false
+      collapsed: false
+      allow_duplicate: false
+    third_party_settings:
+      entity_browser_entity_form:
+        entity_browser_id: _none
+    type: inline_entity_form_complex
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

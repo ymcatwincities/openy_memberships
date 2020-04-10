@@ -1,0 +1,58 @@
+uuid: 9e051d8f-aaa6-4f74-b183-d8bf1fd912f4
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.feature_card
+    - field.field.block_content.feature_card.field_fc_body
+    - field.field.block_content.feature_card.field_fc_image
+    - field.field.block_content.feature_card.field_fc_link
+    - field.field.block_content.feature_card.field_fc_title
+    - image.style.large
+  module:
+    - link
+    - openy_memberships
+    - text
+id: block_content.feature_card.default
+targetEntityType: block_content
+bundle: feature_card
+mode: default
+content:
+  field_fc_body:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+  field_fc_image:
+    type: media_background_image
+    weight: 0
+    label: hidden
+    settings:
+      image_style: large
+      image_link: ''
+    third_party_settings: {  }
+    region: content
+  field_fc_link:
+    weight: 3
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: content
+  field_fc_title:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  langcode: true
