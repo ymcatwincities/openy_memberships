@@ -1,0 +1,391 @@
+.membership-app {
+  // BranchSelector.
+  a.view-loactions {
+    display: inline-flex;
+    align-items: center;
+    svg {
+      margin: 5px;
+    }
+    font: Bold 14px/21px Verdana;
+    letter-spacing: 0;
+    color: #0060AF;
+  }
+
+   .description {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+   }
+
+   // DiscountFinder.
+  .income-wrapper {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: space-between;
+    .price {
+      font-weight: 600;
+      margin-right: auto;
+      margin-left: 15px;
+    }
+  }
+
+  .container-checkbox {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0;
+    }
+    &:hover input ~ .checkmark {
+      background-color: #eee;
+    }
+    input:checked ~ .checkmark {
+      background-color: #006600;
+      border: 2px solid #006600;
+    }
+    .checkmark::after {
+      left: 4px;
+      top: -1px;
+      width: 7px;
+      height: 13px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg);
+    }
+    input:checked ~ .checkmark:after {
+      display: block;
+    }
+  }
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    border-radius: 2px;
+    background-color: #fff;
+    border: 2px solid #636466;
+    &::after {
+      content: "";
+      position: absolute;
+      display: none;
+    }
+  }
+   .discount {
+     display: flex;
+     .checkbox {
+       margin-top: 20px;
+       width: 50px;
+     }
+   }
+  .adjustments {
+    display: flex;
+    flex-wrap: wrap;
+    .discounts {
+      width: 50%;
+      padding: 10px;
+      @media (max-width: 960px) {
+        width: 100%;
+      }
+
+      .annual-income {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        padding: 15px;
+        border: 1px solid #f2f2f2;
+        label {
+          width: 100%;
+        }
+        input {
+          padding: 10px;
+          margin-right: 10px;
+          width: calc(100% - 100px);
+        }
+        button {
+          border: none;
+          border-radius: 5px;
+          background-color: #0060af;
+          color: #fff;
+          text-transform: uppercase;
+          padding: 10px;
+          margin-left: auto;
+          width: 90px;
+          &.remove-income {
+            font-size: 20px;
+            color: #0060af;
+            background-color: transparent;
+            width: auto;
+          }
+        }
+      }
+    }
+    .addons {
+      padding: 10px;
+      width: 50%;
+      @media (max-width: 960px) {
+        width: 100%;
+      }
+    }
+  }
+
+  // Family.
+  .family-wrapper {
+    border: 1px solid #F2F2F2;
+    margin-bottom: 10px;
+  }
+  .label-row {
+    display: flex;
+    padding: 10px;
+    align-items: center;
+    .label {
+      width: 200px;
+      text-align: left;
+      font: Bold 14px/21px Verdana;
+      letter-spacing: 0;
+      color: #231F20;
+    }
+  }
+
+  // IntegerMinusPlus.
+  .int-pm {
+    display: inline-flex !important;
+    align-items: center;
+    .int-pm-value.int-pm-value {
+      border: 1px solid #707070;
+      padding: 15px;
+      width: 50px;
+      height: 50px;
+    }
+    .int-pm-btn.int-pm-btn {
+      margin: 5px;
+      background-color: transparent !important;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      border: none !important;
+      position: relative;
+      color: transparent;
+      font-size: 12px;
+      line-height: 12px;
+      font-weight: bold;
+      &::before {
+        content: '';
+        color: #0060AF;
+        display: block;
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        top: 8px;
+        left: 8px;
+        padding: 1px 2px;
+        border: 2px solid #0060AF;
+        border-radius: 50%;
+      }
+      &.int-pm-decrement {
+        &::before {
+          content: '-';
+        }
+      }
+      &.int-pm-increment {
+        &::before {
+          content: '+';
+        }
+      }
+      &.disabled {
+        color: transparent;
+        &.int-pm-increment {
+          &::before {
+            border: 2px solid rgba(0, 96, 175, 0.5);
+            color: rgba(0, 96, 175, 0.8);;
+          }
+        }
+        &.int-pm-decrement {
+          &::before {
+            border: 2px solid rgba(0, 96, 175, 0.5);
+            color: rgba(0, 96, 175, 0.8);;
+          }
+        }
+      }
+    }
+  }
+  // Location.
+  .location {
+    position: relative;
+    cursor: pointer;
+    padding: 10px 10px 10px 10px;
+    margin: 10px 0;
+    display: flex;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 2px solid #0060AF;
+    border-radius: 5px;
+    .radio {
+      border: 1px solid #636466;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      padding: 2px;
+      &.active::after {
+        border-radius: 50%;
+        content: '';
+        display: block;
+        width: 12px;
+        height: 12px;
+        background-color: #636466;
+      }
+    }
+    &.active {
+      .radio {
+        border: 1px solid #FFFFFF;
+        &.active::after {
+          background-color: #FFFFFF;
+        }
+      }
+      background: #0060AF;
+      .content {
+        .name {
+          color: #FFFFFF;
+        }
+        .address {
+          color: #FFFFFF;
+        }
+      }
+    }
+    .radio-wrap {
+      min-width: 30px;
+    }
+    .content {
+      min-width: 100%;
+      .name {
+        font-size: 14px;
+        text-align: left;
+        font: Bold 14px/21px Verdana;
+        letter-spacing: 0;
+        color: #0060AF;
+      }
+      .address {
+        font: Regular 12px/21px Verdana;
+        color: #231F20;
+      }
+    }
+  }
+  // Locations.
+  .locations {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+  .location-wrapper {
+    min-width: 33.3%;
+    padding: 10px;
+    @media screen and (max-width: 650px) {
+      min-width: 50%;
+    }
+    @media screen and (max-width: 400px) {
+      min-width: 100%;
+    }
+  }
+  // Product.
+  $vs-state-active-bg: #0060AF;
+  @import "../../modules/openy_memberships_front/app/node_modules/vue-select/src/scss/vue-select.scss";
+  .vs__dropdown-toggle {
+    padding: 10px 5px;
+  }
+  .best-value {
+    background: #006600;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    display: flex;
+    height: 30px;
+    overflow: hidden;
+    align-items: center;
+    justify-content: space-between;
+    font: 500 12px/18px Cachet, Verdana;
+
+    margin: 15px 0 0;
+    &::after {
+      content: '';
+      display: block;
+      background-color: #FFFFFF;
+      width: 30px;
+      height: 30px;
+      transform: translate(20px, 0px) rotate(45deg);
+    }
+    &::before {
+      transform: translate(-20px, 0px) rotate(45deg);
+      background-color: #FFFFFF;
+      content: '';
+      display: block;
+      width: 30px;
+      height: 30px;
+    }
+  }
+    .product {
+      padding: 15px;
+      border: 1px solid #636466;
+      border-top: 5px solid #0060AF;
+      margin-bottom: 30px;
+      h2 {
+        text-align: left;
+        font: 500 36px/54px 'Cachet', Verdana, sans-serif;
+        letter-spacing: 0;
+        color: #231F20;
+      }
+      .select {
+        background: #92278F 0% 0% no-repeat padding-box;
+        border: 2px solid #92278F;
+        font: 500 24px/36px 'Cachet', Verdana, sans-serif;
+        letter-spacing: 0;
+        color: #FFFFFF;
+        text-align: center;
+        padding: 10px;
+        margin: 10px -15px -15px;
+        text-decoration: none;
+        cursor: pointer;
+        display: block;
+      }
+      .product-columns {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -5px;
+        .options {
+
+          .branch {
+            padding: 15px 0;
+            font: Bold 14px/21px Verdana;
+            letter-spacing: 0;
+            color: #231F20;
+          }
+        }
+        .title {
+          padding: 5px;
+          color: #231F20;
+          background-color: #f2f2f2;
+          font: 500 18px/27px 'Cachet', Verdana, sans-serif;
+        }
+        > div {
+          padding: 5px;
+          flex: 1;
+          .title {
+            text-align: center;
+          }
+        }
+      }
+    }
+}

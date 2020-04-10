@@ -27,3 +27,9 @@ feature-card:
   css:
     theme:
       css/paragraph_skins/feature-card.css: {}
+
+memberships-app:
+  version: 1.x
+  css:
+    theme:
+      css/paragraph_skins/memberships-app.css: {}
