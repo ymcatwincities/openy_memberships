@@ -19,7 +19,7 @@
         ],
         "http:\/\/drupal.org\/rest\/relation\/paragraph\/small_banner\/field_prgf_color": [
             {
-                "href": "http:\/\/default\/taxonomy\/term\/5?_format=hal_json",
+                "href": "http:\/\/default\/taxonomy\/term\/2?_format=hal_json",
                 "lang": "en"
             }
         ]
@@ -36,7 +36,7 @@
     ],
     "revision_id": [
         {
-            "value": 772
+            "value": 1080
         }
     ],
     "langcode": [
@@ -63,7 +63,7 @@
                 },
                 "uuid": [
                     {
-                        "value": "54b5f191-c1d0-4eb1-aec4-426a280024d2"
+                        "value": "7bc7f2a6-efa1-4b2d-8b01-8223a635ffd3"
                     }
                 ],
                 "lang": "en"
@@ -81,7 +81,7 @@
                 },
                 "uuid": [
                     {
-                        "value": "54b5f191-c1d0-4eb1-aec4-426a280024d2"
+                        "value": "7bc7f2a6-efa1-4b2d-8b01-8223a635ffd3"
                     }
                 ]
             }
@@ -90,7 +90,7 @@
             {
                 "_links": {
                     "self": {
-                        "href": "http:\/\/default\/taxonomy\/term\/5?_format=hal_json"
+                        "href": "http:\/\/default\/taxonomy\/term\/2?_format=hal_json"
                     },
                     "type": {
                         "href": "http:\/\/drupal.org\/rest\/type\/taxonomy_term\/color"
@@ -98,7 +98,7 @@
                 },
                 "uuid": [
                     {
-                        "value": "81cd1ea4-81b5-4503-b81f-77ef911b0b08"
+                        "value": "1ab95ac5-bd0e-4cd3-9c2d-1e9cabc0f1e4"
                     }
                 ],
                 "lang": "en"

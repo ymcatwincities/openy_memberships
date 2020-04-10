@@ -8,7 +8,7 @@
         },
         "http:\/\/drupal.org\/rest\/relation\/block_content\/simple_block\/field_icon": [
             {
-                "href": "http:\/\/default\/media\/96\/edit?_format=hal_json",
+                "href": "http:\/\/default\/media\/100\/edit?_format=hal_json",
                 "lang": "en"
             }
         ]
@@ -59,7 +59,7 @@
     ],
     "changed": [
         {
-            "value": "2020-03-16T16:32:54+00:00",
+            "value": "2020-04-07T19:02:51+00:00",
             "lang": "en",
             "format": "Y-m-d\\TH:i:sP"
         }
@@ -84,8 +84,8 @@
     "metatag": [
         {
             "value": {
-                "title": "| Site-Install",
-                "canonical_url": "http:\/\/default\/node\/36"
+                "title": "| Membership Demo",
+                "canonical_url": "http:\/\/default\/new-membership-landing"
             }
         }
     ],
@@ -94,7 +94,7 @@
             {
                 "_links": {
                     "self": {
-                        "href": "http:\/\/default\/media\/96\/edit?_format=hal_json"
+                        "href": "http:\/\/default\/media\/100\/edit?_format=hal_json"
                     },
                     "type": {
                         "href": "http:\/\/drupal.org\/rest\/type\/media\/image"
@@ -102,7 +102,7 @@
                 },
                 "uuid": [
                     {
-                        "value": "6502b3b7-cff6-4fdb-94d9-199d71ecb818"
+                        "value": "99ce7bac-6346-455d-babd-b3612a49dbd4"
                     }
                 ],
                 "lang": "en"

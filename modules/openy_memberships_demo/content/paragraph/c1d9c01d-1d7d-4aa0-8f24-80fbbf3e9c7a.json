@@ -42,7 +42,7 @@
     ],
     "revision_id": [
         {
-            "value": 826
+            "value": 1054
         }
     ],
     "langcode": [
@@ -69,7 +69,7 @@
                 },
                 "uuid": [
                     {
-                        "value": "54b5f191-c1d0-4eb1-aec4-426a280024d2"
+                        "value": "7bc7f2a6-efa1-4b2d-8b01-8223a635ffd3"
                     }
                 ],
                 "lang": "en"
@@ -87,7 +87,7 @@
                 },
                 "uuid": [
                     {
-                        "value": "54b5f191-c1d0-4eb1-aec4-426a280024d2"
+                        "value": "7bc7f2a6-efa1-4b2d-8b01-8223a635ffd3"
                     }
                 ]
             }
@@ -166,6 +166,11 @@
         {
             "value": true,
             "lang": "en"
+        }
+    ],
+    "skin": [
+        {
+            "value": "openy-memberships-modal"
         }
     ],
     "field_prfg_display_line_above": [

@@ -30,7 +30,7 @@
     ],
     "revision_id": [
         {
-            "value": 829
+            "value": 1057
         }
     ],
     "langcode": [
@@ -57,7 +57,7 @@
                 },
                 "uuid": [
                     {
-                        "value": "54b5f191-c1d0-4eb1-aec4-426a280024d2"
+                        "value": "7bc7f2a6-efa1-4b2d-8b01-8223a635ffd3"
                     }
                 ],
                 "lang": "en"
@@ -75,7 +75,7 @@
                 },
                 "uuid": [
                     {
-                        "value": "54b5f191-c1d0-4eb1-aec4-426a280024d2"
+                        "value": "7bc7f2a6-efa1-4b2d-8b01-8223a635ffd3"
                     }
                 ]
             }
@@ -120,17 +120,22 @@
             "lang": "en"
         }
     ],
+    "skin": [
+        {
+            "value": "openy-memberships-sidebar-menu"
+        }
+    ],
     "field_prgf_sidebar_menu_ref": [
         {
             "plugin_id": "system_menu_block:membership-sidebar",
             "plugin_configuration": {
                 "id": "system_menu_block:membership-sidebar",
                 "label": "Sidebar Menu",
-                "provider": "core",
+                "provider": "system",
                 "label_display": 0,
-                "level": null,
-                "depth": null,
-                "expand_all_items": null
+                "level": "1",
+                "depth": "1",
+                "expand_all_items": 0
             },
             "lang": "en"
         }
