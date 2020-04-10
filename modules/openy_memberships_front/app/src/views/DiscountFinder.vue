@@ -56,21 +56,64 @@
         </div>
         <div class="addons">
           <h2>Add-Ons</h2>
-          <h3>Members</h3>
-          <p>One Adult (80-54 yrs.) and all Youth (0-17yrs) are covered by the base Household membership:</p>
-          <div class="addons-members">
-            <div :key="addon.addon_id" v-for="addon in addons_in_cart">
-              <div class="addon-wrapper">
-                <div class="title">+1 {{addon.title}}</div>
-                <div class="price">
-                  +{{addon.price.formatted}} / mo
+          <div class="members">
+            <h3>Members</h3>
+            <p>One Adult (80-54 yrs.) and all Youth (0-17yrs) are covered by the base Household membership:</p>
+            <div class="addons-members">
+              <div :key="addon.addon_id" v-for="addon in member_addons_in_cart">
+                <div class="addon-wrapper">
+                  <div class="title">+1 {{addon.title}}</div>
+                  <div class="price">
+                    +{{addon.price.formatted}} / mo
+                  </div>
+                  <div class="btn-remove"><button class="remove-income" @click="removeAddon(addon)">×</button></div>
                 </div>
-                <div class="btn-remove"><button class="remove-income" @click="removeAddon(addon)">×</button></div>
+              </div>
+            </div>
+            <button class="add-addon" @click="addAddon(addon)" :key="addon.id" v-for="addon in addons.members">Add {{addon.attributes.title}} ({{addon.attributes.price.formatted}} / {{addon.attributes.field_om_frequency}}.)</button>
+          </div>
+          <div class="benefits">
+            <h3>Benefits Packages</h3>
+            <p></p>
+            <div class="addons-benefits">
+              <div :key="addon.addon_id" v-for="addon in addons.benefits_packages">
+                <div class="addon-wrapper">
+                  <div class="checkbox">
+                    <label class="container-checkbox">
+                      <input @click="updateAddon(addon, $event)" type="checkbox" :checked="inArray('benefits_packages_addons_in_cart', addon.attributes.drupal_internal__addon_id)" />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                  <div class="description">
+                    <h3>{{addon.attributes.title}} (+ {{addon.attributes.price.formatted}} / mo )</h3>
+                    <p v-html="addon.attributes.field_om_addon_description && addon.attributes.field_om_addon_description.processed"></p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          <button class="add-addon" @click="addAddon(addon)" :key="addon.id" v-for="addon in addons.members">Add {{addon.attributes.title}} ({{addon.attributes.price.formatted}} / {{addon.attributes.field_om_frequency}}.)</button>
+          <div class="benefits">
+            <h3>Benefits</h3>
+              <p></p>
+              <div class="addons-benefits">
+                <div :key="addon.addon_id" v-for="addon in addons.benefits">
+                  <div class="addon-wrapper">
+                    <div class="checkbox">
+                      <label class="container-checkbox">
+                        <input @click="updateAddon(addon, $event)" type="checkbox" :checked="inArray('benefits_addons_in_cart', addon.attributes.drupal_internal__addon_id)" />
+                        <span class="checkmark"></span>
+                      </label>
+                    </div>
+                    <div class="description">
+                      <h3>{{addon.attributes.title}} (+ {{addon.attributes.price.formatted}} / mo )</h3>
+                      <p v-html="addon.attributes.field_om_addon_description && addon.attributes.field_om_addon_description.processed"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
+          
       </div>
     </div>
     <div class="navigation">
@@ -162,6 +205,9 @@ export default {
       subtotal_price: 0,
       member_promotions: {},
       addons_in_cart: [],
+      benefits_addons_in_cart: [],
+      benefits_packages_addons_in_cart: [],
+      member_addons_in_cart: [],
       cart_id: null
     };
   },
@@ -434,17 +480,39 @@ export default {
       }).then(() => {
         return this.getOrders();
       }).then(json => {
-        this.addons_in_cart = [];
+        this.member_addons_in_cart = [];
+        this.benefits_packages_addons_in_cart = [];
+        this.benefits_addons_in_cart = [];
         json.forEach(order => {
           order.order_items.forEach(item => {
             switch(item.purchased_entity.type) {
               case "membership_addon":
-                this.addons_in_cart.push({
-                  ...item.purchased_entity,
-                  order_item_id: item.order_item_id,
-                  uuid: item.uuid,
-                  order_id: item.order_id
-                })
+                switch (item.purchased_entity.field_om_addon_type) {
+                  case "benefits":
+                    this.benefits_addons_in_cart.push({
+                      ...item.purchased_entity,
+                      order_item_id: item.order_item_id,
+                      uuid: item.uuid,
+                      order_id: item.order_id
+                    })
+                    break;
+                  case "benefits_packages":
+                    this.benefits_packages_addons_in_cart.push({
+                      ...item.purchased_entity,
+                      order_item_id: item.order_item_id,
+                      uuid: item.uuid,
+                      order_id: item.order_id
+                    })
+                    break;
+                  default:
+                    this.member_addons_in_cart.push({
+                      ...item.purchased_entity,
+                      order_item_id: item.order_item_id,
+                      uuid: item.uuid,
+                      order_id: item.order_id
+                    })
+                    break;
+                }
                 break;
             }
           })
@@ -467,18 +535,40 @@ export default {
         }).then(() => {
           return this.getOrders();
         }).then(json => {
-          this.addons_in_cart = [];
+          this.member_addons_in_cart = [];
+          this.benefits_packages_addons_in_cart = [];
+          this.benefits_addons_in_cart = [];
           json.forEach(order => {
             order.order_items.forEach(item => {
               switch(item.purchased_entity.type) {
                 case "membership_addon":
-                  this.addons_in_cart.push({
-                    ...item.purchased_entity,
-                    order_item_id: item.order_item_id,
-                    uuid: item.uuid,
-                    order_id: item.order_id
-                  })
-                  break;
+                  
+                  switch (item.purchased_entity.field_om_addon_type) {
+                    case "benefits":
+                    this.benefits_addons_in_cart.push({
+                      ...item.purchased_entity,
+                      order_item_id: item.order_item_id,
+                      uuid: item.uuid,
+                      order_id: item.order_id
+                    })
+                    break;
+                  case "benefits_packages":
+                    this.benefits_packages_addons_in_cart.push({
+                      ...item.purchased_entity,
+                      order_item_id: item.order_item_id,
+                      uuid: item.uuid,
+                      order_id: item.order_id
+                    })
+                    break;
+                  default:
+                    this.member_addons_in_cart.push({
+                      ...item.purchased_entity,
+                      order_item_id: item.order_item_id,
+                      uuid: item.uuid,
+                      order_id: item.order_id
+                    })
+                    break;
+                  }
               }
             })
           })
@@ -488,6 +578,26 @@ export default {
         })
       }
       return addon
+    },
+    inArray(addons, id) {
+      let filtered = this[addons].filter((el) => {
+        return el.addon_id == id
+      });
+      return filtered.length;
+    },
+    updateAddon(addon, event) {
+      event.preventDefault();
+      let filtered = this[addon.attributes.field_om_addon_type + '_addons_in_cart'].filter((el) => {
+        return el.addon_id == addon.attributes.drupal_internal__addon_id
+      });
+      if (filtered.length) {
+        filtered.forEach((el => {
+          return this.removeAddon(el)
+        }));
+      }
+      else {
+        return this.addAddon(addon);
+      }
     }
   },
   components: {
@@ -496,6 +606,19 @@ export default {
 };
 </script>
 <style lang="scss">
+.adjustments {
+  margin: 0 -10px;
+  .description {
+    margin-bottom: 0px;
+  }
+  h2 {
+    font: Medium 36px/36px Cachet, Verdana, sans-serif;
+    letter-spacing: 0px;
+    color: #231F20;
+    padding: 10px 0px;
+    border-top: 5px solid #00AEEF;
+  }
+}
 .add-addon {
   color: #0060af;
   background-color: transparent;
@@ -512,6 +635,11 @@ export default {
     margin-right: auto;
     margin-left: 15px;
   }
+  h3 {
+    font: Bold 14px/21px Verdana;
+    letter-spacing: 0px;
+    color: #231F20;
+  }
 }
 .addon-wrapper {
   border: 1px solid #f2f2f2;
@@ -527,6 +655,24 @@ export default {
   .price {
     margin-right: 15px;
     margin-left: auto;
+  }
+  .checkbox {
+    padding: 15px;
+    margin: 8px 0;
+  }
+}
+.benefits {
+  .addon-wrapper {
+    justify-content: flex-start;
+    align-items: flex-start;
+    border: none;
+    padding: 0px;
+    
+    .description {
+      width: 100%;
+      padding-left: 10px;
+      margin-bottom: 0px;
+    }
   }
 }
 .container-checkbox {
@@ -589,8 +735,14 @@ export default {
 .discount {
   display: flex;
   .checkbox {
-    margin-top: 20px;
+    padding: 15px;
     width: 50px;
+    margin-top: 8px;
+  }
+  h3 {
+    font: Bold 14px/21px Verdana;
+    letter-spacing: 0px;
+    color: #231F20;
   }
 }
 .adjustments {
@@ -612,6 +764,7 @@ export default {
       label {
         width: 100%;
       }
+      
       input {
         padding: 10px;
         margin-right: 10px;

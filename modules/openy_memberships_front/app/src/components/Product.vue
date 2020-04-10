@@ -125,6 +125,8 @@ $vs-state-active-bg: #0060AF;
       font: 500 36px/54px 'Cachet', Verdana, sans-serif;
       letter-spacing: 0;
       color: #231F20;
+      margin: 0px;
+      padding: 0;
     }
     .select {
       background: #92278F 0% 0% no-repeat padding-box;

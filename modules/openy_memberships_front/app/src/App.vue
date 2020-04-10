@@ -77,7 +77,7 @@ export default {
     }
     h1.title {
       color: #231F20;
-      margin: 30px 0;
+      margin: 15px 0px;
       font: 500 48px/72px Cachet, Verdana, sans-serif;
     }
     .description {
@@ -85,5 +85,17 @@ export default {
       color: #231F20;
       font: Regular 14px/21px Verdana;
     }
+    h3 {
+      font: Medium 24px/36px Cachet, Verdana, sans-serif;
+      letter-spacing: 0px;
+      color: #231F20;
+    }
+    h2 {
+      font: Medium 36px/36px Cachet, Verdana, sans-serif;
+      letter-spacing: 0px;
+      color: #231F20;
+      padding: 10px 0px;
+    }
+
   }
 </style>
