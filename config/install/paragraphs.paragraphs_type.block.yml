@@ -1,8 +1,8 @@
 langcode: en
 status: true
 dependencies: {  }
-id: feature_card
-label: 'Feature Card'
+id: block
+label: Block
 icon_uuid: null
 description: ''
 behavior_plugins: {  }

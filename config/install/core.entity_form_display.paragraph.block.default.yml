@@ -2,14 +2,14 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.feature_card.field_block
-    - paragraphs.paragraphs_type.feature_card
+    - field.field.paragraph.block.field_block
+    - paragraphs.paragraphs_type.block
   module:
     - entity_browser_entity_form
     - inline_entity_form
-id: paragraph.feature_card.default
+id: paragraph.block.default
 targetEntityType: paragraph
-bundle: feature_card
+bundle: block
 mode: default
 content:
   field_block:
