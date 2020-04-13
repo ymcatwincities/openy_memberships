@@ -8,7 +8,7 @@
           </h1>
         </div>
       </div>
-      <div class="description">  
+      <div class="description">
         <div class="description-text">
           Check out these great options!
         </div>
@@ -32,7 +32,7 @@ import Products from '../components/Products'
 export default {
   mounted() {
     this.isLoading = true;
-    
+
     window.jQuery.ajax({
       url: '/memberships/api/products/' + (this.$store.state.location ? this.$store.state.location : ''),
       dataType: 'json',
@@ -57,8 +57,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-
-</style>
-

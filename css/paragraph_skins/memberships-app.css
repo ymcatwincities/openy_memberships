@@ -1,0 +1,550 @@
+.membership-app {
+  /* KeyFrames */
+  /* Dropdown Default Transition */
+  /** Component States */
+  /*
+ * Disabled
+ *
+ * When the component is disabled, all interaction
+ * should be prevented. Here we modify the bg color,
+ * and change the cursor displayed on the interactive
+ * components.
+ */
+  /*
+ *  RTL - Right to Left Support
+ *
+ *  Because we're using a flexbox layout, the `dir="rtl"`
+ *  HTML attribute does most of the work for us by
+ *  rearranging the child elements visually.
+ */
+  /**
+    Dropdown Toggle
+
+    The dropdown toggle is the primary wrapper of the component. It
+    has two direct descendants: .vs__selected-options, and .vs__actions.
+
+    .vs__selected-options holds the .vs__selected's as well as the
+    main search input.
+
+    .vs__actions holds the clear button and dropdown toggle.
+ */
+  /* Dropdown Toggle States */
+  /* Clear Button */
+  /* Dropdown Menu */
+  /* List Items */
+  /* Selected Tags */
+  /* States */
+  /* Search Input */
+  /**
+ * Super weird bug... If this declaration is grouped
+ * below, the cancel button will still appear in chrome.
+ * If it's up here on it's own, it'll hide it.
+ */
+  /**
+    States
+ */
+  /* Loading Spinner */
+  /* Loading Spinner States */ }
+  .membership-app a.view-loactions {
+    display: inline-flex;
+    align-items: center;
+    font: Bold 14px/21px Verdana;
+    letter-spacing: 0;
+    color: #0060AF; }
+    .membership-app a.view-loactions svg {
+      margin: 5px; }
+  .membership-app .description {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; }
+  .membership-app .income-wrapper {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: space-between; }
+    .membership-app .income-wrapper .price {
+      font-weight: 600;
+      margin-right: auto;
+      margin-left: 15px; }
+  .membership-app .container-checkbox {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; }
+    .membership-app .container-checkbox input {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+      height: 0;
+      width: 0; }
+    .membership-app .container-checkbox:hover input ~ .checkmark {
+      background-color: #eee; }
+    .membership-app .container-checkbox input:checked ~ .checkmark {
+      background-color: #006600;
+      border: 2px solid #006600; }
+    .membership-app .container-checkbox .checkmark::after {
+      left: 4px;
+      top: -1px;
+      width: 7px;
+      height: 13px;
+      border: solid white;
+      border-width: 0 2px 2px 0;
+      -webkit-transform: rotate(45deg);
+      -ms-transform: rotate(45deg);
+      transform: rotate(45deg); }
+    .membership-app .container-checkbox input:checked ~ .checkmark:after {
+      display: block; }
+  .membership-app .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    border-radius: 2px;
+    background-color: #fff;
+    border: 2px solid #636466; }
+    .membership-app .checkmark::after {
+      content: "";
+      position: absolute;
+      display: none; }
+  .membership-app .discount {
+    display: flex; }
+    .membership-app .discount .checkbox {
+      margin-top: 20px;
+      width: 50px; }
+  .membership-app .adjustments {
+    display: flex;
+    flex-wrap: wrap; }
+    .membership-app .adjustments .discounts {
+      width: 50%;
+      padding: 10px; }
+      @media (max-width: 960px) {
+        .membership-app .adjustments .discounts {
+          width: 100%; } }
+      .membership-app .adjustments .discounts .annual-income {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        padding: 15px;
+        border: 1px solid #f2f2f2; }
+        .membership-app .adjustments .discounts .annual-income label {
+          width: 100%; }
+        .membership-app .adjustments .discounts .annual-income input {
+          padding: 10px;
+          margin-right: 10px;
+          width: calc(100% - 100px); }
+        .membership-app .adjustments .discounts .annual-income button {
+          border: none;
+          border-radius: 5px;
+          background-color: #0060af;
+          color: #fff;
+          text-transform: uppercase;
+          padding: 10px;
+          margin-left: auto;
+          width: 90px; }
+          .membership-app .adjustments .discounts .annual-income button.remove-income {
+            font-size: 20px;
+            color: #0060af;
+            background-color: transparent;
+            width: auto; }
+    .membership-app .adjustments .addons {
+      padding: 10px;
+      width: 50%; }
+      @media (max-width: 960px) {
+        .membership-app .adjustments .addons {
+          width: 100%; } }
+  .membership-app .family-wrapper {
+    border: 1px solid #F2F2F2;
+    margin-bottom: 10px; }
+  .membership-app .label-row {
+    display: flex;
+    padding: 10px;
+    align-items: center; }
+    .membership-app .label-row .label {
+      width: 200px;
+      text-align: left;
+      font: Bold 14px/21px Verdana;
+      letter-spacing: 0;
+      color: #231F20; }
+  .membership-app .int-pm {
+    display: inline-flex !important;
+    align-items: center; }
+    .membership-app .int-pm .int-pm-value.int-pm-value {
+      border: 1px solid #707070;
+      padding: 15px;
+      width: 50px;
+      height: 50px; }
+    .membership-app .int-pm .int-pm-btn.int-pm-btn {
+      margin: 5px;
+      background-color: transparent !important;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      border: none !important;
+      position: relative;
+      color: transparent;
+      font-size: 12px;
+      line-height: 12px;
+      font-weight: bold; }
+      .membership-app .int-pm .int-pm-btn.int-pm-btn::before {
+        content: '';
+        color: #0060AF;
+        display: block;
+        position: absolute;
+        width: 18px;
+        height: 18px;
+        top: 8px;
+        left: 8px;
+        padding: 1px 2px;
+        border: 2px solid #0060AF;
+        border-radius: 50%; }
+      .membership-app .int-pm .int-pm-btn.int-pm-btn.int-pm-decrement::before {
+        content: '-'; }
+      .membership-app .int-pm .int-pm-btn.int-pm-btn.int-pm-increment::before {
+        content: '+'; }
+      .membership-app .int-pm .int-pm-btn.int-pm-btn.disabled {
+        color: transparent; }
+        .membership-app .int-pm .int-pm-btn.int-pm-btn.disabled.int-pm-increment::before {
+          border: 2px solid rgba(0, 96, 175, 0.5);
+          color: rgba(0, 96, 175, 0.8); }
+        .membership-app .int-pm .int-pm-btn.int-pm-btn.disabled.int-pm-decrement::before {
+          border: 2px solid rgba(0, 96, 175, 0.5);
+          color: rgba(0, 96, 175, 0.8); }
+  .membership-app .location {
+    position: relative;
+    cursor: pointer;
+    padding: 10px 10px 10px 10px;
+    margin: 10px 0;
+    display: flex;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 2px solid #0060AF;
+    border-radius: 5px; }
+    .membership-app .location .radio {
+      border: 1px solid #636466;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      padding: 2px; }
+      .membership-app .location .radio.active::after {
+        border-radius: 50%;
+        content: '';
+        display: block;
+        width: 12px;
+        height: 12px;
+        background-color: #636466; }
+    .membership-app .location.active {
+      background: #0060AF; }
+      .membership-app .location.active .radio {
+        border: 1px solid #FFFFFF; }
+        .membership-app .location.active .radio.active::after {
+          background-color: #FFFFFF; }
+      .membership-app .location.active .content .name {
+        color: #FFFFFF; }
+      .membership-app .location.active .content .address {
+        color: #FFFFFF; }
+    .membership-app .location .radio-wrap {
+      min-width: 30px; }
+    .membership-app .location .content {
+      min-width: 100%; }
+      .membership-app .location .content .name {
+        font-size: 14px;
+        text-align: left;
+        font: Bold 14px/21px Verdana;
+        letter-spacing: 0;
+        color: #0060AF; }
+      .membership-app .location .content .address {
+        font: Regular 12px/21px Verdana;
+        color: #231F20; }
+  .membership-app .locations {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-left: -10px;
+    margin-right: -10px; }
+  .membership-app .location-wrapper {
+    min-width: 33.3%;
+    padding: 10px; }
+    @media screen and (max-width: 650px) {
+      .membership-app .location-wrapper {
+        min-width: 50%; } }
+    @media screen and (max-width: 400px) {
+      .membership-app .location-wrapper {
+        min-width: 100%; } }
+  .membership-app .v-select {
+    position: relative;
+    font-family: inherit; }
+  .membership-app .v-select,
+  .membership-app .v-select * {
+    box-sizing: border-box; }
+
+@-webkit-keyframes vSelectSpinner {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+
+@keyframes vSelectSpinner {
+  0% {
+    transform: rotate(0deg); }
+  100% {
+    transform: rotate(360deg); } }
+  .membership-app .vs__fade-enter-active,
+  .membership-app .vs__fade-leave-active {
+    pointer-events: none;
+    transition: opacity 0.15s cubic-bezier(1, 0.5, 0.8, 1); }
+  .membership-app .vs__fade-enter,
+  .membership-app .vs__fade-leave-to {
+    opacity: 0; }
+  .membership-app .vs--disabled .vs__dropdown-toggle,
+  .membership-app .vs--disabled .vs__clear,
+  .membership-app .vs--disabled .vs__search,
+  .membership-app .vs--disabled .vs__selected,
+  .membership-app .vs--disabled .vs__open-indicator {
+    cursor: not-allowed;
+    background-color: #f8f8f8; }
+  .membership-app .v-select[dir="rtl"] .vs__actions {
+    padding: 0 3px 0 6px; }
+  .membership-app .v-select[dir="rtl"] .vs__clear {
+    margin-left: 6px;
+    margin-right: 0; }
+  .membership-app .v-select[dir="rtl"] .vs__deselect {
+    margin-left: 0;
+    margin-right: 2px; }
+  .membership-app .v-select[dir="rtl"] .vs__dropdown-menu {
+    text-align: right; }
+  .membership-app .vs__dropdown-toggle {
+    appearance: none;
+    display: flex;
+    padding: 0 0 4px 0;
+    background: none;
+    border: 1px solid rgba(60, 60, 60, 0.26);
+    border-radius: 4px;
+    white-space: normal; }
+  .membership-app .vs__selected-options {
+    display: flex;
+    flex-basis: 100%;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    padding: 0 2px;
+    position: relative; }
+  .membership-app .vs__actions {
+    display: flex;
+    align-items: center;
+    padding: 4px 6px 0 3px; }
+  .membership-app .vs--searchable .vs__dropdown-toggle {
+    cursor: text; }
+  .membership-app .vs--unsearchable .vs__dropdown-toggle {
+    cursor: pointer; }
+  .membership-app .vs--open .vs__dropdown-toggle {
+    border-bottom-color: transparent;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0; }
+  .membership-app .vs__open-indicator {
+    fill: rgba(60, 60, 60, 0.5);
+    transform: scale(1);
+    transition: transform 150ms cubic-bezier(1, -0.115, 0.975, 0.855);
+    transition-timing-function: cubic-bezier(1, -0.115, 0.975, 0.855); }
+  .membership-app .vs--open .vs__open-indicator {
+    transform: rotate(180deg) scale(1); }
+  .membership-app .vs--loading .vs__open-indicator {
+    opacity: 0; }
+  .membership-app .vs__clear {
+    fill: rgba(60, 60, 60, 0.5);
+    padding: 0;
+    border: 0;
+    background-color: transparent;
+    cursor: pointer;
+    margin-right: 8px; }
+  .membership-app .vs__dropdown-menu {
+    display: block;
+    box-sizing: border-box;
+    position: absolute;
+    top: calc(100% - 1px);
+    left: 0;
+    z-index: 1000;
+    padding: 5px 0;
+    margin: 0;
+    width: 100%;
+    max-height: 350px;
+    min-width: 160px;
+    overflow-y: auto;
+    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.15);
+    border: 1px solid rgba(60, 60, 60, 0.26);
+    border-top-style: none;
+    border-radius: 0 0 4px 4px;
+    text-align: left;
+    list-style: none;
+    background: #fff; }
+  .membership-app .vs__no-options {
+    text-align: center; }
+  .membership-app .vs__dropdown-option {
+    line-height: 1.42857143;
+    /* Normalize line height */
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    color: #333;
+    /* Overrides most CSS frameworks */
+    white-space: nowrap; }
+    .membership-app .vs__dropdown-option:hover {
+      cursor: pointer; }
+  .membership-app .vs__dropdown-option--highlight {
+    background: #0060AF;
+    color: #fff; }
+  .membership-app .vs__dropdown-option--disabled {
+    background: inherit;
+    color: rgba(60, 60, 60, 0.5); }
+    .membership-app .vs__dropdown-option--disabled:hover {
+      cursor: inherit; }
+  .membership-app .vs__selected {
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0;
+    border: 1px solid rgba(60, 60, 60, 0.26);
+    border-radius: 4px;
+    color: #333;
+    line-height: 1.4;
+    margin: 4px 2px 0px 2px;
+    padding: 0 0.25em; }
+  .membership-app .vs__deselect {
+    display: inline-flex;
+    appearance: none;
+    margin-left: 4px;
+    padding: 0;
+    border: 0;
+    cursor: pointer;
+    background: none;
+    fill: rgba(60, 60, 60, 0.5);
+    text-shadow: 0 1px 0 #fff; }
+  .membership-app .vs--single .vs__selected {
+    background-color: transparent;
+    border-color: transparent; }
+  .membership-app .vs--single.vs--open .vs__selected {
+    position: absolute;
+    opacity: .4; }
+  .membership-app .vs--single.vs--searching .vs__selected {
+    display: none; }
+  .membership-app .vs__search::-webkit-search-cancel-button {
+    display: none; }
+  .membership-app .vs__search::-webkit-search-decoration,
+  .membership-app .vs__search::-webkit-search-results-button,
+  .membership-app .vs__search::-webkit-search-results-decoration,
+  .membership-app .vs__search::-ms-clear {
+    display: none; }
+  .membership-app .vs__search,
+  .membership-app .vs__search:focus {
+    appearance: none;
+    line-height: 1.4;
+    font-size: 1em;
+    border: 1px solid transparent;
+    border-left: none;
+    outline: none;
+    margin: 4px 0 0 0;
+    padding: 0 7px;
+    background: none;
+    box-shadow: none;
+    width: 0;
+    max-width: 100%;
+    flex-grow: 1; }
+  .membership-app .vs__search::placeholder {
+    color: inherit; }
+  .membership-app .vs--unsearchable .vs__search {
+    opacity: 1; }
+    .membership-app .vs--unsearchable .vs__search:hover {
+      cursor: pointer; }
+  .membership-app .vs--single.vs--searching:not(.vs--open):not(.vs--loading) .vs__search {
+    opacity: .2; }
+  .membership-app .vs__spinner {
+    align-self: center;
+    opacity: 0;
+    font-size: 5px;
+    text-indent: -9999em;
+    overflow: hidden;
+    border-top: 0.9em solid rgba(100, 100, 100, 0.1);
+    border-right: 0.9em solid rgba(100, 100, 100, 0.1);
+    border-bottom: 0.9em solid rgba(100, 100, 100, 0.1);
+    border-left: 0.9em solid rgba(60, 60, 60, 0.45);
+    transform: translateZ(0);
+    animation: vSelectSpinner 1.1s infinite linear;
+    transition: opacity .1s; }
+  .membership-app .vs__spinner,
+  .membership-app .vs__spinner:after {
+    border-radius: 50%;
+    width: 5em;
+    height: 5em; }
+  .membership-app .vs--loading .vs__spinner {
+    opacity: 1; }
+  .membership-app .vs__dropdown-toggle {
+    padding: 10px 5px; }
+  .membership-app .best-value {
+    background: #006600;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    display: flex;
+    height: 30px;
+    overflow: hidden;
+    align-items: center;
+    justify-content: space-between;
+    font: 500 12px/18px Cachet, Verdana;
+    margin: 15px 0 0; }
+    .membership-app .best-value::after {
+      content: '';
+      display: block;
+      background-color: #FFFFFF;
+      width: 30px;
+      height: 30px;
+      transform: translate(20px, 0px) rotate(45deg); }
+    .membership-app .best-value::before {
+      transform: translate(-20px, 0px) rotate(45deg);
+      background-color: #FFFFFF;
+      content: '';
+      display: block;
+      width: 30px;
+      height: 30px; }
+  .membership-app .product {
+    padding: 15px;
+    border: 1px solid #636466;
+    border-top: 5px solid #0060AF;
+    margin-bottom: 30px; }
+    .membership-app .product h2 {
+      text-align: left;
+      font: 500 36px/54px 'Cachet', Verdana, sans-serif;
+      letter-spacing: 0;
+      color: #231F20; }
+    .membership-app .product .select {
+      background: #92278F 0% 0% no-repeat padding-box;
+      border: 2px solid #92278F;
+      font: 500 24px/36px 'Cachet', Verdana, sans-serif;
+      letter-spacing: 0;
+      color: #FFFFFF;
+      text-align: center;
+      padding: 10px;
+      margin: 10px -15px -15px;
+      text-decoration: none;
+      cursor: pointer;
+      display: block; }
+    .membership-app .product .product-columns {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 -5px; }
+      .membership-app .product .product-columns .options .branch {
+        padding: 15px 0;
+        font: Bold 14px/21px Verdana;
+        letter-spacing: 0;
+        color: #231F20; }
+      .membership-app .product .product-columns .title {
+        padding: 5px;
+        color: #231F20;
+        background-color: #f2f2f2;
+        font: 500 18px/27px 'Cachet', Verdana, sans-serif; }
+      .membership-app .product .product-columns > div {
+        padding: 5px;
+        flex: 1; }
+        .membership-app .product .product-columns > div .title {
+          text-align: center; }

@@ -38,3 +38,8 @@ openy_memberships.paragraph_skins:
     label: 'Memberships Feature card'
     paragraph_type: 1c
     library: 'openy_memberships/feature-card'
+
+  - name: openy-memberships-app
+    label: 'Memberships App'
+    paragraph_type: memberships
+    library: 'openy_memberships/memberships-app'
