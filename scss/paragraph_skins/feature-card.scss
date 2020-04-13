@@ -1,32 +1,30 @@
-.ps-1c-openy-memberships-feature-card {
-  padding: 0 !important;
-  margin-top: 30px;
+.ps-block-openy-memberships-feature-card .wrapper-field-block {
+  .field-block {
+    margin-top: 30px;
+    padding: 0 !important;
 
-  .field-prgf-1c-column {
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: 130px 50px;
+    grid-template-rows: 70px 80px 50px;
     justify-items: center;
 
-    > .field-item:nth-child(1) {
+    > .field-fc-image {
       grid-column: 1;
-      grid-row: 1;
+      grid-row: 1 / span 2;
       z-index: 1;
 
-      .field-icon {
-        margin: 0;
-      }
+      width: 100%;
 
-      img {
+      > div {
         border-radius: 10px 10px 0 0;
-        height: auto;
         width: 100%;
+        height: 100%;
         max-width: initial;
         max-height: initial;
       }
     }
 
-    > .field-item:nth-child(2) {
+    > .field-fc-title {
       color: white;
       font-size: 18px;
       font-weight: bold;
@@ -39,24 +37,24 @@
       z-index: 2;
     }
 
-    > .field-item:nth-child(3) {
+    > .field-fc-body {
       color: white;
-      font-size: 16px;
-      font-weight: bold;
+      font-size: 14px;
 
       grid-column: 1;
-      grid-row: 1;
+      grid-row: 2;
 
-      padding: 50px 10px 10px;
+      padding: 0px 10px 10px;
       text-align: center;
       z-index: 2;
     }
 
-    > .field-item:nth-child(4) {
+    > div:nth-child(4) {
       background-color: royalblue;
       border: 0;
       border-radius: 0 0 10px 10px;
-      grid-row: 2;
+      grid-column: 1;
+      grid-row: 3;
       text-align: center;
       width: 100%;
       z-index: 1;
@@ -68,8 +66,72 @@
       }
     }
   }
+
+  @media all and (max-width: 1060px) {
+    margin-top: 20px;
+
+    display: flex;
+    justify-content: space-between;
+
+    .field-block:first-child {
+      margin-right: 20px;
+    }
+
+    .field-block {
+      margin-top: 0;
+      width: 50%;
+      grid-template-rows: 170px;
+
+      > .field-fc-image {
+        grid-row: 1;
+        > div {
+          border-radius: 10px;
+        }
+      }
+
+      > .field-fc-title {
+        grid-row: 1;
+        font-size: 12px;
+        line-height: 18px;
+        font-family: Verdana, Geneva, sans-serif;
+        font-weight: bold;
+        align-self: center;
+        justify-self: center;
+        text-align: center;
+        z-index: 1;
+      }
+
+      > .field-fc-body {
+        display: none;
+      }
+
+      > div:nth-child(4) {
+        grid-row: 1;
+        background-color: initial;
+
+        a {
+          width: 100%;
+          height: 100%;
+          font-size: 0;
+          z-index: 2;
+        }
+
+        a:hover {
+          background-color: initial;
+        }
+      }
+    }
+  }
+
+  @media all and (max-width: 600px) {
+    margin-top: 10px;
+
+    .field-block:first-child {
+      margin-right: 10px;
+    }
+  }
 }
 
-div.ps-1c-openy-memberships-feature-card:last-child {
+div.ps-feature_card-openy-memberships-feature-card:last-child {
   margin-bottom: 30px;
 }

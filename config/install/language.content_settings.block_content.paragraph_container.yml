@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.paragraph_container
+id: block_content.paragraph_container
+target_entity_type_id: block_content
+target_bundle: paragraph_container
+default_langcode: site_default
+language_alterable: false

@@ -1,0 +1,5 @@
+.ps-block-openy-memberships-desktop-sidebar {
+  padding-bottom: 30px; }
+  @media all and (max-width: 1059px) {
+    .ps-block-openy-memberships-desktop-sidebar {
+      display: none; } }

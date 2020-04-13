@@ -1,0 +1,147 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.paragraph_container
+    - field.storage.block_content.field_paragraph
+  module:
+    - datalayer
+    - entity_reference_revisions
+third_party_settings:
+  datalayer:
+    expose: 0
+    label: field_paragraph
+id: block_content.paragraph_container.field_paragraph
+field_name: field_paragraph
+entity_type: block_content
+bundle: paragraph_container
+label: Paragraph
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles: null
+    target_bundles_drag_drop:
+      1c:
+        weight: 40
+        enabled: false
+      2c:
+        weight: 41
+        enabled: false
+      3c:
+        weight: 42
+        enabled: false
+      4c:
+        weight: 43
+        enabled: false
+      addthis:
+        weight: 44
+        enabled: false
+      all_amenities:
+        weight: 45
+        enabled: false
+      banner:
+        weight: 46
+        enabled: false
+      block:
+        weight: 47
+        enabled: false
+      block_date:
+        weight: 48
+        enabled: false
+      branch_amenities_with_icons:
+        weight: 49
+        enabled: false
+      branch_contacts_info:
+        weight: 50
+        enabled: false
+      categories_listing:
+        weight: 51
+        enabled: false
+      code:
+        weight: 52
+        enabled: false
+      event_posts_listing:
+        weight: 53
+        enabled: false
+      faq:
+        weight: 54
+        enabled: false
+      featured_content:
+        weight: 55
+        enabled: false
+      featured_highlights:
+        weight: 56
+        enabled: false
+      featured_news:
+        weight: 57
+        enabled: false
+      gallery:
+        weight: 58
+        enabled: false
+      google_search:
+        weight: 59
+        enabled: false
+      grid_columns:
+        weight: 60
+        enabled: false
+      grid_content:
+        weight: 61
+        enabled: false
+      latest_news_posts:
+        weight: 62
+        enabled: false
+      location_filter_by_amenities:
+        weight: 63
+        enabled: false
+      lto:
+        weight: 64
+        enabled: false
+      membership_info:
+        weight: 65
+        enabled: false
+      memberships:
+        weight: 66
+        enabled: false
+      openy_prgf_mbrshp_calc:
+        weight: 67
+        enabled: false
+      prgf_location_finder:
+        weight: 68
+        enabled: false
+      prgf_location_finder_filters:
+        weight: 69
+        enabled: false
+      program_registration:
+        weight: 70
+        enabled: false
+      promo_card:
+        weight: 71
+        enabled: false
+      secondary_description_sidebar:
+        weight: 72
+        enabled: false
+      sidebar_menu:
+        weight: 73
+        enabled: false
+      simple_content:
+        weight: 74
+        enabled: false
+      small_banner:
+        weight: 75
+        enabled: false
+      teaser:
+        weight: 76
+        enabled: false
+      upcoming_events:
+        weight: 77
+        enabled: false
+      webform:
+        weight: 78
+        enabled: false
+field_type: entity_reference_revisions

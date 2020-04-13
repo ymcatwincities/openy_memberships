@@ -10,6 +10,21 @@ modal:
     theme:
       css/paragraph_skins/modal.css: {}
 
+desktop-sidebar:
+  version: 1.x
+  css:
+    theme:
+      css/paragraph_skins/desktop-sidebar.css: {}
+
+library:
+  version: 1.x
+  css:
+    theme:
+      css/carnation.css: {}
+      css/paragraph_skins/mobile-sidebar.css: {}
+  js:
+    js/mobile-menu.behaviors.js: {}
+
 sidebar-menu:
   version: 1.x
   css:
@@ -27,6 +42,30 @@ feature-card:
   css:
     theme:
       css/paragraph_skins/feature-card.css: {}
+
+banner:
+  version: 1.x
+  css:
+    theme:
+      css/paragraph_skins/banner.css: {}
+
+block3:
+  version: 1.x
+  css:
+    theme:
+      css/paragraph_skins/block3.css: {}
+
+block2:
+  version: 1.x
+  css:
+    theme:
+      css/paragraph_skins/block2.css: {}
+
+block2benefits:
+  version: 1.x
+  css:
+    theme:
+      css/paragraph_skins/block2-benefits.css: {}
 
 memberships-app:
   version: 1.x

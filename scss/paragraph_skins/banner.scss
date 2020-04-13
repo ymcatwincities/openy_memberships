@@ -1,0 +1,68 @@
+.ps-banner-openy-memberships-banner.banner {
+  min-height: 360px;
+
+  .banner-cta {
+    min-height: 360px;
+    padding-top: initial;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+
+    .banner-cta-content {
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    .banner-title {
+      margin: 0 !important;
+      .field-prgf-headline {
+        font-family: "Cachet Medium", Verdana, Geneva, sans-serif;
+        font-size: 48px;
+        line-height: 48px;
+        letter-spacing: -2.4px;
+        padding-bottom: 20px;
+      }
+    }
+
+    .banner-description {
+      margin: 0 !important;
+      .field-prgf-description {
+        font-family: "Cachet Medium", Verdana, Geneva, sans-serif;
+        font-size: 24px;
+        line-height: 24px;
+        letter-spacing: -0.6px;
+        padding-bottom: 20px;
+      }
+    }
+
+    a.btn {
+      color: #0060af;
+      background-color: white;
+      border: 3px solid #0060af;
+      font-family: "Cachet Medium", Verdana, Geneva, sans-serif;
+      font-size: 18px;
+      line-height: 27px;
+      letter-spacing: 0;
+    }
+
+    @media all and (min-width: 600px) {
+
+    }
+
+    @media all and (min-width: 1060px) {
+      padding-top: 80px;
+
+      .field-prgf-headline {
+        font-size: 60px;
+      }
+      .field-prgf-description {
+        font-size: 36px;
+        line-height: 36px;
+        letter-spacing: -0.9px;
+      }
+      a.btn {
+        font-size: 24px;
+      }
+    }
+  }
+}
