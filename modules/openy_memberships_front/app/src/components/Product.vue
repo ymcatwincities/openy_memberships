@@ -12,7 +12,7 @@
           </div>
 
           <v-select :reduce="data => data.value" :clearable="false" :searchable="false" v-model="variant" :options="variants"></v-select>
-          <div class="best-value" v-if="product.variations[variant].field_best_value == 1">Best value</div> 
+          <div class="best-value" v-if="product.variations[variant].field_best_value == 1">Best value</div>
         </div>
       </div>
       <div>
@@ -78,96 +78,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-$vs-state-active-bg: #0060AF;
-@import "vue-select/src/scss/vue-select.scss";
-.vs__dropdown-toggle {
-  padding: 10px 5px;
-}
-.best-value {
-  background: #006600;
-  color: #FFFFFF;
-  text-transform: uppercase;
-  display: flex;
-  height: 30px;
-  overflow: hidden;
-  align-items: center;
-  justify-content: space-between;
-  font: 500 12px/18px Cachet, Verdana;
-
-  margin: 15px 0 0;
-  &::after {
-    content: '';
-    display: block;
-    background-color: #FFFFFF;
-    width: 30px;
-    height: 30px;
-    transform: translate(20px, 0px) rotate(45deg);
-  }
-  &::before {
-    transform: translate(-20px, 0px) rotate(45deg);
-    background-color: #FFFFFF;
-    content: '';
-    display: block;
-    width: 30px;
-    height: 30px;
-  }
-}
-.membership-app {
-  .product {
-    padding: 15px;
-    border: 1px solid #636466;
-    border-top: 5px solid #0060AF;
-    margin-bottom: 30px;
-    h2 {
-      text-align: left;
-      font: 500 36px/54px 'Cachet', Verdana, sans-serif;
-      letter-spacing: 0;
-      color: #231F20;
-      margin: 0px;
-      padding: 0;
-    }
-    .select {
-      background: #92278F 0% 0% no-repeat padding-box;
-      border: 2px solid #92278F;
-      font: 500 24px/36px 'Cachet', Verdana, sans-serif;
-      letter-spacing: 0;
-      color: #FFFFFF;
-      text-align: center;
-      padding: 10px;
-      margin: 10px -15px -15px;
-      text-decoration: none;
-      cursor: pointer;
-      display: block;
-    }
-    .product-columns {
-      display: flex;
-      flex-wrap: wrap;
-      margin: 0 -5px;
-      .options {
-        
-        .branch {
-          padding: 15px 0;
-          font: Bold 14px/21px Verdana;
-          letter-spacing: 0;
-          color: #231F20;
-        }
-      }
-      .title {
-        padding: 5px;
-        color: #231F20;
-        background-color: #f2f2f2;
-        font: 500 18px/27px 'Cachet', Verdana, sans-serif;
-      }
-      > div {
-        padding: 5px;
-        flex: 1;
-        .title {
-          text-align: center;
-        }
-      }
-    }
-  }
-}
-</style>

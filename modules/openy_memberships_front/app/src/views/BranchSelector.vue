@@ -8,7 +8,7 @@
           </h1>
         </div>
       </div>
-      <div class="description">  
+      <div class="description">
         <div class="description-text">
           Select your preferred YMCA branch.
         </div>
@@ -16,7 +16,7 @@
           <a class="view-loactions" href="/locations">View Locations <ViewLocationIcon /></a>
         </div>
       </div>
-        
+
 
       <div>
         <loading :active.sync="isLoading"></loading>
@@ -95,24 +95,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-  a.view-loactions {
-    display: inline-flex;
-    align-items: center;
-    svg {
-      margin: 5px;
-    }
-    font: Bold 14px/21px Verdana;
-    letter-spacing: 0;
-    color: #0060AF;
-  }
-</style>
-<style lang="scss" scoped>
-.description {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-</style>
-

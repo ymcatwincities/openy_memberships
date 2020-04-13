@@ -8,15 +8,15 @@
           </h1>
         </div>
       </div>
-      <div class="description">  
+      <div class="description">
         <div class="description-text">
           How many people will be included in your membership?
         </div>
       </div>
-        
+
       <div class="family-wrapper">
         <div class="label-row">
-          <div class="label">Adults (18-54 yrs)</div><div class="value"><integer-minus-plus :value="$store.state.family.adults" @input="updateFamily('adults', $event)" /></div>   
+          <div class="label">Adults (18-54 yrs)</div><div class="value"><integer-minus-plus :value="$store.state.family.adults" @input="updateFamily('adults', $event)" /></div>
         </div>
         <div class="label-row">
           <div class="label">Youth (0-17 yrs)</div><div class="value"><integer-minus-plus :value="$store.state.family.youth" @input="updateFamily('youth', $event)" /></div>
@@ -66,23 +66,3 @@ export default {
   }
 }
 </script>
-
-<style lang="scss">
-.family-wrapper {
-  border: 1px solid #F2F2F2;
-  margin-bottom: 10px;
-}
-.label-row {
-  display: flex;
-  padding: 10px;
-  align-items: center;
-  .label {
-    width: 200px;
-    text-align: left;
-    font: Bold 14px/21px Verdana;
-    letter-spacing: 0;
-    color: #231F20;
-  }
-}
-</style>
-
