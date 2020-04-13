@@ -39,18 +39,6 @@
             {
                 "href": "",
                 "lang": "en"
-            },
-            {
-                "href": "",
-                "lang": "en"
-            },
-            {
-                "href": "",
-                "lang": "en"
-            },
-            {
-                "href": "",
-                "lang": "en"
             }
         ]
     },
@@ -66,7 +54,7 @@
     ],
     "vid": [
         {
-            "value": 537
+            "value": 552
         }
     ],
     "langcode": [
@@ -82,7 +70,7 @@
     ],
     "revision_timestamp": [
         {
-            "value": "2020-04-10T14:43:07+00:00",
+            "value": "2020-04-12T23:53:27+00:00",
             "format": "Y-m-d\\TH:i:sP"
         }
     ],
@@ -138,7 +126,7 @@
                     }
                 ],
                 "lang": "en",
-                "target_revision_id": "1060"
+                "target_revision_id": "1213"
             }
         ],
         "http:\/\/drupal.org\/rest\/relation\/node\/landing_page\/field_content": [
@@ -157,7 +145,7 @@
                     }
                 ],
                 "lang": "en",
-                "target_revision_id": "1061"
+                "target_revision_id": "1214"
             }
         ],
         "http:\/\/drupal.org\/rest\/relation\/node\/landing_page\/field_header_content": [
@@ -176,7 +164,7 @@
                     }
                 ],
                 "lang": "en",
-                "target_revision_id": "1062"
+                "target_revision_id": "1215"
             }
         ],
         "http:\/\/drupal.org\/rest\/relation\/node\/landing_page\/field_sidebar_content": [
@@ -186,67 +174,16 @@
                         "href": ""
                     },
                     "type": {
-                        "href": "http:\/\/drupal.org\/rest\/type\/paragraph\/simple_content"
+                        "href": "http:\/\/drupal.org\/rest\/type\/paragraph\/block"
                     }
                 },
                 "uuid": [
                     {
-                        "value": "cbcae260-e1f4-466f-936d-60edfa4b9d1e"
+                        "value": "fd9ea6af-aa6d-468b-bf2d-255886e246db"
                     }
                 ],
                 "lang": "en",
-                "target_revision_id": "1063"
-            },
-            {
-                "_links": {
-                    "self": {
-                        "href": ""
-                    },
-                    "type": {
-                        "href": "http:\/\/drupal.org\/rest\/type\/paragraph\/sidebar_menu"
-                    }
-                },
-                "uuid": [
-                    {
-                        "value": "1f7d7442-3518-4617-81dd-b6d40a2a5ed2"
-                    }
-                ],
-                "lang": "en",
-                "target_revision_id": "1064"
-            },
-            {
-                "_links": {
-                    "self": {
-                        "href": ""
-                    },
-                    "type": {
-                        "href": "http:\/\/drupal.org\/rest\/type\/paragraph\/feature_card"
-                    }
-                },
-                "uuid": [
-                    {
-                        "value": "cda4bf4d-1017-4779-a017-7166366ac065"
-                    }
-                ],
-                "lang": "en",
-                "target_revision_id": "1065"
-            },
-            {
-                "_links": {
-                    "self": {
-                        "href": ""
-                    },
-                    "type": {
-                        "href": "http:\/\/drupal.org\/rest\/type\/paragraph\/feature_card"
-                    }
-                },
-                "uuid": [
-                    {
-                        "value": "153d1215-09fe-4d51-995e-55a492ab992a"
-                    }
-                ],
-                "lang": "en",
-                "target_revision_id": "1066"
+                "target_revision_id": "1216"
             }
         ]
     },
@@ -271,7 +208,7 @@
     ],
     "changed": [
         {
-            "value": "2020-04-10T14:43:07+00:00",
+            "value": "2020-04-12T23:53:27+00:00",
             "lang": "en",
             "format": "Y-m-d\\TH:i:sP"
         }

@@ -43,18 +43,6 @@
             {
                 "href": "",
                 "lang": "en"
-            },
-            {
-                "href": "",
-                "lang": "en"
-            },
-            {
-                "href": "",
-                "lang": "en"
-            },
-            {
-                "href": "",
-                "lang": "en"
             }
         ]
     },
@@ -70,7 +58,7 @@
     ],
     "vid": [
         {
-            "value": 539
+            "value": 554
         }
     ],
     "langcode": [
@@ -86,7 +74,7 @@
     ],
     "revision_timestamp": [
         {
-            "value": "2020-04-10T14:44:48+00:00",
+            "value": "2020-04-12T23:55:15+00:00",
             "format": "Y-m-d\\TH:i:sP"
         }
     ],
@@ -142,7 +130,7 @@
                     }
                 ],
                 "lang": "en",
-                "target_revision_id": "1077"
+                "target_revision_id": "1224"
             }
         ],
         "http:\/\/drupal.org\/rest\/relation\/node\/landing_page\/field_content": [
@@ -161,7 +149,7 @@
                     }
                 ],
                 "lang": "en",
-                "target_revision_id": "1078"
+                "target_revision_id": "1225"
             },
             {
                 "_links": {
@@ -178,7 +166,7 @@
                     }
                 ],
                 "lang": "en",
-                "target_revision_id": "1079"
+                "target_revision_id": "1226"
             }
         ],
         "http:\/\/drupal.org\/rest\/relation\/node\/landing_page\/field_header_content": [
@@ -197,7 +185,7 @@
                     }
                 ],
                 "lang": "en",
-                "target_revision_id": "1080"
+                "target_revision_id": "1227"
             }
         ],
         "http:\/\/drupal.org\/rest\/relation\/node\/landing_page\/field_sidebar_content": [
@@ -207,67 +195,16 @@
                         "href": ""
                     },
                     "type": {
-                        "href": "http:\/\/drupal.org\/rest\/type\/paragraph\/simple_content"
+                        "href": "http:\/\/drupal.org\/rest\/type\/paragraph\/block"
                     }
                 },
                 "uuid": [
                     {
-                        "value": "3e71fa23-0b8b-46dd-bdff-d66f9f80c0c9"
+                        "value": "ad3a1372-76f1-4860-ae1f-b9e9495c6c77"
                     }
                 ],
                 "lang": "en",
-                "target_revision_id": "1081"
-            },
-            {
-                "_links": {
-                    "self": {
-                        "href": ""
-                    },
-                    "type": {
-                        "href": "http:\/\/drupal.org\/rest\/type\/paragraph\/sidebar_menu"
-                    }
-                },
-                "uuid": [
-                    {
-                        "value": "d754b7a0-3418-4c59-9cf0-82d85d2dc5aa"
-                    }
-                ],
-                "lang": "en",
-                "target_revision_id": "1082"
-            },
-            {
-                "_links": {
-                    "self": {
-                        "href": ""
-                    },
-                    "type": {
-                        "href": "http:\/\/drupal.org\/rest\/type\/paragraph\/feature_card"
-                    }
-                },
-                "uuid": [
-                    {
-                        "value": "b4d8a7e6-34a9-442e-826d-f316caf2f9d1"
-                    }
-                ],
-                "lang": "en",
-                "target_revision_id": "1083"
-            },
-            {
-                "_links": {
-                    "self": {
-                        "href": ""
-                    },
-                    "type": {
-                        "href": "http:\/\/drupal.org\/rest\/type\/paragraph\/feature_card"
-                    }
-                },
-                "uuid": [
-                    {
-                        "value": "1ba45a25-aee3-4f82-9392-b26543cebce9"
-                    }
-                ],
-                "lang": "en",
-                "target_revision_id": "1084"
+                "target_revision_id": "1228"
             }
         ]
     },
@@ -292,7 +229,7 @@
     ],
     "changed": [
         {
-            "value": "2020-04-10T14:44:48+00:00",
+            "value": "2020-04-12T23:55:15+00:00",
             "lang": "en",
             "format": "Y-m-d\\TH:i:sP"
         }

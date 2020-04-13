@@ -4,33 +4,38 @@
             "href": ""
         },
         "type": {
-            "href": "http:\/\/drupal.org\/rest\/type\/paragraph\/simple_content"
+            "href": "http:\/\/drupal.org\/rest\/type\/paragraph\/block"
         },
-        "http:\/\/drupal.org\/rest\/relation\/paragraph\/simple_content\/uid": [
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/block\/uid": [
             {
                 "href": "http:\/\/default\/user\/1?_format=hal_json",
                 "lang": "en"
             }
         ],
-        "http:\/\/drupal.org\/rest\/relation\/paragraph\/simple_content\/revision_uid": [
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/block\/revision_uid": [
             {
                 "href": "http:\/\/default\/user\/1?_format=hal_json"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/block\/field_block": [
+            {
+                "href": "http:\/\/default\/block\/41?_format=hal_json"
             }
         ]
     },
     "id": [
         {
-            "value": 664
+            "value": 725
         }
     ],
     "uuid": [
         {
-            "value": "31f6dd7d-4814-4e2c-aed7-b67648e454db"
+            "value": "fd9ea6af-aa6d-468b-bf2d-255886e246db"
         }
     ],
     "revision_id": [
         {
-            "value": 1056
+            "value": 1216
         }
     ],
     "langcode": [
@@ -41,11 +46,11 @@
     ],
     "type": [
         {
-            "target_id": "simple_content"
+            "target_id": "block"
         }
     ],
     "_embedded": {
-        "http:\/\/drupal.org\/rest\/relation\/paragraph\/simple_content\/uid": [
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/block\/uid": [
             {
                 "_links": {
                     "self": {
@@ -63,7 +68,7 @@
                 "lang": "en"
             }
         ],
-        "http:\/\/drupal.org\/rest\/relation\/paragraph\/simple_content\/revision_uid": [
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/block\/revision_uid": [
             {
                 "_links": {
                     "self": {
@@ -79,6 +84,23 @@
                     }
                 ]
             }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/block\/field_block": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/block\/41?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/block_content\/paragraph_container"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "a6d29bd1-f9c0-4af8-a7b1-6c42c81149b7"
+                    }
+                ]
+            }
         ]
     },
     "status": [
@@ -89,14 +111,14 @@
     ],
     "created": [
         {
-            "value": "2020-03-16T16:49:13+00:00",
+            "value": "2020-04-12T23:52:57+00:00",
             "lang": "en",
             "format": "Y-m-d\\TH:i:sP"
         }
     ],
     "parent_id": [
         {
-            "value": "452"
+            "value": "450"
         }
     ],
     "parent_type": [
@@ -120,17 +142,15 @@
             "lang": "en"
         }
     ],
-    "skin": [
+    "revision_translation_affected": [
         {
-            "value": "openy-memberships-button"
+            "value": true,
+            "lang": "en"
         }
     ],
-    "field_prgf_description": [
+    "skin": [
         {
-            "value": "<p><a class=\"btn btn-primary\" href=\"\/membership-join-y\"><span class=\"text\">JOIN<\/span><\/a><\/p>\r\n",
-            "format": "full_html",
-            "processed": "<p><a class=\"btn btn-primary\" href=\"\/membership-join-y\"><span class=\"text\">JOIN<\/span><\/a><\/p>\n",
-            "lang": "en"
+            "value": "openy-memberships-desktop-sidebar"
         }
     ]
 }

@@ -20,17 +20,17 @@
     },
     "id": [
         {
-            "value": 651
+            "value": 717
         }
     ],
     "uuid": [
         {
-            "value": "9e4a0f55-7e46-4df0-9237-2edb57d06d8a"
+            "value": "f1ad44bc-6a4d-4693-baa2-b99be7caded7"
         }
     ],
     "revision_id": [
         {
-            "value": 1073
+            "value": 1188
         }
     ],
     "langcode": [
@@ -89,24 +89,24 @@
     ],
     "created": [
         {
-            "value": "2020-03-16T16:06:44+00:00",
+            "value": "2020-04-12T18:58:59+00:00",
             "lang": "en",
             "format": "Y-m-d\\TH:i:sP"
         }
     ],
     "parent_id": [
         {
-            "value": "451"
+            "value": "41"
         }
     ],
     "parent_type": [
         {
-            "value": "node"
+            "value": "block_content"
         }
     ],
     "parent_field_name": [
         {
-            "value": "field_sidebar_content"
+            "value": "field_paragraph"
         }
     ],
     "behavior_settings": [

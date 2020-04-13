@@ -4,38 +4,33 @@
             "href": ""
         },
         "type": {
-            "href": "http:\/\/drupal.org\/rest\/type\/paragraph\/feature_card"
+            "href": "http:\/\/drupal.org\/rest\/type\/paragraph\/sidebar_menu"
         },
-        "http:\/\/drupal.org\/rest\/relation\/paragraph\/feature_card\/uid": [
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/sidebar_menu\/uid": [
             {
                 "href": "http:\/\/default\/user\/1?_format=hal_json",
                 "lang": "en"
             }
         ],
-        "http:\/\/drupal.org\/rest\/relation\/paragraph\/feature_card\/revision_uid": [
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/sidebar_menu\/revision_uid": [
             {
                 "href": "http:\/\/default\/user\/1?_format=hal_json"
-            }
-        ],
-        "http:\/\/drupal.org\/rest\/relation\/paragraph\/feature_card\/field_block": [
-            {
-                "href": "http:\/\/default\/block\/39?_format=hal_json"
             }
         ]
     },
     "id": [
         {
-            "value": 703
+            "value": 718
         }
     ],
     "uuid": [
         {
-            "value": "8bab13c8-9656-4725-a641-620334ea37c0"
+            "value": "268e8af3-8490-4bf1-b402-d12ac5f60ec8"
         }
     ],
     "revision_id": [
         {
-            "value": 1076
+            "value": 1189
         }
     ],
     "langcode": [
@@ -46,11 +41,11 @@
     ],
     "type": [
         {
-            "target_id": "feature_card"
+            "target_id": "sidebar_menu"
         }
     ],
     "_embedded": {
-        "http:\/\/drupal.org\/rest\/relation\/paragraph\/feature_card\/uid": [
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/sidebar_menu\/uid": [
             {
                 "_links": {
                     "self": {
@@ -68,7 +63,7 @@
                 "lang": "en"
             }
         ],
-        "http:\/\/drupal.org\/rest\/relation\/paragraph\/feature_card\/revision_uid": [
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/sidebar_menu\/revision_uid": [
             {
                 "_links": {
                     "self": {
@@ -84,23 +79,6 @@
                     }
                 ]
             }
-        ],
-        "http:\/\/drupal.org\/rest\/relation\/paragraph\/feature_card\/field_block": [
-            {
-                "_links": {
-                    "self": {
-                        "href": "http:\/\/default\/block\/39?_format=hal_json"
-                    },
-                    "type": {
-                        "href": "http:\/\/drupal.org\/rest\/type\/block_content\/feature_card"
-                    }
-                },
-                "uuid": [
-                    {
-                        "value": "4bf91bae-fb8f-4863-af3e-3639f740f4bd"
-                    }
-                ]
-            }
         ]
     },
     "status": [
@@ -111,24 +89,24 @@
     ],
     "created": [
         {
-            "value": "2020-04-10T14:43:39+00:00",
+            "value": "2020-04-12T19:00:57+00:00",
             "lang": "en",
             "format": "Y-m-d\\TH:i:sP"
         }
     ],
     "parent_id": [
         {
-            "value": "451"
+            "value": "41"
         }
     ],
     "parent_type": [
         {
-            "value": "node"
+            "value": "block_content"
         }
     ],
     "parent_field_name": [
         {
-            "value": "field_sidebar_content"
+            "value": "field_paragraph"
         }
     ],
     "behavior_settings": [
@@ -142,15 +120,24 @@
             "lang": "en"
         }
     ],
-    "revision_translation_affected": [
-        {
-            "value": true,
-            "lang": "en"
-        }
-    ],
     "skin": [
         {
-            "value": "openy-memberships-feature-card"
+            "value": "openy-memberships-sidebar-menu"
+        }
+    ],
+    "field_prgf_sidebar_menu_ref": [
+        {
+            "plugin_id": "system_menu_block:membership-sidebar",
+            "plugin_configuration": {
+                "id": "system_menu_block:membership-sidebar",
+                "label": "Sidebar Menu",
+                "provider": "system",
+                "label_display": 0,
+                "level": "1",
+                "depth": "1",
+                "expand_all_items": 0
+            },
+            "lang": "en"
         }
     ]
 }

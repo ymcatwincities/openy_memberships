@@ -4,33 +4,38 @@
             "href": ""
         },
         "type": {
-            "href": "http:\/\/drupal.org\/rest\/type\/paragraph\/sidebar_menu"
+            "href": "http:\/\/drupal.org\/rest\/type\/paragraph\/block"
         },
-        "http:\/\/drupal.org\/rest\/relation\/paragraph\/sidebar_menu\/uid": [
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/block\/uid": [
             {
                 "href": "http:\/\/default\/user\/1?_format=hal_json",
                 "lang": "en"
             }
         ],
-        "http:\/\/drupal.org\/rest\/relation\/paragraph\/sidebar_menu\/revision_uid": [
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/block\/revision_uid": [
             {
                 "href": "http:\/\/default\/user\/1?_format=hal_json"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/block\/field_block": [
+            {
+                "href": "http:\/\/default\/block\/41?_format=hal_json"
             }
         ]
     },
     "id": [
         {
-            "value": 652
+            "value": 728
         }
     ],
     "uuid": [
         {
-            "value": "7a0247ab-3902-4a6f-80d9-e17c804fbc32"
+            "value": "3d93fc81-1b3f-4d29-a529-1d5deb0df5b0"
         }
     ],
     "revision_id": [
         {
-            "value": 1074
+            "value": 1233
         }
     ],
     "langcode": [
@@ -41,11 +46,11 @@
     ],
     "type": [
         {
-            "target_id": "sidebar_menu"
+            "target_id": "block"
         }
     ],
     "_embedded": {
-        "http:\/\/drupal.org\/rest\/relation\/paragraph\/sidebar_menu\/uid": [
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/block\/uid": [
             {
                 "_links": {
                     "self": {
@@ -63,7 +68,7 @@
                 "lang": "en"
             }
         ],
-        "http:\/\/drupal.org\/rest\/relation\/paragraph\/sidebar_menu\/revision_uid": [
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/block\/revision_uid": [
             {
                 "_links": {
                     "self": {
@@ -79,6 +84,23 @@
                     }
                 ]
             }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/block\/field_block": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/block\/41?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/block_content\/paragraph_container"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "a6d29bd1-f9c0-4af8-a7b1-6c42c81149b7"
+                    }
+                ]
+            }
         ]
     },
     "status": [
@@ -89,14 +111,14 @@
     ],
     "created": [
         {
-            "value": "2020-03-16T16:07:03+00:00",
+            "value": "2020-04-12T23:55:34+00:00",
             "lang": "en",
             "format": "Y-m-d\\TH:i:sP"
         }
     ],
     "parent_id": [
         {
-            "value": "451"
+            "value": "454"
         }
     ],
     "parent_type": [
@@ -120,24 +142,15 @@
             "lang": "en"
         }
     ],
-    "skin": [
+    "revision_translation_affected": [
         {
-            "value": "openy-memberships-sidebar-menu"
+            "value": true,
+            "lang": "en"
         }
     ],
-    "field_prgf_sidebar_menu_ref": [
+    "skin": [
         {
-            "plugin_id": "system_menu_block:membership-sidebar",
-            "plugin_configuration": {
-                "id": "system_menu_block:membership-sidebar",
-                "label": "Sidebar Menu",
-                "provider": "system",
-                "label_display": 0,
-                "level": "1",
-                "depth": "1",
-                "expand_all_items": 0
-            },
-            "lang": "en"
+            "value": "openy-memberships-desktop-sidebar"
         }
     ]
 }
