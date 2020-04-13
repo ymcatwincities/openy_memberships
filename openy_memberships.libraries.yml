@@ -60,3 +60,9 @@ block2:
   css:
     theme:
       css/paragraph_skins/block2.css: {}
+
+block2benefits:
+  version: 1.x
+  css:
+    theme:
+      css/paragraph_skins/block2-benefits.css: {}
