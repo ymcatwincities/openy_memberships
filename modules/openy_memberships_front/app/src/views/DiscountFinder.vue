@@ -56,7 +56,7 @@
         </div>
         <div class="addons">
           <h2>Add-Ons</h2>
-          <div class="members">
+          <div v-if="addons.members" class="members">
             <h3>Members</h3>
             <p>One Adult (80-54 yrs.) and all Youth (0-17yrs) are covered by the base Household membership:</p>
             <div class="addons-members">
@@ -72,7 +72,7 @@
             </div>
             <button class="add-addon" @click="addAddon(addon)" :key="addon.id" v-for="addon in addons.members">Add {{addon.attributes.title}} ({{addon.attributes.price.formatted}} / {{addon.attributes.field_om_frequency}}.)</button>
           </div>
-          <div class="benefits">
+          <div v-if="addons.benefits_packages" class="benefits">
             <h3>Benefits Packages</h3>
             <p></p>
             <div class="addons-benefits">
@@ -92,7 +92,7 @@
               </div>
             </div>
           </div>
-          <div class="benefits">
+          <div v-if="addons.benefits" class="benefits">
             <h3>Benefits</h3>
               <p></p>
               <div class="addons-benefits">
@@ -442,14 +442,17 @@ export default {
     },
     getAddons() {
       return window.jQuery.ajax({
-        url: "/jsonapi/commerce_addon/membership_addon",
+        url: "/jsonapi/commerce_product/membership/" + this.$store.state.product.uuid + "?include=field_om_addons",
         dataType: "json",
         type: "GET",
         headers: {
           "X-CSRF-Token": this.token
         }
       }).then((json) => {
-        json.data.forEach((addon) => {
+        json.included.forEach((addon) => {
+          if (addon.type != "commerce_addon--membership_addon") {
+            return;
+          }
           let type = addon.attributes.field_om_addon_type;
           if (!this.addons[type]) {
             this.addons[type] = [];
