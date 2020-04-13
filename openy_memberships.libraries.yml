@@ -43,7 +43,6 @@ feature-card:
     theme:
       css/paragraph_skins/feature-card.css: {}
 
-<<<<<<< HEAD
 banner:
   version: 1.x
   css:
