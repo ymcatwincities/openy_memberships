@@ -49,3 +49,7 @@ openy_memberships.paragraph_skins:
     paragraph_type: banner
     library: 'openy_memberships/banner'
 
+  - name: openy-memberships-block3
+    label: 'Memberships 3 Blocks'
+    paragraph_type: block
+    library: 'openy_memberships/block3'

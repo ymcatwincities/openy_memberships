@@ -14,5 +14,5 @@ function openy_memberships_menu_links_discovered_alter(&$links) {
 }
 
 function openy_memberships_page_attachments(array &$page) {
-  $page['#attached']['library'][] = 'openy_memberships/mobile-sidebar';
+  $page['#attached']['library'][] = 'openy_memberships/library';
 }

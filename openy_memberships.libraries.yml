@@ -16,10 +16,11 @@ desktop-sidebar:
     theme:
       css/paragraph_skins/desktop-sidebar.css: {}
 
-mobile-sidebar:
+library:
   version: 1.x
   css:
     theme:
+      css/carnation.css: {}
       css/paragraph_skins/mobile-sidebar.css: {}
   js:
     js/mobile-menu.behaviors.js: {}
@@ -47,3 +48,9 @@ banner:
   css:
     theme:
       css/paragraph_skins/banner.css: {}
+
+block3:
+  version: 1.x
+  css:
+    theme:
+      css/paragraph_skins/block3.css: {}
