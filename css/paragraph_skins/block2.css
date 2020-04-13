@@ -59,4 +59,15 @@
         font-size: 18px;
         line-height: 27px;
         padding: 14px;
-        color: white; } }
+        color: white; }
+      .ps-block-openy-memberships-block2 .wrapper-field-block .field-block:last-of-type div:last-of-type a.btn:after {
+        content: "\f062";
+        font-family: "Font Awesome 5 Free";
+        color: white;
+        font-weight: 900;
+        display: inline-block;
+        -webkit-transform: rotate(40deg);
+        -moz-transform: rotate(40deg);
+        -o-transform: rotate(40deg);
+        -ms-transform: rotate(40deg);
+        transform: rotate(40deg); } }
