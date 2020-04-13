@@ -44,3 +44,8 @@ openy_memberships.paragraph_skins:
     paragraph_type: block
     library: 'openy_memberships/feature-card'
 
+  - name: openy-memberships-banner
+    label: 'Memberships Banner'
+    paragraph_type: banner
+    library: 'openy_memberships/banner'
+

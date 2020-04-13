@@ -41,3 +41,9 @@ feature-card:
   css:
     theme:
       css/paragraph_skins/feature-card.css: {}
+
+banner:
+  version: 1.x
+  css:
+    theme:
+      css/paragraph_skins/banner.css: {}
