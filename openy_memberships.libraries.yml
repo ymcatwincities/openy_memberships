@@ -54,3 +54,9 @@ block3:
   css:
     theme:
       css/paragraph_skins/block3.css: {}
+
+block2:
+  version: 1.x
+  css:
+    theme:
+      css/paragraph_skins/block2.css: {}
