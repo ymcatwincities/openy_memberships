@@ -56,13 +56,67 @@
         </div>
         <div class="addons">
           <h2>Add-Ons</h2>
-          <h3>Members</h3>
-          <p>One Adult (80-54 yrs.) and all Youth (0-17yrs) are covered by the base Household membership:</p>
-          <a @click="addAddon(addon)" :key="addon.id" v-for="addon in addons.members">Add {{addon.attributes.title}} ({{addon.attributes.price.formatted}} / {{addon.attributes.field_om_frequency}}.)</a>
+          <div class="members">
+            <h3>Members</h3>
+            <p>One Adult (80-54 yrs.) and all Youth (0-17yrs) are covered by the base Household membership:</p>
+            <div class="addons-members">
+              <div :key="addon.addon_id" v-for="addon in member_addons_in_cart">
+                <div class="addon-wrapper">
+                  <div class="title">+1 {{addon.title}}</div>
+                  <div class="price">
+                    +{{addon.price.formatted}} / mo
+                  </div>
+                  <div class="btn-remove"><button class="remove-income" @click="removeAddon(addon)">×</button></div>
+                </div>
+              </div>
+            </div>
+            <button class="add-addon" @click="addAddon(addon)" :key="addon.id" v-for="addon in addons.members">Add {{addon.attributes.title}} ({{addon.attributes.price.formatted}} / {{addon.attributes.field_om_frequency}}.)</button>
           </div>
+          <div class="benefits">
+            <h3>Benefits Packages</h3>
+            <p></p>
+            <div class="addons-benefits">
+              <div :key="addon.addon_id" v-for="addon in addons.benefits_packages">
+                <div class="addon-wrapper">
+                  <div class="checkbox">
+                    <label class="container-checkbox">
+                      <input @click="updateAddon(addon, $event)" type="checkbox" :checked="inArray('benefits_packages_addons_in_cart', addon.attributes.drupal_internal__addon_id)" />
+                      <span class="checkmark"></span>
+                    </label>
+                  </div>
+                  <div class="description">
+                    <h3>{{addon.attributes.title}} (+ {{addon.attributes.price.formatted}} / mo )</h3>
+                    <p v-html="addon.attributes.field_om_addon_description && addon.attributes.field_om_addon_description.processed"></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="benefits">
+            <h3>Benefits</h3>
+              <p></p>
+              <div class="addons-benefits">
+                <div :key="addon.addon_id" v-for="addon in addons.benefits">
+                  <div class="addon-wrapper">
+                    <div class="checkbox">
+                      <label class="container-checkbox">
+                        <input @click="updateAddon(addon, $event)" type="checkbox" :checked="inArray('benefits_addons_in_cart', addon.attributes.drupal_internal__addon_id)" />
+                        <span class="checkmark"></span>
+                      </label>
+                    </div>
+                    <div class="description">
+                      <h3>{{addon.attributes.title}} (+ {{addon.attributes.price.formatted}} / mo )</h3>
+                      <p v-html="addon.attributes.field_om_addon_description && addon.attributes.field_om_addon_description.processed"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
       </div>
     </div>
-    <div class="navigation" v-if="parseFloat(this.total_price) != parseFloat(this.subtotal_price)">
+    <div class="navigation">
       <div class="container">
         Discounts & Add-Ons: {{discount_addons}} USD<button class="btn btn-next" @click="$emit('go-next')">Next</button>
       </div>
@@ -78,7 +132,9 @@ export default {
   computed: {
     discount_addons() {
       let total_price = parseFloat(this.total_price);
-      let subtotal_price = parseFloat(this.subtotal_price);
+      let product = this.$store.state.product.variations[this.$store.state.product.variant];
+      
+      let subtotal_price = parseFloat(product.price);
       let count = total_price - subtotal_price;
       if (count > 0) {
         return '+' + count;
@@ -148,6 +204,11 @@ export default {
       total_price: 0,
       subtotal_price: 0,
       member_promotions: {},
+      addons_in_cart: [],
+      benefits_addons_in_cart: [],
+      benefits_packages_addons_in_cart: [],
+      member_addons_in_cart: [],
+      cart_id: null
     };
   },
   methods: {
@@ -340,6 +401,9 @@ export default {
         url:
           "/cart?_format=json",
         dataType: "json"
+      }).then((json) => {
+        this.total_price = json[0].total_price.number;
+        return json
       });
     },
     removeMembers(members) {
@@ -396,6 +460,7 @@ export default {
       });
     },
     addAddon(addon) {
+      this.isLoading = true;
       return window.jQuery.ajax({
         url: "/cart/add?_format=json",
         contentType: "application/json",
@@ -412,7 +477,127 @@ export default {
             combine: false
           }
         ])
+      }).then(() => {
+        return this.getOrders();
+      }).then(json => {
+        this.member_addons_in_cart = [];
+        this.benefits_packages_addons_in_cart = [];
+        this.benefits_addons_in_cart = [];
+        json.forEach(order => {
+          order.order_items.forEach(item => {
+            switch(item.purchased_entity.type) {
+              case "membership_addon":
+                switch (item.purchased_entity.field_om_addon_type) {
+                  case "benefits":
+                    this.benefits_addons_in_cart.push({
+                      ...item.purchased_entity,
+                      order_item_id: item.order_item_id,
+                      uuid: item.uuid,
+                      order_id: item.order_id
+                    })
+                    break;
+                  case "benefits_packages":
+                    this.benefits_packages_addons_in_cart.push({
+                      ...item.purchased_entity,
+                      order_item_id: item.order_item_id,
+                      uuid: item.uuid,
+                      order_id: item.order_id
+                    })
+                    break;
+                  default:
+                    this.member_addons_in_cart.push({
+                      ...item.purchased_entity,
+                      order_item_id: item.order_item_id,
+                      uuid: item.uuid,
+                      order_id: item.order_id
+                    })
+                    break;
+                }
+                break;
+            }
+          })
+        })
+        this.isLoading = false;
+      }).catch(() => {
+        this.isLoading = false;
+      })
+    },
+    removeAddon(addon) {
+      if (addon.order_item_id) {
+        this.isLoading = true;
+        return window.jQuery.ajax({
+          url: "/cart/" + addon.order_id + "/items/" + addon.order_item_id + "?_format=json",
+          dataType: "json",
+          type: "DELETE",
+          headers: {
+            "X-CSRF-Token": this.token
+          }
+        }).then(() => {
+          return this.getOrders();
+        }).then(json => {
+          this.member_addons_in_cart = [];
+          this.benefits_packages_addons_in_cart = [];
+          this.benefits_addons_in_cart = [];
+          json.forEach(order => {
+            order.order_items.forEach(item => {
+              switch(item.purchased_entity.type) {
+                case "membership_addon":
+                  
+                  switch (item.purchased_entity.field_om_addon_type) {
+                    case "benefits":
+                    this.benefits_addons_in_cart.push({
+                      ...item.purchased_entity,
+                      order_item_id: item.order_item_id,
+                      uuid: item.uuid,
+                      order_id: item.order_id
+                    })
+                    break;
+                  case "benefits_packages":
+                    this.benefits_packages_addons_in_cart.push({
+                      ...item.purchased_entity,
+                      order_item_id: item.order_item_id,
+                      uuid: item.uuid,
+                      order_id: item.order_id
+                    })
+                    break;
+                  default:
+                    this.member_addons_in_cart.push({
+                      ...item.purchased_entity,
+                      order_item_id: item.order_item_id,
+                      uuid: item.uuid,
+                      order_id: item.order_id
+                    })
+                    break;
+                  }
+              }
+            })
+          })
+          this.isLoading = false;
+        }).catch(() => {
+          this.isLoading = false;
+        })
+      }
+      return addon
+    },
+    inArray(addons, id) {
+      let filtered = this[addons].filter((el) => {
+        return el.addon_id == id
       });
+      return filtered.length;
+    },
+    updateAddon(addon, event) {
+      event.preventDefault();
+      let filtered = this[addon.attributes.field_om_addon_type + '_addons_in_cart'].filter((el) => {
+        return el.addon_id == addon.attributes.drupal_internal__addon_id
+      });
+      if (filtered.length) {
+        filtered.forEach((el => {
+          return this.removeAddon(el)
+        }));
+      }
+      else {
+        return this.addAddon(addon);
+      }
     }
   },
   components: {

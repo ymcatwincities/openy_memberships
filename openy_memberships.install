@@ -1,7 +1,7 @@
 <?php 
 use Drupal\user\Entity\Role;
 
-function mymodule_install() {
+function openy_memberships_install() {
   $role_object = Role::load('anonymous');
   $role_object->grantPermission('create family_members profile');
   $role_object->grantPermission('delete own family_members profile');
@@ -10,6 +10,9 @@ function mymodule_install() {
   $role_object->grantPermission('update membership_order commerce_order');
   $role_object->grantPermission('view membership commerce_product');
   $role_object->grantPermission('view own commerce_order');
+  $role_object->grantPermission('view membership_addon commerce_addon');
+  $role_object->grantPermission('view commerce_addon');
+  $role_object->grantPermission('restful get openy_memberships_summary');
   $role_object->save();
 
   $role_object = Role::load('authenticated');
@@ -20,9 +23,38 @@ function mymodule_install() {
   $role_object->grantPermission('update membership_order commerce_order');
   $role_object->grantPermission('view membership commerce_product');
   $role_object->grantPermission('view own commerce_order');
+  $role_object->grantPermission('view membership_addon commerce_addon');
+  $role_object->grantPermission('view commerce_addon');
+  $role_object->grantPermission('restful get openy_memberships_summary');
   $role_object->save();
 
-  \Drupal::config('jsonapi.settings')
-    ->set('read_only', FALSE)
-    ->save();
+  $config_factory = \Drupal::configFactory();
+  $config = $config_factory->getEditable('commerce_order.commerce_order_item_type.addon');
+  $config->set('orderType', 'membership_order')->save();
+
+  $config = $config_factory->getEditable('jsonapi.settings');
+  $config->set('read_only', FALSE)->save();
+
+}
+
+
+/**
+ * Update order type for addons.
+ */
+function openy_memberships_update_8001() {
+  $config_factory = \Drupal::configFactory();
+  $config = $config_factory->getEditable('commerce_order.commerce_order_item_type.addon');
+  $config->set('orderType', 'membership_order')->save();
+
+  $role_object = Role::load('anonymous');
+  $role_object->grantPermission('view membership_addon commerce_addon');
+  $role_object->grantPermission('view commerce_addon');
+  $role_object->grantPermission('restful get openy_memberships_summary');
+  $role_object->save();
+
+  $role_object = Role::load('authenticated');
+  $role_object->grantPermission('view membership_addon commerce_addon');
+  $role_object->grantPermission('view commerce_addon');
+  $role_object->grantPermission('restful get openy_memberships_summary');
+  $role_object->save();
 }

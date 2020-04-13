@@ -57,15 +57,49 @@
     display: flex;
     align-items: center;
     justify-content: space-between; }
-  .membership-app .income-wrapper {
+  .membership-app .add-addon {
+    color: #0060af;
+    background-color: transparent;
+    padding-right: 10px;
+    border: none; }
+  .membership-app .income-wrapper, .membership-app .addon-wrapper {
     display: flex;
     flex: 1;
     align-items: center;
     justify-content: space-between; }
-    .membership-app .income-wrapper .price {
+    .membership-app .income-wrapper .price, .membership-app .addon-wrapper .price {
       font-weight: 600;
       margin-right: auto;
       margin-left: 15px; }
+    .membership-app .income-wrapper h3, .membership-app .addon-wrapper h3 {
+      font: Bold 14px/21px Verdana;
+      letter-spacing: 0px;
+      color: #231F20; }
+  .membership-app .addon-wrapper {
+    border: 1px solid #f2f2f2;
+    padding: 5px;
+    margin-bottom: 5px; }
+    .membership-app .addon-wrapper button {
+      font-size: 20px;
+      color: #0060af;
+      background-color: transparent;
+      width: auto;
+      border: 0; }
+    .membership-app .addon-wrapper .price {
+      margin-right: 15px;
+      margin-left: auto; }
+    .membership-app .addon-wrapper .checkbox {
+      padding: 15px;
+      margin: 8px 0; }
+  .membership-app .benefits .addon-wrapper {
+    justify-content: flex-start;
+    align-items: flex-start;
+    border: none;
+    padding: 0px; }
+    .membership-app .benefits .addon-wrapper .description {
+      width: 100%;
+      padding-left: 10px;
+      margin-bottom: 0px; }
   .membership-app .container-checkbox {
     display: block;
     position: relative;
@@ -116,11 +150,25 @@
   .membership-app .discount {
     display: flex; }
     .membership-app .discount .checkbox {
-      margin-top: 20px;
-      width: 50px; }
+      padding: 15px;
+      width: 50px;
+      margin-top: 8px; }
+    .membership-app .discount h3 {
+      font: Bold 14px/21px Verdana;
+      letter-spacing: 0px;
+      color: #231F20; }
   .membership-app .adjustments {
     display: flex;
-    flex-wrap: wrap; }
+    flex-wrap: wrap;
+    margin: 0 -10px; }
+    .membership-app .adjustments .description {
+      margin-bottom: 0px; }
+    .membership-app .adjustments h2 {
+      font: Medium 36px/36px Cachet, Verdana, sans-serif;
+      letter-spacing: 0px;
+      color: #231F20;
+      padding: 10px 0px;
+      border-top: 5px solid #00AEEF; }
     .membership-app .adjustments .discounts {
       width: 50%;
       padding: 10px; }
@@ -516,7 +564,9 @@
       text-align: left;
       font: 500 36px/54px 'Cachet', Verdana, sans-serif;
       letter-spacing: 0;
-      color: #231F20; }
+      color: #231F20;
+      margin: 0px;
+      padding: 0; }
     .membership-app .product .select {
       background: #92278F 0% 0% no-repeat padding-box;
       border: 2px solid #92278F;

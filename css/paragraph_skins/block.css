@@ -1,4 +1,12 @@
 .ps-3c-openy-memberships-block.block-description--3 {
+  margin: 0; }
+  .ps-3c-openy-memberships-block.block-description--3 .block-description--text {
+    padding: 0; }
+    .ps-3c-openy-memberships-block.block-description--3 .block-description--text h2.with-icon {
+      margin: 0;
+      padding: 0; }
+
+.ps-3c-openy-memberships-block.block-description--3 {
   display: flex;
   padding: 0 5px; }
   .ps-3c-openy-memberships-block.block-description--3 .field-prgf-3c-left, .ps-3c-openy-memberships-block.block-description--3 .field-prgf-3c-center, .ps-3c-openy-memberships-block.block-description--3 .field-prgf-3c-right {
