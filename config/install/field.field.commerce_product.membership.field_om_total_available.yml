@@ -1,0 +1,42 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - commerce_product.commerce_product_type.membership
+    - field.storage.commerce_product.field_om_total_available
+    - taxonomy.vocabulary.memberships_ages_groups
+  module:
+    - datalayer
+    - openy_memberships
+third_party_settings:
+  datalayer:
+    expose: 0
+    label: field_om_total_available
+id: commerce_product.membership.field_om_total_available
+field_name: field_om_total_available
+entity_type: commerce_product
+bundle: membership
+label: 'Total Available'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      memberships_ages_groups: memberships_ages_groups
+    sort:
+      field: name
+      direction: asc
+    auto_create: 0
+    auto_create_bundle: ''
+  pr_label: 'Ages group'
+  added_reference:
+    ar_bundles:
+      membership_addon: membership_addon
+      default: 0
+    ar_label: 'Related Add-on'
+    ar_weight: '-50'
+field_type: openy_memberships_multi_item
