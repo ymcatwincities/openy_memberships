@@ -43,6 +43,7 @@ feature-card:
     theme:
       css/paragraph_skins/feature-card.css: {}
 
+<<<<<<< HEAD
 banner:
   version: 1.x
   css:
@@ -66,3 +67,9 @@ block2benefits:
   css:
     theme:
       css/paragraph_skins/block2-benefits.css: {}
+
+memberships-app:
+  version: 1.x
+  css:
+    theme:
+      css/paragraph_skins/memberships-app.css: {}

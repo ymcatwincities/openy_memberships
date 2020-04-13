@@ -9,7 +9,7 @@
           </h1>
         </div>
       </div>
-      <div class="description">  
+      <div class="description">
         <div class="description-text">
           Here's a summary of your membership. Keep scrolling to take the next step!
         </div>
@@ -108,7 +108,3 @@ export default {
   }
 };
 </script>
-
-<style lang="scss" scoped>
-</style>
-
