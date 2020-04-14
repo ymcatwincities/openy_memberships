@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+name: 'Memberships Ages Groups'
+vid: memberships_ages_groups
+description: 'Vocabulary for storing ages groups used in products.'
+weight: 0
