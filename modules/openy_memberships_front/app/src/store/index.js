@@ -11,6 +11,9 @@ export default {
         seniors: 0
       },
       product: null,
+      keepCart: true,
+      members: {},
+      income: 0,
     },
     mutations
 }

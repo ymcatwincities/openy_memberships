@@ -13,5 +13,8 @@ export default {
   },
   setProduct(state, product) {
     state.product = product
+  },
+  setItem(state, item) {
+    state[item.key] = item.value
   }
 }

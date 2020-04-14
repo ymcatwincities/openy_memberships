@@ -39,11 +39,23 @@
             <div class="title">Discounts & Add-Ons</div>
             <div class="options">
               <div :key="index" v-for="(discount, index) in discounts">
-                {{discount.title }}: {{discount.amount }}
-                <p>{{discount.member_name}}</p>
+                <div class="addon">
+                  <div class="addon-title">{{discount.title }}:</div> 
+                  <div class="addon-price">- ${{ discount.amount | numFormat('0.00') }} /mo.</div>
+                  <p>{{discount.member_name}}</p>
+                </div>
               </div>
               <div :key="index" v-for="(addon, index) in addons">
-                {{addon.title }}: {{addon.amount }}
+                  <div class="addon">
+                    <div class="addon-title">{{addon.title }}:</div>
+                    <div class="addon-price">+ ${{ addon.amount | numFormat('0.00') }} /mo.</div>
+                  </div>
+              </div>
+              <div>
+                <div class="addon">
+                  <div class="addon-title"><button @click="goToDiscount" class="add-addon">Find More</button></div>
+                  <div class="addon-price"></div>
+                </div>
               </div>
             </div>
           </div>
@@ -51,8 +63,8 @@
             <div class="title">Cost Summary</div>
             <div class="options">
               <div class="product-columns">
-                <div class="price-title">Dues</div>
-                <div class="price-value text-align-right">{{ total_price }}</div>
+                <div class="price-title"><b>Dues</b></div>
+                <div class="price-value text-align-right"><b>${{ total_price | numFormat('0.00') }} / mo</b></div>
               </div>
             </div>
           </div>
@@ -112,6 +124,11 @@ export default {
   },
   components: {
     Loading
+  },
+  methods: {
+    goToDiscount() {
+      this.$router.push({ name: 'DiscountFinder'});
+    }
   }
 };
 </script>

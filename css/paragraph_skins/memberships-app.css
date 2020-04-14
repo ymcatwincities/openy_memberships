@@ -60,7 +60,8 @@
   .membership-app .add-addon {
     color: #0060af;
     background-color: transparent;
-    padding-right: 10px;
+    margin-right: 10px;
+    padding-left: 0;
     border: none; }
   .membership-app .income-wrapper, .membership-app .addon-wrapper {
     display: flex;
@@ -98,7 +99,6 @@
     padding: 0px; }
     .membership-app .benefits .addon-wrapper .description {
       width: 100%;
-      padding-left: 10px;
       margin-bottom: 0px; }
   .membership-app .container-checkbox {
     display: block;
@@ -151,7 +151,6 @@
     display: flex; }
     .membership-app .discount .checkbox {
       padding: 15px;
-      width: 50px;
       margin-top: 8px; }
     .membership-app .discount h3 {
       font: Bold 14px/21px Verdana;
@@ -162,6 +161,8 @@
     flex-wrap: wrap;
     margin: 0 -10px; }
     .membership-app .adjustments .description {
+      display: block;
+      padding-left: 0;
       margin-bottom: 0px; }
     .membership-app .adjustments h2 {
       font: Medium 36px/36px Cachet, Verdana, sans-serif;
@@ -583,16 +584,35 @@
       display: flex;
       flex-wrap: wrap;
       margin: 0 -5px; }
-      .membership-app .product .product-columns .options .branch {
-        padding: 15px 0;
-        font: Bold 14px/21px Verdana;
-        letter-spacing: 0;
-        color: #231F20; }
+      @media (max-width: 960px) {
+        .membership-app .product .product-columns > div {
+          min-width: 100%; } }
+      .membership-app .product .product-columns .options {
+        padding-top: 15px; }
+        .membership-app .product .product-columns .options .branch {
+          padding: 0px 0px 15px;
+          font: Bold 14px/21px Verdana;
+          letter-spacing: 0;
+          color: #231F20; }
+        .membership-app .product .product-columns .options .addon {
+          display: flex;
+          flex-wrap: wrap;
+          flex: 1;
+          padding-bottom: 10px; }
+          .membership-app .product .product-columns .options .addon .addon-title {
+            text-align: left; }
+          .membership-app .product .product-columns .options .addon .addon-price {
+            margin-left: auto;
+            text-align: right; }
+          .membership-app .product .product-columns .options .addon p {
+            margin: 0; }
       .membership-app .product .product-columns .title {
         padding: 5px;
         color: #231F20;
         background-color: #f2f2f2;
         font: 500 18px/27px 'Cachet', Verdana, sans-serif; }
+      .membership-app .product .product-columns .price-title, .membership-app .product .product-columns .price-value {
+        padding-top: 0; }
       .membership-app .product .product-columns > div {
         padding: 5px;
         flex: 1; }

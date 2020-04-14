@@ -211,7 +211,7 @@ class OpenyMemberships extends ControllerBase {
           $products[$product->uuid()]['variations'][] = [
             'uuid' => $variant->entity->uuid(),
             'id' => $variant->entity->id(),
-            'price' => $variant->entity->getPrice()->__toString(), //toArray(),
+            'price' => $variant->entity->getPrice()->toArray()['number'],
             'field_best_value' => $variant->entity->field_best_value->value,
             'title' => $variant->entity->label(),
           ];
