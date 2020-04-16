@@ -22,7 +22,6 @@
       margin-top: 20px; } }
   @media all and (min-width: 1060px) {
     .ps-sidebar_menu-openy-memberships-sidebar-menu {
-      border-top: 1px solid black;
       margin-top: 30px; }
       .ps-sidebar_menu-openy-memberships-sidebar-menu ul {
         display: initial; }
