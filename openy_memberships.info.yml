@@ -31,4 +31,7 @@ dependencies:
   - views
   - openy_memberships_front
   - commerce_cart_api
+  - openy_block_feature_card
+  - openy_block_paragraph_container
+  - openy_prgf_block_container
 core_incompatible: false

@@ -1,18 +1,19 @@
+uuid: 53af7f06-0f6f-45b3-b9f8-014ae9ed0c9c
 langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.block.field_block
-    - paragraphs.paragraphs_type.block
+    - field.field.paragraph.block_container.field_block_ref
+    - paragraphs.paragraphs_type.block_container
   module:
     - entity_browser_entity_form
     - inline_entity_form
-id: paragraph.block.default
+id: paragraph.block_container.default
 targetEntityType: paragraph
-bundle: block
+bundle: block_container
 mode: default
 content:
-  field_block:
+  field_block_ref:
     weight: -4
     settings:
       form_mode: default
