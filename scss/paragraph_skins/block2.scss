@@ -1,18 +1,16 @@
-.ps-block-openy-memberships-block2 .wrapper-field-block {
+.ps-block_container-openy-memberships-block2 .wrapper-field-block-ref {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 10px;
   padding-top: 15px;
 
-  .field-block {
+  .field-block-ref {
     border: solid 1px #92278f;
     border-top: solid 5px #92278f;
     margin-bottom: 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
-
 
     .field-fc-image {
       display: none;
@@ -54,7 +52,7 @@
   @media all and (min-width: 600px) {
     grid-gap: 20px;
 
-    .field-block {
+    .field-block-ref {
       .field-fc-title {
         padding: 10px;
       }
@@ -68,7 +66,7 @@
   @media all and (min-width: 1060px) {
     grid-gap: 20px;
 
-    .field-block {
+    .field-block-ref {
       .field-fc-title {
         font-size: 24px;
         line-height: 36px;
@@ -91,7 +89,7 @@
       }
     }
 
-    .field-block:last-of-type {
+    .field-block-ref:last-of-type {
       div:last-of-type {
         a.btn:after {
           content: "\f062";

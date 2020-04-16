@@ -26,7 +26,7 @@ openy_memberships.paragraph_skins:
 
   - name: openy-memberships-desktop-sidebar
     label: 'Memberships Desktop Sidebar'
-    paragraph_type: block
+    paragraph_type: block_container
     library: 'openy_memberships/desktop-sidebar'
 
   - name: openy-memberships-sidebar-menu
@@ -41,7 +41,7 @@ openy_memberships.paragraph_skins:
 
   - name: openy-memberships-feature-card
     label: 'Memberships Feature card'
-    paragraph_type: block
+    paragraph_type: block_container
     library: 'openy_memberships/feature-card'
 
   - name: openy-memberships-banner
@@ -51,17 +51,17 @@ openy_memberships.paragraph_skins:
 
   - name: openy-memberships-block3
     label: 'Memberships 3 Blocks'
-    paragraph_type: block
+    paragraph_type: block_container
     library: 'openy_memberships/block3'
 
   - name: openy-memberships-block2
     label: 'Memberships 2 Blocks'
-    paragraph_type: block
+    paragraph_type: block_container
     library: 'openy_memberships/block2'
 
   - name: openy-memberships-block2-benefits
     label: 'Memberships 2 Blocks Benefits'
-    paragraph_type: block
+    paragraph_type: block_container
     library: 'openy_memberships/block2benefits'
 
   - name: openy-memberships-app

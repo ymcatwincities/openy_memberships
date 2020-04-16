@@ -1,5 +1,5 @@
-.ps-block-openy-memberships-feature-card .wrapper-field-block {
-  .field-block {
+.ps-block_container-openy-memberships-feature-card .wrapper-field-block-ref {
+  .field-block-ref {
     margin-top: 30px;
     padding: 0 !important;
 
@@ -73,11 +73,11 @@
     display: flex;
     justify-content: space-between;
 
-    .field-block:first-child {
+    .field-block-ref:first-child {
       margin-right: 20px;
     }
 
-    .field-block {
+    .field-block-ref {
       margin-top: 0;
       width: 50%;
       grid-template-rows: 170px;
@@ -126,7 +126,7 @@
   @media all and (max-width: 600px) {
     margin-top: 10px;
 
-    .field-block:first-child {
+    .field-block-ref:first-child {
       margin-right: 10px;
     }
   }

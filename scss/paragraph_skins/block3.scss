@@ -1,18 +1,17 @@
-.ps-block-openy-memberships-block3 .wrapper-field-block {
+.ps-block_container-openy-memberships-block3 .wrapper-field-block-ref {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   padding-top: 20px;
   margin: 0;
 
-  .field-block {
+  .field-block-ref {
     border: solid 1px #92278f;
     border-top: solid 5px #92278f;
     margin-bottom: 10px;
     width: 350px;
     display: flex;
     flex-direction: column;
-
 
     .field-fc-image {
       width: 100%;
@@ -62,7 +61,7 @@
 
   @media all and (min-width: 600px) {
     margin-right: -20px;
-    .field-block{
+    .field-block-ref{
       width: 220px;
       margin-bottom: 20px;
       margin-right: 20px;
@@ -83,7 +82,7 @@
   @media all and (min-width: 1200px) {
     justify-content: space-between;
     margin-right: -30px;
-    .field-block {
+    .field-block-ref {
       width: 350px;
       margin-bottom: 30px;
       margin-right: 30px;
