@@ -21,7 +21,8 @@
   .add-addon {
     color: #0060af;
     background-color: transparent;
-    padding-right: 10px;
+    margin-right: 10px;
+    padding-left: 0;
     border:  none;
   }
   .income-wrapper, .addon-wrapper {
@@ -69,7 +70,6 @@
       
       .description {
         width: 100%;
-        padding-left: 10px;
         margin-bottom: 0px;
       }
     }
@@ -133,7 +133,6 @@
     display: flex;
     .checkbox {
       padding: 15px;
-      width: 50px;
       margin-top: 8px;
     }
     h3 {
@@ -147,6 +146,8 @@
     flex-wrap: wrap;
     margin: 0 -10px;
     .description {
+      display: block;
+      padding-left: 0;
       margin-bottom: 0px;
     }
     h2 {
@@ -427,14 +428,35 @@
     .product-columns {
       display: flex;
       flex-wrap: wrap;
+      > div {
+        @media (max-width: 960px) {
+          min-width: 100%;
+        }
+      }
       margin: 0 -5px;
       .options {
-        
+        padding-top: 15px;
         .branch {
-          padding: 15px 0;
+          padding: 0px 0px 15px;
           font: Bold 14px/21px Verdana;
           letter-spacing: 0;
           color: #231F20;
+        }
+        .addon {
+          display: flex;
+          flex-wrap: wrap;
+          flex: 1;
+          .addon-title {
+            text-align: left;
+          }
+          .addon-price {
+            margin-left: auto;
+            text-align: right;
+          }
+          p {
+            margin: 0;
+          }
+          padding-bottom: 10px;
         }
       }
       .title {
@@ -442,6 +464,9 @@
         color: #231F20;
         background-color: #f2f2f2;
         font: 500 18px/27px 'Cachet', Verdana, sans-serif;
+      }
+      .price-title, .price-value {
+        padding-top: 0;
       }
       > div {
         padding: 5px;

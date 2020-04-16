@@ -16,7 +16,7 @@
             <div class="income-wrapper">
               <div class="eligible">Eligible</div>
               <div class="price">
-                - ${{-discounts.income.amount}} / mo
+                - ${{-discounts.income.amount | numFormat('0.00')}} / mo
               </div>
               <div class="btn-remove"><button class="remove-income" @click="removeIncome">×</button></div>
             </div>
@@ -27,7 +27,7 @@
             <button @click="checkDiscounts(true)">Check</button>
           </div>
           <div :key="index" v-for="(member, index) in members">
-            <h3>{{family_members[index].attributes.field_first_name}}</h3>
+            <h3>{{family_members[index] && family_members[index].attributes.field_first_name}}</h3>
             <div class="discount">
               <div class="checkbox">
                 <label class="container-checkbox">
@@ -118,7 +118,7 @@
     </div>
     <div class="navigation">
       <div class="container">
-        Discounts & Add-Ons: {{discount_addons}} USD<button class="btn btn-next" @click="$emit('go-next')">Next</button>
+        Discounts & Add-Ons: <b>{{discount_addons}} /mo.</b> <button class="btn btn-next" @click="$emit('go-next')">Next</button>
       </div>
     </div>
   </section>
@@ -137,13 +137,23 @@ export default {
       let subtotal_price = parseFloat(product.price);
       let count = total_price - subtotal_price;
       if (count > 0) {
-        return '+' + count;
+        return '+ $' + count;
       }
-      return count;
+      if (count == 0) {
+        return '$' + count;
+      }
+      return '- $' + -count;
     }
   },
   mounted() {
     this.isLoading = true;
+    if (this.$store.state.keepCart == false) {
+      this.removeIncome();
+      this.$store.commit('setItem', { 
+        key: 'members',
+        value: {},
+      });
+    }
     this.getUserInfo()
       .then(() => {
         // let user_id = json.meta ? json.meta.links.me.meta.id : null;
@@ -160,7 +170,7 @@ export default {
         return json;
       })
       .then(json => {
-        if (json.length) {
+        if (json.length && this.$store.state.keepCart == false) {
           let removes = json.map(json => {
             let order = json.data;
             let members = order.relationships.field_family.data;
@@ -180,16 +190,30 @@ export default {
         return json;
       })
       .then(() => {
-        return this.createOrder().then(json => {
-          return this.setMembers(json.data);
-        }).then(() => {
-          return this.checkDiscounts();
-        });
-
+        if (this.$store.state.keepCart == false) {
+          return this.createOrder().then(json => {
+            return this.setMembers(json.data);
+          }).then(() => {
+            return this.checkDiscounts();
+          });
+        }
+        else {
+          return this.restoreMembers().then(() => {
+            return this.checkDiscounts();
+          });
+        }
       }).then(() => {
         this.isLoading = false;
+        this.$store.commit('setItem', {
+          key: 'keepCart',
+          value: true,
+        })
       }).catch(() => {
         this.isLoading = false;
+        this.$store.commit('setItem', {
+          key: 'keepCart',
+          value: true,
+        })
       });
   },
   data() {
@@ -198,8 +222,8 @@ export default {
       discounts: null,
       addons: {},
       token: null,
-      income: 0,
-      members: {},
+      income: this.$store.state.income || 0,
+      members: this.$store.state.members || {},
       family_members: [],
       total_price: 0,
       subtotal_price: 0,
@@ -214,6 +238,7 @@ export default {
   methods: {
     removeIncome() {
       this.income = 0;
+      this.$store.commit('setItem', {key: 'income', value: this.income});
       this.checkDiscounts(true);
     },
     createMember(member) {
@@ -329,11 +354,32 @@ export default {
           });
         });
     },
+    restoreMembers() {
+      return this.getCart().then(json => {
+        let order_uuid = json[0].uuid;
+        return window.jQuery.ajax({
+          url: "/jsonapi/commerce_order/membership_order/" + order_uuid + "?include=field_family",
+          contentType: "application/vnd.api+json",
+          type: "GET",
+          dataType: "json",
+          headers: {
+            "X-CSRF-Token": this.token
+          }
+        });
+      }).then(json => {
+        this.family_members = [];
+        json.included.forEach((member) => {
+          this.family_members.push(member);
+        });
+        return this.family_members;
+      });
+    },
     setMembers(data) {
       //this.family_members = data.relationships.field_family.data;
       this.members = data.relationships.field_family.data.map(() => {
         return [0, 0]
-      })
+      });
+      this.$store.commit('setItem', {key: 'members', value: this.members});
     },
     checkDiscounts(show_loader) {
       let checkboxes = this.members.reduce((total, currentValue) => {
@@ -343,6 +389,8 @@ export default {
         return  total + currentValue.map(el => +el).join(',');
       }, '');
       let income = parseInt(this.income);
+      this.$store.commit('setItem', {key: 'income', value: income});
+      this.$store.commit('setItem', {key: 'members', value: this.members});
       if (show_loader) {
         this.isLoading = true;
       }
@@ -359,13 +407,11 @@ export default {
         this.total_price = data.total_price;
         this.subtotal_price = data.subtotal_price;
         this.member_promotions = data.member_promotions;
+        
         this.isLoading = false;
       }).catch(() => {
         this.isLoading = false;
       });
-    },
-    buildDiscounts() {
-
     },
     getToken() {
       return window.jQuery
@@ -404,6 +450,45 @@ export default {
       }).then((json) => {
         this.total_price = json[0].total_price.number;
         return json
+      }).then(json => {
+        this.member_addons_in_cart = [];
+        this.benefits_packages_addons_in_cart = [];
+        this.benefits_addons_in_cart = [];
+        json.forEach(order => {
+          order.order_items.forEach(item => {
+            switch(item.purchased_entity.type) {
+              case "membership_addon":
+                switch (item.purchased_entity.field_om_addon_type) {
+                  case "benefits":
+                    this.benefits_addons_in_cart.push({
+                      ...item.purchased_entity,
+                      order_item_id: item.order_item_id,
+                      uuid: item.uuid,
+                      order_id: item.order_id
+                    })
+                    break;
+                  case "benefits_packages":
+                    this.benefits_packages_addons_in_cart.push({
+                      ...item.purchased_entity,
+                      order_item_id: item.order_item_id,
+                      uuid: item.uuid,
+                      order_id: item.order_id
+                    })
+                    break;
+                  default:
+                    this.member_addons_in_cart.push({
+                      ...item.purchased_entity,
+                      order_item_id: item.order_item_id,
+                      uuid: item.uuid,
+                      order_id: item.order_id
+                    })
+                    break;
+                }
+                break;
+            }
+          })
+        });
+        return json;
       });
     },
     removeMembers(members) {
@@ -482,44 +567,7 @@ export default {
         ])
       }).then(() => {
         return this.getOrders();
-      }).then(json => {
-        this.member_addons_in_cart = [];
-        this.benefits_packages_addons_in_cart = [];
-        this.benefits_addons_in_cart = [];
-        json.forEach(order => {
-          order.order_items.forEach(item => {
-            switch(item.purchased_entity.type) {
-              case "membership_addon":
-                switch (item.purchased_entity.field_om_addon_type) {
-                  case "benefits":
-                    this.benefits_addons_in_cart.push({
-                      ...item.purchased_entity,
-                      order_item_id: item.order_item_id,
-                      uuid: item.uuid,
-                      order_id: item.order_id
-                    })
-                    break;
-                  case "benefits_packages":
-                    this.benefits_packages_addons_in_cart.push({
-                      ...item.purchased_entity,
-                      order_item_id: item.order_item_id,
-                      uuid: item.uuid,
-                      order_id: item.order_id
-                    })
-                    break;
-                  default:
-                    this.member_addons_in_cart.push({
-                      ...item.purchased_entity,
-                      order_item_id: item.order_item_id,
-                      uuid: item.uuid,
-                      order_id: item.order_id
-                    })
-                    break;
-                }
-                break;
-            }
-          })
-        })
+      }).then(() => {
         this.isLoading = false;
       }).catch(() => {
         this.isLoading = false;
