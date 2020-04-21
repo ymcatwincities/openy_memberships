@@ -35,6 +35,8 @@ function openy_memberships_install() {
   $config = $config_factory->getEditable('jsonapi.settings');
   $config->set('read_only', FALSE)->save();
 
+  openy_memberships_update_8002();
+  openy_memberships_update_8003();
 }
 
 
@@ -55,6 +57,59 @@ function openy_memberships_update_8001() {
   $role_object = Role::load('authenticated');
   $role_object->grantPermission('view membership_addon commerce_addon');
   $role_object->grantPermission('view commerce_addon');
+  $role_object->grantPermission('restful get openy_memberships_summary');
+  $role_object->save();
+}
+
+/**
+ * Update fields for profiles.
+ */
+function openy_memberships_update_8002() {
+  $config_factory = \Drupal::configFactory();
+  $config = $config_factory->getEditable('openy_memberships_front.settings');
+  $config->set("steps", "BranchSelectorHome\r\nFamily\r\nResults\r\nDiscountFinder\r\nSummary\r\nJoinNow\r\nSuccess")
+    ->save();
+  $entity_type_manager = \Drupal::entityTypeManager();
+  $bundle_of = 'profile';
+
+  $storage = $entity_type_manager->getStorage($bundle_of);
+  $bundle_definition = $entity_type_manager->getDefinition($bundle_of);
+  $definition_manager = \Drupal::entityDefinitionUpdateManager();
+
+  // Create a new field field_phone definition.
+  $email_field = BaseFieldDefinition::create('string')
+    ->setLabel(t('Email'))
+    ->setDescription(t('Customer Email'))
+    ->setRevisionable(FALSE)
+    ->setTranslatable(FALSE);
+  // Install the new definition.
+  $definition_manager->installFieldStorageDefinition('field_email', 'customer', $bundle_of, $email_field);
+
+  // Create a new field field_phone definition.
+  $field_phone = BaseFieldDefinition::create('string')
+    ->setLabel(t('Phone'))
+    ->setDescription(t('Customer Phone'))
+    ->setRevisionable(FALSE)
+    ->setTranslatable(FALSE);
+  // Install the new definition.
+  $definition_manager->installFieldStorageDefinition('field_phone', 'customer', $bundle_of, $field_phone);
+}
+
+/**
+ * Update permissions.
+ */
+function openy_memberships_update_8003() {
+  $role_object = Role::load('anonymous');
+  $role_object->grantPermission('create customer profile');
+  $role_object->grantPermission('update own customer profile');
+  $role_object->grantPermission('restful get openy_memberships_summary');
+  $role_object->grantPermission('restful get openy_memberships_summary');
+  $role_object->save();
+
+  $role_object = Role::load('authenticated');
+  $role_object->grantPermission('create customer profile');
+  $role_object->grantPermission('update own customer profile');
+  $role_object->grantPermission('view own customer profile');
   $role_object->grantPermission('restful get openy_memberships_summary');
   $role_object->save();
 }

@@ -2,14 +2,15 @@
 
 namespace Drupal\openy_memberships\Controller;
 
-use Drupal\commerce_cart\CartProviderInterface;
 use Drupal\commerce_price\Price;
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\Core\Config\ConfigFactoryInterface;
-use Drupal\Core\Entity\EntityTypeManagerInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Request;
+use Drupal\Core\Config\ConfigFactoryInterface;
+use Drupal\Core\Session\AccountProxyInterface;
+use Drupal\commerce_cart\CartProviderInterface;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Provides OpenyMemberships controller.
@@ -38,6 +39,11 @@ class OpenyMemberships extends ControllerBase {
   protected $cartProvider;
 
   /**
+   * @var \Drupal\Core\Session\AccountProxy
+   */
+  protected $currentUser;
+
+  /**
    * Constructs a new Memberships object.
    *
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
@@ -47,10 +53,11 @@ class OpenyMemberships extends ControllerBase {
    * @param \Drupal\commerce_cart\CartProviderInterface $cart_provider
    *   The cart provider.
    */
-  public function __construct(EntityTypeManagerInterface $entity_type_manager, ConfigFactoryInterface $config_factory, CartProviderInterface $cart_provider) {
+  public function __construct(EntityTypeManagerInterface $entity_type_manager, ConfigFactoryInterface $config_factory, CartProviderInterface $cart_provider, AccountProxyInterface $current_user) {
     $this->entityTypeManger = $entity_type_manager;
     $this->configFactory = $config_factory;
     $this->cartProvider = $cart_provider;
+    $this->currentUser = $current_user;
   }
 
   /**
@@ -60,7 +67,8 @@ class OpenyMemberships extends ControllerBase {
     return new static(
       $container->get('entity_type.manager'),
       $container->get('config.factory'),
-      $container->get('commerce_cart.cart_provider')
+      $container->get('commerce_cart.cart_provider'),
+      $container->get('current_user')
     );
   }
 
@@ -219,6 +227,40 @@ class OpenyMemberships extends ControllerBase {
       }
     }
     return new JsonResponse($products);
+  }
+
+
+  public function setBillingInfo(Request $request, $order) {
+    $storage = $this->entityTypeManger->getStorage('profile');
+    $postData = json_decode($request->getContent(), TRUE);
+    $profileEntity = $storage->create([
+      'type' => 'customer',
+      'field_email' => $postData['field_email'],
+      'field_phone' => $postData['field_phone'],
+      'address' => [
+        'country_code' => 'US',
+        'address_line1' => '',
+        'locality' => '',
+        'administrative_area' => '',
+        'postal_code' => '',
+        'given_name' => $postData['address']['given_name'],
+        'family_name' => $postData['address']['family_name'],
+      ],
+    ]);
+    $profileEntity->save();
+    if ($profileEntity && $order->access('edit', $this->currentUser)) {
+      $order->set('billing_profile', $profileEntity);
+      $order->save();
+    }
+
+    return new JsonResponse([
+      'order_uuid' => $order->uuid(),
+      'order_id' => $order->id(),
+      'billing_profile' => [
+        'billing_id' => $profileEntity->id(),
+        'billing_uuid' => $profileEntity->uuid(),
+      ],
+    ]);
   }
 
 }

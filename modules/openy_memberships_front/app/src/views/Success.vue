@@ -5,13 +5,14 @@
       <div class="">
         <div class="">
           <h1 class="title">
-            Your Membership
+            Thank You
           </h1>
         </div>
       </div>
       <div class="description">
         <div class="description-text">
-          Here's a summary of your membership. Keep scrolling to take the next step!
+          <b>Your membership request has been received!</b>
+          <p>One of our membership advisors will contact you within 24-hours to schedule a visit, confirm details, and issue your membership card.</p>
         </div>
       </div>
       <div class="product">
@@ -51,12 +52,6 @@
                     <div class="addon-price">+ ${{ addon.amount | numFormat('0.00') }} /mo.</div>
                   </div>
               </div>
-              <div>
-                <div class="addon">
-                  <div class="addon-title"><button @click="goToDiscount" class="add-addon">Find More</button></div>
-                  <div class="addon-price"></div>
-                </div>
-              </div>
             </div>
           </div>
           <div>
@@ -69,7 +64,6 @@
             </div>
           </div>
         </div>
-        <a class="select" @click="$emit('go-next')">JOIN NOW</a>
       </div>
     </div>
   </section>
@@ -78,6 +72,7 @@
 <script>
 import Loading from "vue-loading-overlay";
 import "vue-loading-overlay/dist/vue-loading.css";
+import Cart from '../helpers/Cart';
 
 export default {
   computed: {
@@ -116,10 +111,20 @@ export default {
         this.addons = json.addons;
         this.total_price = json.total_price;
         this.currency = json.currency;
-        this.isLoading = false;
+      })
+      .then(() => {
+        return Cart.getCart();
+      })
+      .then((json) => {
+        return Cart.updateOrderStatus(json[0].uuid).then(() => {
+          this.$store.dispatch('clearStorage')
+
+          this.isLoading = false;
+        })
       })
       .catch(() => {
         this.isLoading = false;
+        this.$store.commit('setStep', 0);
       });
   },
   components: {
