@@ -4,6 +4,7 @@ namespace Drupal\openy_memberships\Controller;
 
 use Drupal\commerce_price\Price;
 use Drupal\Core\Controller\ControllerBase;
+use Drupal\Core\Entity\Query\QueryFactory;
 use Symfony\Component\HttpFoundation\Request;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Session\AccountProxyInterface;
@@ -16,6 +17,13 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
  * Provides OpenyMemberships controller.
  */
 class OpenyMemberships extends ControllerBase {
+
+  /**
+   * The entity query factory.
+   *
+   * @var \Drupal\Core\Entity\Query\QueryFactory
+   */
+  protected $entityQuery;
 
   /**
    * The entityTypeManger.
@@ -46,6 +54,8 @@ class OpenyMemberships extends ControllerBase {
   /**
    * Constructs a new Memberships object.
    *
+   * @param \Drupal\Core\Entity\Query\QueryFactory $entity_query
+   *   Query Factory service.
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
    *   The entity type manager.
    * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
@@ -53,8 +63,15 @@ class OpenyMemberships extends ControllerBase {
    * @param \Drupal\commerce_cart\CartProviderInterface $cart_provider
    *   The cart provider.
    */
-  public function __construct(EntityTypeManagerInterface $entity_type_manager, ConfigFactoryInterface $config_factory, CartProviderInterface $cart_provider, AccountProxyInterface $current_user) {
-    $this->entityTypeManger = $entity_type_manager;
+  public function __construct(
+      QueryFactory $entity_query,
+      EntityTypeManagerInterface $entity_type_manager,
+      ConfigFactoryInterface $config_factory,
+      CartProviderInterface $cart_provider,
+      AccountProxyInterface $current_user
+    ) {
+    $this->entityQuery = $entity_query;
+    $this->entityTypeManager = $entity_type_manager;
     $this->configFactory = $config_factory;
     $this->cartProvider = $cart_provider;
     $this->currentUser = $current_user;
@@ -65,11 +82,50 @@ class OpenyMemberships extends ControllerBase {
    */
   public static function create(ContainerInterface $container) {
     return new static(
+      $container->get('entity.query'),
       $container->get('entity_type.manager'),
       $container->get('config.factory'),
       $container->get('commerce_cart.cart_provider'),
       $container->get('current_user')
     );
+  }
+
+  /**
+   * Get Ages Groups and related products.
+   */
+  public function getAgesGroupsInfo(Request $request) {
+    $data = [];
+    $tids = $this->entityQuery
+      ->get('taxonomy_term')
+      ->condition('vid', 'memberships_ages_groups')
+      ->sort('weight', 'ASC')
+      ->execute();
+    $terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadMultiple($tids);
+    foreach ($terms as $tid => $term) {
+      if (
+        $product_ids = \Drupal::service('entity.query')
+        ->get('commerce_product')
+        ->condition('field_om_total_free.target_id', $tids, 'IN')
+        ->condition('status', 1)
+        ->execute()
+      ) {
+        $products = $this->entityTypeManager->getStorage('commerce_product')->loadMultiple($product_ids);
+        foreach ($products as $pid => $product) {
+          $total_available_quantity = $product->field_om_total_available->quantity;
+          $total_free_quantity = $product->field_om_total_free->quantity;
+          $products_data[$pid] = [
+            'title' => $product->getTitle(),
+            'total_available_quantity' => $total_available_quantity,
+            'total_free_quantity' => $total_free_quantity,
+          ];
+        }
+        $data[$tid] = [
+          'title' => $term->getName(),
+          'products' => $products_data,
+        ];
+      }
+    }
+    return new JsonResponse($data);
   }
 
   /**
