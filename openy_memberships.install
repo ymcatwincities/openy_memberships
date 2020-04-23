@@ -78,6 +78,7 @@ function openy_memberships_update_8002() {
       'field.storage.profile.field_phone',
       'field.field.profile.customer.field_email',
       'field.field.profile.customer.field_phone',
+      'core.entity_form_display.profile.customer.default'
     ]);
 }
 

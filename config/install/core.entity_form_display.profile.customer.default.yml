@@ -1,14 +1,19 @@
+uuid: 64f9c384-c1e1-4630-b5f7-a95778757d02
 langcode: en
 status: true
 dependencies:
   config:
     - field.field.profile.customer.address
+    - field.field.profile.customer.field_email
+    - field.field.profile.customer.field_phone
     - profile.type.customer
   enforced:
     module:
       - commerce_order
   module:
     - address
+_core:
+  default_config_hash: 3LyHGK7R4HxqejbxONet1S9j9ekqLJuFpwT-MNJygvo
 id: profile.customer.default
 targetEntityType: profile
 bundle: customer
@@ -20,5 +25,21 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
+  field_email:
+    type: email_default
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_phone:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
 hidden:
   is_default: true
