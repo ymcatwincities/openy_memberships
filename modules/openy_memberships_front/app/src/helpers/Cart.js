@@ -106,6 +106,18 @@ class Cart {
       return Promise.all(membersPromise);
     });
   }
+  removeItem = (order_id, item_id) => {
+    return User.getToken().then(token => {
+      return window.jQuery.ajax({
+        url: "/cart/" + order_id + "/items/" + item_id,
+        dataType: "json",
+        type: "DELETE",
+        headers: {
+          "X-CSRF-Token": token
+        }
+      });
+    })
+  }
   removeOrder = (order) => {
     return User.getToken().then(token => {
       let id = order.attributes.drupal_internal__order_id;
@@ -222,6 +234,14 @@ class Cart {
         })
       });
     });
+  }
+  getSummary = () => {
+    return window.jQuery
+      .ajax({
+        url: "/om-model/data/summary",
+        dataType: "json",
+        data: {}
+      })
   }
 }
 export default new Cart;

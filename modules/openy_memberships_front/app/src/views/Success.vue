@@ -30,6 +30,7 @@
                 {{product.branch && product.branch.title}}
                 {{product.branch === null && 'All branches'}}
               </div>
+              {{product.variations[variant].title}} (${{ product.variations[variant].price | numFormat('0.00') }} /mo.)
               <div
                 class="best-value"
                 v-if="product.variations[variant].field_best_value == 1"
