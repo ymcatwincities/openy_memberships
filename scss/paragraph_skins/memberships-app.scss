@@ -1,4 +1,77 @@
 .membership-app {
+  font-size: 12px;
+  @media (min-width: 768px) {
+    font-size: 14px;
+  }
+  .navigation {
+    background: #fff;
+    border-top: 5px solid rgba(112, 112, 112, 0.2);
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    text-align: right;
+    z-index: 3;
+    @media screen and (max-width: 767px) {
+      border: none;
+      .container {
+        padding: 0;
+        margin: 0;
+      }
+    }
+  }
+
+  .btn {
+    &.btn-next {
+      padding: 15px 40px;
+      background: #92278F 0% 0% no-repeat padding-box;
+      border-radius: 5px;
+      text-align: center;
+      font: 24px/26px 'Cachet Medium', Verdana, sans-serif;
+      letter-spacing: 0;
+      color: #FFFFFF;
+      text-transform: uppercase;
+      margin: 10px;
+      @media screen and (max-width: 767px) {
+        border: none;
+        border-radius: 0;
+        font: 18px/27px 'Cachet Medium', Verdana, sans-serif;
+        margin: 0;
+        width: 100%;
+      }
+    }
+  }
+  h1.title {
+    color: #231F20;
+    margin: 15px 0px;
+    font: 36px/54px 'Cachet Medium', Verdana, sans-serif;
+    @media (min-width: 768px) {
+      font: 48px/72px 'Cachet Medium', Verdana, sans-serif;
+    }
+  }
+  .description {
+    margin-bottom: 30px;
+    color: #231F20;
+    font: Regular 14px/21px Verdana;
+  }
+  h3 {
+    font: 24px/36px "Cachet Medium", Verdana, sans-serif;
+    letter-spacing: 0px;
+    color: #231F20;
+    &.regular {
+      font-weight: normal !important;
+    }
+  }
+  h2 {
+    font: 24px/36px "Cachet Medium", Verdana, sans-serif;
+    letter-spacing: 0px;
+    color: #231F20;
+    padding: 10px 0px;
+    @media (min-width: 768px) {
+      font: 36px/36px "Cachet Medium", Verdana, sans-serif;
+    }
+  }
+
   // BranchSelector.
   a.view-loactions {
     display: inline-flex;
@@ -18,22 +91,17 @@
    }
 
   // DiscountFinder.
-  .add-addon {
-    color: #0060af;
-    background-color: transparent;
-    margin-right: 10px;
-    padding-left: 0;
-    border:  none;
-  }
-  .income-wrapper, .addon-wrapper {
-    display: flex;
-    flex: 1;    
+  .income-wrapper {
     align-items: center;
+    border: 1px solid #f2f2f2;
+    display: flex;
+    flex: 1;
     justify-content: space-between;
+    padding-left: 15px;
     .price {
       font-weight: 600;
-      margin-right: auto;
-      margin-left: 15px;
+      margin-right: 15px;
+      margin-left: auto;
     }
     h3 {
       font: Bold 14px/21px Verdana;
@@ -42,42 +110,78 @@
     }
   }
   .addon-wrapper {
+    align-items: center;
     border: 1px solid #f2f2f2;
-    padding: 5px;
-    margin-bottom: 5px;
-    button {
-      font-size: 20px;
-      color: #0060af;
-      background-color: transparent;
-      width: auto;
-      border: 0;
-    }
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    padding-left: 15px;
+    margin-bottom: 15px;
     .price {
+      font-weight: 600;
       margin-right: 15px;
       margin-left: auto;
     }
+    h3 {
+      font: Bold 14px/21px Verdana;
+      letter-spacing: 0px;
+      color: #231F20;
+    }
+    button {
+      border: none;
+      border-radius: 5px;
+      background-color: #0060af;
+      color: #fff;
+      text-transform: uppercase;
+      padding: 10px;
+      margin-left: auto;
+      width: 90px;
+      &.remove-income {
+        font-size: 20px;
+        color: #0060af;
+        background-color: transparent;
+        width: auto;
+      }
+    }
     .checkbox {
-      padding: 15px;
-      margin: 8px 0;
+      padding: 0 15px;
+      margin: 2px 0 0;
     }
   }
+  .add-addon {
+    display: inline-block;
+    color: #0060af;
+    background-color: transparent;
+    margin-right: 10px;
+    padding-left: 0;
+    border:  none;
+  }
   .benefits {
+    h3 {
+      margin-bottom: 30px;
+    }
     .addon-wrapper {
       justify-content: flex-start;
       align-items: flex-start;
       border: none;
       padding: 0px;
-      
+
       .description {
         width: 100%;
         margin-bottom: 0px;
+        h3 {
+          margin-bottom: 15px;
+        }
+        p {
+          margin-bottom: 15px;
+        }
       }
     }
   }
   .container-checkbox {
     display: block;
     position: relative;
-    padding-left: 35px;
+    padding-left: 15px;
     margin-bottom: 12px;
     cursor: pointer;
     font-size: 22px;
@@ -132,13 +236,14 @@
   .discount {
     display: flex;
     .checkbox {
-      padding: 15px;
-      margin-top: 8px;
+      padding: 0 15px;
+      margin-top: 2px;
     }
     h3 {
+      color: #231F20;
       font: Bold 14px/21px Verdana;
       letter-spacing: 0px;
-      color: #231F20;
+      margin-bottom: 15px;
     }
   }
   .adjustments {
@@ -149,13 +254,19 @@
       display: block;
       padding-left: 0;
       margin-bottom: 0px;
+      p {
+        margin-bottom: 15px;
+      }
     }
     h2 {
-      font: Medium 36px/36px Cachet, Verdana, sans-serif;
+      font: 24px/36px "Cachet Medium", Verdana, sans-serif;
       letter-spacing: 0px;
       color: #231F20;
       padding: 10px 0px;
       border-top: 5px solid #00AEEF;
+      @media (min-width: 768px) {
+        font: 36px/36px "Cachet Medium", Verdana, sans-serif;
+      }
     }
     .discounts {
       width: 50%;
@@ -163,17 +274,26 @@
       @media (max-width: 960px) {
         width: 100%;
       }
-  
+      > h2 {
+        margin-bottom: 15px;
+        @media (min-width: 768px) {
+          margin-bottom: 30px;
+        }
+      }
+
       .annual-income {
+        align-items: center;
+        border: 1px solid #f2f2f2;
         display: flex;
         flex-wrap: wrap;
-        align-items: center;
         padding: 15px;
-        border: 1px solid #f2f2f2;
+        margin-bottom: 30px;
+
         label {
           width: 100%;
+          margin: 0 0 15px;
         }
-        
+
         input {
           padding: 10px;
           margin-right: 10px;
@@ -196,12 +316,31 @@
           }
         }
       }
+
+      .discount-options {
+        margin-bottom: 15px;
+        > h3 {
+          margin-bottom: 30px;
+        }
+      }
     }
     .addons {
       padding: 10px;
       width: 50%;
       @media (max-width: 960px) {
         width: 100%;
+      }
+      > h2 {
+        margin-bottom: 15px;
+        @media (min-width: 768px) {
+          margin-bottom: 30px;
+        }
+      }
+      .members {
+        margin-bottom: 15px;
+        @media (min-width: 768px) {
+          margin-bottom: 30px;
+        }
       }
     }
   }
@@ -288,14 +427,18 @@
   }
   // Location.
   .location {
-    position: relative;
-    cursor: pointer;
-    padding: 10px 10px 10px 10px;
-    margin: 10px 0;
-    display: flex;
     background: #FFFFFF 0% 0% no-repeat padding-box;
-    border: 2px solid #0060AF;
     border-radius: 5px;
+    border: 2px solid #0060AF;
+    cursor: pointer;
+    display: flex;
+    margin: 5px 0;
+    padding: 10px 10px 10px 10px;
+    position: relative;
+    @media screen and (min-width: 768px) {
+      margin: 0;
+      padding: 10px 10px 10px 10px;
+    }
     .radio {
       border: 1px solid #636466;
       width: 18px;
@@ -330,19 +473,28 @@
     }
     .radio-wrap {
       min-width: 30px;
+      margin-top: 6px;
     }
     .content {
       min-width: 100%;
       .name {
-        font-size: 14px;
-        text-align: left;
-        font: Bold 14px/21px Verdana;
-        letter-spacing: 0;
         color: #0060AF;
+        font: Bold 12px/18px Verdana;
+        letter-spacing: 0;
+        margin-bottom: 5px;
+        text-align: left;
+        @media screen and (min-width: 768px) {
+          font: Bold 14px/21px Verdana;
+          margin-bottom: 15px;
+        }
       }
       .address {
-        font: Regular 12px/21px Verdana;
+        font: 10px/15px Verdana;
         color: #231F20;
+        margin-bottom: 0;
+        @media screen and (min-width: 768px) {
+          font: 12px/21px Verdana;
+        }
       }
     }
   }
@@ -351,17 +503,19 @@
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
-    margin-left: -10px;
-    margin-right: -10px;
+    margin-left: -5px;
+    margin-right: -5px;
+    @media screen and (min-width: 768px) {
+      margin-left: -10px;
+      margin-right: -10px;
+    }
   }
   .location-wrapper {
-    min-width: 33.3%;
-    padding: 10px;
-    @media screen and (max-width: 650px) {
-      min-width: 50%;
-    }
-    @media screen and (max-width: 400px) {
-      min-width: 100%;
+    width: 50%;
+    padding: 0 5px;
+    @media screen and (min-width: 768px) {
+      padding: 10px;
+      width: 33.3%;
     }
   }
   // Product.
@@ -379,7 +533,7 @@
     overflow: hidden;
     align-items: center;
     justify-content: space-between;
-    font: 500 12px/18px Cachet, Verdana;
+    font: 12px/18px 'Cachet Medium', Verdana;
 
     margin: 15px 0 0;
     &::after {
@@ -406,24 +560,37 @@
     margin-bottom: 30px;
     h2 {
       text-align: left;
-      font: 500 36px/54px 'Cachet', Verdana, sans-serif;
+      font: 24px/36px 'Cachet Medium', Verdana, sans-serif;
       letter-spacing: 0;
       color: #231F20;
-      margin: 0px;
+      margin: 0 0 5px;
       padding: 0;
+      @media (min-width: 768px) {
+        font: 36px/54px 'Cachet Medium', Verdana, sans-serif;
+        margin: 0 0 15px;
+      }
+    }
+    .product-description {
+      margin-bottom: 5px;
+      @media (min-width: 768px) {
+        margin-bottom: 15px;
+      }
     }
     .select {
       background: #92278F 0% 0% no-repeat padding-box;
       border: 2px solid #92278F;
-      font: 500 24px/36px 'Cachet', Verdana, sans-serif;
-      letter-spacing: 0;
       color: #FFFFFF;
-      text-align: center;
-      padding: 10px;
-      margin: 10px -15px -15px;
-      text-decoration: none;
       cursor: pointer;
       display: block;
+      font: 18px/27px 'Cachet Medium', Verdana, sans-serif;
+      letter-spacing: 0;
+      margin: 10px -15px -15px;
+      padding: 10px;
+      text-align: center;
+      text-decoration: none;
+      @media (min-width: 768px) {
+        font: 24px/36px 'Cachet Medium', Verdana, sans-serif;
+      }
     }
     .product-columns {
       display: flex;
@@ -435,12 +602,30 @@
       }
       margin: 0 -5px;
       .options {
-        padding-top: 15px;
+        padding-top: 5px;
+        @media (min-width: 768px) {
+          padding-top: 15px;
+        }
+        .item {
+          display: flex;
+          margin-bottom: 15px;
+          .price-title {
+            padding-right: 10px;
+          }
+          .price-value {
+            text-align: right;
+            margin-left: auto;
+            white-space: nowrap;
+          }
+        }
         .branch {
-          padding: 0px 0px 15px;
+          color: #231F20;
           font: Bold 14px/21px Verdana;
           letter-spacing: 0;
-          color: #231F20;
+          padding: 0px 0px 5px;
+          @media (min-width: 768px) {
+            padding: 0px 0px 15px;
+          }
         }
         .addon {
           display: flex;
@@ -460,10 +645,13 @@
         }
       }
       .title {
-        padding: 5px;
-        color: #231F20;
         background-color: #f2f2f2;
-        font: 500 18px/27px 'Cachet', Verdana, sans-serif;
+        color: #231F20;
+        font: 14px/21px 'Cachet Medium', Verdana, sans-serif;
+        padding: 0 5px;
+        @media (min-width: 768px) {
+          font: 18px/27px 'Cachet Medium', Verdana, sans-serif;
+        }
       }
       .price-title, .price-value {
         padding-top: 0;
@@ -473,6 +661,71 @@
         flex: 1;
         .title {
           text-align: center;
+        }
+      }
+    }
+  }
+  // Summary.
+  .summary-wrapper {
+    .product-title {
+      margin-bottom: 15px;
+    }
+    .product-description {
+      margin-bottom: 15px;
+    }
+    .product-columns {
+      margin-left: -7.5px;
+      margin-right: -7.5px;
+
+      > div {
+        padding: 7.5px;
+      }
+
+      .options {
+        .item {
+          display: flex;
+          margin-bottom: 15px;
+
+          .option-title {
+            padding-right: 10px;
+          }
+
+          .option-price {
+            text-align: right;
+            margin-left: auto;
+            white-space: nowrap;
+          }
+        }
+      }
+
+      .find-more-wrapper {
+        border-top: 1px solid #636466;
+        margin-top: 15px;
+        padding-top: 15px;
+        margin-bottom: 15px;
+
+        .actions {
+          display: flex;
+        }
+
+        .find-more {
+          font-weight: bold;
+          padding: 0;
+        }
+
+        .clear-all {
+          margin-left: auto;
+          margin-right: 0;
+          padding: 0;
+        }
+
+        .info {
+          margin-top: 15px;
+          font-size: 12px;
+
+          p {
+            margin-bottom: 0;
+          }
         }
       }
     }
@@ -514,7 +767,7 @@
         font: Bold 14px/21px Verdana;
         letter-spacing: 0px;
         color: #231F20;
-        
+
       }
       min-width: 50%;
       @media (max-width: 960px) {

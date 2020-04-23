@@ -1,42 +1,36 @@
 <template>
   <section class="app-container">
-    <div class="container">
-      <loading :active.sync="isLoading"></loading>
-      <div class="">
-        <div class="">
-          <h1 class="title">
-            Join Now
-          </h1>
-        </div>
+    <loading :active.sync="isLoading"></loading>
+    <h1 class="title">
+      Join Now
+    </h1>
+    <div class="description">
+      <div class="description-text">
+        Fill out the form below and membership advisor will contact you within 24-hours.
       </div>
-      <div class="description">
-        <div class="description-text">
-          Fill out the form below and membership advisor will contact you within 24-hours.
-        </div>
+    </div>
+    <div class="billing">
+      <div class="billing-wrapper">
+        <div class="field required" :class="{'error': errors.firstName}">
+        <label for="">First Name</label>
+        <input v-model="billing.firstName" />
+        <span class="error">Enter valid First Name</span>
       </div>
-      <div class="billing">
-        <div class="billing-wrapper">
-          <div class="field required" :class="{'error': errors.firstName}">
-          <label for="">First Name</label>
-          <input v-model="billing.firstName" />
-          <span class="error">Enter valid First Name</span>
-        </div>
-        <div class="field required" :class="{'error': errors.lastName}">
-          <label for="">Last Name</label>
-          <input v-model="billing.lastName" />
-          <span class="error">Enter valid Last Name</span>
-        </div>
-        <div class="field required" :class="{'error': errors.email}">
-          <label for="">Email Address</label>
-          <input v-model="billing.email" />
-          <span class="error">Enter valid email</span>
-        </div>
-        <div class="field required" :class="{'error': errors.phone}">
-          <label for="">Phone Number</label>
-          <input v-model="billing.phone" />
-          <span class="error">Enter valid phone</span>
-        </div>
-        </div>
+      <div class="field required" :class="{'error': errors.lastName}">
+        <label for="">Last Name</label>
+        <input v-model="billing.lastName" />
+        <span class="error">Enter valid Last Name</span>
+      </div>
+      <div class="field required" :class="{'error': errors.email}">
+        <label for="">Email Address</label>
+        <input v-model="billing.email" />
+        <span class="error">Enter valid email</span>
+      </div>
+      <div class="field required" :class="{'error': errors.phone}">
+        <label for="">Phone Number</label>
+        <input v-model="billing.phone" />
+        <span class="error">Enter valid phone</span>
+      </div>
       </div>
     </div>
     <div class="navigation" v-if="valid">
@@ -79,7 +73,7 @@ export default {
     };
   },
   mounted() {
-    
+
   },
   components: {
     Loading
