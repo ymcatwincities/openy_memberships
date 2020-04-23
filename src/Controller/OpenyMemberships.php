@@ -103,7 +103,7 @@ class OpenyMemberships extends ControllerBase {
     $terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadMultiple($tids);
     foreach ($terms as $tid => $term) {
       if (
-        $product_ids = \Drupal::service('entity.query')
+        $product_ids = $this->entityQuery
         ->get('commerce_product')
         ->condition('field_om_total_free.target_id', $tids, 'IN')
         ->condition('status', 1)
