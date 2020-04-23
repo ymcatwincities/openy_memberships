@@ -229,36 +229,48 @@ class OpenyMemberships extends ControllerBase {
     return new JsonResponse($products);
   }
 
-
+  /**
+   * Set Billing Profile (Customer Name, email, etc).
+   */
   public function setBillingInfo(Request $request, $order) {
     $storage = $this->entityTypeManger->getStorage('profile');
     $postData = json_decode($request->getContent(), TRUE);
-    $profileEntity = $storage->create([
-      'type' => 'customer',
-      'field_email' => $postData['field_email'],
-      'field_phone' => $postData['field_phone'],
-      'address' => [
-        'country_code' => 'US',
-        'address_line1' => '',
-        'locality' => '',
-        'administrative_area' => '',
-        'postal_code' => '',
-        'given_name' => $postData['address']['given_name'],
-        'family_name' => $postData['address']['family_name'],
-      ],
-    ]);
-    $profileEntity->save();
-    if ($profileEntity && $order->access('edit', $this->currentUser)) {
-      $order->set('billing_profile', $profileEntity);
-      $order->save();
+    $carts = $this->cartProvider->getCarts();
+    $profileId = NULL;
+    $profileUuid = NULL;
+    if (!empty($carts)) {
+      foreach ($carts as $cart_id => $cart) {
+        if ($order->id() == $cart_id) {
+          $profileEntity = $storage->create([
+            'type' => 'customer',
+            'field_email' => $postData['field_email'],
+            'field_phone' => $postData['field_phone'],
+            'address' => [
+              'country_code' => 'US',
+              'address_line1' => '',
+              'locality' => '',
+              'administrative_area' => '',
+              'postal_code' => '',
+              'given_name' => $postData['address']['given_name'],
+              'family_name' => $postData['address']['family_name'],
+            ],
+          ]);
+          $profileEntity->save();
+          $profileId = $profileEntity->id();
+          $profileUuid = $profileEntity->uuid();
+          $order->set('billing_profile', $profileEntity);
+          $order->save();
+
+        }
+      }
     }
 
     return new JsonResponse([
       'order_uuid' => $order->uuid(),
       'order_id' => $order->id(),
       'billing_profile' => [
-        'billing_id' => $profileEntity->id(),
-        'billing_uuid' => $profileEntity->uuid(),
+        'billing_id' => $profileId,
+        'billing_uuid' => $profileUuid,
       ],
     ]);
   }
