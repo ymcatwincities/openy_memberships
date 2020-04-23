@@ -477,4 +477,60 @@
       }
     }
   }
+
+  //JoinNow
+  .billing {
+    .billing-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0 -10px;
+    }
+    .field {
+      padding: 10px;
+      margin-bottom: 15px;
+      &.required {
+        label::after {
+          content: '*';
+          color: #CC0000;
+          display: inline;
+        }
+      }
+      &.error {
+        .error {
+          display: block;
+        }
+        input {
+          border: 1px solid #CC0000;
+        }
+      }
+      .error {
+        display: none;
+        color: #CC0000;
+      }
+      label {
+        margin-bottom: 10px;
+        width: 100%;
+        text-align: left;
+        font: Bold 14px/21px Verdana;
+        letter-spacing: 0px;
+        color: #231F20;
+        
+      }
+      min-width: 50%;
+      @media (max-width: 960px) {
+        min-width: 100%;
+      }
+      input {
+        background: #FFFFFF 0% 0% no-repeat padding-box;
+        border: 1px solid #636466;
+        opacity: 1;
+        padding: 15px 10px;
+        font: Regular 14px/21px Verdana;
+        letter-spacing: 0px;
+        color: #231F20;
+        opacity: 1;
+        width: 100%;
+      }
+    }
+  }
 }

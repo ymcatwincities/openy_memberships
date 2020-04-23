@@ -25,3 +25,15 @@ openy_memberships.products:
     parameters:
       branch:
         type: 'entity:node'
+openy_memberships.billing:
+  path: /memberships/api/billing/{order}
+  defaults:
+    _controller: '\Drupal\openy_memberships\Controller\OpenyMemberships::setBillingInfo'
+    branch: null
+  requirements:
+    _permission: 'access content'
+  options:
+    no_cache: TRUE
+    parameters:
+      order:
+        type: 'entity:commerce_order'

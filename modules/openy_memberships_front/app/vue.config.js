@@ -1,9 +1,9 @@
 module.exports = {
   "assetsDir": "assets",
   "filenameHashing": false,
-  // "configureWebpack": {
-  //   "devtool": "inline-source-map",
-  // },
+  "configureWebpack": {
+    "devtool": process.env.NODE_ENV == "development" ? "source-map" : "none",
+  },
   "css": {
     "extract": {
       "filename": "assets/css/[name].css"
