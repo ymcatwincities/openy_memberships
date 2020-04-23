@@ -1,27 +1,25 @@
 <template>
   <section class="app-container">
-    <div class="container">
+    <div class="">
       <div class="">
-        <div class="">
-          <h1 class="title">
-            Membership Builder
-          </h1>
-        </div>
+        <h1 class="title">
+          Membership Builder
+        </h1>
       </div>
-      <div class="description">
-        <div class="description-text">
-          Select your preferred YMCA branch.
-        </div>
-        <div class="text-align-right">
-          <a class="view-loactions" href="/locations">View Locations <ViewLocationIcon /></a>
-        </div>
+    </div>
+    <div class="description">
+      <div class="description-text">
+        Select your preferred YMCA branch.
       </div>
+      <div class="text-align-right">
+        <a class="view-loactions" href="/locations">View Locations <ViewLocationIcon /></a>
+      </div>
+    </div>
 
 
-      <div>
-        <loading :active.sync="isLoading"></loading>
-        <locations :locations="locations" />
-      </div>
+    <div>
+      <loading :active.sync="isLoading"></loading>
+      <locations :locations="locations" />
     </div>
     <div class="navigation" v-if="$store.state.location">
       <div class="container">

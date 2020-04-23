@@ -12,7 +12,7 @@ export default {
       },
       product: null,
       keepCart: true,
-      members: {},
+      members: [],
       income: 0,
     },
     mutations
