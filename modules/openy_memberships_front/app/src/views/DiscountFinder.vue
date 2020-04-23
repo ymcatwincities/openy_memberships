@@ -1,15 +1,10 @@
 <template>
   <section class="app-container">
     <loading :active.sync="isLoading"></loading>
-    <div class>
-      <div class>
-        <h1 class="title">Adjustments</h1>
-      </div>
-    </div>
+    <h1 class="title">Adjustments</h1>
     <div class="adjustments">
         <div class="discounts">
           <h2>Discounts</h2>
-          <br/>
           <h3>Income</h3>
           <p>You may be eligible for a Scholarship discount depending on your income level.</p>
           <div v-if="discounts && discounts.income" class="annual-income">
@@ -61,7 +56,6 @@
         </div>
         <div class="addons">
           <h2>Add-Ons</h2>
-          <br/>
           <div v-if="addons.members" class="members">
             <h3>Members</h3>
             <p>One Adult (80-54 yrs.) and all Youth (0-17yrs) are covered by the base Household membership:</p>

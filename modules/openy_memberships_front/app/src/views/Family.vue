@@ -1,12 +1,8 @@
 <template>
   <section class="app-container">
-    <div class="">
-      <div class="">
-        <h1 class="title">
-          Membership Builder
-        </h1>
-      </div>
-    </div>
+    <h1 class="title">
+      Membership Builder
+    </h1>
     <div class="description">
       <div class="description-text">
         How many people will be included in your membership?

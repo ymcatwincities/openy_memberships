@@ -269,6 +269,11 @@
       @media (max-width: 960px) {
         .membership-app .adjustments .discounts {
           width: 100%; } }
+      .membership-app .adjustments .discounts > h2 {
+        margin-bottom: 15px; }
+        @media (min-width: 768px) {
+          .membership-app .adjustments .discounts > h2 {
+            margin-bottom: 30px; } }
       .membership-app .adjustments .discounts .annual-income {
         align-items: center;
         border: 1px solid #f2f2f2;
@@ -307,8 +312,16 @@
       @media (max-width: 960px) {
         .membership-app .adjustments .addons {
           width: 100%; } }
+      .membership-app .adjustments .addons > h2 {
+        margin-bottom: 15px; }
+        @media (min-width: 768px) {
+          .membership-app .adjustments .addons > h2 {
+            margin-bottom: 30px; } }
       .membership-app .adjustments .addons .members {
-        margin-bottom: 30px; }
+        margin-bottom: 15px; }
+        @media (min-width: 768px) {
+          .membership-app .adjustments .addons .members {
+            margin-bottom: 30px; } }
   .membership-app .family-wrapper {
     border: 1px solid #F2F2F2;
     margin-bottom: 10px; }

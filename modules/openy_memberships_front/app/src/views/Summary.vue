@@ -1,13 +1,9 @@
 <template>
   <section class="app-container summary-wrapper">
     <loading :active.sync="isLoading"></loading>
-    <div class="">
-      <div class="">
-        <h1 class="title">
-          Your Membership
-        </h1>
-      </div>
-    </div>
+    <h1 class="title">
+      Your Membership
+    </h1>
     <div class="description">
       <div class="description-text">
         Here's a summary of your membership. Keep scrolling to take the next step!
