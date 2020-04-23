@@ -5,6 +5,7 @@ namespace Drupal\openy_memberships\Controller;
 use Drupal\commerce_price\Price;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Entity\Query\QueryFactory;
+use Drupal\taxonomy\Entity\Term;
 use Symfony\Component\HttpFoundation\Request;
 use Drupal\Core\Config\ConfigFactoryInterface;
 use Drupal\Core\Session\AccountProxyInterface;
@@ -12,6 +13,7 @@ use Drupal\commerce_cart\CartProviderInterface;
 use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\DependencyInjection\ContainerInterface;
+use Drupal\commerce_product\Entity\Product;
 
 /**
  * Provides OpenyMemberships controller.
@@ -100,7 +102,7 @@ class OpenyMemberships extends ControllerBase {
       ->condition('vid', 'memberships_ages_groups')
       ->sort('weight', 'ASC')
       ->execute();
-    $terms = $this->entityTypeManager->getStorage('taxonomy_term')->loadMultiple($tids);
+    $terms = Term::loadMultiple($tids);
     foreach ($terms as $tid => $term) {
       if (
         $product_ids = $this->entityQuery
@@ -109,7 +111,7 @@ class OpenyMemberships extends ControllerBase {
         ->condition('status', 1)
         ->execute()
       ) {
-        $products = $this->entityTypeManager->getStorage('commerce_product')->loadMultiple($product_ids);
+        $products = Product::loadMultiple($product_ids);
         foreach ($products as $pid => $product) {
           $total_available_quantity = $product->field_om_total_available->quantity;
           $total_free_quantity = $product->field_om_total_free->quantity;
