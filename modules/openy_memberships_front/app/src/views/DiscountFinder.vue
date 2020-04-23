@@ -33,7 +33,7 @@
           </div>
           <div :key="index" v-for="(member, index) in members" class="discount-options">
             <h3>{{family_members[index] && family_members[index].attributes.field_first_name}}</h3>
-            <div class="discount">
+            <div v-if="member_promotions.health_insurance" class="discount">
               <div class="checkbox">
                 <label class="container-checkbox">
                   <input @change="checkDiscounts(true)" type="checkbox" v-model="members[index][0]" />
@@ -45,7 +45,7 @@
                 <p v-html="member_promotions.health_insurance && member_promotions.health_insurance.description"></p>
               </div>
             </div>
-            <div class="discount">
+            <div v-if="member_promotions.military_service" class="discount">
               <div class="checkbox">
                 <label class="container-checkbox">
                   <input @change="checkDiscounts(true)" type="checkbox" v-model="members[index][1]" />
@@ -131,6 +131,8 @@
 <script>
 import Loading from 'vue-loading-overlay';
 import 'vue-loading-overlay/dist/vue-loading.css';
+import User from '../helpers/User';
+import Cart from '../helpers/Cart';
 
 export default {
   computed: {
@@ -152,10 +154,12 @@ export default {
   mounted() {
     this.isLoading = true;
     if (this.$store.state.keepCart == false) {
-      this.removeIncome();
+      this.income = 0;
+      this.$store.commit('setItem', {key: 'income', value: 0});
+      this.members = [];
       this.$store.commit('setItem', {
         key: 'members',
-        value: {},
+        value: [],
       });
     }
     this.getUserInfo()
@@ -196,6 +200,7 @@ export default {
       .then(() => {
         if (this.$store.state.keepCart == false) {
           return this.createOrder().then(json => {
+            this.getOrders();
             return this.setMembers(json.data);
           }).then(() => {
             return this.checkDiscounts();
@@ -227,7 +232,7 @@ export default {
       addons: {},
       token: null,
       income: this.$store.state.income || 0,
-      members: this.$store.state.members || {},
+      members: this.$store.state.members || [],
       family_members: [],
       total_price: 0,
       subtotal_price: 0,
@@ -246,46 +251,14 @@ export default {
       this.checkDiscounts(true);
     },
     createMember(member) {
-      return window.jQuery.ajax({
-        url: "/jsonapi/profile/family_members",
-        contentType: "application/vnd.api+json",
-        type: "POST",
-        dataType: "json",
-        headers: {
-          "X-CSRF-Token": this.token
-        },
-        data: JSON.stringify({
-          data: {
-            type: "profile--family_members",
-            attributes: {
-              field_first_name: member.name
-            }
-          }
-        })
-      });
+      return Cart.createMember(member);
     },
     createOrder() {
       let variant = this.$store.state.product.variant;
       let variant_entity = this.$store.state.product.variations[variant];
-      return window.jQuery
-        .ajax({
-          url: "/cart/add?_format=json",
-          contentType: "application/json",
-          dataType: "json",
-          type: "POST",
-          headers: {
-            "X-CSRF-Token": this.token
-          },
-          data: JSON.stringify([
-            {
-              purchased_entity_type: "commerce_product_variation",
-              purchased_entity_id: variant_entity.id,
-              quantity: "1"
-            }
-          ])
-        })
+      return Cart.createOrder(variant_entity.id)
         .then(() => {
-          return this.getCart();
+          return Cart.getCart();
         })
         .then(async json => {
           let order_uuid = json[0].uuid;
@@ -336,46 +309,22 @@ export default {
             });
           }
 
-          return window.jQuery.ajax({
-            url: "/jsonapi/commerce_order/membership_order/" + order_uuid,
-            contentType: "application/vnd.api+json",
-            type: "PATCH",
-            dataType: "json",
-            headers: {
-              "X-CSRF-Token": this.token
-            },
-            data: JSON.stringify({
-              data: {
-                type: "commerce_order--membership_order",
-                id: order_uuid,
-                relationships: {
-                  field_family: {
-                    data: family_members
-                  }
-                }
-              }
-            })
-          });
+          return Cart.setMembers(order_uuid, family_members);
         });
     },
     restoreMembers() {
-      return this.getCart().then(json => {
+      return Cart.getCart().then(json => {
         let order_uuid = json[0].uuid;
-        return window.jQuery.ajax({
-          url: "/jsonapi/commerce_order/membership_order/" + order_uuid + "?include=field_family",
-          contentType: "application/vnd.api+json",
-          type: "GET",
-          dataType: "json",
-          headers: {
-            "X-CSRF-Token": this.token
+        return Cart.getMembers(order_uuid).then(json => {
+          this.family_members = [];
+          if(this.$store.state.members.length == 0) {
+            this.setMembers(json.data);
           }
-        });
-      }).then(json => {
-        this.family_members = [];
-        json.included.forEach((member) => {
-          this.family_members.push(member);
-        });
-        return this.family_members;
+          json.included.forEach((member) => {
+            this.family_members.push(member);
+          });
+          return this.family_members;
+        })
       });
     },
     setMembers(data) {
@@ -418,126 +367,78 @@ export default {
       });
     },
     getToken() {
-      return window.jQuery
-        .ajax({
-          url: "/session/token"
-        })
+      return User.getToken()
         .then(token => {
           this.token = token;
         });
     },
     getUserInfo() {
-      return this.getToken().then(() => {
-        return window.jQuery.ajax({
-          url: "/jsonapi",
-          dataType: "json",
-          headers: {
-            "X-CSRF-Token": this.token
-          }
-        });
-      });
+      return User.getUserInfo();
     },
     getOrder(uuid) {
-      return window.jQuery.ajax({
-        url: "/jsonapi/commerce_order/membership_order/" + uuid,
-        dataType: "json",
-        headers: {
-          "X-CSRF-Token": this.token
-        }
-      });
+      return Cart.getOrder(uuid);
     },
     getOrders() {
-      return window.jQuery.ajax({
-        url:
-          "/cart?_format=json",
-        dataType: "json"
-      }).then((json) => {
+      return Cart.getCart().then((json) => {
         this.total_price = json[0].total_price.number;
         return json
       }).then(json => {
-        this.member_addons_in_cart = [];
-        this.benefits_packages_addons_in_cart = [];
-        this.benefits_addons_in_cart = [];
-        json.forEach(order => {
-          order.order_items.forEach(item => {
-            switch(item.purchased_entity.type) {
-              case "membership_addon":
-                switch (item.purchased_entity.field_om_addon_type) {
-                  case "benefits":
-                    this.benefits_addons_in_cart.push({
-                      ...item.purchased_entity,
-                      order_item_id: item.order_item_id,
-                      uuid: item.uuid,
-                      order_id: item.order_id
-                    })
-                    break;
-                  case "benefits_packages":
-                    this.benefits_packages_addons_in_cart.push({
-                      ...item.purchased_entity,
-                      order_item_id: item.order_item_id,
-                      uuid: item.uuid,
-                      order_id: item.order_id
-                    })
-                    break;
-                  default:
-                    this.member_addons_in_cart.push({
-                      ...item.purchased_entity,
-                      order_item_id: item.order_item_id,
-                      uuid: item.uuid,
-                      order_id: item.order_id
-                    })
-                    break;
-                }
-                break;
-            }
-          })
-        });
+        this.updateItemsInCart(json);
         return json;
+      }).catch(() => {
+        return [];
+      });
+    },
+    updateItemsInCart(json) {
+      this.member_addons_in_cart = [];
+      this.benefits_packages_addons_in_cart = [];
+      this.benefits_addons_in_cart = [];
+      json.forEach(order => {
+        order.order_items.forEach(item => {
+          switch(item.purchased_entity.type) {
+            case "membership_addon":
+              switch (item.purchased_entity.field_om_addon_type) {
+                case "benefits":
+                  this.benefits_addons_in_cart.push({
+                    ...item.purchased_entity,
+                    order_item_id: item.order_item_id,
+                    uuid: item.uuid,
+                    order_id: item.order_id
+                  })
+                  break;
+                case "benefits_packages":
+                  this.benefits_packages_addons_in_cart.push({
+                    ...item.purchased_entity,
+                    order_item_id: item.order_item_id,
+                    uuid: item.uuid,
+                    order_id: item.order_id
+                  })
+                  break;
+                default:
+                  this.member_addons_in_cart.push({
+                    ...item.purchased_entity,
+                    order_item_id: item.order_item_id,
+                    uuid: item.uuid,
+                    order_id: item.order_id
+                  })
+                  break;
+              }
+              break;
+          }
+        })
       });
     },
     removeMembers(members) {
-      let membersPromise = members.map(member => {
-        return window.jQuery.ajax({
-          url: "/jsonapi/profile/family_members/" + member.id,
-          dataType: "json",
-          type: "DELETE",
-          headers: {
-            "X-CSRF-Token": this.token
-          }
-        });
-      });
-      return Promise.all(membersPromise);
+      return Cart.removeMembers(members);
     },
     removeOrder(order) {
-      let id = order.attributes.drupal_internal__order_id;
-      return window.jQuery.ajax({
-        url: "/cart/" + id + "/items",
-        dataType: "json",
-        type: "DELETE",
-        headers: {
-          "X-CSRF-Token": this.token
-        }
-      });
+      return Cart.removeOrder(order);
     },
     getCart() {
-      return window.jQuery.ajax({
-        url: "/cart?_format=json",
-        dataType: "json",
-        type: "GET",
-        headers: {
-          "X-CSRF-Token": this.token
-        }
-      });
+      return Cart.getCart()
     },
     getAddons() {
-      return window.jQuery.ajax({
-        url: "/jsonapi/commerce_product/membership/" + this.$store.state.product.uuid + "?include=field_om_addons",
-        dataType: "json",
-        type: "GET",
-        headers: {
-          "X-CSRF-Token": this.token
-        }
-      }).then((json) => {
+      return Cart.getAddons(this.$store.state.product.uuid).then((json) => {
         json.included.forEach((addon) => {
           if (addon.type != "commerce_addon--membership_addon") {
             return;
@@ -553,23 +454,7 @@ export default {
     },
     addAddon(addon) {
       this.isLoading = true;
-      return window.jQuery.ajax({
-        url: "/cart/add?_format=json",
-        contentType: "application/json",
-        dataType: "json",
-        type: "POST",
-        headers: {
-          "X-CSRF-Token": this.token
-        },
-        data: JSON.stringify([
-          {
-            purchased_entity_type: "commerce_addon",
-            purchased_entity_id: addon.attributes.drupal_internal__addon_id,
-            quantity: "1",
-            combine: false
-          }
-        ])
-      }).then(() => {
+      return Cart.addAddon(addon).then(() => {
         return this.getOrders();
       }).then(() => {
         this.isLoading = false;
@@ -580,14 +465,7 @@ export default {
     removeAddon(addon) {
       if (addon.order_item_id) {
         this.isLoading = true;
-        return window.jQuery.ajax({
-          url: "/cart/" + addon.order_id + "/items/" + addon.order_item_id + "?_format=json",
-          dataType: "json",
-          type: "DELETE",
-          headers: {
-            "X-CSRF-Token": this.token
-          }
-        }).then(() => {
+        return Cart.removeAddon(addon).then(() => {
           return this.getOrders();
         }).then(json => {
           this.member_addons_in_cart = [];

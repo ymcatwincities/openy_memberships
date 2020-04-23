@@ -15,7 +15,10 @@ export default {
     }
   },
   mounted() {
-
+    let stepsConfig = window.drupalSettings.openy_memberships_front && window.drupalSettings.openy_memberships_front.steps ? window.drupalSettings.openy_memberships_front.steps : null;
+    if (stepsConfig) {
+      this.$store.commit('setSteps', stepsConfig);
+    }
     let step = this.$store.state.step;
     let steps = this.$store.state.steps;
     if (steps[step] && this.$route.name != steps[step]) {

@@ -801,3 +801,42 @@
         font-size: 12px; }
         .membership-app .summary-wrapper .product-columns .find-more-wrapper .info p {
           margin-bottom: 0; }
+  .membership-app .billing .billing-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -10px; }
+  .membership-app .billing .field {
+    padding: 10px;
+    margin-bottom: 15px;
+    min-width: 50%; }
+    .membership-app .billing .field.required label::after {
+      content: '*';
+      color: #CC0000;
+      display: inline; }
+    .membership-app .billing .field.error .error {
+      display: block; }
+    .membership-app .billing .field.error input {
+      border: 1px solid #CC0000; }
+    .membership-app .billing .field .error {
+      display: none;
+      color: #CC0000; }
+    .membership-app .billing .field label {
+      margin-bottom: 10px;
+      width: 100%;
+      text-align: left;
+      font: Bold 14px/21px Verdana;
+      letter-spacing: 0px;
+      color: #231F20; }
+    @media (max-width: 960px) {
+      .membership-app .billing .field {
+        min-width: 100%; } }
+    .membership-app .billing .field input {
+      background: #FFFFFF 0% 0% no-repeat padding-box;
+      border: 1px solid #636466;
+      opacity: 1;
+      padding: 15px 10px;
+      font: Regular 14px/21px Verdana;
+      letter-spacing: 0px;
+      color: #231F20;
+      opacity: 1;
+      width: 100%; }

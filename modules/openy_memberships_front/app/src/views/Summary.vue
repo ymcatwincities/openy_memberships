@@ -67,8 +67,8 @@
             </div>
           </div>
         </div>
+        <a class="select" @click="$emit('go-next')">JOIN NOW</a>
       </div>
-      <a class="select">JOIN NOW</a>
     </div>
   </section>
 </template>
