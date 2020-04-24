@@ -12,3 +12,7 @@ function openy_memberships_menu_links_discovered_alter(&$links) {
   // Move the Commerce links to the Memberships menu.
   $links['commerce.admin_commerce']['parent'] = 'openy_memberships.openy_memberships';
 }
+
+function openy_memberships_page_attachments(array &$page) {
+  $page['#attached']['library'][] = 'openy_memberships/library';
+}

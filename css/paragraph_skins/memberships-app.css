@@ -1,4 +1,5 @@
 .membership-app {
+  font-size: 12px;
   /* KeyFrames */
   /* Dropdown Default Transition */
   /** Component States */
@@ -45,6 +46,66 @@
  */
   /* Loading Spinner */
   /* Loading Spinner States */ }
+  @media (min-width: 768px) {
+    .membership-app {
+      font-size: 14px; } }
+  .membership-app .navigation {
+    background: #fff;
+    border-top: 5px solid rgba(112, 112, 112, 0.2);
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    text-align: right;
+    z-index: 3; }
+    @media screen and (max-width: 767px) {
+      .membership-app .navigation {
+        border: none; }
+        .membership-app .navigation .container {
+          padding: 0;
+          margin: 0; } }
+  .membership-app .btn.btn-next {
+    padding: 15px 40px;
+    background: #92278F 0% 0% no-repeat padding-box;
+    border-radius: 5px;
+    text-align: center;
+    font: 24px/26px 'Cachet Medium', Verdana, sans-serif;
+    letter-spacing: 0;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    margin: 10px; }
+    @media screen and (max-width: 767px) {
+      .membership-app .btn.btn-next {
+        border: none;
+        border-radius: 0;
+        font: 18px/27px 'Cachet Medium', Verdana, sans-serif;
+        margin: 0;
+        width: 100%; } }
+  .membership-app h1.title {
+    color: #231F20;
+    margin: 15px 0px;
+    font: 36px/54px 'Cachet Medium', Verdana, sans-serif; }
+    @media (min-width: 768px) {
+      .membership-app h1.title {
+        font: 48px/72px 'Cachet Medium', Verdana, sans-serif; } }
+  .membership-app .description {
+    margin-bottom: 30px;
+    color: #231F20;
+    font: Regular 14px/21px Verdana; }
+  .membership-app h3 {
+    font: 24px/36px "Cachet Medium", Verdana, sans-serif;
+    letter-spacing: 0px;
+    color: #231F20; }
+    .membership-app h3.regular {
+      font-weight: normal !important; }
+  .membership-app h2 {
+    font: 24px/36px "Cachet Medium", Verdana, sans-serif;
+    letter-spacing: 0px;
+    color: #231F20;
+    padding: 10px 0px; }
+    @media (min-width: 768px) {
+      .membership-app h2 {
+        font: 36px/36px "Cachet Medium", Verdana, sans-serif; } }
   .membership-app a.view-loactions {
     display: inline-flex;
     align-items: center;
@@ -57,41 +118,63 @@
     display: flex;
     align-items: center;
     justify-content: space-between; }
+  .membership-app .income-wrapper {
+    align-items: center;
+    border: 1px solid #f2f2f2;
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    padding-left: 15px; }
+    .membership-app .income-wrapper .price {
+      font-weight: 600;
+      margin-right: 15px;
+      margin-left: auto; }
+    .membership-app .income-wrapper h3 {
+      font: Bold 14px/21px Verdana;
+      letter-spacing: 0px;
+      color: #231F20; }
+  .membership-app .addon-wrapper {
+    align-items: center;
+    border: 1px solid #f2f2f2;
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    padding-left: 15px;
+    margin-bottom: 15px; }
+    .membership-app .addon-wrapper .price {
+      font-weight: 600;
+      margin-right: 15px;
+      margin-left: auto; }
+    .membership-app .addon-wrapper h3 {
+      font: Bold 14px/21px Verdana;
+      letter-spacing: 0px;
+      color: #231F20; }
+    .membership-app .addon-wrapper button {
+      border: none;
+      border-radius: 5px;
+      background-color: #0060af;
+      color: #fff;
+      text-transform: uppercase;
+      padding: 10px;
+      margin-left: auto;
+      width: 90px; }
+      .membership-app .addon-wrapper button.remove-income {
+        font-size: 20px;
+        color: #0060af;
+        background-color: transparent;
+        width: auto; }
+    .membership-app .addon-wrapper .checkbox {
+      padding: 0 15px;
+      margin: 2px 0 0; }
   .membership-app .add-addon {
+    display: inline-block;
     color: #0060af;
     background-color: transparent;
     margin-right: 10px;
     padding-left: 0;
     border: none; }
-  .membership-app .income-wrapper, .membership-app .addon-wrapper {
-    display: flex;
-    flex: 1;
-    align-items: center;
-    justify-content: space-between; }
-    .membership-app .income-wrapper .price, .membership-app .addon-wrapper .price {
-      font-weight: 600;
-      margin-right: auto;
-      margin-left: 15px; }
-    .membership-app .income-wrapper h3, .membership-app .addon-wrapper h3 {
-      font: Bold 14px/21px Verdana;
-      letter-spacing: 0px;
-      color: #231F20; }
-  .membership-app .addon-wrapper {
-    border: 1px solid #f2f2f2;
-    padding: 5px;
-    margin-bottom: 5px; }
-    .membership-app .addon-wrapper button {
-      font-size: 20px;
-      color: #0060af;
-      background-color: transparent;
-      width: auto;
-      border: 0; }
-    .membership-app .addon-wrapper .price {
-      margin-right: 15px;
-      margin-left: auto; }
-    .membership-app .addon-wrapper .checkbox {
-      padding: 15px;
-      margin: 8px 0; }
+  .membership-app .benefits h3 {
+    margin-bottom: 30px; }
   .membership-app .benefits .addon-wrapper {
     justify-content: flex-start;
     align-items: flex-start;
@@ -100,10 +183,14 @@
     .membership-app .benefits .addon-wrapper .description {
       width: 100%;
       margin-bottom: 0px; }
+      .membership-app .benefits .addon-wrapper .description h3 {
+        margin-bottom: 15px; }
+      .membership-app .benefits .addon-wrapper .description p {
+        margin-bottom: 15px; }
   .membership-app .container-checkbox {
     display: block;
     position: relative;
-    padding-left: 35px;
+    padding-left: 15px;
     margin-bottom: 12px;
     cursor: pointer;
     font-size: 22px;
@@ -150,12 +237,13 @@
   .membership-app .discount {
     display: flex; }
     .membership-app .discount .checkbox {
-      padding: 15px;
-      margin-top: 8px; }
+      padding: 0 15px;
+      margin-top: 2px; }
     .membership-app .discount h3 {
+      color: #231F20;
       font: Bold 14px/21px Verdana;
       letter-spacing: 0px;
-      color: #231F20; }
+      margin-bottom: 15px; }
   .membership-app .adjustments {
     display: flex;
     flex-wrap: wrap;
@@ -164,26 +252,38 @@
       display: block;
       padding-left: 0;
       margin-bottom: 0px; }
+      .membership-app .adjustments .description p {
+        margin-bottom: 15px; }
     .membership-app .adjustments h2 {
-      font: Medium 36px/36px Cachet, Verdana, sans-serif;
+      font: 24px/36px "Cachet Medium", Verdana, sans-serif;
       letter-spacing: 0px;
       color: #231F20;
       padding: 10px 0px;
       border-top: 5px solid #00AEEF; }
+      @media (min-width: 768px) {
+        .membership-app .adjustments h2 {
+          font: 36px/36px "Cachet Medium", Verdana, sans-serif; } }
     .membership-app .adjustments .discounts {
       width: 50%;
       padding: 10px; }
       @media (max-width: 960px) {
         .membership-app .adjustments .discounts {
           width: 100%; } }
+      .membership-app .adjustments .discounts > h2 {
+        margin-bottom: 15px; }
+        @media (min-width: 768px) {
+          .membership-app .adjustments .discounts > h2 {
+            margin-bottom: 30px; } }
       .membership-app .adjustments .discounts .annual-income {
+        align-items: center;
+        border: 1px solid #f2f2f2;
         display: flex;
         flex-wrap: wrap;
-        align-items: center;
         padding: 15px;
-        border: 1px solid #f2f2f2; }
+        margin-bottom: 30px; }
         .membership-app .adjustments .discounts .annual-income label {
-          width: 100%; }
+          width: 100%;
+          margin: 0 0 15px; }
         .membership-app .adjustments .discounts .annual-income input {
           padding: 10px;
           margin-right: 10px;
@@ -202,12 +302,26 @@
             color: #0060af;
             background-color: transparent;
             width: auto; }
+      .membership-app .adjustments .discounts .discount-options {
+        margin-bottom: 15px; }
+        .membership-app .adjustments .discounts .discount-options > h3 {
+          margin-bottom: 30px; }
     .membership-app .adjustments .addons {
       padding: 10px;
       width: 50%; }
       @media (max-width: 960px) {
         .membership-app .adjustments .addons {
           width: 100%; } }
+      .membership-app .adjustments .addons > h2 {
+        margin-bottom: 15px; }
+        @media (min-width: 768px) {
+          .membership-app .adjustments .addons > h2 {
+            margin-bottom: 30px; } }
+      .membership-app .adjustments .addons .members {
+        margin-bottom: 15px; }
+        @media (min-width: 768px) {
+          .membership-app .adjustments .addons .members {
+            margin-bottom: 30px; } }
   .membership-app .family-wrapper {
     border: 1px solid #F2F2F2;
     margin-bottom: 10px; }
@@ -266,14 +380,18 @@
           border: 2px solid rgba(0, 96, 175, 0.5);
           color: rgba(0, 96, 175, 0.8); }
   .membership-app .location {
-    position: relative;
-    cursor: pointer;
-    padding: 10px 10px 10px 10px;
-    margin: 10px 0;
-    display: flex;
     background: #FFFFFF 0% 0% no-repeat padding-box;
+    border-radius: 5px;
     border: 2px solid #0060AF;
-    border-radius: 5px; }
+    cursor: pointer;
+    display: flex;
+    margin: 5px 0;
+    padding: 10px 10px 10px 10px;
+    position: relative; }
+    @media screen and (min-width: 768px) {
+      .membership-app .location {
+        margin: 0;
+        padding: 10px 10px 10px 10px; } }
     .membership-app .location .radio {
       border: 1px solid #636466;
       width: 18px;
@@ -298,33 +416,44 @@
       .membership-app .location.active .content .address {
         color: #FFFFFF; }
     .membership-app .location .radio-wrap {
-      min-width: 30px; }
+      min-width: 30px;
+      margin-top: 6px; }
     .membership-app .location .content {
       min-width: 100%; }
       .membership-app .location .content .name {
-        font-size: 14px;
-        text-align: left;
-        font: Bold 14px/21px Verdana;
+        color: #0060AF;
+        font: Bold 12px/18px Verdana;
         letter-spacing: 0;
-        color: #0060AF; }
+        margin-bottom: 5px;
+        text-align: left; }
+        @media screen and (min-width: 768px) {
+          .membership-app .location .content .name {
+            font: Bold 14px/21px Verdana;
+            margin-bottom: 15px; } }
       .membership-app .location .content .address {
-        font: Regular 12px/21px Verdana;
-        color: #231F20; }
+        font: 10px/15px Verdana;
+        color: #231F20;
+        margin-bottom: 0; }
+        @media screen and (min-width: 768px) {
+          .membership-app .location .content .address {
+            font: 12px/21px Verdana; } }
   .membership-app .locations {
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
-    margin-left: -10px;
-    margin-right: -10px; }
+    margin-left: -5px;
+    margin-right: -5px; }
+    @media screen and (min-width: 768px) {
+      .membership-app .locations {
+        margin-left: -10px;
+        margin-right: -10px; } }
   .membership-app .location-wrapper {
-    min-width: 33.3%;
-    padding: 10px; }
-    @media screen and (max-width: 650px) {
+    width: 50%;
+    padding: 0 5px; }
+    @media screen and (min-width: 768px) {
       .membership-app .location-wrapper {
-        min-width: 50%; } }
-    @media screen and (max-width: 400px) {
-      .membership-app .location-wrapper {
-        min-width: 100%; } }
+        padding: 10px;
+        width: 33.3%; } }
   .membership-app .v-select {
     position: relative;
     font-family: inherit; }
@@ -540,7 +669,7 @@
     overflow: hidden;
     align-items: center;
     justify-content: space-between;
-    font: 500 12px/18px Cachet, Verdana;
+    font: 12px/18px 'Cachet Medium', Verdana;
     margin: 15px 0 0; }
     .membership-app .best-value::after {
       content: '';
@@ -563,23 +692,35 @@
     margin-bottom: 30px; }
     .membership-app .product h2 {
       text-align: left;
-      font: 500 36px/54px 'Cachet', Verdana, sans-serif;
+      font: 24px/36px 'Cachet Medium', Verdana, sans-serif;
       letter-spacing: 0;
       color: #231F20;
-      margin: 0px;
+      margin: 0 0 5px;
       padding: 0; }
+      @media (min-width: 768px) {
+        .membership-app .product h2 {
+          font: 36px/54px 'Cachet Medium', Verdana, sans-serif;
+          margin: 0 0 15px; } }
+    .membership-app .product .product-description {
+      margin-bottom: 5px; }
+      @media (min-width: 768px) {
+        .membership-app .product .product-description {
+          margin-bottom: 15px; } }
     .membership-app .product .select {
       background: #92278F 0% 0% no-repeat padding-box;
       border: 2px solid #92278F;
-      font: 500 24px/36px 'Cachet', Verdana, sans-serif;
-      letter-spacing: 0;
       color: #FFFFFF;
-      text-align: center;
-      padding: 10px;
-      margin: 10px -15px -15px;
-      text-decoration: none;
       cursor: pointer;
-      display: block; }
+      display: block;
+      font: 18px/27px 'Cachet Medium', Verdana, sans-serif;
+      letter-spacing: 0;
+      margin: 10px -15px -15px;
+      padding: 10px;
+      text-align: center;
+      text-decoration: none; }
+      @media (min-width: 768px) {
+        .membership-app .product .select {
+          font: 24px/36px 'Cachet Medium', Verdana, sans-serif; } }
     .membership-app .product .product-columns {
       display: flex;
       flex-wrap: wrap;
@@ -588,12 +729,27 @@
         .membership-app .product .product-columns > div {
           min-width: 100%; } }
       .membership-app .product .product-columns .options {
-        padding-top: 15px; }
+        padding-top: 5px; }
+        @media (min-width: 768px) {
+          .membership-app .product .product-columns .options {
+            padding-top: 15px; } }
+        .membership-app .product .product-columns .options .item {
+          display: flex;
+          margin-bottom: 15px; }
+          .membership-app .product .product-columns .options .item .price-title {
+            padding-right: 10px; }
+          .membership-app .product .product-columns .options .item .price-value {
+            text-align: right;
+            margin-left: auto;
+            white-space: nowrap; }
         .membership-app .product .product-columns .options .branch {
-          padding: 0px 0px 15px;
+          color: #231F20;
           font: Bold 14px/21px Verdana;
           letter-spacing: 0;
-          color: #231F20; }
+          padding: 0px 0px 5px; }
+          @media (min-width: 768px) {
+            .membership-app .product .product-columns .options .branch {
+              padding: 0px 0px 15px; } }
         .membership-app .product .product-columns .options .addon {
           display: flex;
           flex-wrap: wrap;
@@ -607,10 +763,13 @@
           .membership-app .product .product-columns .options .addon p {
             margin: 0; }
       .membership-app .product .product-columns .title {
-        padding: 5px;
-        color: #231F20;
         background-color: #f2f2f2;
-        font: 500 18px/27px 'Cachet', Verdana, sans-serif; }
+        color: #231F20;
+        font: 14px/21px 'Cachet Medium', Verdana, sans-serif;
+        padding: 0 5px; }
+        @media (min-width: 768px) {
+          .membership-app .product .product-columns .title {
+            font: 18px/27px 'Cachet Medium', Verdana, sans-serif; } }
       .membership-app .product .product-columns .price-title, .membership-app .product .product-columns .price-value {
         padding-top: 0; }
       .membership-app .product .product-columns > div {
@@ -618,6 +777,43 @@
         flex: 1; }
         .membership-app .product .product-columns > div .title {
           text-align: center; }
+  .membership-app .summary-wrapper .product-title {
+    margin-bottom: 15px; }
+  .membership-app .summary-wrapper .product-description {
+    margin-bottom: 15px; }
+  .membership-app .summary-wrapper .product-columns {
+    margin-left: -7.5px;
+    margin-right: -7.5px; }
+    .membership-app .summary-wrapper .product-columns > div {
+      padding: 7.5px; }
+    .membership-app .summary-wrapper .product-columns .options .item {
+      display: flex;
+      margin-bottom: 15px; }
+      .membership-app .summary-wrapper .product-columns .options .item .option-title {
+        padding-right: 10px; }
+      .membership-app .summary-wrapper .product-columns .options .item .option-price {
+        text-align: right;
+        margin-left: auto;
+        white-space: nowrap; }
+    .membership-app .summary-wrapper .product-columns .find-more-wrapper {
+      border-top: 1px solid #636466;
+      margin-top: 15px;
+      padding-top: 15px;
+      margin-bottom: 15px; }
+      .membership-app .summary-wrapper .product-columns .find-more-wrapper .actions {
+        display: flex; }
+      .membership-app .summary-wrapper .product-columns .find-more-wrapper .find-more {
+        font-weight: bold;
+        padding: 0; }
+      .membership-app .summary-wrapper .product-columns .find-more-wrapper .clear-all {
+        margin-left: auto;
+        margin-right: 0;
+        padding: 0; }
+      .membership-app .summary-wrapper .product-columns .find-more-wrapper .info {
+        margin-top: 15px;
+        font-size: 12px; }
+        .membership-app .summary-wrapper .product-columns .find-more-wrapper .info p {
+          margin-bottom: 0; }
   .membership-app .billing .billing-wrapper {
     display: flex;
     flex-wrap: wrap;

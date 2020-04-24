@@ -1,18 +1,16 @@
 <template>
   <section class="app-container">
     <loading :active.sync="isLoading"></loading>
-    <div class="container">
-      <div class>
-        <div class>
-          <h1 class="title">Adjustments</h1>
-        </div>
-      </div>
-      <div class="adjustments">
+    <h1 class="title">Adjustments</h1>
+    <div class="adjustments">
         <div class="discounts">
           <h2>Discounts</h2>
           <h3>Income</h3>
           <p>You may be eligible for a Scholarship discount depending on your income level.</p>
           <div v-if="discounts && discounts.income" class="annual-income">
+            <label>
+              <strong>Annual Income (Household)</strong>
+            </label>
             <div class="income-wrapper">
               <div class="eligible">Eligible</div>
               <div class="price">
@@ -22,11 +20,13 @@
             </div>
           </div>
           <div v-else class="annual-income">
-            <label>Annual Income (Household)</label>
-            <input v-model="income" />
+            <label>
+              <strong>Annual Income (Household)</strong>
+            </label>
+            <input v-model="income" placeholder="$" />
             <button @click="checkDiscounts(true)">Check</button>
           </div>
-          <div :key="index" v-for="(member, index) in members">
+          <div :key="index" v-for="(member, index) in members" class="discount-options">
             <h3>{{family_members[index] && family_members[index].attributes.field_first_name}}</h3>
             <div v-if="member_promotions.health_insurance" class="discount">
               <div class="checkbox">
@@ -105,7 +105,7 @@
                       </label>
                     </div>
                     <div class="description">
-                      <h3>{{addon.attributes.title}} (+ {{addon.attributes.price.formatted}} / mo )</h3>
+                      <h3 class="regular">{{addon.attributes.title}} (+ {{addon.attributes.price.formatted}} / mo )</h3>
                       <p v-html="addon.attributes.field_om_addon_description && addon.attributes.field_om_addon_description.processed"></p>
                     </div>
                   </div>
@@ -113,9 +113,7 @@
               </div>
             </div>
           </div>
-          
       </div>
-    </div>
     <div class="navigation">
       <div class="container">
         Discounts & Add-Ons: <b>{{discount_addons}} /mo.</b> <button class="btn btn-next" @click="$emit('go-next')">Next</button>
@@ -135,7 +133,7 @@ export default {
     discount_addons() {
       let total_price = parseFloat(this.total_price);
       let product = this.$store.state.product.variations[this.$store.state.product.variant];
-      
+
       let subtotal_price = parseFloat(product.price);
       let count = total_price - subtotal_price;
       if (count > 0) {
@@ -153,7 +151,7 @@ export default {
       this.income = 0;
       this.$store.commit('setItem', {key: 'income', value: 0});
       this.members = [];
-      this.$store.commit('setItem', { 
+      this.$store.commit('setItem', {
         key: 'members',
         value: [],
       });
@@ -331,7 +329,7 @@ export default {
         this.total_price = data.total_price;
         this.subtotal_price = data.subtotal_price;
         this.member_promotions = data.member_promotions;
-        
+
         this.isLoading = false;
       }).catch(() => {
         this.isLoading = false;
@@ -446,7 +444,7 @@ export default {
             order.order_items.forEach(item => {
               switch(item.purchased_entity.type) {
                 case "membership_addon":
-                  
+
                   switch (item.purchased_entity.field_om_addon_type) {
                     case "benefits":
                     this.benefits_addons_in_cart.push({

@@ -1,7 +1,7 @@
 <template>
   <div class="product">
     <div class="product-title"><h2>{{product.title}}</h2></div>
-    <div class="product-description"><p v-html="product.field_description"></p></div>
+    <div class="product-description" v-html="product.field_description"></div>
     <div class="product-columns">
       <div>
         <div class="title">Purchase Options</div>
@@ -22,7 +22,7 @@
       <div>
         <div class="title">Cost Summary</div>
         <div class="options">
-          <div class="product-columns">
+          <div class="item">
             <div class="price-title"><b>Dues</b></div>
             <div class="price-value text-align-right"><b>${{ price | numFormat('0.00') }} / mo</b></div>
           </div>

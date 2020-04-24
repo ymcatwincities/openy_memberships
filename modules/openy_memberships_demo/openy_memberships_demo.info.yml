@@ -7,4 +7,5 @@ dependencies:
   - openy_block_modal
   - paragraph_skins
   - openy_prgf_sidebar_menu
+  - default_content
 core_incompatible: false

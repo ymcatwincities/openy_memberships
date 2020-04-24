@@ -1,20 +1,49 @@
 .ps-sidebar_menu-openy-memberships-sidebar-menu {
-  margin-top: 30px;
+  margin-top: 10px;
 
   ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
     list-style-type: none;
     padding: 0;
     margin: 0;
 
     li {
-      border-top: 1px solid black;
+      width: 49%;
+
+      border-top: 1px solid #636466;
       padding: 15px 15px 15px 0;
 
       a {
-        font-size: 14px;
-        line-height: 21px;
+        font-family: Verdana, Geneva, sans-serif;
+        font-size: 12px;
+        line-height: 18px;
         font-weight: bold !important;
-        color: #0060af;
+        color: white;
+      }
+    }
+  }
+
+  @media all and (min-width: 600px) {
+    margin-top: 20px;
+  }
+
+  @media all and (min-width: 1060px) {
+    margin-top: 30px;
+
+    ul {
+      display: initial;
+
+      li {
+        width: initial;
+
+        a {
+          font-size: 14px;
+          line-height: 21px;
+          color: #0060af;
+        }
       }
     }
   }

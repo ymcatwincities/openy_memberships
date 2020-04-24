@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - commerce_product
+    - openy_memberships
+    - taxonomy
+id: commerce_product.field_om_total_available
+field_name: field_om_total_available
+entity_type: commerce_product
+type: openy_memberships_multi_item
+settings:
+  target_type: taxonomy_term
+  ar_target_type: commerce_addon
+module: openy_memberships
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

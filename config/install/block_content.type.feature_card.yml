@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: feature_card
+label: 'Feature Card'
+revision: 1
+description: ''

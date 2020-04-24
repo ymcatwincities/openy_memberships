@@ -1,18 +1,17 @@
 <template>
-  <section class="app-container">
-    <div class="container">
-      <loading :active.sync="isLoading"></loading>
-      <div class="">
-        <div class="">
-          <h1 class="title">
-            Your Membership
-          </h1>
-        </div>
+  <section class="app-container summary-wrapper">
+    <loading :active.sync="isLoading"></loading>
+    <h1 class="title">
+      Your Membership
+    </h1>
+    <div class="description">
+      <div class="description-text">
+        Here's a summary of your membership. Keep scrolling to take the next step!
       </div>
-      <div class="description">
-        <div class="description-text">
-          Here's a summary of your membership. Keep scrolling to take the next step!
-        </div>
+    </div>
+    <div class="product">
+      <div class="product-title">
+        <h2>{{product.title}}</h2>
       </div>
       <div class="product">
         <div class="product-title">
@@ -35,38 +34,42 @@
                 v-if="product.variations[variant].field_best_value == 1"
               >Best value</div>
             </div>
+            <div
+              class="best-value"
+              v-if="product.variations[variant].field_best_value == 1"
+            >Best value</div>
           </div>
-          <div>
-            <div class="title">Discounts & Add-Ons</div>
-            <div class="options">
-              <div :key="index" v-for="(discount, index) in discounts">
-                <div class="addon">
-                  <div class="addon-title">{{discount.title }}:</div> 
-                  <div class="addon-price">- ${{ discount.amount | numFormat('0.00') }} /mo.</div>
-                  <p>{{discount.member_name}}</p>
-                </div>
+        </div>
+        <div>
+          <div class="title">Discounts & Add-Ons</div>
+          <div class="options">
+            <div :key="index" v-for="(discount, index) in discounts" class="item discount">
+              <div class="option-title">{{discount.title }}: <p>{{discount.member_name}}</p></div>
+              <div class="option-price">- ${{ discount.amount | numFormat('0.00') }} /mo.</div>
+            </div>
+            <div :key="index" v-for="(addon, index) in addons" class="item addon">
+              <div class="option-title">{{addon.title }}:</div>
+              <div class="option-price">+ ${{ addon.amount | numFormat('0.00') }} /mo.</div>
+            </div>
+            <div class="find-more-wrapper">
+              <div class="actions">
+                <button @click="goToDiscount" class="add-addon find-more">Find More</button>
+                <!-- @todo: add clear all functionality -->
+                <button class="clear-all add-addon">Clear All</button>
               </div>
-              <div :key="index" v-for="(addon, index) in addons">
-                  <div class="addon">
-                    <div class="addon-title">{{addon.title }}:</div>
-                    <div class="addon-price">+ ${{ addon.amount | numFormat('0.00') }} /mo.</div>
-                  </div>
-              </div>
-              <div>
-                <div class="addon">
-                  <div class="addon-title"><button @click="goToDiscount" class="add-addon">Find More</button></div>
-                  <div class="addon-price"></div>
-                </div>
+              <div class="info">
+                <p><i>* Proof of eligibility will be required.</i></p>
+                <p><i>† Member must work out at least 12 times per month to claim discount.</i></p>
               </div>
             </div>
           </div>
-          <div>
-            <div class="title">Cost Summary</div>
-            <div class="options">
-              <div class="product-columns">
-                <div class="price-title"><b>Dues</b></div>
-                <div class="price-value text-align-right"><b>${{ total_price | numFormat('0.00') }} / mo</b></div>
-              </div>
+        </div>
+        <div>
+          <div class="title">Cost Summary</div>
+          <div class="options">
+            <div class="item">
+              <div class="option-title"><b>Dues</b></div>
+              <div class="option-price text-align-right"><b>${{ total_price | numFormat('0.00') }} / mo</b></div>
             </div>
           </div>
         </div>
