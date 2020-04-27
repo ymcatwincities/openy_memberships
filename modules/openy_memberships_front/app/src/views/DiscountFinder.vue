@@ -364,6 +364,9 @@ export default {
       this.benefits_addons_in_cart = [];
       json.forEach(order => {
         order.order_items.forEach(item => {
+          if(!item || !item.purchased_entity) {
+            return 
+          }
           switch(item.purchased_entity.type) {
             case "membership_addon":
               switch (item.purchased_entity.field_om_addon_type) {
@@ -383,7 +386,7 @@ export default {
                     order_id: item.order_id
                   })
                   break;
-                default:
+                case "members":
                   this.member_addons_in_cart.push({
                     ...item.purchased_entity,
                     order_item_id: item.order_item_id,
