@@ -29,7 +29,7 @@
       </div>
       <div class="product">
         <div class="product-title">
-          <h2>Family II</h2>
+          <h2>{{ content.result.products.0.product_title }}</h2>
         </div>
         <div class="product-description">
           {{ content.result.products.0.product_description }}
@@ -37,9 +37,9 @@
         <table class="product-columns">
           <thead>
             <tr>
-              <th><div class="title">Purchase Options</div></th>
-              <th><div class="title">Discounts &amp; Add-Ons</div></th>
-              <th><div class="title">Cost Summary</div></th>
+              <th><div class="title">{{ 'Purchase Options'|t }}</div></th>
+              <th><div class="title">{{ 'Discounts &amp; Add-Ons'|t }}</div></th>
+              <th><div class="title">{{ 'Cost Summary'|t }}</div></th>
             </tr>
           </thead>
           <tbody>
@@ -84,9 +84,9 @@
                   <tr>
                     <td colspan="2" class="find-more-wrapper">
                       <div class="info">
-                        <p><i>* Proof of eligibility will be required.</i></p>
-                        <p><i>† Member must work out at least 12
-                            times per month to claim discount.</i></p>
+                        <p><i>{{ '* Proof of eligibility will be required.'|t }}</i></p>
+                        <p><i>{{ '† Member must work out at least 12
+                            times per month to claim discount.'|t }}</i></p>
                       </div>
                     </td>
                   </tr>
@@ -98,7 +98,7 @@
                   <tbody>
                     <tr>
                       <td>
-                        <div><b>Dues</b></div>
+                        <div><b>{{ 'Dues'|t }}</b></div>
                       </td>
                       <td>
                         <div><b>${{ content.result.total_price|number_format(2) }} / mo</b></div>
