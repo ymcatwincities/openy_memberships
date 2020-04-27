@@ -63,6 +63,8 @@
             </div>
           </div>
         </div>
+      </div>
+      <div>
         <a class="select" @click="$emit('go-next')">JOIN NOW</a>
       </div>
     </div>
@@ -99,7 +101,7 @@ export default {
 
     window.jQuery
       .ajax({
-        url: "/om-model/data/summary",
+        url: "/memberships/api/summary",
         dataType: "json",
         data: {}
       })

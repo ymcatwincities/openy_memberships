@@ -33,6 +33,14 @@ openy_memberships.products:
     parameters:
       branch:
         type: 'entity:node'
+openy_memberships.summary:
+  path: /memberships/api/summary
+  defaults:
+    _controller: '\Drupal\openy_memberships\Controller\OpenyMemberships::getSummary'
+  requirements:
+    _permission: 'access content'
+  options:
+    no_cache: TRUE
 openy_memberships.billing:
   path: /memberships/api/billing/{order}
   defaults:
@@ -45,3 +53,11 @@ openy_memberships.billing:
     parameters:
       order:
         type: 'entity:commerce_order'
+openy_memberships.summary_pdf:
+  path: /memberships/get-summary-pdf
+  defaults:
+    _controller: '\Drupal\openy_memberships\Controller\OpenyMemberships::getSummaryPdf'
+  requirements:
+    _permission: 'access content'
+  options:
+    no_cache: TRUE

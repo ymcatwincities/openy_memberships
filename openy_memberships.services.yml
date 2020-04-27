@@ -1,0 +1,5 @@
+services:
+  openy_memberships_pdf_generator:
+    class: Drupal\openy_memberships\OmPDFGenerator
+    tags:
+      - { name: pdf_generator }

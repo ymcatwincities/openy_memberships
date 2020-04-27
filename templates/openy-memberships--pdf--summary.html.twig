@@ -1,0 +1,116 @@
+{#
+/**
+ * @file
+ *
+ * Available variables:
+ * - content: contains all data.
+ *
+ * @ingroup themeable
+ */
+#}
+<div class="openy-memberships--pdf--summary">
+  <div class="content">
+    <div class="header">
+      <div class="branding">
+        <img src="{{ content.logo_url }}" width="100" height="86" />
+      </div>
+      <div class="title">
+        <strong>{{ content.site_name }}</strong>
+      </div>
+    </div>
+    <section class="membership-app app-container summary-wrapper">
+      <h1 class="title">
+        {{ 'Your Membership'|t }}
+      </h1>
+      <div class="description">
+        <div class="description-text">
+          {{ 'Here\'s a summary of your membership.'|t }}
+        </div>
+      </div>
+      <div class="product">
+        <div class="product-title">
+          <h2>Family II</h2>
+        </div>
+        <div class="product-description">
+          {{ content.result.products.0.product_description }}
+        </div>
+        <table class="product-columns">
+          <thead>
+            <tr>
+              <th><div class="title">Purchase Options</div></th>
+              <th><div class="title">Discounts &amp; Add-Ons</div></th>
+              <th><div class="title">Cost Summary</div></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="options">
+                  <div class="branch">
+                    {% if content.result.products.0.product_branch %}
+                      {{ content.result.products.0.product_branch }}
+                    {% else %}
+                      {{ 'All Branch Access'|t }}
+                    {% endif %}
+                  </div>
+                  {% if content.result.products.0.field_best_value %}
+                    <div class="best-value">{{ 'Best value' }}</div>
+                  {% endif %}
+                </div>
+              </td>
+              <td>
+                <table class="options">
+                  <tbody>
+                    {% for key, discount in content.result.discounts %}
+                    <tr class="item discount">
+                      <td>
+                        <div class="option-title">{{ discount.title }}: <p>{{discount.member_name}}</p></div>
+                      </td>
+                      <td>
+                        <div class="option-price">- ${{ discount.amount|number_format(2) }} /mo.</div>
+                      </td>
+                    </tr>
+                    {% endfor %}
+                    {% for key, addon in content.result.addons %}
+                      <tr class="item addon">
+                        <td>
+                          <div class="option-title">{{ addon.title }}</div>
+                        </td>
+                        <td>
+                          <div class="option-price">- ${{ addon.amount|number_format(2) }} /mo.</div>
+                        </td>
+                      </tr>
+                    {% endfor %}
+                  <tr>
+                    <td colspan="2" class="find-more-wrapper">
+                      <div class="info">
+                        <p><i>* Proof of eligibility will be required.</i></p>
+                        <p><i>† Member must work out at least 12
+                            times per month to claim discount.</i></p>
+                      </div>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </td>
+              <td>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <div><b>Dues</b></div>
+                      </td>
+                      <td>
+                        <div><b>${{ content.result.total_price|number_format(2) }} / mo</b></div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+</div>

@@ -787,3 +787,53 @@
     }
   }
 }
+
+// Summary PDF.
+.openy-memberships--pdf--summary {
+  .header {
+    margin-bottom: 20px;
+
+    .branding {
+      float: left;
+      width: 15%;
+    }
+
+    .title {
+      font: 20px/26px 'Cachet Medium', Verdana, sans-serif;
+      float: left;
+      text-align: left;
+      padding: 50px 20px 0;
+      width: 75%;
+    }
+  }
+  .product-columns {
+    overflow: wrap;
+    th {
+      background-color: #f2f2f2;
+      padding: 5px;
+      font-size: 12px;
+    }
+    td {
+      font-size: 12px;
+      padding: 5px;
+      vertical-align: top;
+      width: 30%;
+    }
+    td:nth-child(2) {
+      width: 40%;
+    }
+    table {
+      overflow: wrap;
+      td {
+        padding: 5px;
+        width: 50%;
+      }
+      td:nth-child(2) {
+        text-align: right;
+      }
+    }
+  }
+  .find-more-wrapper {
+    border-top: 1px solid #ccc;
+  }
+}
