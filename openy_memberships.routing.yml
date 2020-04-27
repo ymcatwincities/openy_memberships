@@ -5,6 +5,14 @@ openy_memberships.openy_memberships:
     _title: 'Memberships'
   requirements:
     _permission: 'access administration pages'
+openy_memberships.getAgesGroupsInfo:
+  path: /memberships/get/ages/groups
+  defaults:
+    _controller: '\Drupal\openy_memberships\Controller\OpenyMemberships::getAgesGroupsInfo'
+  requirements:
+    _permission: 'access content'
+  options:
+    no_cache: TRUE
 openy_memberships.checkDiscounts:
   path: /memberships/check/discounts/{income}/{members}
   defaults:
