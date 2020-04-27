@@ -258,49 +258,24 @@ export default {
           let order_uuid = json[0].uuid;
           //let order_id = json[0].id;
           let family = this.$store.state.family;
-          let adults = family.adults;
-          let youth = family.youth;
-          let seniors = family.seniors;
           let members = 0;
           let family_members = [];
-          for (let i = 1; i <= adults; i++) {
-            members++;
-            await this.createMember({
-              name: "Member " + members,
-              type: "adults"
-            }).then(member => {
-              family_members.push({
-                type: member.data.type,
-                id: member.data.id
+
+          for (let type in family) {
+            let count = family[type];
+            for (let i = 1; i <= count; i++) {
+              members++;
+              await this.createMember({
+                name: "Member " + members,
+                type: "adults"
+              }).then(member => {
+                family_members.push({
+                  type: member.data.type,
+                  id: member.data.id
+                });
+                this.family_members.push(member.data);
               });
-              this.family_members.push(member.data);
-            });
-          }
-          for (let i = 1; i <= youth; i++) {
-            members++;
-            await this.createMember({
-              name: "Member " + members,
-              type: "youth"
-            }).then(member => {
-              family_members.push({
-                type: member.data.type,
-                id: member.data.id
-              });
-              this.family_members.push(member.data);
-            });
-          }
-          for (let i = 1; i <= seniors; i++) {
-            members++;
-            await this.createMember({
-              name: "Member " + members,
-              type: "seniors"
-            }).then(member => {
-              family_members.push({
-                type: member.data.type,
-                id: member.data.id
-              });
-              this.family_members.push(member.data);
-            });
+            }
           }
 
           return Cart.setMembers(order_uuid, family_members);
@@ -389,6 +364,9 @@ export default {
       this.benefits_addons_in_cart = [];
       json.forEach(order => {
         order.order_items.forEach(item => {
+          if(!item || !item.purchased_entity) {
+            return 
+          }
           switch(item.purchased_entity.type) {
             case "membership_addon":
               switch (item.purchased_entity.field_om_addon_type) {
@@ -408,7 +386,7 @@ export default {
                     order_id: item.order_id
                   })
                   break;
-                default:
+                case "members":
                   this.member_addons_in_cart.push({
                     ...item.purchased_entity,
                     order_item_id: item.order_item_id,
