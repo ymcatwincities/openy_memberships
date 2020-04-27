@@ -40,6 +40,11 @@
                 <div class="addon-price">- ${{ discount.amount | numFormat('0.00') }} /mo.</div>
                 <p>{{discount.member_name}}</p>
               </div>
+              {{product.variations[variant].title}} (${{ product.variations[variant].price | numFormat('0.00') }} /mo.)
+              <div
+                class="best-value"
+                v-if="product.variations[variant].field_best_value == 1"
+              >Best value</div>
             </div>
             <div :key="index" v-for="(addon, index) in addons">
                 <div class="addon">
@@ -94,7 +99,7 @@ export default {
 
     window.jQuery
       .ajax({
-        url: "/om-model/data/summary",
+        url: "/memberships/api/summary",
         dataType: "json",
         data: {}
       })
