@@ -202,7 +202,7 @@ export default {
           if (json[0]) {
             let order_id = json[0].order_id;
             let membership_items = json[0].order_items.filter(item => {
-              return item.purchased_entity.type != "membership";
+              return item && item.purchased_entity && item.purchased_entity.type != "membership";
             });
             return Promise.all(
               membership_items.map(item => {
@@ -210,6 +210,7 @@ export default {
               })
             );
           }
+          return [];
         })
         .then(() => {
           return this.checkDiscounts();
