@@ -1,7 +1,7 @@
 <template>
   <div class="product">
     <div class="product-title"><h2>{{product.title}}</h2></div>
-    <div class="product-description"><p v-html="product.field_description"></p></div>
+    <div class="product-description" v-html="product.field_description"></div>
     <div class="product-columns">
       <div>
         <div class="title">Purchase Options</div>
@@ -17,14 +17,14 @@
       </div>
       <div>
         <div class="title">Discounts & Add-Ons</div>
-        <div class="options"></div>
+        <div class="options">Select a membership to update discounts and add-ons.</div>
       </div>
       <div>
         <div class="title">Cost Summary</div>
         <div class="options">
-          <div class="product-columns">
-            <div class="price-title">Dues</div>
-            <div class="price-value text-align-right">{{ price }}</div>
+          <div class="item">
+            <div class="price-title"><b>Dues</b></div>
+            <div class="price-value text-align-right"><b>${{ price | numFormat('0.00') }} / mo</b></div>
           </div>
         </div>
       </div>
@@ -69,7 +69,11 @@ export default {
       this.$store.commit('setProduct', {
         ...this.product,
         variant: this.variant
-      })
+      });
+      this.$store.commit('setItem', {
+        key: 'keepCart',
+        value: false,
+      });
       this.$emit('go-next')
     }
   },

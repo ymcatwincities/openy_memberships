@@ -1,9 +1,10 @@
 import mutations from '../mutations'
+import actions from '../actions'
 const defaultSteps = ['BranchSelectorHome', 'Family', 'Results', 'DiscountFinder', 'Summary']
 export default {
     state: {
       step: 0,
-      steps: window.drupalSettings.openy_memberships_front && window.drupalSettings.openy_memberships_front.steps ? window.drupalSettings.openy_memberships_front.steps : defaultSteps,
+      steps: defaultSteps,
       location: null,
       family: {
         adults: 0,
@@ -11,6 +12,11 @@ export default {
         seniors: 0
       },
       product: null,
+      keepCart: true,
+      members: [],
+      income: 0,
+      billing: {}
     },
-    mutations
+    mutations,
+    actions
 }

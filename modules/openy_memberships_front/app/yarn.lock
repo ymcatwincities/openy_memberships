@@ -5333,6 +5333,10 @@ number-is-nan@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
 
+numeral@^2.0.6:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/numeral/-/numeral-2.0.6.tgz#4ad080936d443c2561aed9f2197efffe25f4e506"
+
 nwsapi@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/nwsapi/-/nwsapi-2.2.0.tgz#204879a9e3d068ff2a55139c2c772780681a38b7"
@@ -7789,6 +7793,10 @@ vue-eslint-parser@^7.0.0:
     espree "^6.1.2"
     esquery "^1.0.1"
     lodash "^4.17.15"
+
+vue-filter-number-format@^3.0.1:
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/vue-filter-number-format/-/vue-filter-number-format-3.0.1.tgz#0e0674d739ad5eee23837be683802ec72bf69079"
 
 vue-hot-reload-api@^2.3.0:
   version "2.3.4"

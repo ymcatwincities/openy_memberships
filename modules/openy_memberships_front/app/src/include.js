@@ -3,7 +3,10 @@ import App from './App.vue'
 import Vuex from 'vuex';
 import VueRouter from 'vue-router'
 import VuexPersist from 'vuex-persist'
+import numeral from 'numeral';
+import numFormat from 'vue-filter-number-format';
 
+Vue.filter('numFormat', numFormat(numeral));
 Vue.use(VueRouter)
 Vue.use(Vuex);
 

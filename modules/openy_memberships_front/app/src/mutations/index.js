@@ -13,5 +13,21 @@ export default {
   },
   setProduct(state, product) {
     state.product = product
+  },
+  setItem(state, item) {
+    state[item.key] = item.value
+  },
+  clearStorage(state) {
+    state.family = {
+      adults: 0,
+      youth: 0,
+      seniors: 0
+    }
+    state.location = null
+    // state.product = null
+    state.keepCart = false
+    state.members = []
+    state.income = 0
+    state.billing = {}
   }
 }

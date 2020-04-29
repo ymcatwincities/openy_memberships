@@ -1,5 +1,6 @@
 <?php 
 use Drupal\user\Entity\Role;
+use Drupal\Core\Field\BaseFieldDefinition;
 
 function openy_memberships_install() {
   $role_object = Role::load('anonymous');
@@ -35,6 +36,8 @@ function openy_memberships_install() {
   $config = $config_factory->getEditable('jsonapi.settings');
   $config->set('read_only', FALSE)->save();
 
+  openy_memberships_update_8002();
+  openy_memberships_update_8003();
 }
 
 
@@ -55,6 +58,45 @@ function openy_memberships_update_8001() {
   $role_object = Role::load('authenticated');
   $role_object->grantPermission('view membership_addon commerce_addon');
   $role_object->grantPermission('view commerce_addon');
+  $role_object->grantPermission('restful get openy_memberships_summary');
+  $role_object->save();
+}
+
+/**
+ * Update fields for profiles.
+ */
+function openy_memberships_update_8002() {
+  $config_factory = \Drupal::configFactory();
+  $config = $config_factory->getEditable('openy_memberships_front.settings');
+  $config->set("steps", "BranchSelectorHome\r\nFamily\r\nResults\r\nDiscountFinder\r\nSummary\r\nJoinNow\r\nSuccess")
+    ->save();
+  $config_importer = \Drupal::service('config_import.importer');
+  $config_importer->setDirectory(drupal_get_path('module', 'openy_memberships') . '/config/install');
+  $config_importer->importConfigs(
+    [
+      'field.storage.profile.field_email',
+      'field.storage.profile.field_phone',
+      'field.field.profile.customer.field_email',
+      'field.field.profile.customer.field_phone',
+      'core.entity_form_display.profile.customer.default'
+    ]);
+}
+
+/**
+ * Update permissions.
+ */
+function openy_memberships_update_8003() {
+  $role_object = Role::load('anonymous');
+  $role_object->grantPermission('create customer profile');
+  $role_object->grantPermission('update own customer profile');
+  $role_object->grantPermission('view own customer profile');
+  $role_object->grantPermission('restful get openy_memberships_summary');
+  $role_object->save();
+
+  $role_object = Role::load('authenticated');
+  $role_object->grantPermission('create customer profile');
+  $role_object->grantPermission('update own customer profile');
+  $role_object->grantPermission('view own customer profile');
   $role_object->grantPermission('restful get openy_memberships_summary');
   $role_object->save();
 }

@@ -2,14 +2,20 @@
 
 namespace Drupal\openy_memberships\Controller;
 
-use Drupal\commerce_cart\CartProviderInterface;
 use Drupal\commerce_price\Price;
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\Core\Config\ConfigFactoryInterface;
-use Drupal\Core\Entity\EntityTypeManagerInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
+use Drupal\Core\Entity\Query\QueryFactory;
+use Drupal\taxonomy\Entity\Term;
 use Symfony\Component\HttpFoundation\Request;
+use Drupal\Core\Config\ConfigFactoryInterface;
+use Drupal\Core\Session\AccountProxyInterface;
+use Drupal\commerce_cart\CartProviderInterface;
+use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+use Drupal\commerce_product\Entity\Product;
+use Drupal\commerce_promotion\Entity\Promotion;
+use Drupal\node\Entity\Node;
 
 /**
  * Provides OpenyMemberships controller.
@@ -17,11 +23,18 @@ use Symfony\Component\HttpFoundation\JsonResponse;
 class OpenyMemberships extends ControllerBase {
 
   /**
-   * The entityTypeManger.
+   * The entity query factory.
+   *
+   * @var \Drupal\Core\Entity\Query\QueryFactory
+   */
+  protected $entityQuery;
+
+  /**
+   * The entityTypeManager.
    *
    * @var \Drupal\Core\Entity\EntityTypeManagerInterface
    */
-  protected $entityTypeManger;
+  protected $entityTypeManager;
 
   /**
    * The config factory.
@@ -38,8 +51,15 @@ class OpenyMemberships extends ControllerBase {
   protected $cartProvider;
 
   /**
+   * @var \Drupal\Core\Session\AccountProxy
+   */
+  protected $currentUser;
+
+  /**
    * Constructs a new Memberships object.
    *
+   * @param \Drupal\Core\Entity\Query\QueryFactory $entity_query
+   *   Query Factory service.
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
    *   The entity type manager.
    * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
@@ -47,10 +67,18 @@ class OpenyMemberships extends ControllerBase {
    * @param \Drupal\commerce_cart\CartProviderInterface $cart_provider
    *   The cart provider.
    */
-  public function __construct(EntityTypeManagerInterface $entity_type_manager, ConfigFactoryInterface $config_factory, CartProviderInterface $cart_provider) {
-    $this->entityTypeManger = $entity_type_manager;
+  public function __construct(
+      QueryFactory $entity_query,
+      EntityTypeManagerInterface $entity_type_manager,
+      ConfigFactoryInterface $config_factory,
+      CartProviderInterface $cart_provider,
+      AccountProxyInterface $current_user
+    ) {
+    $this->entityQuery = $entity_query;
+    $this->entityTypeManager = $entity_type_manager;
     $this->configFactory = $config_factory;
     $this->cartProvider = $cart_provider;
+    $this->currentUser = $current_user;
   }
 
   /**
@@ -58,10 +86,31 @@ class OpenyMemberships extends ControllerBase {
    */
   public static function create(ContainerInterface $container) {
     return new static(
+      $container->get('entity.query'),
       $container->get('entity_type.manager'),
       $container->get('config.factory'),
-      $container->get('commerce_cart.cart_provider')
+      $container->get('commerce_cart.cart_provider'),
+      $container->get('current_user')
     );
+  }
+
+  /**
+   * Get Ages Groups and related products.
+   */
+  public function getAgesGroupsInfo(Request $request) {
+    $data = [];
+    $tids = $this->entityQuery
+      ->get('taxonomy_term')
+      ->condition('vid', 'memberships_ages_groups')
+      ->sort('weight', 'ASC')
+      ->execute();
+    $terms = Term::loadMultiple($tids);
+    foreach ($terms as $tid => $term) {
+      $data[$tid] = [
+        'title' => $term->getName(),
+      ];
+    }
+    return new JsonResponse($data);
   }
 
   /**
@@ -95,7 +144,7 @@ class OpenyMemberships extends ControllerBase {
           }
         }
         $cart->save();
-        $promotions = $this->entityTypeManger->getStorage('commerce_promotion')->loadMultiple();
+        $promotions = $this->entityTypeManager->getStorage('commerce_promotion')->loadMultiple();
         foreach ($promotions as $promotion) {
           $conditions = $promotion->get('conditions');
           $condition_values = $conditions->getValue();
@@ -123,7 +172,7 @@ class OpenyMemberships extends ControllerBase {
           foreach ($adjustments as $adjustment) {
             if ($adjustment->getType() == 'promotion') {
               $promotion_id = $adjustment->getSourceId();
-              $promotion = $this->entityTypeManger->getStorage('commerce_promotion')->load($promotion_id);
+              $promotion = $this->entityTypeManager->getStorage('commerce_promotion')->load($promotion_id);
               $conditions = $promotion->get('conditions');
               $condition_values = $conditions->getValue();
               // Sum and group all the discounts (they are split by order items).
@@ -182,9 +231,23 @@ class OpenyMemberships extends ControllerBase {
     return new JsonResponse($data);
   }
 
-  public function getProductsInBranch($branch) {
-    $storage = $this->entityTypeManger->getStorage('commerce_product');
+  /**
+   * Return products.
+   */
+  public function getProductsInBranch($branch, $data) {
+    if ($data) {
+      foreach (explode(';', $data) as $agesGroup) {
+        $group = explode('_', $agesGroup);
+        $agesGroups[$group[0]] = $group[1];
+        $tids[] = $group[0];
+      }
+    }
+    $storage = $this->entityTypeManager->getStorage('commerce_product');
     $query = $storage->getQuery();
+    // Filter products by provided Ages Groups first.
+    if (isset($tids)) {
+      $query->condition('field_om_total_available.target_id', $tids, 'IN');
+    }
     $orGroup = $query->orConditionGroup()
       ->condition('field_product_branch', NULL, 'IS NULL');
     if ($branch) {
@@ -195,30 +258,233 @@ class OpenyMemberships extends ControllerBase {
     foreach ($ids as $id) {
       $product = $storage->load($id);
       if ($product) {
-        $products[$product->uuid()] = [
-          'uuid' => $product->uuid(),
-          'id' => $product->id(),
-          'title' => $product->label(),
-          'field_description' => $product->field_description->value,
-          'branch' => $product->field_product_branch && $product->field_product_branch->entity ? [
-            'uuid' => $product->field_product_branch->entity->uuid(),
-            'id' => $product->field_product_branch->entity->id(),
-            'title' => $product->field_product_branch->entity->label(),
-          ] : NULL,
-          'variations' => [],
-        ];
-        foreach ($product->variations as $variant) {
-          $products[$product->uuid()]['variations'][] = [
-            'uuid' => $variant->entity->uuid(),
-            'id' => $variant->entity->id(),
-            'price' => $variant->entity->getPrice()->__toString(), //toArray(),
-            'field_best_value' => $variant->entity->field_best_value->value,
-            'title' => $variant->entity->label(),
+        $filter_product = FALSE;
+        $field_om_total_available = $product->field_om_total_available->getValue();
+        $field_om_total_free = $product->field_om_total_free->getValue();
+        $ages_data = $agesGroups;
+        foreach ($field_om_total_available as $value) {
+          $ages_data[$value['target_id']] = [
+            'requested_quantity' => $agesGroups[$value['target_id']],
+            'total_available_quantity' => $value['quantity']
           ];
+        }
+        foreach ($field_om_total_free as $value) {
+          $ages_data[$value['target_id']]['total_free_quantity'] = $value['quantity'];
+        }
+        foreach ($ages_data as $item) {
+          if (!isset($item['requested_quantity'])) {
+            continue;
+          }
+          // 1. If sum of total available and total free less than requested quantity per group then filter product.
+          if (($item['total_available_quantity'] + $item['total_free_quantity']) < $item['total_free_quantity']) {
+            $filter_product = TRUE;
+          }
+        }
+        if (!$filter_product) {
+          $products[$product->uuid()] = [
+            'uuid' => $product->uuid(),
+            'id' => $product->id(),
+            'title' => $product->label(),
+            'field_description' => $product->field_description->value,
+            'branch' => $product->field_product_branch && $product->field_product_branch->entity ? [
+              'uuid' => $product->field_product_branch->entity->uuid(),
+              'id' => $product->field_product_branch->entity->id(),
+              'title' => $product->field_product_branch->entity->label(),
+            ] : NULL,
+            'variations' => [],
+          ];
+          foreach ($product->variations as $variant) {
+            $products[$product->uuid()]['variations'][] = [
+              'uuid' => $variant->entity->uuid(),
+              'id' => $variant->entity->id(),
+              'price' => $variant->entity->getPrice()->toArray()['number'],
+              'field_best_value' => $variant->entity->field_best_value->value,
+              'title' => $variant->entity->label(),
+            ];
+          }
         }
       }
     }
     return new JsonResponse($products);
+  }
+
+  /**
+   * Set Billing Profile (Customer Name, email, etc).
+   */
+  public function setBillingInfo(Request $request, $order) {
+    $storage = $this->entityTypeManager->getStorage('profile');
+    $postData = json_decode($request->getContent(), TRUE);
+    $carts = $this->cartProvider->getCarts();
+    $profileId = NULL;
+    $profileUuid = NULL;
+    if (!empty($carts)) {
+      foreach ($carts as $cart_id => $cart) {
+        if ($order->id() == $cart_id) {
+          $profileEntity = $storage->create([
+            'type' => 'customer',
+            'field_email' => $postData['field_email'],
+            'field_phone' => $postData['field_phone'],
+            'address' => [
+              'country_code' => 'US',
+              'address_line1' => '',
+              'locality' => '',
+              'administrative_area' => '',
+              'postal_code' => '',
+              'given_name' => $postData['address']['given_name'],
+              'family_name' => $postData['address']['family_name'],
+            ],
+          ]);
+          $profileEntity->save();
+          $profileId = $profileEntity->id();
+          $profileUuid = $profileEntity->uuid();
+          $order->set('billing_profile', $profileEntity);
+          $order->save();
+
+        }
+      }
+    }
+
+    return new JsonResponse([
+      'order_uuid' => $order->uuid(),
+      'order_id' => $order->id(),
+      'billing_profile' => [
+        'billing_id' => $profileId,
+        'billing_uuid' => $profileUuid,
+      ],
+    ]);
+  }
+
+  /**
+   * Returns PDF for specific parameters.
+   */
+  public function getSummaryPdf(Request $request, $order_uuid) {
+    $settings = [
+      'body' => [
+        '#content' => [
+          'logo_url' => drupal_get_path('module', 'openy_repeat') . '/img/ymca_logo_black.png',
+          'site_name' => \Drupal::config('system.site')->get('name'),
+          'result' => $this->getSummaryData($order_uuid),
+        ],
+        '#theme' => 'openy_memberships__pdf__summary',
+        '#cache' => [
+          'max-age' => 0
+        ],
+      ],
+      'title' => $this->t('Your Membership'),
+      '#cache' => [
+        'max-age' => 0,
+      ],
+    ];
+    \Drupal::service('openy_memberships_pdf_generator')->generatePDF($settings);
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getSummary() {
+    $response = $this->getSummaryData();
+    return new JsonResponse($response);
+  }
+
+  /**
+   * Provides Summary data.
+   */
+  public function getSummaryData($order_uuid = null) {
+    $response = [];
+    $carts = $this->cartProvider->getCarts();
+    if ($order_uuid && !$carts) {
+      $carts = $this->entityTypeManager->getStorage('commerce_order')->loadByProperties(['uuid' => $order_uuid]);
+    }
+    if (!empty($carts)) {
+      foreach ($carts as $cart_id => $cart) {
+        foreach ($cart->getItems() as $order_item) {
+          if ($order_item->bundle() == 'membership_order_item') {
+            $purchasedEntity = $order_item->getPurchasedEntity();
+            $product = $purchasedEntity->getProduct();
+            $product_description = $product->field_description->view();
+            $product_branch = null;
+            if ($product_branch_id = $product->field_product_branch->target_id) {
+              $product_branch = Node::load($product_branch_id)->getTitle();
+            }
+            $response['products'][] = [
+              'type' => $order_item->bundle(),
+              'order_item_id' => $order_item->id(),
+              'uuid' => $order_item->uuid(),
+              'title' => $order_item->getTitle(),
+              'quantity' => $order_item->getQuantity(),
+              'amount' => $order_item->getTotalPrice()->getNumber(),
+              'currency' => $order_item->getTotalPrice()->getCurrencyCode(),
+              'field_best_value' => $purchasedEntity->field_best_value->value,
+              'product_title' => $product->getTitle(),
+              'product_description' => render($product_description),
+              'product_branch' => $product_branch,
+            ];
+          }
+          if ($order_item->bundle() == 'addon') {
+            $response['addons'][] = [
+              'order_item_id' => $order_item->id(),
+              'uuid' => $order_item->uuid(),
+              'title' => $order_item->getTitle(),
+              'type' => $order_item->bundle(),
+              'amount' => $order_item->getTotalPrice()->getNumber(),
+              'currency' => $order_item->getTotalPrice()->getCurrencyCode(),
+              'frequency' => $order_item->getPurchasedEntity()->field_om_frequency->value,
+            ];
+          }
+          $adjustments = $order_item->getAdjustments();
+          foreach ($adjustments as $adjustment) {
+            if ($adjustment->getType() == 'promotion') {
+              $promotion_id = $adjustment->getSourceId();
+              $promotion = Promotion::load($promotion_id);
+              $discounts[$promotion->get('conditions')[0]->getValue()['target_plugin_id']] = [
+                'id' => $promotion->id(),
+                'uuid' => $promotion->uuid(),
+                'title' => $promotion->getName(),
+                'amount' => $promotion->get('offer')[0]->getValue()['target_plugin_configuration']['amount']['number'],
+                'currency' => $adjustment->getAmount()->getCurrencyCode(),
+              ];
+            }
+          }
+        }
+      }
+    }
+
+    $response['discounts'][] = [
+      'title' => $discounts['openy_memberships_income']['title'],
+      'amount' => $discounts['openy_memberships_income']['amount'],
+    ];
+
+    // Load family members from order and address discounts.
+    if ($cart->hasField('field_family')) {
+      $profiles = $cart->field_family->referencedEntities();
+      foreach ($profiles as $profile) {
+        if ($profile->hasField('field_om_health_insurance')) {
+          if ($profile->field_om_health_insurance->value && isset($discounts['openy_memberships_health_insurance'])) {
+            $response['discounts'][] = [
+              'title' => $discounts['openy_memberships_health_insurance']['title'],
+              'member_name' => $profile->field_first_name->value,
+              'age' => $profile->field_age->value,
+              'amount' => $discounts['openy_memberships_health_insurance']['amount'],
+            ];
+          }
+        }
+        if ($profile->hasField('field_om_military_service')) {
+          if ($profile->field_om_military_service->value && isset($discounts['openy_memberships_military_service'])) {
+            $response['discounts'][] = [
+              'title' => $discounts['openy_memberships_military_service']['title'],
+              'member_name' => $profile->field_first_name->value,
+              'age' => $profile->field_age->value,
+              'amount' => $discounts['openy_memberships_military_service']['amount'],
+            ];
+          }
+        }
+      }
+    }
+
+    $response['total_price'] = $cart->getTotalPrice()->getNumber();
+    $response['currency'] = $cart->getTotalPrice()->getCurrencyCode();
+
+    return $response;
   }
 
 }
