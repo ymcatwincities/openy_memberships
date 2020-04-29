@@ -7,7 +7,11 @@
     <div class="description">
       <div class="description-text">
         <b>Your membership request has been received!</b>
+        <br/>
         <p>One of our membership advisors will contact you within 24-hours to schedule a visit, confirm details, and issue your membership card.</p>
+      </div>
+      <div class="print-wrapper">
+        <a href="/memberships/get-summary-pdf"><i class="fa fa-print"></i> Print</a>
       </div>
     </div>
     <div class="product">

@@ -786,6 +786,17 @@
       }
     }
   }
+  // Success.
+  .print-wrapper {
+    margin-bottom: 15px;
+    a {
+      font: Bold 14px/21px Verdana;
+      i {
+        font-size: 20px;
+        margin-right: 10px;
+      }
+    }
+  }
 }
 
 // Summary PDF.

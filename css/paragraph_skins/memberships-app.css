@@ -853,6 +853,13 @@
       color: #231F20;
       opacity: 1;
       width: 100%; }
+  .membership-app .print-wrapper {
+    margin-bottom: 15px; }
+    .membership-app .print-wrapper a {
+      font: Bold 14px/21px Verdana; }
+      .membership-app .print-wrapper a i {
+        font-size: 20px;
+        margin-right: 10px; }
 
 .openy-memberships--pdf--summary .header {
   margin-bottom: 20px; }
