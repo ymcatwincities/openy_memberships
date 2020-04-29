@@ -34,7 +34,7 @@ class Cart {
           "X-CSRF-Token": token
         },
         data: JSON.stringify({
-          field_email: billing.email, 
+          field_email: billing.email,
           field_phone: billing.phone,
           address: {
             country_code: 'US',
@@ -238,7 +238,7 @@ class Cart {
   getSummary = () => {
     return window.jQuery
       .ajax({
-        url: "/om-model/data/summary",
+        url: "/memberships/api/summary",
         dataType: "json",
         data: {}
       })

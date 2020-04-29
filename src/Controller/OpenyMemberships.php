@@ -14,6 +14,8 @@ use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\commerce_product\Entity\Product;
+use Drupal\commerce_promotion\Entity\Promotion;
+use Drupal\node\Entity\Node;
 
 /**
  * Provides OpenyMemberships controller.
@@ -28,11 +30,11 @@ class OpenyMemberships extends ControllerBase {
   protected $entityQuery;
 
   /**
-   * The entityTypeManger.
+   * The entityTypeManager.
    *
    * @var \Drupal\Core\Entity\EntityTypeManagerInterface
    */
-  protected $entityTypeManger;
+  protected $entityTypeManager;
 
   /**
    * The config factory.
@@ -104,28 +106,9 @@ class OpenyMemberships extends ControllerBase {
       ->execute();
     $terms = Term::loadMultiple($tids);
     foreach ($terms as $tid => $term) {
-      if (
-        $product_ids = $this->entityQuery
-        ->get('commerce_product')
-        ->condition('field_om_total_free.target_id', $tids, 'IN')
-        ->condition('status', 1)
-        ->execute()
-      ) {
-        $products = Product::loadMultiple($product_ids);
-        foreach ($products as $pid => $product) {
-          $total_available_quantity = $product->field_om_total_available->quantity;
-          $total_free_quantity = $product->field_om_total_free->quantity;
-          $products_data[$pid] = [
-            'title' => $product->getTitle(),
-            'total_available_quantity' => $total_available_quantity,
-            'total_free_quantity' => $total_free_quantity,
-          ];
-        }
-        $data[$tid] = [
-          'title' => $term->getName(),
-          'products' => $products_data,
-        ];
-      }
+      $data[$tid] = [
+        'title' => $term->getName(),
+      ];
     }
     return new JsonResponse($data);
   }
@@ -161,7 +144,7 @@ class OpenyMemberships extends ControllerBase {
           }
         }
         $cart->save();
-        $promotions = $this->entityTypeManger->getStorage('commerce_promotion')->loadMultiple();
+        $promotions = $this->entityTypeManager->getStorage('commerce_promotion')->loadMultiple();
         foreach ($promotions as $promotion) {
           $conditions = $promotion->get('conditions');
           $condition_values = $conditions->getValue();
@@ -189,7 +172,7 @@ class OpenyMemberships extends ControllerBase {
           foreach ($adjustments as $adjustment) {
             if ($adjustment->getType() == 'promotion') {
               $promotion_id = $adjustment->getSourceId();
-              $promotion = $this->entityTypeManger->getStorage('commerce_promotion')->load($promotion_id);
+              $promotion = $this->entityTypeManager->getStorage('commerce_promotion')->load($promotion_id);
               $conditions = $promotion->get('conditions');
               $condition_values = $conditions->getValue();
               // Sum and group all the discounts (they are split by order items).
@@ -249,7 +232,7 @@ class OpenyMemberships extends ControllerBase {
   }
 
   public function getProductsInBranch($branch) {
-    $storage = $this->entityTypeManger->getStorage('commerce_product');
+    $storage = $this->entityTypeManager->getStorage('commerce_product');
     $query = $storage->getQuery();
     $orGroup = $query->orConditionGroup()
       ->condition('field_product_branch', NULL, 'IS NULL');
@@ -291,7 +274,7 @@ class OpenyMemberships extends ControllerBase {
    * Set Billing Profile (Customer Name, email, etc).
    */
   public function setBillingInfo(Request $request, $order) {
-    $storage = $this->entityTypeManger->getStorage('profile');
+    $storage = $this->entityTypeManager->getStorage('profile');
     $postData = json_decode($request->getContent(), TRUE);
     $carts = $this->cartProvider->getCarts();
     $profileId = NULL;
@@ -331,6 +314,136 @@ class OpenyMemberships extends ControllerBase {
         'billing_uuid' => $profileUuid,
       ],
     ]);
+  }
+
+  /**
+   * Returns PDF for specific parameters.
+   */
+  public function getSummaryPdf(Request $request) {
+    $settings = [
+      'body' => [
+        '#content' => [
+          'logo_url' => drupal_get_path('module', 'openy_repeat') . '/img/ymca_logo_black.png',
+          'site_name' => \Drupal::config('system.site')->get('name'),
+          'result' => $this->getSummaryData(),
+        ],
+        '#theme' => 'openy_memberships__pdf__summary',
+        '#cache' => [
+          'max-age' => 0
+        ],
+      ],
+      'title' => $this->t('Your Membership'),
+      '#cache' => [
+        'max-age' => 0,
+      ],
+    ];
+    \Drupal::service('openy_memberships_pdf_generator')->generatePDF($settings);
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getSummary() {
+    $response = $this->getSummaryData();
+    return new JsonResponse($response);
+  }
+
+  /**
+   * Provides Summary data.
+   */
+  public function getSummaryData() {
+    $response = [];
+    $carts = $this->cartProvider->getCarts();
+    if (!empty($carts)) {
+      foreach ($carts as $cart_id => $cart) {
+        foreach ($cart->getItems() as $order_item) {
+          if ($order_item->bundle() == 'membership_order_item') {
+            $purchasedEntity = $order_item->getPurchasedEntity();
+            $product = $purchasedEntity->getProduct();
+            $product_description = $product->field_description->view();
+            $product_branch = null;
+            if ($product_branch_id = $product->field_product_branch->target_id) {
+              $product_branch = Node::load($product_branch_id)->getTitle();
+            }
+            $response['products'][] = [
+              'type' => $order_item->bundle(),
+              'order_item_id' => $order_item->id(),
+              'uuid' => $order_item->uuid(),
+              'title' => $order_item->getTitle(),
+              'quantity' => $order_item->getQuantity(),
+              'amount' => $order_item->getTotalPrice()->getNumber(),
+              'currency' => $order_item->getTotalPrice()->getCurrencyCode(),
+              'field_best_value' => $purchasedEntity->field_best_value->value,
+              'product_title' => $product->getTitle(),
+              'product_description' => render($product_description),
+              'product_branch' => $product_branch,
+            ];
+          }
+          if ($order_item->bundle() == 'addon') {
+            $response['addons'][] = [
+              'order_item_id' => $order_item->id(),
+              'uuid' => $order_item->uuid(),
+              'title' => $order_item->getTitle(),
+              'type' => $order_item->bundle(),
+              'amount' => $order_item->getTotalPrice()->getNumber(),
+              'currency' => $order_item->getTotalPrice()->getCurrencyCode(),
+              'frequency' => $order_item->getPurchasedEntity()->field_om_frequency->value,
+            ];
+          }
+          $adjustments = $order_item->getAdjustments();
+          foreach ($adjustments as $adjustment) {
+            if ($adjustment->getType() == 'promotion') {
+              $promotion_id = $adjustment->getSourceId();
+              $promotion = Promotion::load($promotion_id);
+              $discounts[$promotion->get('conditions')[0]->getValue()['target_plugin_id']] = [
+                'id' => $promotion->id(),
+                'uuid' => $promotion->uuid(),
+                'title' => $promotion->getName(),
+                'amount' => $promotion->get('offer')[0]->getValue()['target_plugin_configuration']['amount']['number'],
+                'currency' => $adjustment->getAmount()->getCurrencyCode(),
+              ];
+            }
+          }
+        }
+      }
+    }
+
+    $response['discounts'][] = [
+      'title' => $discounts['openy_memberships_income']['title'],
+      'amount' => $discounts['openy_memberships_income']['amount'],
+    ];
+
+    // Load family members from order and address discounts.
+    if ($cart->hasField('field_family')) {
+      $profiles = $cart->field_family->referencedEntities();
+      foreach ($profiles as $profile) {
+        if ($profile->hasField('field_om_health_insurance')) {
+          if ($profile->field_om_health_insurance->value && isset($discounts['openy_memberships_health_insurance'])) {
+            $response['discounts'][] = [
+              'title' => $discounts['openy_memberships_health_insurance']['title'],
+              'member_name' => $profile->field_first_name->value,
+              'age' => $profile->field_age->value,
+              'amount' => $discounts['openy_memberships_health_insurance']['amount'],
+            ];
+          }
+        }
+        if ($profile->hasField('field_om_military_service')) {
+          if ($profile->field_om_military_service->value && isset($discounts['openy_memberships_military_service'])) {
+            $response['discounts'][] = [
+              'title' => $discounts['openy_memberships_military_service']['title'],
+              'member_name' => $profile->field_first_name->value,
+              'age' => $profile->field_age->value,
+              'amount' => $discounts['openy_memberships_military_service']['amount'],
+            ];
+          }
+        }
+      }
+    }
+
+    $response['total_price'] = $cart->getTotalPrice()->getNumber();
+    $response['currency'] = $cart->getTotalPrice()->getCurrencyCode();
+
+    return $response;
   }
 
 }

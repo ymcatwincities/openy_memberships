@@ -244,7 +244,7 @@ export default {
       }, '');
       let income = 0;
       this.$store.commit('setItem', {key: 'income', value: income});
-      
+
       return window.jQuery.ajax({
         url: "/memberships/check/discounts/" + income + '/' + checkboxes,
         type: "GET",

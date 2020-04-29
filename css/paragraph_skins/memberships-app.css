@@ -853,3 +853,46 @@
       color: #231F20;
       opacity: 1;
       width: 100%; }
+  .membership-app .print-wrapper {
+    margin-bottom: 15px; }
+    .membership-app .print-wrapper a {
+      font: Bold 14px/21px Verdana; }
+      .membership-app .print-wrapper a i {
+        font-size: 20px;
+        margin-right: 10px; }
+
+.openy-memberships--pdf--summary .header {
+  margin-bottom: 20px; }
+  .openy-memberships--pdf--summary .header .branding {
+    float: left;
+    width: 15%; }
+  .openy-memberships--pdf--summary .header .title {
+    font: 20px/26px 'Cachet Medium', Verdana, sans-serif;
+    float: left;
+    text-align: left;
+    padding: 50px 20px 0;
+    width: 75%; }
+
+.openy-memberships--pdf--summary .product-columns {
+  overflow: wrap; }
+  .openy-memberships--pdf--summary .product-columns th {
+    background-color: #f2f2f2;
+    padding: 5px;
+    font-size: 12px; }
+  .openy-memberships--pdf--summary .product-columns td {
+    font-size: 12px;
+    padding: 5px;
+    vertical-align: top;
+    width: 30%; }
+  .openy-memberships--pdf--summary .product-columns td:nth-child(2) {
+    width: 40%; }
+  .openy-memberships--pdf--summary .product-columns table {
+    overflow: wrap; }
+    .openy-memberships--pdf--summary .product-columns table td {
+      padding: 5px;
+      width: 50%; }
+    .openy-memberships--pdf--summary .product-columns table td:nth-child(2) {
+      text-align: right; }
+
+.openy-memberships--pdf--summary .find-more-wrapper {
+  border-top: 1px solid #ccc; }
