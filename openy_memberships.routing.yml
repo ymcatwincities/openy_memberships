@@ -22,10 +22,11 @@ openy_memberships.checkDiscounts:
   options:
     no_cache: TRUE
 openy_memberships.products:
-  path: /memberships/api/products/{branch}
+  path: /memberships/api/products/{branch}/{data}
   defaults:
     _controller: '\Drupal\openy_memberships\Controller\OpenyMemberships::getProductsInBranch'
     branch: null
+    data: null
   requirements:
     _permission: 'access content'
   options:
@@ -54,7 +55,7 @@ openy_memberships.billing:
       order:
         type: 'entity:commerce_order'
 openy_memberships.summary_pdf:
-  path: /memberships/get-summary-pdf
+  path: /memberships/get-summary-pdf/{order_uuid}
   defaults:
     _controller: '\Drupal\openy_memberships\Controller\OpenyMemberships::getSummaryPdf'
   requirements:

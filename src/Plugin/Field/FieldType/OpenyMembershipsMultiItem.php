@@ -83,7 +83,7 @@ class OpenyMembershipsMultiItem extends EntityReferenceItem {
       $ar_target_id_definition = DataReferenceTargetDefinition::create('string')
         ->setLabel(new TranslatableMarkup('AR: @label ID', ['@label' => $ar_target_type_info->getLabel()]));
     }
-    $ar_target_id_definition->setRequired(TRUE);
+    $ar_target_id_definition->setRequired(FALSE);
     $properties['ar_target_id'] = $ar_target_id_definition;
 
     $properties['ar_entity'] = DataReferenceDefinition::create('entity')
@@ -119,6 +119,7 @@ class OpenyMembershipsMultiItem extends EntityReferenceItem {
           'description' => 'AR: The ID of the target entity.',
           'type' => 'int',
           'unsigned' => TRUE,
+          'not null' => FALSE,
         ],
       ];
     }
@@ -128,6 +129,7 @@ class OpenyMembershipsMultiItem extends EntityReferenceItem {
           'description' => 'AR: The ID of the target entity.',
           'type' => 'varchar_ascii',
           'length' => $ar_target_type_info->getBundleOf() ? EntityTypeInterface::BUNDLE_MAX_LENGTH : 255,
+          'not null' => FALSE,
         ],
       ];
     }

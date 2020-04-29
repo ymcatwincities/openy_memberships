@@ -32,4 +32,5 @@ dependencies:
   - openy_memberships_front
   - openy_prgf_memberships
   - commerce_cart_api
+  - paragraph_skins
 core_incompatible: false
