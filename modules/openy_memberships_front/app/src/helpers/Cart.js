@@ -243,5 +243,13 @@ class Cart {
         data: {}
       })
   }
+  getAgeGroups = () => {
+    return window.jQuery
+      .ajax({
+        url: "/memberships/get/ages/groups",
+        dataType: "json",
+        data: {}
+      })
+  }
 }
 export default new Cart;

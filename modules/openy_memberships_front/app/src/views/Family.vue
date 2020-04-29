@@ -10,14 +10,10 @@
     </div>
 
     <div class="family-wrapper">
-      <div class="label-row">
-        <div class="label">Adults (18-54 yrs)</div><div class="value"><integer-minus-plus :value="$store.state.family.adults" @input="updateFamily('adults', $event)" /></div>
-      </div>
-      <div class="label-row">
-        <div class="label">Youth (0-17 yrs)</div><div class="value"><integer-minus-plus :value="$store.state.family.youth" @input="updateFamily('youth', $event)" /></div>
-      </div>
-      <div class="label-row">
-        <div class="label">Seniors (55+ yrs)</div><div class="value"><integer-minus-plus :value="$store.state.family.seniors" @input="updateFamily('seniors', $event)" /></div>
+      <div :key="index"  class="label-row" v-for="(group, index) in age_groups">
+        <div class="label-row">
+          <div class="label">{{group}}</div><div class="value"><integer-minus-plus :value="$store.state.family[group]" @input="updateFamily(group, $event)" /></div>
+        </div>
       </div>
     </div>
     <div class="navigation" v-if="totalCount">
@@ -30,8 +26,14 @@
 
 <script>
 import IntegerMinusPlus from '../components/IntegerMinusPlus'
+import Cart from '../helpers/Cart';
 export default {
   mounted() {
+    Cart.getAgeGroups().then(json => {
+      this.age_groups = Object.keys(json).map((key) => {
+        return json[key].title;
+      })
+    })
   },
   computed: {
     totalCount() {
@@ -47,6 +49,7 @@ export default {
   },
   data () {
     return {
+      age_groups: [],
       family: {
         ...this.$store.state.family
       }
