@@ -12,7 +12,7 @@
     <div class="family-wrapper">
       <div :key="index"  class="label-row" v-for="(group, index) in age_groups">
         <div class="label-row">
-          <div class="label">{{group}}</div><div class="value"><integer-minus-plus :value="$store.state.family[group]" @input="updateFamily(group, $event)" /></div>
+          <div class="label">{{group.title}}</div><div class="value"><integer-minus-plus :value="$store.state.family[group.key]" @input="updateFamily(group.key, $event)" /></div>
         </div>
       </div>
     </div>
@@ -31,7 +31,7 @@ export default {
   mounted() {
     Cart.getAgeGroups().then(json => {
       this.age_groups = Object.keys(json).map((key) => {
-        return json[key].title;
+        return {key: key, title: json[key].title};
       })
     })
   },
