@@ -10,7 +10,6 @@ dependencies:
     - image.style.large
   module:
     - link
-    - openy_memberships
     - text
 id: block_content.feature_card.default
 targetEntityType: block_content
