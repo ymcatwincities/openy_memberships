@@ -1,0 +1,11 @@
+name: 'OpenY Paragraph Block Container'
+description: 'Feature with Memberships paragraph.'
+type: module
+core: 8.x
+dependencies:
+  - datalayer
+  - field
+  - openy_prgf
+  - paragraphs
+  - plugin
+core_incompatible: false
