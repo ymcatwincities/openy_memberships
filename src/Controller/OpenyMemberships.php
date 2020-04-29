@@ -231,9 +231,23 @@ class OpenyMemberships extends ControllerBase {
     return new JsonResponse($data);
   }
 
-  public function getProductsInBranch($branch) {
+  /**
+   * Return products.
+   */
+  public function getProductsInBranch($branch, $data) {
+    if ($data) {
+      foreach (explode(';', $data) as $agesGroup) {
+        $group = explode('_', $agesGroup);
+        $agesGroups[$group[0]] = $group[1];
+        $tids[] = $group[0];
+      }
+    }
     $storage = $this->entityTypeManager->getStorage('commerce_product');
     $query = $storage->getQuery();
+    // Filter products by provided Ages Groups first.
+    if (isset($tids)) {
+      $query->condition('field_om_total_available.target_id', $tids, 'IN');
+    }
     $orGroup = $query->orConditionGroup()
       ->condition('field_product_branch', NULL, 'IS NULL');
     if ($branch) {
@@ -244,26 +258,50 @@ class OpenyMemberships extends ControllerBase {
     foreach ($ids as $id) {
       $product = $storage->load($id);
       if ($product) {
-        $products[$product->uuid()] = [
-          'uuid' => $product->uuid(),
-          'id' => $product->id(),
-          'title' => $product->label(),
-          'field_description' => $product->field_description->value,
-          'branch' => $product->field_product_branch && $product->field_product_branch->entity ? [
-            'uuid' => $product->field_product_branch->entity->uuid(),
-            'id' => $product->field_product_branch->entity->id(),
-            'title' => $product->field_product_branch->entity->label(),
-          ] : NULL,
-          'variations' => [],
-        ];
-        foreach ($product->variations as $variant) {
-          $products[$product->uuid()]['variations'][] = [
-            'uuid' => $variant->entity->uuid(),
-            'id' => $variant->entity->id(),
-            'price' => $variant->entity->getPrice()->toArray()['number'],
-            'field_best_value' => $variant->entity->field_best_value->value,
-            'title' => $variant->entity->label(),
+        $filter_product = FALSE;
+        $field_om_total_available = $product->field_om_total_available->getValue();
+        $field_om_total_free = $product->field_om_total_free->getValue();
+        $ages_data = $agesGroups;
+        foreach ($field_om_total_available as $value) {
+          $ages_data[$value['target_id']] = [
+            'requested_quantity' => $agesGroups[$value['target_id']],
+            'total_available_quantity' => $value['quantity']
           ];
+        }
+        foreach ($field_om_total_free as $value) {
+          $ages_data[$value['target_id']]['total_free_quantity'] = $value['quantity'];
+        }
+        foreach ($ages_data as $item) {
+          if (!isset($item['requested_quantity'])) {
+            continue;
+          }
+          // 1. If sum of total available and total free less than requested quantity per group then filter product.
+          if (($item['total_available_quantity'] + $item['total_free_quantity']) < $item['total_free_quantity']) {
+            $filter_product = TRUE;
+          }
+        }
+        if (!$filter_product) {
+          $products[$product->uuid()] = [
+            'uuid' => $product->uuid(),
+            'id' => $product->id(),
+            'title' => $product->label(),
+            'field_description' => $product->field_description->value,
+            'branch' => $product->field_product_branch && $product->field_product_branch->entity ? [
+              'uuid' => $product->field_product_branch->entity->uuid(),
+              'id' => $product->field_product_branch->entity->id(),
+              'title' => $product->field_product_branch->entity->label(),
+            ] : NULL,
+            'variations' => [],
+          ];
+          foreach ($product->variations as $variant) {
+            $products[$product->uuid()]['variations'][] = [
+              'uuid' => $variant->entity->uuid(),
+              'id' => $variant->entity->id(),
+              'price' => $variant->entity->getPrice()->toArray()['number'],
+              'field_best_value' => $variant->entity->field_best_value->value,
+              'title' => $variant->entity->label(),
+            ];
+          }
         }
       }
     }
@@ -319,13 +357,13 @@ class OpenyMemberships extends ControllerBase {
   /**
    * Returns PDF for specific parameters.
    */
-  public function getSummaryPdf(Request $request) {
+  public function getSummaryPdf(Request $request, $order_uuid) {
     $settings = [
       'body' => [
         '#content' => [
           'logo_url' => drupal_get_path('module', 'openy_repeat') . '/img/ymca_logo_black.png',
           'site_name' => \Drupal::config('system.site')->get('name'),
-          'result' => $this->getSummaryData(),
+          'result' => $this->getSummaryData($order_uuid),
         ],
         '#theme' => 'openy_memberships__pdf__summary',
         '#cache' => [
@@ -351,9 +389,12 @@ class OpenyMemberships extends ControllerBase {
   /**
    * Provides Summary data.
    */
-  public function getSummaryData() {
+  public function getSummaryData($order_uuid = null) {
     $response = [];
     $carts = $this->cartProvider->getCarts();
+    if ($order_uuid && !$carts) {
+      $carts = $this->entityTypeManager->getStorage('commerce_order')->loadByProperties(['uuid' => $order_uuid]);
+    }
     if (!empty($carts)) {
       foreach ($carts as $cart_id => $cart) {
         foreach ($cart->getItems() as $order_item) {

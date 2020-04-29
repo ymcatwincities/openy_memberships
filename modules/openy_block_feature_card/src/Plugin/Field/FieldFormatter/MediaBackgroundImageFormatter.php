@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\openy_memberships\Plugin\Field\FieldFormatter;
+namespace Drupal\openy_block_feature_card\Plugin\Field\FieldFormatter;
 
 use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Form\FormStateInterface;

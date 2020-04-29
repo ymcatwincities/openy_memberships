@@ -1,0 +1,11 @@
+name: 'OpenY Block Feature Card'
+description: 'Feature with Memberships block.'
+type: module
+core: 8.x
+dependencies:
+  - datalayer
+  - field
+  - openy_prgf
+  - paragraphs
+  - plugin
+core_incompatible: false

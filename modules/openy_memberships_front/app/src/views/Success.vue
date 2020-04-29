@@ -1,18 +1,17 @@
 <template>
-  <section class="app-container">
+  <section class="app-container success-wrapper">
     <loading :active.sync="isLoading"></loading>
     <h1 class="title">
       Thank You
     </h1>
     <div class="description">
       <div class="description-text">
-        <b>Your membership request has been received!</b>
-        <br/>
+        <p><b>Your membership request has been received!</b></p>
         <p>One of our membership advisors will contact you within 24-hours to schedule a visit, confirm details, and issue your membership card.</p>
       </div>
-      <div class="print-wrapper">
-        <a href="/memberships/get-summary-pdf"><i class="fa fa-print"></i> Print</a>
-      </div>
+    </div>
+    <div class="print-wrapper">
+      <a :href="'/memberships/get-summary-pdf/' + this.order_uuid" ><i class="fa fa-print"></i> Print</a>
     </div>
     <div class="product">
       <div class="product-title">
@@ -38,23 +37,26 @@
         <div>
           <div class="title">Discounts & Add-Ons</div>
           <div class="options">
-            <div :key="index" v-for="(discount, index) in discounts">
-              <div class="addon">
-                <div class="addon-title">{{discount.title }}:</div>
-                <div class="addon-price">- ${{ discount.amount | numFormat('0.00') }} /mo.</div>
+            <div :key="index" v-for="(discount, index) in discounts" class="item discount">
+              <div class="option-title">
+                {{discount.title }}:
                 <p>{{discount.member_name}}</p>
               </div>
-              {{product.variations[variant].title}} (${{ product.variations[variant].price | numFormat('0.00') }} /mo.)
-              <div
-                class="best-value"
-                v-if="product.variations[variant].field_best_value == 1"
-              >Best value</div>
+              <div class="option-price">- ${{ discount.amount | numFormat('0.00') }} /mo.</div>
             </div>
-            <div :key="index" v-for="(addon, index) in addons">
-                <div class="addon">
-                  <div class="addon-title">{{addon.title }}:</div>
-                  <div class="addon-price">+ ${{ addon.amount | numFormat('0.00') }} /mo.</div>
-                </div>
+            <div :key="index" v-for="(addon, index) in addons" class="item addon">
+              <div class="option-title">{{addon.title }}:</div>
+              <div class="option-price">+ ${{ addon.amount | numFormat('0.00') }} /mo.</div>
+            </div>
+            <div class="find-more-wrapper">
+              <div class="info">
+                <p>
+                  <i>* Proof of eligibility will be required.</i>
+                </p>
+                <p>
+                  <i>† Member must work out at least 12 times per month to claim discount.</i>
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -95,7 +97,8 @@ export default {
       addons: [],
       isLoading: false,
       total_price: 0,
-      currency: "USD"
+      currency: "USD",
+      order_uuid: ''
     };
   },
   mounted() {
@@ -123,6 +126,7 @@ export default {
           this.$store.dispatch('clearStorage')
 
           this.isLoading = false;
+          this.order_uuid = json[0].uuid;
         })
       })
       .catch(() => {

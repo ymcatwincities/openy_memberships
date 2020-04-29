@@ -1,8 +1,8 @@
 langcode: en
 status: true
 dependencies: {  }
-id: block
-label: Block
+id: block_container
+label: 'Block Container'
 icon_uuid: null
 description: ''
 behavior_plugins: {  }

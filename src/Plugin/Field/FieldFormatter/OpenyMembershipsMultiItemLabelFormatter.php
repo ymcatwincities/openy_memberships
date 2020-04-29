@@ -81,46 +81,45 @@ class OpenyMembershipsMultiItemLabelFormatter extends EntityReferenceLabelFormat
       $elements[$delta]['primary_reference'] = $primary_reference_elements;
 
       // Get the target entity for the added reference.
-      $ar_target_id = $values[$delta]['ar_target_id'];
-      $entity = \Drupal::entityTypeManager()->getStorage($ar_target_type)->load($ar_target_id);
+      if ($ar_target_id = $values[$delta]['ar_target_id']) {
+        $entity = \Drupal::entityTypeManager()->getStorage($ar_target_type)->load($ar_target_id);
 
-      $label = $entity->label();
+        $label = $entity->label();
 
-      // If the link is to be displayed and the entity has a uri, display a
-      // link.
-      if ($output_as_link && !$entity->isNew()) {
-        try {
-          $uri = $entity->toUrl();
+        // If the link is to be displayed and the entity has a uri, display a
+        // link.
+        if ($output_as_link && !$entity->isNew()) {
+          try {
+            $uri = $entity->toUrl();
+          } catch (UndefinedLinkTemplateException $e) {
+            // This exception is thrown by \Drupal\Core\Entity\Entity::urlInfo()
+            // and it means that the entity type doesn't have a link template nor
+            // a valid "uri_callback", so don't bother trying to output a link for
+            // the rest of the referenced entities.
+            $output_as_link = FALSE;
+          }
         }
-        catch (UndefinedLinkTemplateException $e) {
-          // This exception is thrown by \Drupal\Core\Entity\Entity::urlInfo()
-          // and it means that the entity type doesn't have a link template nor
-          // a valid "uri_callback", so don't bother trying to output a link for
-          // the rest of the referenced entities.
-          $output_as_link = FALSE;
-        }
-      }
 
-      if ($output_as_link && isset($uri) && !$entity->isNew()) {
-        $elements[$delta]['added_reference'] = [
-          '#type' => 'link',
-          '#title' => $label,
-          '#url' => $uri,
-          '#options' => $uri->getOptions(),
-        ];
+        if ($output_as_link && isset($uri) && !$entity->isNew()) {
+          $elements[$delta]['added_reference'] = [
+            '#type' => 'link',
+            '#title' => $label,
+            '#url' => $uri,
+            '#options' => $uri->getOptions(),
+          ];
 
-        if (!empty($items[$delta]->_attributes)) {
-          $elements[$delta]['added_reference']['#options'] += ['attributes' => []];
-          $elements[$delta]['added_reference']['#options']['attributes'] += $items[$delta]->_attributes;
-          // Unset field item attributes since they have been included in the
-          // formatter output and shouldn't be rendered in the field template.
-          unset($items[$delta]->_attributes);
+          if (!empty($items[$delta]->_attributes)) {
+            $elements[$delta]['added_reference']['#options'] += ['attributes' => []];
+            $elements[$delta]['added_reference']['#options']['attributes'] += $items[$delta]->_attributes;
+            // Unset field item attributes since they have been included in the
+            // formatter output and shouldn't be rendered in the field template.
+            unset($items[$delta]->_attributes);
+          }
+        } else {
+          $elements[$delta]['added_reference'] = ['#plain_text' => $label];
         }
+        $elements[$delta]['added_reference']['#cache']['tags'] = $entity->getCacheTags();
       }
-      else {
-        $elements[$delta]['added_reference'] = ['#plain_text' => $label];
-      }
-      $elements[$delta]['added_reference']['#cache']['tags'] = $entity->getCacheTags();
     }
 
     return $elements;
