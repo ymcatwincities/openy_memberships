@@ -777,42 +777,55 @@
         flex: 1; }
         .membership-app .product .product-columns > div .title {
           text-align: center; }
-  .membership-app .summary-wrapper .product-title {
+  .membership-app .summary-wrapper .product-title,
+  .membership-app .success-wrapper .product-title {
     margin-bottom: 15px; }
-  .membership-app .summary-wrapper .product-description {
+  .membership-app .summary-wrapper .product-description,
+  .membership-app .success-wrapper .product-description {
     margin-bottom: 15px; }
-  .membership-app .summary-wrapper .product-columns {
+  .membership-app .summary-wrapper .product-columns,
+  .membership-app .success-wrapper .product-columns {
     margin-left: -7.5px;
     margin-right: -7.5px; }
-    .membership-app .summary-wrapper .product-columns > div {
+    .membership-app .summary-wrapper .product-columns > div,
+    .membership-app .success-wrapper .product-columns > div {
       padding: 7.5px; }
-    .membership-app .summary-wrapper .product-columns .options .item {
+    .membership-app .summary-wrapper .product-columns .options .item,
+    .membership-app .success-wrapper .product-columns .options .item {
       display: flex;
       margin-bottom: 15px; }
-      .membership-app .summary-wrapper .product-columns .options .item .option-title {
+      .membership-app .summary-wrapper .product-columns .options .item .option-title,
+      .membership-app .success-wrapper .product-columns .options .item .option-title {
         padding-right: 10px; }
-      .membership-app .summary-wrapper .product-columns .options .item .option-price {
+      .membership-app .summary-wrapper .product-columns .options .item .option-price,
+      .membership-app .success-wrapper .product-columns .options .item .option-price {
         text-align: right;
         margin-left: auto;
         white-space: nowrap; }
-    .membership-app .summary-wrapper .product-columns .find-more-wrapper {
+    .membership-app .summary-wrapper .product-columns .find-more-wrapper,
+    .membership-app .success-wrapper .product-columns .find-more-wrapper {
       border-top: 1px solid #636466;
       margin-top: 15px;
       padding-top: 15px;
       margin-bottom: 15px; }
-      .membership-app .summary-wrapper .product-columns .find-more-wrapper .actions {
+      .membership-app .summary-wrapper .product-columns .find-more-wrapper .actions,
+      .membership-app .success-wrapper .product-columns .find-more-wrapper .actions {
         display: flex; }
-      .membership-app .summary-wrapper .product-columns .find-more-wrapper .find-more {
+      .membership-app .summary-wrapper .product-columns .find-more-wrapper .find-more,
+      .membership-app .success-wrapper .product-columns .find-more-wrapper .find-more {
         font-weight: bold;
         padding: 0; }
-      .membership-app .summary-wrapper .product-columns .find-more-wrapper .clear-all {
+      .membership-app .summary-wrapper .product-columns .find-more-wrapper .clear-all,
+      .membership-app .success-wrapper .product-columns .find-more-wrapper .clear-all {
         margin-left: auto;
         margin-right: 0;
         padding: 0; }
-      .membership-app .summary-wrapper .product-columns .find-more-wrapper .info {
+      .membership-app .summary-wrapper .product-columns .find-more-wrapper .info,
+      .membership-app .success-wrapper .product-columns .find-more-wrapper .info {
         margin-top: 15px;
         font-size: 12px; }
-        .membership-app .summary-wrapper .product-columns .find-more-wrapper .info p {
+        .membership-app .summary-wrapper .product-columns .find-more-wrapper .info p,
+        .membership-app .success-wrapper .product-columns .find-more-wrapper .info p {
           margin-bottom: 0; }
   .membership-app .billing .billing-wrapper {
     display: flex;

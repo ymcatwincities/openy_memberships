@@ -35,10 +35,6 @@
               v-if="product.variations[variant].field_best_value == 1"
             >Best value</div>
           </div>
-          <div
-            class="best-value"
-            v-if="product.variations[variant].field_best_value == 1"
-          >Best value</div>
         </div>
         <div>
           <div class="title">Discounts & Add-Ons</div>
@@ -85,8 +81,9 @@
           </div>
         </div>
       </div>
-
-      <a class="select" @click="$emit('go-next')">JOIN NOW</a>
+      <div>
+        <a class="select" @click="$emit('go-next')">JOIN NOW</a>
+      </div>
     </div>
   </section>
 </template>
