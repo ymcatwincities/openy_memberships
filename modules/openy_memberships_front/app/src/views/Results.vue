@@ -1,24 +1,18 @@
 <template>
   <section class="app-container">
-    <div class="container">
-      <div class="">
-        <div class="">
-          <h1 class="title">
-            Membership Builder
-          </h1>
-        </div>
+    <h1 class="title">
+      Membership Builder
+    </h1>
+    <div class="description">
+      <div class="description-text">
+        Check out these great options!
       </div>
-      <div class="description">
-        <div class="description-text">
-          Check out these great options!
-        </div>
-      </div>
-      <div>
-        <loading :active.sync="isLoading"></loading>
-        <products @go-next="$emit('go-next')" v-if="this.products.length" :products="products" />
-        <div v-if="!this.products.length">
-          No suitable products was found.
-        </div>
+    </div>
+    <div>
+      <loading :active.sync="isLoading"></loading>
+      <products @go-next="$emit('go-next')" v-if="this.products.length" :products="products" />
+      <div v-if="!this.products.length">
+        No suitable products was found.
       </div>
     </div>
   </section>

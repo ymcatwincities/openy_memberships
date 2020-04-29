@@ -1,29 +1,23 @@
 <template>
   <section class="app-container">
-    <div class="container">
-      <div class="">
-        <div class="">
-          <h1 class="title">
-            Membership Builder
-          </h1>
-        </div>
+    <h1 class="title">
+      Membership Builder
+    </h1>
+    <div class="description">
+      <div class="description-text">
+        How many people will be included in your membership?
       </div>
-      <div class="description">
-        <div class="description-text">
-          How many people will be included in your membership?
-        </div>
-      </div>
+    </div>
 
-      <div class="family-wrapper">
-        <div class="label-row">
-          <div class="label">Adults (18-54 yrs)</div><div class="value"><integer-minus-plus :value="$store.state.family.adults" @input="updateFamily('adults', $event)" /></div>
-        </div>
-        <div class="label-row">
-          <div class="label">Youth (0-17 yrs)</div><div class="value"><integer-minus-plus :value="$store.state.family.youth" @input="updateFamily('youth', $event)" /></div>
-        </div>
-        <div class="label-row">
-          <div class="label">Seniors (55+ yrs)</div><div class="value"><integer-minus-plus :value="$store.state.family.seniors" @input="updateFamily('seniors', $event)" /></div>
-        </div>
+    <div class="family-wrapper">
+      <div class="label-row">
+        <div class="label">Adults (18-54 yrs)</div><div class="value"><integer-minus-plus :value="$store.state.family.adults" @input="updateFamily('adults', $event)" /></div>
+      </div>
+      <div class="label-row">
+        <div class="label">Youth (0-17 yrs)</div><div class="value"><integer-minus-plus :value="$store.state.family.youth" @input="updateFamily('youth', $event)" /></div>
+      </div>
+      <div class="label-row">
+        <div class="label">Seniors (55+ yrs)</div><div class="value"><integer-minus-plus :value="$store.state.family.seniors" @input="updateFamily('seniors', $event)" /></div>
       </div>
     </div>
     <div class="navigation" v-if="totalCount">

@@ -1,0 +1,102 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/taxonomy\/term\/64?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/taxonomy_term\/memberships_ages_groups"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/taxonomy_term\/memberships_ages_groups\/parent": [
+            null
+        ]
+    },
+    "tid": [
+        {
+            "value": 64
+        }
+    ],
+    "uuid": [
+        {
+            "value": "e784d67a-b111-45c4-bc77-83ca2a5b425c"
+        }
+    ],
+    "revision_id": [
+        {
+            "value": 64
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "vid": [
+        {
+            "target_id": "memberships_ages_groups"
+        }
+    ],
+    "revision_created": [
+        {
+            "value": "2020-04-13T14:50:30+00:00",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "status": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "name": [
+        {
+            "value": "Adults (18 - 54 yrs)",
+            "lang": "en"
+        }
+    ],
+    "weight": [
+        {
+            "value": 0
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/taxonomy_term\/memberships_ages_groups\/parent": [
+            null
+        ]
+    },
+    "changed": [
+        {
+            "value": "2020-04-13T14:51:18+00:00",
+            "lang": "en",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "revision_translation_affected": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "metatag": [
+        {
+            "value": {
+                "title": "Adults (18 - 54 yrs) | OpenY",
+                "canonical_url": "http:\/\/default\/taxonomy\/term\/64"
+            }
+        }
+    ],
+    "path": [
+        {
+            "alias": null,
+            "pid": null,
+            "langcode": "en",
+            "lang": "en"
+        }
+    ]
+}
