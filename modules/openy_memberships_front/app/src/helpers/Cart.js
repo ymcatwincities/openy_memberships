@@ -64,6 +64,14 @@ class Cart {
             type: "profile--family_members",
             attributes: {
               field_first_name: member.name
+            },
+            relationships: {
+              field_age_group: {
+                data: {
+                  type: "taxonomy_term--memberships_ages_groups",
+                  id: member.type_uuid
+                }
+              }
             }
           }
         })
