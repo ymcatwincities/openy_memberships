@@ -267,7 +267,7 @@ export default {
               members++;
               await this.createMember({
                 name: "Member " + members,
-                type: "adults"
+                type: type
               }).then(member => {
                 family_members.push({
                   type: member.data.type,
