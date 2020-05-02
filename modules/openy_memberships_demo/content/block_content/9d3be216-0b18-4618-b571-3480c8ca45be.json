@@ -1,0 +1,106 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/block\/19?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/block_content\/feature_card"
+        }
+    },
+    "id": [
+        {
+            "value": 19
+        }
+    ],
+    "uuid": [
+        {
+            "value": "9d3be216-0b18-4618-b571-3480c8ca45be"
+        }
+    ],
+    "revision_id": [
+        {
+            "value": 20
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "type": [
+        {
+            "target_id": "feature_card"
+        }
+    ],
+    "revision_created": [
+        {
+            "value": "2020-05-02T13:03:25+00:00",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "status": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "info": [
+        {
+            "value": "Start Online",
+            "lang": "en"
+        }
+    ],
+    "changed": [
+        {
+            "value": "2020-05-02T13:03:25+00:00",
+            "lang": "en",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "reusable": [
+        {
+            "value": true
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "revision_translation_affected": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "metatag": [
+        {
+            "value": {
+                "title": "| Site-Install",
+                "canonical_url": "http:\/\/default\/membership-landing"
+            }
+        }
+    ],
+    "field_fc_body": [
+        {
+            "value": "<p>Answer a few simple question to see what membership makes the most sense for you. Then select the discounts that apply to get a final price before you make a commitment.<\/p>\r\n",
+            "format": "full_html",
+            "processed": "<p>Answer a few simple question to see what membership makes the most sense for you. Then select the discounts that apply to get a final price before you make a commitment.<\/p>\n",
+            "summary": ""
+        }
+    ],
+    "field_fc_link": [
+        {
+            "uri": "internal:\/",
+            "title": "GET STARTED",
+            "options": []
+        }
+    ],
+    "field_fc_title": [
+        {
+            "value": "Start Online"
+        }
+    ]
+}

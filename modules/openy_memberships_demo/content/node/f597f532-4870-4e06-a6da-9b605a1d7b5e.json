@@ -1,0 +1,262 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/membership-types?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/node\/landing_page"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/node\/landing_page\/revision_uid": [
+            {
+                "href": "http:\/\/default\/user\/1?_format=hal_json"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/node\/landing_page\/uid": [
+            {
+                "href": "http:\/\/default\/user\/1?_format=hal_json",
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/node\/landing_page\/field_bottom_content": [
+            {
+                "href": "",
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/node\/landing_page\/field_content": [
+            {
+                "href": "",
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/node\/landing_page\/field_header_content": [
+            {
+                "href": "",
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/node\/landing_page\/field_sidebar_content": [
+            {
+                "href": "",
+                "lang": "en"
+            }
+        ]
+    },
+    "nid": [
+        {
+            "value": 447
+        }
+    ],
+    "uuid": [
+        {
+            "value": "f597f532-4870-4e06-a6da-9b605a1d7b5e"
+        }
+    ],
+    "vid": [
+        {
+            "value": 464
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "type": [
+        {
+            "target_id": "landing_page"
+        }
+    ],
+    "revision_timestamp": [
+        {
+            "value": "2020-05-02T14:49:33+00:00",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/node\/landing_page\/revision_uid": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/user\/1?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "e9b0d2c3-a8f0-4f37-a802-d39cb6c437a3"
+                    }
+                ]
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/node\/landing_page\/uid": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/user\/1?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "e9b0d2c3-a8f0-4f37-a802-d39cb6c437a3"
+                    }
+                ],
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/node\/landing_page\/field_bottom_content": [
+            {
+                "_links": {
+                    "self": {
+                        "href": ""
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/paragraph\/banner"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "6100321c-6f75-4d0a-a9e2-982fd24f94a3"
+                    }
+                ],
+                "lang": "en",
+                "target_revision_id": "649"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/node\/landing_page\/field_content": [
+            {
+                "_links": {
+                    "self": {
+                        "href": ""
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/paragraph\/simple_content"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "aed162e9-48ce-42e5-9a2a-ce99b457e727"
+                    }
+                ],
+                "lang": "en",
+                "target_revision_id": "650"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/node\/landing_page\/field_header_content": [
+            {
+                "_links": {
+                    "self": {
+                        "href": ""
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/paragraph\/small_banner"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "5ce8fc6f-ef6f-4f35-8e1f-c5b87baffbd5"
+                    }
+                ],
+                "lang": "en",
+                "target_revision_id": "651"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/node\/landing_page\/field_sidebar_content": [
+            {
+                "_links": {
+                    "self": {
+                        "href": ""
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/paragraph\/block_container"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "4252bf7f-e78d-45e3-ba2c-a554a4b03476"
+                    }
+                ],
+                "lang": "en",
+                "target_revision_id": "652"
+            }
+        ]
+    },
+    "status": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "title": [
+        {
+            "value": "Membership Types",
+            "lang": "en"
+        }
+    ],
+    "created": [
+        {
+            "value": "2020-05-02T13:06:31+00:00",
+            "lang": "en",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "changed": [
+        {
+            "value": "2020-05-02T14:49:33+00:00",
+            "lang": "en",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "promote": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "sticky": [
+        {
+            "value": false,
+            "lang": "en"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "metatag": [
+        {
+            "value": {
+                "title": "Membership Types | Site-Install",
+                "og_title": "Membership Types"
+            }
+        }
+    ],
+    "addthis": [
+        {
+            "value": false,
+            "lang": "en"
+        }
+    ],
+    "path": [
+        {
+            "alias": "\/membership-types",
+            "pid": 326,
+            "langcode": "en",
+            "lang": "en"
+        }
+    ],
+    "field_lp_layout": [
+        {
+            "value": "two_column_left",
+            "lang": "en"
+        }
+    ]
+}

@@ -1,0 +1,136 @@
+{
+    "_links": {
+        "self": {
+            "href": ""
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/paragraph\/simple_content"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/simple_content\/uid": [
+            {
+                "href": "http:\/\/default\/user\/1?_format=hal_json",
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/simple_content\/revision_uid": [
+            {
+                "href": "http:\/\/default\/user\/1?_format=hal_json"
+            }
+        ]
+    },
+    "id": [
+        {
+            "value": 623
+        }
+    ],
+    "uuid": [
+        {
+            "value": "3365c14d-b3be-4a1e-8c9c-5faa897dfc7d"
+        }
+    ],
+    "revision_id": [
+        {
+            "value": 633
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "type": [
+        {
+            "target_id": "simple_content"
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/simple_content\/uid": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/user\/1?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "e9b0d2c3-a8f0-4f37-a802-d39cb6c437a3"
+                    }
+                ],
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/simple_content\/revision_uid": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/user\/1?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "e9b0d2c3-a8f0-4f37-a802-d39cb6c437a3"
+                    }
+                ]
+            }
+        ]
+    },
+    "status": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "created": [
+        {
+            "value": "2020-04-29T15:27:41+00:00",
+            "lang": "en",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "parent_id": [
+        {
+            "value": "16"
+        }
+    ],
+    "parent_type": [
+        {
+            "value": "block_content"
+        }
+    ],
+    "parent_field_name": [
+        {
+            "value": "field_paragraph"
+        }
+    ],
+    "behavior_settings": [
+        {
+            "value": []
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "skin": [
+        {
+            "value": "openy-memberships-button"
+        }
+    ],
+    "field_prgf_description": [
+        {
+            "value": "<p><a class=\"btn btn-primary\" href=\"\/membership-join-y\"><span class=\"text\">JOIN<\/span><\/a><\/p>\r\n",
+            "format": "full_html",
+            "processed": "<p><a class=\"btn btn-primary\" href=\"\/membership-join-y\"><span class=\"text\">JOIN<\/span><\/a><\/p>\n",
+            "lang": "en"
+        }
+    ]
+}

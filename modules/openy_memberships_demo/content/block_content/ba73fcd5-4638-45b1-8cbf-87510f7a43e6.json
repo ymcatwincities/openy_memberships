@@ -1,0 +1,100 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/block\/23?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/block_content\/simple_block"
+        }
+    },
+    "id": [
+        {
+            "value": 23
+        }
+    ],
+    "uuid": [
+        {
+            "value": "ba73fcd5-4638-45b1-8cbf-87510f7a43e6"
+        }
+    ],
+    "revision_id": [
+        {
+            "value": 24
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "type": [
+        {
+            "target_id": "simple_block"
+        }
+    ],
+    "revision_created": [
+        {
+            "value": "2020-05-02T14:31:11+00:00",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "status": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "info": [
+        {
+            "value": "Employee Information",
+            "lang": "en"
+        }
+    ],
+    "changed": [
+        {
+            "value": "2020-05-02T14:31:11+00:00",
+            "lang": "en",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "reusable": [
+        {
+            "value": true
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "revision_translation_affected": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "metatag": [
+        {
+            "value": {
+                "title": "| Site-Install",
+                "canonical_url": "http:\/\/default\/membership-landing"
+            }
+        }
+    ],
+    "field_sb_body": [
+        {
+            "value": "<p>Content<\/p>\r\n",
+            "format": "full_html",
+            "processed": "<p>Content<\/p>\n",
+            "lang": "en"
+        }
+    ],
+    "field_sb_title": [
+        {
+            "value": "Employee Information",
+            "lang": "en"
+        }
+    ]
+}
