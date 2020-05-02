@@ -1,0 +1,34 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.profile.field_age_group
+    - profile.type.family_members
+    - taxonomy.vocabulary.memberships_ages_groups
+  module:
+    - datalayer
+third_party_settings:
+  datalayer:
+    expose: 0
+    label: field_age_group
+id: profile.family_members.field_age_group
+field_name: field_age_group
+entity_type: profile
+bundle: family_members
+label: 'Age Group'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      memberships_ages_groups: memberships_ages_groups
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

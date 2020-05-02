@@ -3,10 +3,13 @@ status: true
 dependencies:
   config:
     - field.field.profile.family_members.field_age
+    - field.field.profile.family_members.field_age_group
     - field.field.profile.family_members.field_first_name
     - field.field.profile.family_members.field_om_health_insurance
     - field.field.profile.family_members.field_om_military_service
     - profile.type.family_members
+_core:
+  default_config_hash: QtdtjcgJnK4j22D1sWf_LQaJj-n3U7Vzh4p3rVxcMkI
 id: profile.family_members.default
 targetEntityType: profile
 bundle: family_members
@@ -20,6 +23,14 @@ content:
       prefix_suffix: true
     third_party_settings: {  }
     type: number_integer
+    region: content
+  field_age_group:
+    weight: 4
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
     region: content
   field_first_name:
     weight: 1

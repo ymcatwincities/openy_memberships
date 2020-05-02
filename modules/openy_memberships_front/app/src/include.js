@@ -5,14 +5,14 @@ import VueRouter from 'vue-router'
 import VuexPersist from 'vuex-persist'
 import numeral from 'numeral';
 import numFormat from 'vue-filter-number-format';
-
+import Version from './helpers/VersionControl';
 Vue.filter('numFormat', numFormat(numeral));
 Vue.use(VueRouter)
 Vue.use(Vuex);
 
 export default {
   init(storeData, routes) {
-
+    Version.init();
     const vuexPersist = new VuexPersist({
       key: 'memberships',
       storage: window.localStorage

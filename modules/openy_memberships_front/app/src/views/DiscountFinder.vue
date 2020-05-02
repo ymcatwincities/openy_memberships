@@ -261,13 +261,13 @@ export default {
           let members = 0;
           let family_members = [];
 
-          for (let type in family) {
-            let count = family[type];
+          for (let type_uuid in family) {
+            let count = family[type_uuid];
             for (let i = 1; i <= count; i++) {
               members++;
               await this.createMember({
                 name: "Member " + members,
-                type: "adults"
+                type_uuid: type_uuid
               }).then(member => {
                 family_members.push({
                   type: member.data.type,
@@ -328,7 +328,7 @@ export default {
         this.discounts = data.discounts;
         this.total_price = data.total_price;
         this.subtotal_price = data.subtotal_price;
-        this.member_promotions = data.member_promotions;
+        this.member_promotions = data.member_promotions ? data.member_promotions : {};
 
         this.isLoading = false;
       }).catch(() => {
@@ -411,16 +411,18 @@ export default {
     },
     getAddons() {
       return Cart.getAddons(this.$store.state.product.uuid).then((json) => {
-        json.included.forEach((addon) => {
-          if (addon.type != "commerce_addon--membership_addon") {
-            return;
-          }
-          let type = addon.attributes.field_om_addon_type;
-          if (!this.addons[type]) {
-            this.addons[type] = [];
-          }
-          this.addons[type].push(addon);
-        })
+        if (json.included) {
+          json.included.forEach((addon) => {
+            if (addon.type != "commerce_addon--membership_addon") {
+              return;
+            }
+            let type = addon.attributes.field_om_addon_type;
+            if (!this.addons[type]) {
+              this.addons[type] = [];
+            }
+            this.addons[type].push(addon);
+          })
+        }
         return this.addons;
       });
     },

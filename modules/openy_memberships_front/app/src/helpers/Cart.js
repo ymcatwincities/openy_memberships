@@ -64,6 +64,14 @@ class Cart {
             type: "profile--family_members",
             attributes: {
               field_first_name: member.name
+            },
+            relationships: {
+              field_age_group: {
+                data: {
+                  type: "taxonomy_term--memberships_ages_groups",
+                  id: member.type_uuid
+                }
+              }
             }
           }
         })
@@ -239,6 +247,14 @@ class Cart {
     return window.jQuery
       .ajax({
         url: "/memberships/api/summary",
+        dataType: "json",
+        data: {}
+      })
+  }
+  getAgeGroups = () => {
+    return window.jQuery
+      .ajax({
+        url: "/memberships/get/ages/groups",
         dataType: "json",
         data: {}
       })

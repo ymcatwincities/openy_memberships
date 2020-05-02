@@ -3,10 +3,13 @@ status: true
 dependencies:
   config:
     - field.field.profile.family_members.field_age
+    - field.field.profile.family_members.field_age_group
     - field.field.profile.family_members.field_first_name
     - field.field.profile.family_members.field_om_health_insurance
     - field.field.profile.family_members.field_om_military_service
     - profile.type.family_members
+_core:
+  default_config_hash: nfSJHZcAf12tiq10WSf1wzgy1mwVVyn0sy2uPT-IPlQ
 id: profile.family_members.default
 targetEntityType: profile
 bundle: family_members
@@ -18,6 +21,16 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: number
+    region: content
+  field_age_group:
+    weight: 30
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
     region: content
   field_first_name:
     weight: 27

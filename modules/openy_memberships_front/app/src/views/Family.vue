@@ -1,5 +1,6 @@
 <template>
   <section class="app-container">
+    <loading :active.sync="isLoading"></loading>
     <h1 class="title">
       Membership Builder
     </h1>
@@ -10,14 +11,10 @@
     </div>
 
     <div class="family-wrapper">
-      <div class="label-row">
-        <div class="label">Adults (18-54 yrs)</div><div class="value"><integer-minus-plus :value="$store.state.family.adults" @input="updateFamily('adults', $event)" /></div>
-      </div>
-      <div class="label-row">
-        <div class="label">Youth (0-17 yrs)</div><div class="value"><integer-minus-plus :value="$store.state.family.youth" @input="updateFamily('youth', $event)" /></div>
-      </div>
-      <div class="label-row">
-        <div class="label">Seniors (55+ yrs)</div><div class="value"><integer-minus-plus :value="$store.state.family.seniors" @input="updateFamily('seniors', $event)" /></div>
+      <div :key="index"  class="label-row" v-for="(group, index) in age_groups">
+        <div class="label-row">
+          <div class="label">{{group.title}}</div><div class="value"><integer-minus-plus :value="$store.state.family[group.uuid]" @input="updateFamily(group.uuid, $event)" /></div>
+        </div>
       </div>
     </div>
     <div class="navigation" v-if="totalCount">
@@ -29,9 +26,28 @@
 </template>
 
 <script>
+import Loading from "vue-loading-overlay";
+import "vue-loading-overlay/dist/vue-loading.css";
 import IntegerMinusPlus from '../components/IntegerMinusPlus'
+import Cart from '../helpers/Cart';
 export default {
   mounted() {
+    this.isLoading = true;
+    Cart.getAgeGroups().then(json => {
+      let leave_items = {};
+      this.age_groups = Object.keys(json).map((key) => {
+        leave_items[json[key].uuid] = true;
+        return {key: key, title: json[key].title, uuid: json[key].uuid};
+      })
+      Object.keys(this.$store.state.family).forEach((key) => {
+        if (!leave_items[key]) {
+          this.$store.commit('deleteFamilyKey', key); 
+        }
+      })
+      this.isLoading = false;
+    }).catch(()=>{
+      this.isLoading = false;
+    });
   },
   computed: {
     totalCount() {
@@ -40,22 +56,27 @@ export default {
         count = count + this.$store.state.family[element]
       });
       return count;
+    },
+    family() {
+      return this.$store.state.family;
     }
   },
   components: {
-    IntegerMinusPlus
+    IntegerMinusPlus,
+    Loading
   },
   data () {
     return {
-      family: {
-        ...this.$store.state.family
-      }
+      isLoading: false,
+      age_groups: [],
     }
   },
   methods: {
     updateFamily(key, value) {
-      this.family[key] = value
-      this.$store.commit('setFamily', this.family)
+      this.$store.commit('setFamily', {
+        key,
+        value
+      })
     }
   }
 }

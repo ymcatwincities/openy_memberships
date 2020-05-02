@@ -102,12 +102,15 @@ class OpenyMemberships extends ControllerBase {
     $tids = $this->entityQuery
       ->get('taxonomy_term')
       ->condition('vid', 'memberships_ages_groups')
+      ->condition('status', 1)
       ->sort('weight', 'ASC')
       ->execute();
     $terms = Term::loadMultiple($tids);
     foreach ($terms as $tid => $term) {
       $data[$tid] = [
         'title' => $term->getName(),
+        'uuid' => $term->uuid(),
+        'id' => $tid,
       ];
     }
     return new JsonResponse($data);
