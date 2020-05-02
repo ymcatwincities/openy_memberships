@@ -6,11 +6,7 @@ export default {
       step: 0,
       steps: defaultSteps,
       location: null,
-      family: {
-        adults: 0,
-        youth: 0,
-        seniors: 0
-      },
+      family: {},
       product: null,
       keepCart: true,
       members: [],

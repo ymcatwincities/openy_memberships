@@ -9,7 +9,10 @@ export default {
     state.location = location
   },
   setFamily(state, family) {
-    state.family = family
+    state.family[family.key] = family.value
+  },
+  deleteFamilyKey(state, key) {
+    this._vm.$delete(state.family, key);
   },
   setProduct(state, product) {
     state.product = product
