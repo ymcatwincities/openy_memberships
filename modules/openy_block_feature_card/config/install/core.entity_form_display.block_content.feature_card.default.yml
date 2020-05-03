@@ -5,6 +5,7 @@ dependencies:
     - block_content.type.feature_card
     - entity_browser.browser.images_library
     - field.field.block_content.feature_card.field_fc_body
+    - field.field.block_content.feature_card.field_fc_icon_class
     - field.field.block_content.feature_card.field_fc_image
     - field.field.block_content.feature_card.field_fc_link
     - field.field.block_content.feature_card.field_fc_title
@@ -18,7 +19,7 @@ bundle: feature_card
 mode: default
 content:
   field_fc_body:
-    weight: 3
+    weight: 4
     settings:
       rows: 9
       summary_rows: 3
@@ -26,6 +27,14 @@ content:
       show_summary: false
     third_party_settings: {  }
     type: text_textarea_with_summary
+    region: content
+  field_fc_icon_class:
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
     region: content
   field_fc_image:
     type: openy_focal_point_entity_browser_entity_reference
@@ -43,7 +52,7 @@ content:
     third_party_settings: {  }
     region: content
   field_fc_link:
-    weight: 4
+    weight: 5
     settings:
       placeholder_url: ''
       placeholder_title: ''
@@ -51,7 +60,7 @@ content:
     type: link_default
     region: content
   field_fc_title:
-    weight: 2
+    weight: 3
     settings:
       size: 60
       placeholder: ''

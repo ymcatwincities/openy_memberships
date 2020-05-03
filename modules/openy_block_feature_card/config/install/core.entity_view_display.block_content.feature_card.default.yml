@@ -4,12 +4,14 @@ dependencies:
   config:
     - block_content.type.feature_card
     - field.field.block_content.feature_card.field_fc_body
+    - field.field.block_content.feature_card.field_fc_icon_class
     - field.field.block_content.feature_card.field_fc_image
     - field.field.block_content.feature_card.field_fc_link
     - field.field.block_content.feature_card.field_fc_title
     - image.style.large
   module:
     - link
+    - openy_block_feature_card
     - text
 id: block_content.feature_card.default
 targetEntityType: block_content
@@ -17,11 +19,18 @@ bundle: feature_card
 mode: default
 content:
   field_fc_body:
-    weight: 2
+    weight: 3
     label: hidden
     settings: {  }
     third_party_settings: {  }
     type: text_default
+    region: content
+  field_fc_icon_class:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: string_font_awesome
     region: content
   field_fc_image:
     type: media_background_image
@@ -33,7 +42,7 @@ content:
     third_party_settings: {  }
     region: content
   field_fc_link:
-    weight: 3
+    weight: 4
     label: hidden
     settings:
       trim_length: 80
@@ -45,7 +54,7 @@ content:
     type: link
     region: content
   field_fc_title:
-    weight: 1
+    weight: 2
     label: hidden
     settings:
       link_to_entity: false
@@ -54,3 +63,4 @@ content:
     region: content
 hidden:
   langcode: true
+  search_api_excerpt: true
