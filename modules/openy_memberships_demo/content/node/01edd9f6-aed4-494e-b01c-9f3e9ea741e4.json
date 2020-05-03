@@ -54,7 +54,7 @@
     ],
     "vid": [
         {
-            "value": 468
+            "value": 490
         }
     ],
     "langcode": [
@@ -70,7 +70,7 @@
     ],
     "revision_timestamp": [
         {
-            "value": "2020-05-02T14:51:03+00:00",
+            "value": "2020-05-03T16:31:52+00:00",
             "format": "Y-m-d\\TH:i:sP"
         }
     ],
@@ -126,7 +126,7 @@
                     }
                 ],
                 "lang": "en",
-                "target_revision_id": "680"
+                "target_revision_id": "765"
             }
         ],
         "http:\/\/drupal.org\/rest\/relation\/node\/landing_page\/field_content": [
@@ -145,7 +145,7 @@
                     }
                 ],
                 "lang": "en",
-                "target_revision_id": "681"
+                "target_revision_id": "766"
             }
         ],
         "http:\/\/drupal.org\/rest\/relation\/node\/landing_page\/field_header_content": [
@@ -208,7 +208,7 @@
     ],
     "changed": [
         {
-            "value": "2020-05-02T14:51:03+00:00",
+            "value": "2020-05-03T16:31:52+00:00",
             "lang": "en",
             "format": "Y-m-d\\TH:i:sP"
         }
@@ -231,6 +231,12 @@
             "lang": "en"
         }
     ],
+    "revision_translation_affected": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
     "metatag": [
         {
             "value": {
@@ -248,7 +254,7 @@
     "path": [
         {
             "alias": "\/free-trial",
-            "pid": 329,
+            "pid": 324,
             "langcode": "en",
             "lang": "en"
         }

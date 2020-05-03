@@ -68,3 +68,8 @@ openy_memberships.paragraph_skins:
     label: 'Memberships App'
     paragraph_type: memberships
     library: 'openy_memberships/memberships-app'
+
+  - name: openy-memberships-simple-content
+    label: 'Memberships Simple Content'
+    paragraph_type: simple_content
+    library: 'openy_memberships/simple-content'

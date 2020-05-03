@@ -19,7 +19,7 @@
         ],
         "http:\/\/drupal.org\/rest\/relation\/paragraph\/2c\/field_prgf_2c_left": [
             {
-                "href": "http:\/\/default\/block\/21?_format=hal_json",
+                "href": "http:\/\/default\/block\/49?_format=hal_json",
                 "lang": "en"
             }
         ],
@@ -42,7 +42,7 @@
     ],
     "revision_id": [
         {
-            "value": 668
+            "value": 776
         }
     ],
     "langcode": [
@@ -96,7 +96,7 @@
             {
                 "_links": {
                     "self": {
-                        "href": "http:\/\/default\/block\/21?_format=hal_json"
+                        "href": "http:\/\/default\/block\/49?_format=hal_json"
                     },
                     "type": {
                         "href": "http:\/\/drupal.org\/rest\/type\/block_content\/modal_block"
@@ -104,7 +104,7 @@
                 },
                 "uuid": [
                     {
-                        "value": "cb0993c8-77a2-4739-acbc-d3e623c7645f"
+                        "value": "5346d0db-40e4-401c-94a6-b50b2605d76c"
                     }
                 ],
                 "lang": "en"
@@ -172,6 +172,11 @@
         {
             "value": true,
             "lang": "en"
+        }
+    ],
+    "skin": [
+        {
+            "value": "openy-memberships-modal"
         }
     ],
     "field_prfg_display_line_above": [

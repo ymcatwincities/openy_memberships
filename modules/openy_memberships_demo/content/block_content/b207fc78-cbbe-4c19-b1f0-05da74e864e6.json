@@ -1,7 +1,7 @@
 {
     "_links": {
         "self": {
-            "href": "http:\/\/default\/block\/10?_format=hal_json"
+            "href": "http:\/\/default\/block\/47?_format=hal_json"
         },
         "type": {
             "href": "http:\/\/drupal.org\/rest\/type\/block_content\/feature_card"
@@ -9,17 +9,17 @@
     },
     "id": [
         {
-            "value": 10
+            "value": 47
         }
     ],
     "uuid": [
         {
-            "value": "eddc4ae5-2a74-4c72-ae42-216b26380f24"
+            "value": "b207fc78-cbbe-4c19-b1f0-05da74e864e6"
         }
     ],
     "revision_id": [
         {
-            "value": 10
+            "value": 48
         }
     ],
     "langcode": [
@@ -35,7 +35,7 @@
     ],
     "revision_created": [
         {
-            "value": "2020-04-29T15:17:42+00:00",
+            "value": "2020-05-03T14:20:21+00:00",
             "format": "Y-m-d\\TH:i:sP"
         }
     ],
@@ -47,13 +47,13 @@
     ],
     "info": [
         {
-            "value": "Have Fun, Get Fit, and Make Friends",
+            "value": "Community Events & Date Nights",
             "lang": "en"
         }
     ],
     "changed": [
         {
-            "value": "2020-05-03T16:24:09+00:00",
+            "value": "2020-05-03T14:26:53+00:00",
             "lang": "en",
             "format": "Y-m-d\\TH:i:sP"
         }
@@ -85,22 +85,20 @@
     ],
     "field_fc_body": [
         {
-            "value": "<p>The Y is a fun and safe place for you, your family, and your friends to exercise and enjoy yourselves.<\/p>\r\n",
+            "value": "<p>The Y hosts events and activities designed to build communities, bring people together, and even gives parents a night off!<\/p>\r\n",
             "format": "full_html",
-            "processed": "<p>The Y is a fun and safe place for you, your family, and your friends to exercise and enjoy yourselves.<\/p>\n",
+            "processed": "<p>The Y hosts events and activities designed to build communities, bring people together, and even gives parents a night off!<\/p>\n",
             "summary": ""
         }
     ],
-    "field_fc_link": [
+    "field_fc_icon_class": [
         {
-            "uri": "internal:\/membership-join-y",
-            "title": "JOIN THE Y",
-            "options": []
+            "value": "fas fa-calendar-alt"
         }
     ],
     "field_fc_title": [
         {
-            "value": "Have Fun, Get Fit, and Make Friends"
+            "value": "Community Events & Date Nights"
         }
     ]
 }

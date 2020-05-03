@@ -1,25 +1,25 @@
 {
     "_links": {
         "self": {
-            "href": "http:\/\/default\/block\/10?_format=hal_json"
+            "href": "http:\/\/default\/block\/49?_format=hal_json"
         },
         "type": {
-            "href": "http:\/\/drupal.org\/rest\/type\/block_content\/feature_card"
+            "href": "http:\/\/drupal.org\/rest\/type\/block_content\/modal_block"
         }
     },
     "id": [
         {
-            "value": 10
+            "value": 49
         }
     ],
     "uuid": [
         {
-            "value": "eddc4ae5-2a74-4c72-ae42-216b26380f24"
+            "value": "5346d0db-40e4-401c-94a6-b50b2605d76c"
         }
     ],
     "revision_id": [
         {
-            "value": 10
+            "value": 50
         }
     ],
     "langcode": [
@@ -30,12 +30,12 @@
     ],
     "type": [
         {
-            "target_id": "feature_card"
+            "target_id": "modal_block"
         }
     ],
     "revision_created": [
         {
-            "value": "2020-04-29T15:17:42+00:00",
+            "value": "2020-05-03T16:37:35+00:00",
             "format": "Y-m-d\\TH:i:sP"
         }
     ],
@@ -47,13 +47,13 @@
     ],
     "info": [
         {
-            "value": "Have Fun, Get Fit, and Make Friends",
+            "value": "Financial Assistance",
             "lang": "en"
         }
     ],
     "changed": [
         {
-            "value": "2020-05-03T16:24:09+00:00",
+            "value": "2020-05-03T16:37:35+00:00",
             "lang": "en",
             "format": "Y-m-d\\TH:i:sP"
         }
@@ -83,24 +83,33 @@
             }
         }
     ],
-    "field_fc_body": [
+    "field_description": [
         {
-            "value": "<p>The Y is a fun and safe place for you, your family, and your friends to exercise and enjoy yourselves.<\/p>\r\n",
+            "value": "<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium<\/p>\r\n",
             "format": "full_html",
-            "processed": "<p>The Y is a fun and safe place for you, your family, and your friends to exercise and enjoy yourselves.<\/p>\n",
-            "summary": ""
+            "processed": "<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium<\/p>\n"
         }
     ],
-    "field_fc_link": [
+    "field_link": [
         {
-            "uri": "internal:\/membership-join-y",
-            "title": "JOIN THE Y",
+            "uri": "internal:\/alert\/open-y-partners",
+            "title": "",
             "options": []
         }
     ],
-    "field_fc_title": [
+    "field_link_title": [
         {
-            "value": "Have Fun, Get Fit, and Make Friends"
+            "value": "Details"
+        }
+    ],
+    "field_mode": [
+        {
+            "value": "node"
+        }
+    ],
+    "field_title": [
+        {
+            "value": "Financial Assistance"
         }
     ]
 }

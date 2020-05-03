@@ -3,7 +3,8 @@
   flex-wrap: wrap;
   justify-content: space-between;
   padding-top: 20px;
-  margin: 0; }
+  margin: 0;
+  color: #231F20; }
   .ps-block_container-openy-memberships-block3 .wrapper-field-block-ref .field-block-ref {
     border: solid 1px #92278f;
     border-top: solid 5px #92278f;
@@ -21,13 +22,11 @@
         max-height: initial;
         background-position: center; }
     .ps-block_container-openy-memberships-block3 .wrapper-field-block-ref .field-block-ref .field-fc-title {
-      color: black;
       font-family: "Cachet", Verdana, Geneva, sans-serif;
       font-size: 18px;
       line-height: 27px;
       padding: 5px; }
     .ps-block_container-openy-memberships-block3 .wrapper-field-block-ref .field-block-ref .field-fc-body {
-      color: black;
       font-family: Verdana, Geneva, sans-serif;
       font-size: 12px;
       line-height: 18px;

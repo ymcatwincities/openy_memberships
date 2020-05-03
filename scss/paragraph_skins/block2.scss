@@ -3,6 +3,7 @@
   grid-template-columns: 1fr 1fr;
   grid-gap: 10px;
   padding-top: 15px;
+  color: #231F20;
 
   .field-block-ref {
     border: solid 1px #92278f;
@@ -17,7 +18,6 @@
     }
 
     .field-fc-title {
-      color: black;
       font-family: "Cachet", Verdana, Geneva, sans-serif;
       font-size: 18px;
       line-height: 27px;
@@ -25,7 +25,6 @@
     }
 
     .field-fc-body {
-      color: black;
       font-family: Verdana, Geneva, sans-serif;
       font-size: 12px;
       line-height: 18px;
