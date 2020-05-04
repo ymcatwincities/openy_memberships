@@ -3,7 +3,7 @@
   margin: 0 !important;
   display: grid !important;
   grid-gap: 30px;
-  grid-template-columns: auto auto;
+  grid-template-columns: 1fr 1fr;
   color: #231F20; }
   @media all and (max-width: 1000px) {
     .ps-2c-openy-memberships-modal {
@@ -18,7 +18,9 @@
     .ps-2c-openy-memberships-modal .field-prgf-2c-left h4, .ps-2c-openy-memberships-modal .field-prgf-2c-right h4 {
       display: none; }
     .ps-2c-openy-memberships-modal .field-prgf-2c-left .container, .ps-2c-openy-memberships-modal .field-prgf-2c-right .container {
-      padding: 0; }
+      padding: 0;
+      display: flex;
+      flex-direction: column; }
       .ps-2c-openy-memberships-modal .field-prgf-2c-left .container .field-title, .ps-2c-openy-memberships-modal .field-prgf-2c-right .container .field-title {
         font-family: "Cachet", Verdana, Geneva, sans-serif;
         font-size: 24px;
@@ -27,7 +29,8 @@
       .ps-2c-openy-memberships-modal .field-prgf-2c-left .container .field-description, .ps-2c-openy-memberships-modal .field-prgf-2c-right .container .field-description {
         font-size: 14px;
         line-height: 21px;
-        padding: 15px; }
+        padding: 15px;
+        height: 100%; }
       .ps-2c-openy-memberships-modal .field-prgf-2c-left .container .field-link-title, .ps-2c-openy-memberships-modal .field-prgf-2c-right .container .field-link-title {
         text-align: center; }
         .ps-2c-openy-memberships-modal .field-prgf-2c-left .container .field-link-title a, .ps-2c-openy-memberships-modal .field-prgf-2c-left .container .field-link-title a:hover, .ps-2c-openy-memberships-modal .field-prgf-2c-right .container .field-link-title a, .ps-2c-openy-memberships-modal .field-prgf-2c-right .container .field-link-title a:hover {

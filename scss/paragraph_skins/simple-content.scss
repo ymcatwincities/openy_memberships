@@ -1,3 +1,66 @@
-.ps-simple_content-openy-memberships-simple-content {
+.ps-simple_content-openy-memberships-simple-content,
+.ps-2c-openy-memberships-simple-content {
   color: #231F20;
+
+  ul {
+    list-style-type: none;
+
+    li {
+      padding-bottom: 15px;
+    }
+
+    li::before {
+      content: "O";
+      width: 20px;
+      margin-left: -20px;
+      display: inline-block;
+      font-weight: bold;
+      font-size: 13px;
+      color: #92278F;
+    }
+  }
+
+  p {
+    padding-bottom: 15px;
+    margin-bottom: 0;
+  }
+
+  .field-prgf-2c-left, .field-prgf-2c-right {
+    h4 {
+      color: #231F20;
+      margin-top: 27px;
+      margin-bottom: 30px;
+
+      .field-sb-title {
+        font-family: "Cachet", Verdana, Geneva, sans-serif;
+      }
+    }
+  }
+
+  a.btn {
+    font-family: "Cachet", Verdana, Geneva, sans-serif !important;
+    font-weight: normal !important;
+    text-transform: uppercase;
+    background-color: #92278f;
+    color: white;
+    margin-top: 12px;
+    padding: 15px 30px;
+    font-size: 16px;
+    line-height: 30px;
+
+    @media all and (min-width: 1060px) {
+      font-size: 24px;
+      line-height: 36px;
+      padding: 15px 40px;
+    }
+
+    &:hover {
+      background-color: #92278f;
+      border-color: #92278f;
+    }
+  }
+
+  h2 {
+    margin-bottom: 18px;
+  }
 }

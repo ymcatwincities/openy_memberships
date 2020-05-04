@@ -30,7 +30,7 @@
     ],
     "revision_id": [
         {
-            "value": 766
+            "value": 849
         }
     ],
     "langcode": [
@@ -133,9 +133,9 @@
     ],
     "field_prgf_description": [
         {
-            "value": "<p><span style=\"font-size:48px;\">Free Trial<\/span><\/p>\r\n\r\n<p><span style=\"font-size:14px;\">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.<\/span><\/p>\r\n\r\n<p>&nbsp;<\/p>\r\n",
+            "value": "<h1><span style=\"font-size:48px;\">Free Trial<\/span><\/h1>\r\n\r\n<p><span style=\"font-size:14px;\">Complete the form below and we'll contact you within 24 hours to schedule a visit and set-up your FREE five-day trial membership.<\/span><\/p>\r\n\r\n<p><em><span style=\"font-size:14px;\">Please note: You must provide a valid photo ID and be at least 18 years of age to activate your trial membership.<\/span><\/em><\/p>\r\n",
             "format": "full_html",
-            "processed": "<p><span style=\"font-size:48px;\">Free Trial<\/span><\/p>\n\n<p><span style=\"font-size:14px;\">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.<\/span><\/p>\n\n<p>\u00a0<\/p>\n",
+            "processed": "<h1><span style=\"font-size:48px;\">Free Trial<\/span><\/h1>\n\n<p><span style=\"font-size:14px;\">Complete the form below and we'll contact you within 24 hours to schedule a visit and set-up your FREE five-day trial membership.<\/span><\/p>\n\n<p><em><span style=\"font-size:14px;\">Please note: You must provide a valid photo ID and be at least 18 years of age to activate your trial membership.<\/span><\/em><\/p>\n",
             "lang": "en"
         }
     ]

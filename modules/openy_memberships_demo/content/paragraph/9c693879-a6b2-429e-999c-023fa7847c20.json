@@ -30,7 +30,7 @@
     ],
     "revision_id": [
         {
-            "value": 758
+            "value": 811
         }
     ],
     "langcode": [
@@ -133,9 +133,9 @@
     ],
     "field_prgf_description": [
         {
-            "value": "<p><span style=\"font-size:36px;\">Community Benefits<\/span><\/p>\r\n\r\n<p><span style=\"font-size:14px;\">The Y is committed to helping everyone thrive at each stage of life. And your membership dollars help make it possible for us to pursue this mission.<\/span><\/p>\r\n",
+            "value": "<h2><span style=\"font-size:36px;\">Community Benefits<\/span><\/h2>\r\n\r\n<p><span style=\"font-size:14px;\">The Y is committed to helping everyone thrive at each stage of life. And your membership dollars help make it possible for us to pursue this mission.<\/span><\/p>\r\n",
             "format": "full_html",
-            "processed": "<p><span style=\"font-size:36px;\">Community Benefits<\/span><\/p>\n\n<p><span style=\"font-size:14px;\">The Y is committed to helping everyone thrive at each stage of life. And your membership dollars help make it possible for us to pursue this mission.<\/span><\/p>\n",
+            "processed": "<h2><span style=\"font-size:36px;\">Community Benefits<\/span><\/h2>\n\n<p><span style=\"font-size:14px;\">The Y is committed to helping everyone thrive at each stage of life. And your membership dollars help make it possible for us to pursue this mission.<\/span><\/p>\n",
             "lang": "en"
         }
     ]

@@ -4,38 +4,33 @@
             "href": ""
         },
         "type": {
-            "href": "http:\/\/drupal.org\/rest\/type\/paragraph\/block_container"
+            "href": "http:\/\/drupal.org\/rest\/type\/paragraph\/simple_content"
         },
-        "http:\/\/drupal.org\/rest\/relation\/paragraph\/block_container\/uid": [
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/simple_content\/uid": [
             {
                 "href": "http:\/\/default\/user\/1?_format=hal_json",
                 "lang": "en"
             }
         ],
-        "http:\/\/drupal.org\/rest\/relation\/paragraph\/block_container\/revision_uid": [
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/simple_content\/revision_uid": [
             {
                 "href": "http:\/\/default\/user\/1?_format=hal_json"
-            }
-        ],
-        "http:\/\/drupal.org\/rest\/relation\/paragraph\/block_container\/field_block_ref": [
-            {
-                "href": "http:\/\/default\/block\/16?_format=hal_json"
             }
         ]
     },
     "id": [
         {
-            "value": 648
+            "value": 664
         }
     ],
     "uuid": [
         {
-            "value": "656a6052-95d1-408d-a052-a2eaf78b3b82"
+            "value": "841f5543-b7e8-4d61-9f46-e65708c243a0"
         }
     ],
     "revision_id": [
         {
-            "value": 783
+            "value": 837
         }
     ],
     "langcode": [
@@ -46,11 +41,11 @@
     ],
     "type": [
         {
-            "target_id": "block_container"
+            "target_id": "simple_content"
         }
     ],
     "_embedded": {
-        "http:\/\/drupal.org\/rest\/relation\/paragraph\/block_container\/uid": [
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/simple_content\/uid": [
             {
                 "_links": {
                     "self": {
@@ -68,7 +63,7 @@
                 "lang": "en"
             }
         ],
-        "http:\/\/drupal.org\/rest\/relation\/paragraph\/block_container\/revision_uid": [
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/simple_content\/revision_uid": [
             {
                 "_links": {
                     "self": {
@@ -84,23 +79,6 @@
                     }
                 ]
             }
-        ],
-        "http:\/\/drupal.org\/rest\/relation\/paragraph\/block_container\/field_block_ref": [
-            {
-                "_links": {
-                    "self": {
-                        "href": "http:\/\/default\/block\/16?_format=hal_json"
-                    },
-                    "type": {
-                        "href": "http:\/\/drupal.org\/rest\/type\/block_content\/paragraph_container"
-                    }
-                },
-                "uuid": [
-                    {
-                        "value": "863d00e3-f15b-488f-a25e-fa6fe67652c5"
-                    }
-                ]
-            }
         ]
     },
     "status": [
@@ -111,7 +89,7 @@
     ],
     "created": [
         {
-            "value": "2020-05-02T14:29:58+00:00",
+            "value": "2020-05-03T18:48:30+00:00",
             "lang": "en",
             "format": "Y-m-d\\TH:i:sP"
         }
@@ -128,7 +106,7 @@
     ],
     "parent_field_name": [
         {
-            "value": "field_sidebar_content"
+            "value": "field_content"
         }
     ],
     "behavior_settings": [
@@ -142,9 +120,23 @@
             "lang": "en"
         }
     ],
+    "revision_translation_affected": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
     "skin": [
         {
-            "value": "openy-memberships-desktop-sidebar"
+            "value": "openy-memberships-simple-content"
+        }
+    ],
+    "field_prgf_description": [
+        {
+            "value": "<p>&nbsp;<\/p>\r\n\r\n<h2><span style=\"font-size:36px;\">Get Started<\/span><\/h2>\r\n\r\n<p><span style=\"font-size:14px;\">Complete our no-obligation form to learn more about YMCA Corporate Wellness programs.<\/span><\/p>\r\n\r\n<p class=\"text-align-center\"><span style=\"font-size:14px;\"><a class=\"btn btn-default\" href=\"\/free-trial\"><span class=\"text\">CONTACT US<\/span><\/a><\/span><\/p>\r\n\r\n<p>&nbsp;<\/p>\r\n\r\n<p>&nbsp;<\/p>\r\n",
+            "format": "full_html",
+            "processed": "<p>\u00a0<\/p>\n\n<h2><span style=\"font-size:36px;\">Get Started<\/span><\/h2>\n\n<p><span style=\"font-size:14px;\">Complete our no-obligation form to learn more about YMCA Corporate Wellness programs.<\/span><\/p>\n\n<p class=\"text-align-center\"><span style=\"font-size:14px;\"><a class=\"btn btn-default\" href=\"\/free-trial\"><span class=\"text\">CONTACT US<\/span><\/a><\/span><\/p>\n\n<p>\u00a0<\/p>\n\n<p>\u00a0<\/p>\n",
+            "lang": "en"
         }
     ]
 }

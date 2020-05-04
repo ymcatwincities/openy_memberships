@@ -1,25 +1,25 @@
 {
     "_links": {
         "self": {
-            "href": "http:\/\/default\/block\/19?_format=hal_json"
+            "href": "http:\/\/default\/block\/50?_format=hal_json"
         },
         "type": {
-            "href": "http:\/\/drupal.org\/rest\/type\/block_content\/feature_card"
+            "href": "http:\/\/drupal.org\/rest\/type\/block_content\/modal_block"
         }
     },
     "id": [
         {
-            "value": 19
+            "value": 50
         }
     ],
     "uuid": [
         {
-            "value": "9d3be216-0b18-4618-b571-3480c8ca45be"
+            "value": "3a563dd7-eff1-4be3-a83b-b7c2223b14d5"
         }
     ],
     "revision_id": [
         {
-            "value": 20
+            "value": 51
         }
     ],
     "langcode": [
@@ -30,12 +30,12 @@
     ],
     "type": [
         {
-            "target_id": "feature_card"
+            "target_id": "modal_block"
         }
     ],
     "revision_created": [
         {
-            "value": "2020-05-02T13:03:25+00:00",
+            "value": "2020-05-03T22:35:26+00:00",
             "format": "Y-m-d\\TH:i:sP"
         }
     ],
@@ -47,13 +47,13 @@
     ],
     "info": [
         {
-            "value": "Start Online",
+            "value": "Military Service",
             "lang": "en"
         }
     ],
     "changed": [
         {
-            "value": "2020-05-03T19:46:35+00:00",
+            "value": "2020-05-03T22:35:26+00:00",
             "lang": "en",
             "format": "Y-m-d\\TH:i:sP"
         }
@@ -83,24 +83,26 @@
             }
         }
     ],
-    "field_fc_body": [
+    "field_description": [
         {
-            "value": "<p>Answer a few simple question to see what membership makes the most sense for you. Then select the discounts that apply to get a final price before you make a commitment.<\/p>\r\n",
+            "value": "<p>To thank those who served our country, we offer a military discount for active service members and veterans.<\/p>\r\n",
             "format": "full_html",
-            "processed": "<p>Answer a few simple question to see what membership makes the most sense for you. Then select the discounts that apply to get a final price before you make a commitment.<\/p>\n",
-            "summary": ""
+            "processed": "<p>To thank those who served our country, we offer a military discount for active service members and veterans.<\/p>\n"
         }
     ],
-    "field_fc_link": [
+    "field_link_title": [
         {
-            "uri": "internal:\/membership-types",
-            "title": "MEMBERSHIP BUILDER",
-            "options": []
+            "value": "LEARN MORE"
         }
     ],
-    "field_fc_title": [
+    "field_mode": [
         {
-            "value": "Start Online"
+            "value": "fields"
+        }
+    ],
+    "field_title": [
+        {
+            "value": "Military Service"
         }
     ]
 }

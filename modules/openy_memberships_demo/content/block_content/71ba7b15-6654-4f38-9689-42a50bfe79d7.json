@@ -53,7 +53,7 @@
     ],
     "changed": [
         {
-            "value": "2020-05-02T14:28:21+00:00",
+            "value": "2020-05-03T22:48:35+00:00",
             "lang": "en",
             "format": "Y-m-d\\TH:i:sP"
         }
@@ -85,14 +85,14 @@
     ],
     "field_description": [
         {
-            "value": "<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium<\/p>\r\n",
+            "value": "<p>Several health insurance programs offer reimbursement for part of your monthly dues.<\/p>\r\n",
             "format": "full_html",
-            "processed": "<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium<\/p>\n"
+            "processed": "<p>Several health insurance programs offer reimbursement for part of your monthly dues.<\/p>\n"
         }
     ],
     "field_link_title": [
         {
-            "value": "Details"
+            "value": "LEARN MORE"
         }
     ],
     "field_modal_content": [

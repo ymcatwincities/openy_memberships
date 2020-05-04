@@ -30,7 +30,7 @@
     ],
     "revision_id": [
         {
-            "value": 770
+            "value": 821
         }
     ],
     "langcode": [
@@ -133,9 +133,9 @@
     ],
     "field_prgf_description": [
         {
-            "value": "<p><span style=\"font-size:48px;\">Join the Y<\/span><\/p>\r\n\r\n<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.<\/p>\r\n",
+            "value": "<h1><span style=\"font-size:48px;\">Join the Y<\/span><\/h1>\r\n\r\n<p>Feel good and do good as a member of the YMCA community. Get access to more than XX branches with hundreds of activities for you and your family.<\/p>\r\n",
             "format": "full_html",
-            "processed": "<p><span style=\"font-size:48px;\">Join the Y<\/span><\/p>\n\n<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.<\/p>\n",
+            "processed": "<h1><span style=\"font-size:48px;\">Join the Y<\/span><\/h1>\n\n<p>Feel good and do good as a member of the YMCA community. Get access to more than XX branches with hundreds of activities for you and your family.<\/p>\n",
             "lang": "en"
         }
     ]

@@ -47,13 +47,13 @@
     ],
     "info": [
         {
-            "value": "Financial Assistance",
+            "value": "Scholarships",
             "lang": "en"
         }
     ],
     "changed": [
         {
-            "value": "2020-05-03T16:37:35+00:00",
+            "value": "2020-05-03T22:48:35+00:00",
             "lang": "en",
             "format": "Y-m-d\\TH:i:sP"
         }
@@ -85,9 +85,9 @@
     ],
     "field_description": [
         {
-            "value": "<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium<\/p>\r\n",
+            "value": "<p>The Y welcomes everyone and offers financial assistance to qualifying participants.<\/p>\r\n",
             "format": "full_html",
-            "processed": "<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium<\/p>\n"
+            "processed": "<p>The Y welcomes everyone and offers financial assistance to qualifying participants.<\/p>\n"
         }
     ],
     "field_link": [
@@ -99,7 +99,7 @@
     ],
     "field_link_title": [
         {
-            "value": "Details"
+            "value": "LEARN MORE"
         }
     ],
     "field_mode": [
@@ -109,7 +109,7 @@
     ],
     "field_title": [
         {
-            "value": "Financial Assistance"
+            "value": "Scholarships"
         }
     ]
 }

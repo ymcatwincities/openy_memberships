@@ -78,3 +78,9 @@ simple-content:
   css:
     theme:
       css/paragraph_skins/simple-content.css: {}
+
+free-trial:
+  version: 1.x
+  css:
+    theme:
+      css/paragraph_skins/free-trial.css: {}

@@ -30,7 +30,7 @@
     ],
     "revision_id": [
         {
-            "value": 775
+            "value": 851
         }
     ],
     "langcode": [
@@ -127,9 +127,9 @@
     ],
     "field_prgf_description": [
         {
-            "value": "<p><span style=\"font-size:48px;\">Discounts<\/span><\/p>\r\n\r\n<p><span style=\"font-size:14px;\">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.<\/span><\/p>\r\n\r\n<p>&nbsp;<\/p>\r\n",
+            "value": "<h1><span style=\"font-size:48px;\">Discounts<\/span><\/h1>\r\n\r\n<p><span style=\"font-size:14px;\">The Y is about inclusivity, not exclusivity. That's why we make sure everybody can afford to be a Y member.<\/span><\/p>\r\n",
             "format": "full_html",
-            "processed": "<p><span style=\"font-size:48px;\">Discounts<\/span><\/p>\n\n<p><span style=\"font-size:14px;\">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.<\/span><\/p>\n\n<p>\u00a0<\/p>\n",
+            "processed": "<h1><span style=\"font-size:48px;\">Discounts<\/span><\/h1>\n\n<p><span style=\"font-size:14px;\">The Y is about inclusivity, not exclusivity. That's why we make sure everybody can afford to be a Y member.<\/span><\/p>\n",
             "lang": "en"
         }
     ]

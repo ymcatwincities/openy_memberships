@@ -133,9 +133,9 @@
     ],
     "field_prgf_description": [
         {
-            "value": "<p><a class=\"btn btn-primary\" href=\"\/membership-join-y\"><span class=\"text\">JOIN<\/span><\/a><\/p>\r\n",
+            "value": "<p><a class=\"btn btn-primary\" href=\"\/membership-join-y\"><span class=\"text\">JOIN THE Y<\/span><\/a><\/p>\r\n",
             "format": "full_html",
-            "processed": "<p><a class=\"btn btn-primary\" href=\"\/membership-join-y\"><span class=\"text\">JOIN<\/span><\/a><\/p>\n",
+            "processed": "<p><a class=\"btn btn-primary\" href=\"\/membership-join-y\"><span class=\"text\">JOIN THE Y<\/span><\/a><\/p>\n",
             "lang": "en"
         }
     ]
