@@ -1,25 +1,25 @@
 {
     "_links": {
         "self": {
-            "href": "http:\/\/default\/block\/49?_format=hal_json"
+            "href": "http:\/\/default\/block\/53?_format=hal_json"
         },
         "type": {
-            "href": "http:\/\/drupal.org\/rest\/type\/block_content\/modal_block"
+            "href": "http:\/\/drupal.org\/rest\/type\/block_content\/feature_card"
         }
     },
     "id": [
         {
-            "value": 49
+            "value": 53
         }
     ],
     "uuid": [
         {
-            "value": "5346d0db-40e4-401c-94a6-b50b2605d76c"
+            "value": "586187c3-6258-47ad-a46a-83f72e6b74e0"
         }
     ],
     "revision_id": [
         {
-            "value": 50
+            "value": 54
         }
     ],
     "langcode": [
@@ -30,12 +30,12 @@
     ],
     "type": [
         {
-            "target_id": "modal_block"
+            "target_id": "feature_card"
         }
     ],
     "revision_created": [
         {
-            "value": "2020-05-03T16:37:35+00:00",
+            "value": "2020-05-04T14:42:36+00:00",
             "format": "Y-m-d\\TH:i:sP"
         }
     ],
@@ -47,13 +47,13 @@
     ],
     "info": [
         {
-            "value": "Scholarships",
+            "value": "Claiming Your Discount",
             "lang": "en"
         }
     ],
     "changed": [
         {
-            "value": "2020-05-04T18:02:00+00:00",
+            "value": "2020-05-04T14:42:36+00:00",
             "lang": "en",
             "format": "Y-m-d\\TH:i:sP"
         }
@@ -83,33 +83,17 @@
             }
         }
     ],
-    "field_description": [
+    "field_fc_body": [
         {
-            "value": "<p>The Y welcomes everyone and offers financial assistance to qualifying participants.<\/p>\r\n",
+            "value": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<\/p>\r\n",
             "format": "full_html",
-            "processed": "<p>The Y welcomes everyone and offers financial assistance to qualifying participants.<\/p>\n"
+            "processed": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.<\/p>\n",
+            "summary": ""
         }
     ],
-    "field_link": [
+    "field_fc_title": [
         {
-            "uri": "internal:\/node\/453",
-            "title": "",
-            "options": []
-        }
-    ],
-    "field_link_title": [
-        {
-            "value": "LEARN MORE"
-        }
-    ],
-    "field_mode": [
-        {
-            "value": "node"
-        }
-    ],
-    "field_title": [
-        {
-            "value": "Scholarships"
+            "value": "Claiming Your Discount"
         }
     ]
 }

@@ -56,7 +56,7 @@
                 font-size: 18px;
                 padding: 14px 10px;
                 text-transform: uppercase;
-                color: gray; }
+                color: #636466; }
               .ps-2c-openy-memberships-modal .field-prgf-2c-left .container .modal .modal-dialog .modal-content .modal-header .close, .ps-2c-openy-memberships-modal .field-prgf-2c-right .container .modal .modal-dialog .modal-content .modal-header .close {
                 color: white;
                 padding: 16px;
@@ -81,3 +81,49 @@
 
 div.ps-2c-openy-memberships-modal:last-child {
   margin-bottom: 30px !important; }
+
+.ui-dialog {
+  padding: 0; }
+  .ui-dialog .ui-dialog-titlebar {
+    background-color: #ffffff;
+    font-family: "Cachet", Verdana, Geneva, sans-serif;
+    font-size: 18px;
+    line-height: 27px;
+    font-weight: normal;
+    padding: 12px 10px 11px 10px;
+    text-transform: uppercase;
+    color: #636466;
+    border: initial;
+    border-bottom: 1px solid #636466;
+    border-radius: 0; }
+    .ui-dialog .ui-dialog-titlebar .ui-dialog-title {
+      margin: 0; }
+    .ui-dialog .ui-dialog-titlebar button {
+      color: white;
+      padding: 16px;
+      background-color: #0060af !important;
+      margin: 0;
+      opacity: 1;
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 51px;
+      width: 51px;
+      line-height: 20px; }
+      .ui-dialog .ui-dialog-titlebar button:before {
+        content: 'X'; }
+  .ui-dialog .ui-dialog-content {
+    padding: 10px;
+    height: initial !important; }
+    .ui-dialog .ui-dialog-content .banner {
+      display: none; }
+    .ui-dialog .ui-dialog-content .breadcrumbs-wrapper {
+      display: none !important; }
+    .ui-dialog .ui-dialog-content .openy-page-tabs {
+      display: none; }
+    .ui-dialog .ui-dialog-content > .container {
+      margin: 0;
+      padding: 0; }
+
+.ui-widget-overlay {
+  opacity: .5; }

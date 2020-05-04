@@ -53,7 +53,7 @@
     ],
     "changed": [
         {
-            "value": "2020-05-03T22:35:26+00:00",
+            "value": "2020-05-04T18:02:00+00:00",
             "lang": "en",
             "format": "Y-m-d\\TH:i:sP"
         }
@@ -90,6 +90,13 @@
             "processed": "<p>To thank those who served our country, we offer a military discount for active service members and veterans.<\/p>\n"
         }
     ],
+    "field_link": [
+        {
+            "uri": "internal:\/node\/453",
+            "title": "",
+            "options": []
+        }
+    ],
     "field_link_title": [
         {
             "value": "LEARN MORE"
@@ -97,7 +104,7 @@
     ],
     "field_mode": [
         {
-            "value": "fields"
+            "value": "node"
         }
     ],
     "field_title": [

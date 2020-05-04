@@ -4,39 +4,33 @@
             "href": ""
         },
         "type": {
-            "href": "http:\/\/drupal.org\/rest\/type\/paragraph\/small_banner"
+            "href": "http:\/\/drupal.org\/rest\/type\/paragraph\/simple_content"
         },
-        "http:\/\/drupal.org\/rest\/relation\/paragraph\/small_banner\/uid": [
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/simple_content\/uid": [
             {
                 "href": "http:\/\/default\/user\/1?_format=hal_json",
                 "lang": "en"
             }
         ],
-        "http:\/\/drupal.org\/rest\/relation\/paragraph\/small_banner\/revision_uid": [
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/simple_content\/revision_uid": [
             {
                 "href": "http:\/\/default\/user\/1?_format=hal_json"
-            }
-        ],
-        "http:\/\/drupal.org\/rest\/relation\/paragraph\/small_banner\/field_prgf_color": [
-            {
-                "href": "http:\/\/default\/taxonomy\/term\/5?_format=hal_json",
-                "lang": "en"
             }
         ]
     },
     "id": [
         {
-            "value": 642
+            "value": 669
         }
     ],
     "uuid": [
         {
-            "value": "ab684c7d-4983-41ca-b229-f3377e944151"
+            "value": "00583118-308f-4dc9-83e5-57ab8ac70b3e"
         }
     ],
     "revision_id": [
         {
-            "value": 854
+            "value": 865
         }
     ],
     "langcode": [
@@ -47,11 +41,11 @@
     ],
     "type": [
         {
-            "target_id": "small_banner"
+            "target_id": "simple_content"
         }
     ],
     "_embedded": {
-        "http:\/\/drupal.org\/rest\/relation\/paragraph\/small_banner\/uid": [
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/simple_content\/uid": [
             {
                 "_links": {
                     "self": {
@@ -69,7 +63,7 @@
                 "lang": "en"
             }
         ],
-        "http:\/\/drupal.org\/rest\/relation\/paragraph\/small_banner\/revision_uid": [
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/simple_content\/revision_uid": [
             {
                 "_links": {
                     "self": {
@@ -85,24 +79,6 @@
                     }
                 ]
             }
-        ],
-        "http:\/\/drupal.org\/rest\/relation\/paragraph\/small_banner\/field_prgf_color": [
-            {
-                "_links": {
-                    "self": {
-                        "href": "http:\/\/default\/taxonomy\/term\/5?_format=hal_json"
-                    },
-                    "type": {
-                        "href": "http:\/\/drupal.org\/rest\/type\/taxonomy_term\/color"
-                    }
-                },
-                "uuid": [
-                    {
-                        "value": "ce3ea418-29f0-4fae-95b5-731df16c33e9"
-                    }
-                ],
-                "lang": "en"
-            }
         ]
     },
     "status": [
@@ -113,14 +89,14 @@
     ],
     "created": [
         {
-            "value": "2020-05-02T13:45:41+00:00",
+            "value": "2020-05-04T11:54:57+00:00",
             "lang": "en",
             "format": "Y-m-d\\TH:i:sP"
         }
     ],
     "parent_id": [
         {
-            "value": "448"
+            "value": "453"
         }
     ],
     "parent_type": [
@@ -130,7 +106,7 @@
     ],
     "parent_field_name": [
         {
-            "value": "field_header_content"
+            "value": "field_content"
         }
     ],
     "behavior_settings": [
@@ -150,9 +126,16 @@
             "lang": "en"
         }
     ],
-    "field_prgf_headline": [
+    "skin": [
         {
-            "value": "Discounts",
+            "value": "openy-memberships-simple-content"
+        }
+    ],
+    "field_prgf_description": [
+        {
+            "value": "<h3>Scholarships<\/h3>\r\n",
+            "format": "full_html",
+            "processed": "<h3>Scholarships<\/h3>\n",
             "lang": "en"
         }
     ]

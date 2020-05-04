@@ -84,3 +84,11 @@ free-trial:
   css:
     theme:
       css/paragraph_skins/free-trial.css: {}
+
+accordion:
+  version: 1.x
+  css:
+    theme:
+      css/paragraph_skins/accordion.css: {}
+  js:
+    js/accordion.behaviors.js: {}

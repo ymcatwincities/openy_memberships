@@ -54,3 +54,7 @@
   .ps-simple_content-openy-memberships-simple-content h2,
   .ps-2c-openy-memberships-simple-content h2 {
     margin-bottom: 18px; }
+  .ps-simple_content-openy-memberships-simple-content h3,
+  .ps-2c-openy-memberships-simple-content h3 {
+    font-size: 32px;
+    line-height: 36px; }

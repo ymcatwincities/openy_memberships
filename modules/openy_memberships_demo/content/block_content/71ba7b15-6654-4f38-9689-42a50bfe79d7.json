@@ -53,7 +53,7 @@
     ],
     "changed": [
         {
-            "value": "2020-05-03T22:48:35+00:00",
+            "value": "2020-05-04T11:55:36+00:00",
             "lang": "en",
             "format": "Y-m-d\\TH:i:sP"
         }
@@ -90,6 +90,13 @@
             "processed": "<p>Several health insurance programs offer reimbursement for part of your monthly dues.<\/p>\n"
         }
     ],
+    "field_link": [
+        {
+            "uri": "internal:\/node\/453",
+            "title": "",
+            "options": []
+        }
+    ],
     "field_link_title": [
         {
             "value": "LEARN MORE"
@@ -109,7 +116,7 @@
     ],
     "field_mode": [
         {
-            "value": "fields"
+            "value": "node"
         }
     ],
     "field_title": [
