@@ -1,0 +1,142 @@
+{
+    "_links": {
+        "self": {
+            "href": ""
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/paragraph\/simple_content"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/simple_content\/uid": [
+            {
+                "href": "http:\/\/default\/user\/1?_format=hal_json",
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/simple_content\/revision_uid": [
+            {
+                "href": "http:\/\/default\/user\/1?_format=hal_json"
+            }
+        ]
+    },
+    "id": [
+        {
+            "value": 635
+        }
+    ],
+    "uuid": [
+        {
+            "value": "aed162e9-48ce-42e5-9a2a-ce99b457e727"
+        }
+    ],
+    "revision_id": [
+        {
+            "value": 823
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "type": [
+        {
+            "target_id": "simple_content"
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/simple_content\/uid": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/user\/1?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "e9b0d2c3-a8f0-4f37-a802-d39cb6c437a3"
+                    }
+                ],
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/simple_content\/revision_uid": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/user\/1?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "e9b0d2c3-a8f0-4f37-a802-d39cb6c437a3"
+                    }
+                ]
+            }
+        ]
+    },
+    "status": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "created": [
+        {
+            "value": "2020-05-02T13:07:07+00:00",
+            "lang": "en",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "parent_id": [
+        {
+            "value": "447"
+        }
+    ],
+    "parent_type": [
+        {
+            "value": "node"
+        }
+    ],
+    "parent_field_name": [
+        {
+            "value": "field_content"
+        }
+    ],
+    "behavior_settings": [
+        {
+            "value": []
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "revision_translation_affected": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "skin": [
+        {
+            "value": "openy-memberships-simple-content"
+        }
+    ],
+    "field_prgf_description": [
+        {
+            "value": "<h1><span style=\"font-size:48px;\">Membership Types<\/span><\/h1>\r\n\r\n<p><span style=\"font-size:14px;\">Membership types are just a starting point. Your actual membership (and costs) will vary based on actual needs, including the needs of organizations.<\/span><\/p>\r\n\r\n<p>&nbsp;<\/p>\r\n",
+            "format": "full_html",
+            "processed": "<h1><span style=\"font-size:48px;\">Membership Types<\/span><\/h1>\n\n<p><span style=\"font-size:14px;\">Membership types are just a starting point. Your actual membership (and costs) will vary based on actual needs, including the needs of organizations.<\/span><\/p>\n\n<p>\u00a0<\/p>\n",
+            "lang": "en"
+        }
+    ]
+}

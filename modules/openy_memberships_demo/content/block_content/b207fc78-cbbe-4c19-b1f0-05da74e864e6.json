@@ -1,0 +1,104 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/block\/47?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/block_content\/feature_card"
+        }
+    },
+    "id": [
+        {
+            "value": 47
+        }
+    ],
+    "uuid": [
+        {
+            "value": "b207fc78-cbbe-4c19-b1f0-05da74e864e6"
+        }
+    ],
+    "revision_id": [
+        {
+            "value": 48
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "type": [
+        {
+            "target_id": "feature_card"
+        }
+    ],
+    "revision_created": [
+        {
+            "value": "2020-05-03T14:20:21+00:00",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "status": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "info": [
+        {
+            "value": "Community Events & Date Nights",
+            "lang": "en"
+        }
+    ],
+    "changed": [
+        {
+            "value": "2020-05-03T14:26:53+00:00",
+            "lang": "en",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "reusable": [
+        {
+            "value": true
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "revision_translation_affected": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "metatag": [
+        {
+            "value": {
+                "title": "| Site-Install",
+                "canonical_url": "http:\/\/default\/membership-landing"
+            }
+        }
+    ],
+    "field_fc_body": [
+        {
+            "value": "<p>The Y hosts events and activities designed to build communities, bring people together, and even gives parents a night off!<\/p>\r\n",
+            "format": "full_html",
+            "processed": "<p>The Y hosts events and activities designed to build communities, bring people together, and even gives parents a night off!<\/p>\n",
+            "summary": ""
+        }
+    ],
+    "field_fc_icon_class": [
+        {
+            "value": "fas fa-calendar-alt"
+        }
+    ],
+    "field_fc_title": [
+        {
+            "value": "Community Events & Date Nights"
+        }
+    ]
+}

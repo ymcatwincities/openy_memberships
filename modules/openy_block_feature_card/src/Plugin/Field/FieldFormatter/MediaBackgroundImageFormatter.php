@@ -116,8 +116,6 @@ class MediaBackgroundImageFormatter extends ImageFormatter {
 
     /** @var \Drupal\media\MediaInterface[] $media_items */
     foreach ($media_items as $delta => $media) {
-
-
       /** @var \Drupal\image\Plugin\Field\FieldType\ImageItem $item */
       $item = $media->get('thumbnail')->first();
       /** @var \Drupal\file\Entity\File $file */

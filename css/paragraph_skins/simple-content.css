@@ -1,0 +1,56 @@
+.ps-simple_content-openy-memberships-simple-content,
+.ps-2c-openy-memberships-simple-content {
+  color: #231f20; }
+  .ps-simple_content-openy-memberships-simple-content ul,
+  .ps-2c-openy-memberships-simple-content ul {
+    list-style-type: none; }
+    .ps-simple_content-openy-memberships-simple-content ul li,
+    .ps-2c-openy-memberships-simple-content ul li {
+      padding-bottom: 15px; }
+    .ps-simple_content-openy-memberships-simple-content ul li::before,
+    .ps-2c-openy-memberships-simple-content ul li::before {
+      content: "O";
+      width: 20px;
+      margin-left: -20px;
+      display: inline-block;
+      font-weight: bold;
+      font-size: 13px;
+      color: #92278f; }
+  .ps-simple_content-openy-memberships-simple-content p,
+  .ps-2c-openy-memberships-simple-content p {
+    padding-bottom: 15px;
+    margin-bottom: 0; }
+  .ps-simple_content-openy-memberships-simple-content .field-prgf-2c-left h4, .ps-simple_content-openy-memberships-simple-content .field-prgf-2c-right h4,
+  .ps-2c-openy-memberships-simple-content .field-prgf-2c-left h4,
+  .ps-2c-openy-memberships-simple-content .field-prgf-2c-right h4 {
+    color: #231f20;
+    margin-top: 27px;
+    margin-bottom: 30px; }
+    .ps-simple_content-openy-memberships-simple-content .field-prgf-2c-left h4 .field-sb-title, .ps-simple_content-openy-memberships-simple-content .field-prgf-2c-right h4 .field-sb-title,
+    .ps-2c-openy-memberships-simple-content .field-prgf-2c-left h4 .field-sb-title,
+    .ps-2c-openy-memberships-simple-content .field-prgf-2c-right h4 .field-sb-title {
+      font-family: "Cachet", Verdana, Geneva, sans-serif; }
+  .ps-simple_content-openy-memberships-simple-content a.btn,
+  .ps-2c-openy-memberships-simple-content a.btn {
+    font-family: "Cachet", Verdana, Geneva, sans-serif !important;
+    font-weight: normal !important;
+    text-transform: uppercase;
+    background-color: #92278f;
+    color: white;
+    margin-top: 12px;
+    padding: 15px 30px;
+    font-size: 16px;
+    line-height: 30px; }
+    @media all and (min-width: 1060px) {
+      .ps-simple_content-openy-memberships-simple-content a.btn,
+      .ps-2c-openy-memberships-simple-content a.btn {
+        font-size: 24px;
+        line-height: 36px;
+        padding: 15px 40px; } }
+    .ps-simple_content-openy-memberships-simple-content a.btn:hover,
+    .ps-2c-openy-memberships-simple-content a.btn:hover {
+      background-color: #92278f;
+      border-color: #92278f; }
+  .ps-simple_content-openy-memberships-simple-content h2,
+  .ps-2c-openy-memberships-simple-content h2 {
+    margin-bottom: 18px; }

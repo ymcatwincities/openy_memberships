@@ -1,0 +1,240 @@
+{
+    "_links": {
+        "self": {
+            "href": ""
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/paragraph\/block_container"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/block_container\/uid": [
+            {
+                "href": "http:\/\/default\/user\/1?_format=hal_json",
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/block_container\/revision_uid": [
+            {
+                "href": "http:\/\/default\/user\/1?_format=hal_json"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/block_container\/field_block_ref": [
+            {
+                "href": "http:\/\/default\/block\/37?_format=hal_json"
+            },
+            {
+                "href": "http:\/\/default\/block\/38?_format=hal_json"
+            },
+            {
+                "href": "http:\/\/default\/block\/39?_format=hal_json"
+            },
+            {
+                "href": "http:\/\/default\/block\/40?_format=hal_json"
+            },
+            {
+                "href": "http:\/\/default\/block\/48?_format=hal_json"
+            },
+            {
+                "href": "http:\/\/default\/block\/42?_format=hal_json"
+            }
+        ]
+    },
+    "id": [
+        {
+            "value": 662
+        }
+    ],
+    "uuid": [
+        {
+            "value": "ef69b713-adaa-4611-92ba-550ca0834b3f"
+        }
+    ],
+    "revision_id": [
+        {
+            "value": 810
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "type": [
+        {
+            "target_id": "block_container"
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/block_container\/uid": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/user\/1?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "e9b0d2c3-a8f0-4f37-a802-d39cb6c437a3"
+                    }
+                ],
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/block_container\/revision_uid": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/user\/1?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "e9b0d2c3-a8f0-4f37-a802-d39cb6c437a3"
+                    }
+                ]
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/block_container\/field_block_ref": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/block\/37?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/block_content\/feature_card"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "b5a2ee16-6ad0-426f-8a00-b775dc2620fb"
+                    }
+                ]
+            },
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/block\/38?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/block_content\/feature_card"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "1eb2282e-4964-4072-b103-58b9fcc6f092"
+                    }
+                ]
+            },
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/block\/39?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/block_content\/feature_card"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "214ff269-fba5-44b5-a136-2ebf1b2bb211"
+                    }
+                ]
+            },
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/block\/40?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/block_content\/feature_card"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "b50a5774-0d81-4b34-a1d8-8dddcb9bd012"
+                    }
+                ]
+            },
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/block\/48?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/block_content\/feature_card"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "25eafeef-ed15-42c6-8b87-1275a832e31f"
+                    }
+                ]
+            },
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/block\/42?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/block_content\/feature_card"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "a1214c4e-e283-4ee6-b523-dee1801040d7"
+                    }
+                ]
+            }
+        ]
+    },
+    "status": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "created": [
+        {
+            "value": "2020-05-03T14:10:44+00:00",
+            "lang": "en",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "parent_id": [
+        {
+            "value": "445"
+        }
+    ],
+    "parent_type": [
+        {
+            "value": "node"
+        }
+    ],
+    "parent_field_name": [
+        {
+            "value": "field_content"
+        }
+    ],
+    "behavior_settings": [
+        {
+            "value": []
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "skin": [
+        {
+            "value": "openy-memberships-block2-benefits"
+        }
+    ]
+}

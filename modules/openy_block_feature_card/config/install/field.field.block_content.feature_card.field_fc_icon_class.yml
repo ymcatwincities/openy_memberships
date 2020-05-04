@@ -1,0 +1,24 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.feature_card
+    - field.storage.block_content.field_fc_icon_class
+  module:
+    - datalayer
+third_party_settings:
+  datalayer:
+    expose: 0
+    label: field_fc_icon_class
+id: block_content.feature_card.field_fc_icon_class
+field_name: field_fc_icon_class
+entity_type: block_content
+bundle: feature_card
+label: 'Icon Class'
+description: 'Provide a "Font Awesome" icon class, e.g. "far fa-bookmark". See complete set of icons at <a href="http://fontawesome.io/icons/">Font Awesome page</a>.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

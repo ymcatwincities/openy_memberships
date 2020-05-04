@@ -1,12 +1,15 @@
+@import 'variables';
+
 .ps-block_container-openy-memberships-block2 .wrapper-field-block-ref {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 10px;
   padding-top: 15px;
+  color: $aubergine;
 
   .field-block-ref {
-    border: solid 1px #92278f;
-    border-top: solid 5px #92278f;
+    border: solid 1px $dark-purple;
+    border-top: solid 5px $dark-purple;
     margin-bottom: 10px;
     display: flex;
     flex-direction: column;
@@ -17,7 +20,6 @@
     }
 
     .field-fc-title {
-      color: black;
       font-family: "Cachet", Verdana, Geneva, sans-serif;
       font-size: 18px;
       line-height: 27px;
@@ -25,7 +27,6 @@
     }
 
     .field-fc-body {
-      color: black;
       font-family: Verdana, Geneva, sans-serif;
       font-size: 12px;
       line-height: 18px;
@@ -40,7 +41,7 @@
         font-size: 14px;
         line-height: 21px;
         display: block;
-        background-color: #0060af;
+        background-color: $dark-blue;
         padding: 11px;
         color: white;
         text-transform: uppercase;

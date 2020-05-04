@@ -1,0 +1,111 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/block\/37?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/block_content\/feature_card"
+        }
+    },
+    "id": [
+        {
+            "value": 37
+        }
+    ],
+    "uuid": [
+        {
+            "value": "b5a2ee16-6ad0-426f-8a00-b775dc2620fb"
+        }
+    ],
+    "revision_id": [
+        {
+            "value": 38
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "type": [
+        {
+            "target_id": "feature_card"
+        }
+    ],
+    "revision_created": [
+        {
+            "value": "2020-05-03T14:11:51+00:00",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "status": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "info": [
+        {
+            "value": "State-of-the-Art Fitness Centers",
+            "lang": "en"
+        }
+    ],
+    "changed": [
+        {
+            "value": "2020-05-03T14:11:51+00:00",
+            "lang": "en",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "reusable": [
+        {
+            "value": true
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "revision_translation_affected": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "metatag": [
+        {
+            "value": {
+                "title": "| Site-Install",
+                "canonical_url": "http:\/\/default\/membership-landing"
+            }
+        }
+    ],
+    "field_fc_body": [
+        {
+            "value": "<p>YMCA branches include exercise machines, stretching areas, free weights, classrooms, and much more.<\/p>\r\n",
+            "format": "full_html",
+            "processed": "<p>YMCA branches include exercise machines, stretching areas, free weights, classrooms, and much more.<\/p>\n",
+            "summary": ""
+        }
+    ],
+    "field_fc_icon_class": [
+        {
+            "value": "fas fa-dumbbell"
+        }
+    ],
+    "field_fc_link": [
+        {
+            "uri": "internal:\/",
+            "title": "View Amenities",
+            "options": []
+        }
+    ],
+    "field_fc_title": [
+        {
+            "value": "State-of-the-Art Fitness Centers"
+        }
+    ]
+}

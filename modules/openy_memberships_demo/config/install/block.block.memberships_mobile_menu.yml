@@ -1,9 +1,9 @@
-uuid: 19a261d2-bfe8-421b-bfb3-532292c4c2d2
+uuid: 6850d85c-3ef6-4890-bd2d-8d678b2fdd36
 langcode: en
 status: true
 dependencies:
   content:
-    - 'block_content:paragraph_container:a6d29bd1-f9c0-4af8-a7b1-6c42c81149b7'
+    - 'block_content:paragraph_container:863d00e3-f15b-488f-a25e-fa6fe67652c5'
   module:
     - block_content
   theme:
@@ -13,13 +13,14 @@ theme: openy_carnation
 region: content
 weight: -6
 provider: null
-plugin: 'block_content:a6d29bd1-f9c0-4af8-a7b1-6c42c81149b7'
+plugin: 'block_content:863d00e3-f15b-488f-a25e-fa6fe67652c5'
 settings:
-  id: 'block_content:a6d29bd1-f9c0-4af8-a7b1-6c42c81149b7'
-  label: Membership
+  id: 'block_content:863d00e3-f15b-488f-a25e-fa6fe67652c5'
+  label: Memberships
   provider: block_content
   label_display: visible
   status: true
   info: ''
   view_mode: full
 visibility: {  }
+

@@ -1,7 +1,7 @@
 {
     "_links": {
         "self": {
-            "href": "http:\/\/default\/taxonomy\/term\/64?_format=hal_json"
+            "href": "http:\/\/default\/taxonomy\/term\/132?_format=hal_json"
         },
         "type": {
             "href": "http:\/\/drupal.org\/rest\/type\/taxonomy_term\/memberships_ages_groups"
@@ -12,7 +12,7 @@
     },
     "tid": [
         {
-            "value": 64
+            "value": 132
         }
     ],
     "uuid": [
@@ -22,7 +22,7 @@
     ],
     "revision_id": [
         {
-            "value": 64
+            "value": 132
         }
     ],
     "langcode": [

@@ -1,3 +1,5 @@
+@import 'variables';
+
 .ps-sidebar_menu-openy-memberships-sidebar-menu {
   margin-top: 10px;
 
@@ -13,7 +15,7 @@
     li {
       width: 49%;
 
-      border-top: 1px solid #636466;
+      border-top: 1px solid $shuttle-grey;
       padding: 15px 15px 15px 0;
 
       a {
@@ -42,7 +44,7 @@
         a {
           font-size: 14px;
           line-height: 21px;
-          color: #0060af;
+          color: $dark-blue;
         }
       }
     }

@@ -72,3 +72,15 @@ memberships-app:
   css:
     theme:
       css/paragraph_skins/memberships-app.css: {}
+
+simple-content:
+  version: 1.x
+  css:
+    theme:
+      css/paragraph_skins/simple-content.css: {}
+
+free-trial:
+  version: 1.x
+  css:
+    theme:
+      css/paragraph_skins/free-trial.css: {}

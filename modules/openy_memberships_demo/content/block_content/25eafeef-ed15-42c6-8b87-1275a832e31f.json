@@ -1,0 +1,104 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/block\/48?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/block_content\/feature_card"
+        }
+    },
+    "id": [
+        {
+            "value": 48
+        }
+    ],
+    "uuid": [
+        {
+            "value": "25eafeef-ed15-42c6-8b87-1275a832e31f"
+        }
+    ],
+    "revision_id": [
+        {
+            "value": 49
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "type": [
+        {
+            "target_id": "feature_card"
+        }
+    ],
+    "revision_created": [
+        {
+            "value": "2020-05-03T14:21:37+00:00",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "status": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "info": [
+        {
+            "value": "Nationwide Access",
+            "lang": "en"
+        }
+    ],
+    "changed": [
+        {
+            "value": "2020-05-03T14:26:53+00:00",
+            "lang": "en",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "reusable": [
+        {
+            "value": true
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "revision_translation_affected": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "metatag": [
+        {
+            "value": {
+                "title": "| Site-Install",
+                "canonical_url": "http:\/\/default\/membership-landing"
+            }
+        }
+    ],
+    "field_fc_body": [
+        {
+            "value": "<p>Membership gives you free access to all participating YMCA locations across the United States.<\/p>\r\n",
+            "format": "full_html",
+            "processed": "<p>Membership gives you free access to all participating YMCA locations across the United States.<\/p>\n",
+            "summary": ""
+        }
+    ],
+    "field_fc_icon_class": [
+        {
+            "value": "fas fa-flag"
+        }
+    ],
+    "field_fc_title": [
+        {
+            "value": "Nationwide Access"
+        }
+    ]
+}

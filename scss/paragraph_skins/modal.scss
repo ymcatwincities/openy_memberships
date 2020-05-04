@@ -1,10 +1,14 @@
+@import 'variables';
+
 .ps-2c-openy-memberships-modal {
   padding: 30px 0 0 0;
   margin: 0 !important;
 
   display: grid !important;
   grid-gap: 30px;
-  grid-template-columns: auto auto;
+  grid-template-columns: 1fr 1fr;
+
+  color: $aubergine;
 
   @media all and (max-width: 1000px) {
     grid-gap: 20px;
@@ -15,8 +19,8 @@
   }
 
   .field-prgf-2c-left, .field-prgf-2c-right {
-    border: solid 1px #92278f;
-    border-top: solid 5px #92278f;
+    border: solid 1px $dark-purple;
+    border-top: solid 5px $dark-purple;
 
     padding: 0;
 
@@ -26,9 +30,10 @@
 
     .container {
       padding: 0;
+      display: flex;
+      flex-direction: column;
 
       .field-title {
-        color: black;
         font-family: "Cachet", Verdana, Geneva, sans-serif;
         font-size: 24px;
         line-height: 36px;
@@ -36,10 +41,10 @@
       }
 
       .field-description {
-        color: black;
         font-size: 14px;
         line-height: 21px;
         padding: 15px;
+        height: 100%;
       }
 
       .field-link-title {
@@ -47,7 +52,7 @@
 
         a, a:hover {
           display: block;
-          background-color: #0060af;
+          background-color: $dark-blue;
           padding: 14px;
           color: white;
           font: Medium 18px/27px Cachet;
@@ -83,7 +88,7 @@
               .close {
                 color: white;
                 padding: 16px;
-                background-color: #0060af !important;
+                background-color: $dark-blue !important;
                 margin: 0;
                 opacity: 1;
               }
@@ -99,14 +104,14 @@
               padding: 0 10px 10px 10px;
 
               .btn {
-                background-color: #92278f;
+                background-color: $dark-purple;
                 color: white;
                 width: 100%;
                 height: 48px;
               }
 
               .btn-blue {
-                background-color: #0060af;
+                background-color: $dark-blue;
               }
             }
 

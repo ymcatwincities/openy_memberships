@@ -1,0 +1,136 @@
+{
+    "_links": {
+        "self": {
+            "href": ""
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/paragraph\/simple_content"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/simple_content\/uid": [
+            {
+                "href": "http:\/\/default\/user\/1?_format=hal_json",
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/simple_content\/revision_uid": [
+            {
+                "href": "http:\/\/default\/user\/1?_format=hal_json"
+            }
+        ]
+    },
+    "id": [
+        {
+            "value": 640
+        }
+    ],
+    "uuid": [
+        {
+            "value": "b2be7bea-3e6d-4dbb-8ffb-dfe6ec6229fe"
+        }
+    ],
+    "revision_id": [
+        {
+            "value": 851
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "type": [
+        {
+            "target_id": "simple_content"
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/simple_content\/uid": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/user\/1?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "e9b0d2c3-a8f0-4f37-a802-d39cb6c437a3"
+                    }
+                ],
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/simple_content\/revision_uid": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/user\/1?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "e9b0d2c3-a8f0-4f37-a802-d39cb6c437a3"
+                    }
+                ]
+            }
+        ]
+    },
+    "status": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "created": [
+        {
+            "value": "2020-05-02T13:46:17+00:00",
+            "lang": "en",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "parent_id": [
+        {
+            "value": "448"
+        }
+    ],
+    "parent_type": [
+        {
+            "value": "node"
+        }
+    ],
+    "parent_field_name": [
+        {
+            "value": "field_content"
+        }
+    ],
+    "behavior_settings": [
+        {
+            "value": []
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "skin": [
+        {
+            "value": "openy-memberships-simple-content"
+        }
+    ],
+    "field_prgf_description": [
+        {
+            "value": "<h1><span style=\"font-size:48px;\">Discounts<\/span><\/h1>\r\n\r\n<p><span style=\"font-size:14px;\">The Y is about inclusivity, not exclusivity. That's why we make sure everybody can afford to be a Y member.<\/span><\/p>\r\n",
+            "format": "full_html",
+            "processed": "<h1><span style=\"font-size:48px;\">Discounts<\/span><\/h1>\n\n<p><span style=\"font-size:14px;\">The Y is about inclusivity, not exclusivity. That's why we make sure everybody can afford to be a Y member.<\/span><\/p>\n",
+            "lang": "en"
+        }
+    ]
+}
