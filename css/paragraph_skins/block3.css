@@ -1,10 +1,13 @@
 .ps-block_container-openy-memberships-block3 .wrapper-field-block-ref {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   padding-top: 20px;
   margin: 0;
   color: #231f20; }
+  @media all and (min-width: 600px) {
+    .ps-block_container-openy-memberships-block3 .wrapper-field-block-ref {
+      justify-content: space-between; } }
   .ps-block_container-openy-memberships-block3 .wrapper-field-block-ref .field-block-ref {
     border: solid 1px #92278f;
     border-top: solid 5px #92278f;
