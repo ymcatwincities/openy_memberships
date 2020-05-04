@@ -13,8 +13,10 @@ class Version {
       case "1":    
         memberships = JSON.parse(memberships);
         // Clear family members keys as we will use uuid.
-        memberships.family = {};
-        window.localStorage.setItem('memberships', JSON.stringify(memberships));
+        if(memberships && memberships.family) {
+          memberships.family= {};
+          window.localStorage.setItem('memberships', JSON.stringify(memberships));
+        }
         this.setVersion("1.0.1");
         break;
     }
