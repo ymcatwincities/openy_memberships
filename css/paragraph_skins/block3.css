@@ -13,9 +13,7 @@
     display: flex;
     flex-direction: column; }
     .ps-block_container-openy-memberships-block3 .wrapper-field-block-ref .field-block-ref .field-fc-image {
-      width: 100%;
-      margin-left: -1px;
-      margin-right: -1px; }
+      width: 100%; }
       .ps-block_container-openy-memberships-block3 .wrapper-field-block-ref .field-block-ref .field-fc-image > div {
         height: 170px;
         max-width: initial;
