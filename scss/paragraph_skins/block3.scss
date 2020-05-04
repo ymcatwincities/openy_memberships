@@ -1,14 +1,16 @@
+@import 'variables';
+
 .ps-block_container-openy-memberships-block3 .wrapper-field-block-ref {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   padding-top: 20px;
   margin: 0;
-  color: #231F20;
+  color: $aubergine;
 
   .field-block-ref {
-    border: solid 1px #92278f;
-    border-top: solid 5px #92278f;
+    border: solid 1px $dark-purple;
+    border-top: solid 5px $dark-purple;
     margin-bottom: 10px;
     width: 350px;
     display: flex;
@@ -49,7 +51,7 @@
         font-size: 14px;
         line-height: 21px;
         display: block;
-        background-color: #0060af;
+        background-color: $dark-blue;
         padding: 11px;
         color: white;
         text-transform: uppercase;

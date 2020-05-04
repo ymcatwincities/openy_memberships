@@ -4,7 +4,7 @@
   display: grid !important;
   grid-gap: 30px;
   grid-template-columns: 1fr 1fr;
-  color: #231F20; }
+  color: #231f20; }
   @media all and (max-width: 1000px) {
     .ps-2c-openy-memberships-modal {
       grid-gap: 20px; } }

@@ -1,3 +1,5 @@
+@import 'variables';
+
 .ps-webform-openy-memberships-free-trial {
   form {
     padding-top: 0;
@@ -48,7 +50,7 @@
     .form-tel, .form-control {
       height: 50px;
       width: 100%;
-      border: 1px solid #979797;
+      border: 1px solid $nobel;
       border-radius: 0;
       font-size: 12px;
       text-shadow: none;
@@ -71,7 +73,7 @@
         font-family: "Cachet", Verdana, Geneva, sans-serif !important;
         font-weight: normal !important;
         text-transform: uppercase;
-        background-color: #92278f;
+        background-color: $dark-purple;
         color: white;
         margin-top: 30px;
         padding: 15px 30px;
@@ -85,8 +87,8 @@
         }
 
         &:hover {
-          background-color: #92278f;
-          border-color: #92278f;
+          background-color: $dark-purple;
+          border-color: $dark-purple;
         }
       }
     }

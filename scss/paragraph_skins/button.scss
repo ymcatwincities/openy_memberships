@@ -1,10 +1,12 @@
+@import 'variables';
+
 .ps-simple_content-openy-memberships-button {
   a {
     width: 100%;
     font-family: "Cachet", Verdana, Geneva, sans-serif !important;
     font-weight: normal !important;
     text-transform: uppercase;
-    background-color: #92278f;
+    background-color: $dark-purple;
 
     padding: 19px;
     font-size: 18px;
@@ -18,7 +20,7 @@
   }
 
   a:hover {
-    background-color: #92278f;
-    border-color: #92278f;
+    background-color: $dark-purple;
+    border-color: $dark-purple;
   }
 }

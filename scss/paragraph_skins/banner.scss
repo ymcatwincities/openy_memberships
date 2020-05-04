@@ -1,3 +1,5 @@
+@import 'variables';
+
 .ps-banner-openy-memberships-banner.banner {
   min-height: 360px;
 
@@ -36,9 +38,9 @@
     }
 
     a.btn {
-      color: #0060af;
+      color: $dark-blue;
       background-color: white;
-      border: 3px solid #0060af;
+      border: 3px solid $dark-blue;
       font-family: "Cachet", Verdana, Geneva, sans-serif;
       font-size: 18px;
       line-height: 27px;
