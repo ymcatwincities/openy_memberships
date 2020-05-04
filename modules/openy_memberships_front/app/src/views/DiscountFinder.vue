@@ -262,7 +262,7 @@ export default {
           let family_members = [];
 
           for (let type_uuid in family) {
-            let count = family[type_uuid];
+            let count = family[type_uuid].count;
             for (let i = 1; i <= count; i++) {
               members++;
               await this.createMember({
