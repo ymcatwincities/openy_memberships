@@ -240,17 +240,16 @@ class OpenyMemberships extends ControllerBase {
   public function getProductsInBranch($branch, $data) {
     if ($data) {
       foreach (explode(';', $data) as $agesGroup) {
+        if (!$agesGroup) {
+          continue;
+        }
         $group = explode('_', $agesGroup);
         $agesGroups[$group[0]] = $group[1];
-        $tids[] = $group[0];
       }
     }
     $storage = $this->entityTypeManager->getStorage('commerce_product');
     $query = $storage->getQuery();
     // Filter products by provided Ages Groups first.
-    if (isset($tids)) {
-      $query->condition('field_om_total_available.target_id', $tids, 'IN');
-    }
     $orGroup = $query->orConditionGroup()
       ->condition('field_product_branch', NULL, 'IS NULL');
     if ($branch) {
@@ -263,23 +262,13 @@ class OpenyMemberships extends ControllerBase {
       if ($product) {
         $filter_product = FALSE;
         $field_om_total_available = $product->field_om_total_available->getValue();
-        $field_om_total_free = $product->field_om_total_free->getValue();
         $ages_data = $agesGroups;
         foreach ($field_om_total_available as $value) {
-          $ages_data[$value['target_id']] = [
-            'requested_quantity' => $agesGroups[$value['target_id']],
-            'total_available_quantity' => $value['quantity']
-          ];
-        }
-        foreach ($field_om_total_free as $value) {
-          $ages_data[$value['target_id']]['total_free_quantity'] = $value['quantity'];
-        }
-        foreach ($ages_data as $item) {
-          if (!isset($item['requested_quantity'])) {
-            continue;
-          }
-          // 1. If sum of total available and total free less than requested quantity per group then filter product.
-          if (($item['total_available_quantity'] + $item['total_free_quantity']) < $item['total_free_quantity']) {
+          $requsted_quantity = $ages_data[$value['target_id']];
+          $total_available = $value['quantity'];
+          $total_free = $value['ar_quantity'];
+          // 1. Ignore product if total available of any age group is more than requested count per group.
+          if ($total_available < $requsted_quantity) {
             $filter_product = TRUE;
           }
         }
@@ -490,4 +479,42 @@ class OpenyMemberships extends ControllerBase {
     return $response;
   }
 
+
+  /**
+   * Sends emails to store and customer with summary data.
+   */
+  public function sendSummaryEmail(Request $request, $order_uuid) {
+    if (!$order_uuid) {
+      return new JsonResponse();
+    }
+    $order = $this->entityTypeManager->getStorage('commerce_order')->loadByProperties(['uuid' => $order_uuid]);
+    $order = reset($order);
+    $store = $this->entityTypeManager->getStorage('commerce_store')->loadDefault();
+    $user_email = $order->get('mail')->getValue()[0]['value'];
+
+    $to = implode(', ', [$store->getEmail(), $user_email]);
+    $from = \Drupal::config('system.site')->get('mail');
+    $langcode = \Drupal::currentUser()->getPreferredLangcode();
+    $subject = $this->t('Your Membership!');
+
+    $body = [
+      '#content' => [
+        'logo_url' => drupal_get_path('module', 'openy_repeat') . '/img/ymca_logo_black.png',
+        'site_name' => \Drupal::config('system.site')->get('name'),
+        'result' => $this->getSummaryData($order_uuid),
+      ],
+      '#theme' => 'openy_memberships__pdf__summary',
+    ];
+    $renderer = \Drupal::service('renderer');
+    $body = $renderer->renderRoot($body);
+
+    $params = array(
+      'subject' => $subject,
+      'message' => $body,
+    );
+
+    $result = \Drupal::service('plugin.manager.mail')->mail('openy_memberships', 'openy_memberships_summary_email', $to, $langcode, $params, $from, TRUE);
+
+    return new JsonResponse(['status' => $result['result']]);
+  }
 }

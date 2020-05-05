@@ -36,4 +36,6 @@ dependencies:
   - openy_block_paragraph_container
   - openy_prgf_block_container
   - paragraph_skins
+  - mailsystem
+  - swiftmailer
 core_incompatible: false

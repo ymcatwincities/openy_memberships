@@ -122,6 +122,10 @@ export default {
         return Cart.getCart();
       })
       .then((json) => {
+        return Cart.sendSummaryEmails(json[0].uuid).then(() => {
+        })
+      })
+      .then((json) => {
         return Cart.updateOrderStatus(json[0].uuid).then(() => {
           this.$store.dispatch('clearStorage')
 
