@@ -18,8 +18,6 @@ third_party_settings:
   datalayer:
     expose: 0
     label: field_block_ref
-_core:
-  default_config_hash: KF6MvyxLhgU-6bYoeZQ3O2vx5iR2an7C7uyClb1XylQ
 id: paragraph.block_container.field_block_ref
 field_name: field_block_ref
 entity_type: paragraph
