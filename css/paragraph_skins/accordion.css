@@ -4,7 +4,7 @@
     border: 1px solid #707070;
     padding: 12px 10px 11px 10px;
     cursor: pointer;
-    font-family: "Cachet W01 Book", 'Ubuntu Condensed', sans-serif;
+    font-family: "Cachet W01 Book", "Ubuntu Condensed", sans-serif;
     font-size: 18px;
     line-height: 27px; }
     .ps-block_container-openy-memberships-accordion .field-block-ref .field-fc-title:after {
