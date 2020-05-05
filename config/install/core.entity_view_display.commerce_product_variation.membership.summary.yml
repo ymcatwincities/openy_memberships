@@ -6,6 +6,7 @@ dependencies:
     - core.entity_view_mode.commerce_product_variation.summary
     - field.field.commerce_product_variation.membership.field_best_value
     - field.field.commerce_product_variation.membership.field_description
+    - field.field.commerce_product_variation.membership.field_enrollment_fee
   module:
     - commerce_price
     - text
@@ -49,6 +50,7 @@ content:
       link_to_entity: false
     third_party_settings: {  }
 hidden:
+  field_enrollment_fee: true
   langcode: true
   list_price: true
   product_id: true

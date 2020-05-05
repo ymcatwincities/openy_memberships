@@ -5,9 +5,12 @@ dependencies:
     - commerce_product.commerce_product_variation_type.membership
     - field.field.commerce_product_variation.membership.field_best_value
     - field.field.commerce_product_variation.membership.field_description
+    - field.field.commerce_product_variation.membership.field_enrollment_fee
   module:
     - commerce_price
     - text
+_core:
+  default_config_hash: QjwmYLbwaoTikYrlAB6fmVObYBzTk-BEeIqnUxWK2Wk
 id: commerce_product_variation.membership.default
 targetEntityType: commerce_product_variation
 bundle: membership
@@ -27,6 +30,14 @@ content:
       placeholder: ''
     third_party_settings: {  }
     type: text_textarea
+    region: content
+  field_enrollment_fee:
+    weight: 93
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
     region: content
   langcode:
     type: language_select

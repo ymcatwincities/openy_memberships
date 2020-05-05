@@ -1,0 +1,22 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.membership_types_listing.field_membership_types_listing
+    - paragraphs.paragraphs_type.membership_types_listing
+  module:
+    - plugin
+id: paragraph.membership_types_listing.default
+targetEntityType: paragraph
+bundle: membership_types_listing
+mode: default
+content:
+  field_membership_types_listing:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: plugin_block_built
+    region: content
+hidden:
+  search_api_excerpt: true
