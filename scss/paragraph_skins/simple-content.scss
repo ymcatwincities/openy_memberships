@@ -40,7 +40,7 @@
   }
 
   a.btn {
-    font-family: $font-family-cachet;
+    font-family: $font-family-cachet !important;
     font-weight: normal !important;
     text-transform: uppercase;
     background-color: $dark-purple;
