@@ -1,9 +1,15 @@
+uuid: 7d1d8503-db8a-45e6-8ba9-7f0ac8808451
 langcode: en
 status: true
 dependencies:
   config:
+    - block_content.type.basic_block
     - block_content.type.feature_card
+    - block_content.type.featured_highlights_block
+    - block_content.type.flexible_content
+    - block_content.type.modal_block
     - block_content.type.paragraph_container
+    - block_content.type.simple_block
     - field.storage.paragraph.field_block_ref
     - paragraphs.paragraphs_type.block_container
   module:
@@ -12,6 +18,8 @@ third_party_settings:
   datalayer:
     expose: 0
     label: field_block_ref
+_core:
+  default_config_hash: KF6MvyxLhgU-6bYoeZQ3O2vx5iR2an7C7uyClb1XylQ
 id: paragraph.block_container.field_block_ref
 field_name: field_block_ref
 entity_type: paragraph
@@ -26,8 +34,13 @@ settings:
   handler: 'default:block_content'
   handler_settings:
     target_bundles:
+      basic_block: basic_block
       feature_card: feature_card
+      featured_highlights_block: featured_highlights_block
+      flexible_content: flexible_content
+      modal_block: modal_block
       paragraph_container: paragraph_container
+      simple_block: simple_block
     sort:
       field: _none
     auto_create: false

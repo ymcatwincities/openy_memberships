@@ -10,7 +10,7 @@
 
       cursor: pointer;
 
-      font-family: "Cachet W01 Book", 'Ubuntu Condensed', sans-serif;
+      font-family: $font-family-cachet-book;
       font-size: 18px;
       line-height: 27px;
 
@@ -31,7 +31,7 @@
       display: none;
       padding: 10px;
       background-color: $white-smoke;
-      font-family: Verdana, Arial, Helvetica, sans-serif;
+      font-family: $font-family-verdana;
       font-size: 12px;
       line-height: 18px;
     }

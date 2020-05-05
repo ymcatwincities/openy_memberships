@@ -34,7 +34,7 @@
       flex-direction: column;
 
       .field-title {
-        font-family: "Cachet", Verdana, Geneva, sans-serif;
+        font-family: $font-family-cachet;
         font-size: 24px;
         line-height: 36px;
         padding: 15px 15px 0 15px;
@@ -135,7 +135,7 @@ div.ps-2c-openy-memberships-modal:last-child {
 
   .ui-dialog-titlebar {
     background-color: $white;
-    font-family: "Cachet", Verdana, Geneva, sans-serif;
+    font-family: $font-family-cachet;
     font-size: 18px;
     line-height: 27px;
     font-weight: normal;
