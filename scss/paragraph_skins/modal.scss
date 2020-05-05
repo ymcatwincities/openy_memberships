@@ -34,7 +34,7 @@
       flex-direction: column;
 
       .field-title {
-        font-family: "Cachet", Verdana, Geneva, sans-serif;
+        font-family: $font-family-cachet;
         font-size: 24px;
         line-height: 36px;
         padding: 15px 15px 0 15px;
@@ -82,7 +82,7 @@
                 font-size: 18px;
                 padding: 14px 10px;
                 text-transform: uppercase;
-                color: gray;
+                color: $shuttle-grey;
               }
 
               .close {
@@ -128,4 +128,69 @@
 
 div.ps-2c-openy-memberships-modal:last-child {
   margin-bottom: 30px !important;
+}
+
+.ui-dialog {
+  padding: 0;
+
+  .ui-dialog-titlebar {
+    background-color: $white;
+    font-family: $font-family-cachet;
+    font-size: 18px;
+    line-height: 27px;
+    font-weight: normal;
+    padding: 12px 10px 11px 10px;
+    text-transform: uppercase;
+    color: $shuttle-grey;
+    border: initial;
+    border-bottom: 1px solid $shuttle-grey;
+    border-radius: 0;
+
+    .ui-dialog-title {
+      margin: 0;
+    }
+
+    button {
+      color: white;
+      padding: 16px;
+      background-color: $dark-blue !important;
+      margin: 0;
+      opacity: 1;
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 51px;
+      width: 51px;
+      line-height: 20px;
+
+      &:before {
+        content: 'X';
+      }
+    }
+  }
+  .ui-dialog-content {
+    padding: 10px;
+    height: initial !important;
+
+    .banner {
+      display: none;
+    }
+
+    .breadcrumbs-wrapper {
+      display: none !important;
+    }
+
+    .openy-page-tabs {
+      display: none;
+    }
+
+    > .container {
+      margin: 0;
+      padding: 0;
+    }
+  }
+}
+
+.ui-widget-overlay {
+  opacity: .5;
 }

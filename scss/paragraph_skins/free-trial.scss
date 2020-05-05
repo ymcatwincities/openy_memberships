@@ -5,7 +5,7 @@
     padding-top: 0;
 
     label {
-      font-family: Verdana, Arial, Helvetica, sans-serif;
+      font-family: $font-family-verdana;
       font-size: 12px;
       line-height: 18px;
       font-weight: bold;
@@ -70,7 +70,7 @@
       text-align: center;
 
       input {
-        font-family: "Cachet", Verdana, Geneva, sans-serif !important;
+        font-family: $font-family-cachet !important;
         font-weight: normal !important;
         text-transform: uppercase;
         background-color: $dark-purple;

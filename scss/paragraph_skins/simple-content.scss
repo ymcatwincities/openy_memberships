@@ -34,13 +34,13 @@
       margin-bottom: 30px;
 
       .field-sb-title {
-        font-family: "Cachet", Verdana, Geneva, sans-serif;
+        font-family: $font-family-cachet;
       }
     }
   }
 
   a.btn {
-    font-family: "Cachet", Verdana, Geneva, sans-serif !important;
+    font-family: $font-family-cachet !important;
     font-weight: normal !important;
     text-transform: uppercase;
     background-color: $dark-purple;
@@ -64,5 +64,10 @@
 
   h2 {
     margin-bottom: 18px;
+  }
+
+  h3 {
+    font-size: 32px;
+    line-height: 36px;
   }
 }

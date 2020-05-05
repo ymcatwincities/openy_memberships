@@ -10,7 +10,7 @@
   }
 
   h2 {
-    font-family: "Cachet", Verdana, Geneva, sans-serif;
+    font-family: $font-family-cachet;
     font-size: 18px;
     line-height: 27px;
     text-transform: uppercase;
@@ -27,7 +27,7 @@
   }
 
   h2:before {
-    font-family: "Font Awesome 5 Free";
+    font-family: $font-family-font-awesome;
     display: inline-block;
     font-style: normal;
     font-variant: normal;

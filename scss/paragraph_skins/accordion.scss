@@ -1,0 +1,39 @@
+@import 'variables';
+
+.ps-block_container-openy-memberships-accordion {
+  color: $aubergine;
+
+  .field-block-ref {
+    .field-fc-title {
+      border: 1px solid $dim-grey;
+      padding: 12px 10px 11px 10px;
+
+      cursor: pointer;
+
+      font-family: $font-family-cachet-book;
+      font-size: 18px;
+      line-height: 27px;
+
+      &:after {
+        position: absolute;
+        right: 18px;
+        content: '+';
+        font-size: 24px;
+        color: $shuttle-grey;
+      }
+
+      &.active:after {
+        content: '\2013';
+      }
+    }
+
+    .field-fc-body {
+      display: none;
+      padding: 10px;
+      background-color: $white-smoke;
+      font-family: $font-family-verdana;
+      font-size: 12px;
+      line-height: 18px;
+    }
+  }
+}

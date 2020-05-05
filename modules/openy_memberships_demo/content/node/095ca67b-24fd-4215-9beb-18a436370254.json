@@ -1,7 +1,7 @@
 {
     "_links": {
         "self": {
-            "href": "http:\/\/default\/discounts?_format=hal_json"
+            "href": "http:\/\/default\/discount-details?_format=hal_json"
         },
         "type": {
             "href": "http:\/\/drupal.org\/rest\/type\/node\/landing_page"
@@ -17,12 +17,6 @@
                 "lang": "en"
             }
         ],
-        "http:\/\/drupal.org\/rest\/relation\/node\/landing_page\/field_bottom_content": [
-            {
-                "href": "",
-                "lang": "en"
-            }
-        ],
         "http:\/\/drupal.org\/rest\/relation\/node\/landing_page\/field_content": [
             {
                 "href": "",
@@ -31,38 +25,22 @@
             {
                 "href": "",
                 "lang": "en"
-            },
-            {
-                "href": "",
-                "lang": "en"
-            }
-        ],
-        "http:\/\/drupal.org\/rest\/relation\/node\/landing_page\/field_header_content": [
-            {
-                "href": "",
-                "lang": "en"
-            }
-        ],
-        "http:\/\/drupal.org\/rest\/relation\/node\/landing_page\/field_sidebar_content": [
-            {
-                "href": "",
-                "lang": "en"
             }
         ]
     },
     "nid": [
         {
-            "value": 448
+            "value": 453
         }
     ],
     "uuid": [
         {
-            "value": "6fedeb04-2ad1-42e7-9a37-c3319a73ff1a"
+            "value": "095ca67b-24fd-4215-9beb-18a436370254"
         }
     ],
     "vid": [
         {
-            "value": 536
+            "value": 535
         }
     ],
     "langcode": [
@@ -78,7 +56,7 @@
     ],
     "revision_timestamp": [
         {
-            "value": "2020-05-04T18:02:00+00:00",
+            "value": "2020-05-04T16:04:19+00:00",
             "format": "Y-m-d\\TH:i:sP"
         }
     ],
@@ -118,25 +96,6 @@
                 "lang": "en"
             }
         ],
-        "http:\/\/drupal.org\/rest\/relation\/node\/landing_page\/field_bottom_content": [
-            {
-                "_links": {
-                    "self": {
-                        "href": ""
-                    },
-                    "type": {
-                        "href": "http:\/\/drupal.org\/rest\/type\/paragraph\/banner"
-                    }
-                },
-                "uuid": [
-                    {
-                        "value": "07a1b0f5-0070-4d07-b5f2-9535a9fe1576"
-                    }
-                ],
-                "lang": "en",
-                "target_revision_id": "850"
-            }
-        ],
         "http:\/\/drupal.org\/rest\/relation\/node\/landing_page\/field_content": [
             {
                 "_links": {
@@ -149,67 +108,12 @@
                 },
                 "uuid": [
                     {
-                        "value": "b2be7bea-3e6d-4dbb-8ffb-dfe6ec6229fe"
+                        "value": "00583118-308f-4dc9-83e5-57ab8ac70b3e"
                     }
                 ],
                 "lang": "en",
-                "target_revision_id": "851"
+                "target_revision_id": "865"
             },
-            {
-                "_links": {
-                    "self": {
-                        "href": ""
-                    },
-                    "type": {
-                        "href": "http:\/\/drupal.org\/rest\/type\/paragraph\/2c"
-                    }
-                },
-                "uuid": [
-                    {
-                        "value": "2cecc69b-ca20-4b10-a301-834f71331dff"
-                    }
-                ],
-                "lang": "en",
-                "target_revision_id": "852"
-            },
-            {
-                "_links": {
-                    "self": {
-                        "href": ""
-                    },
-                    "type": {
-                        "href": "http:\/\/drupal.org\/rest\/type\/paragraph\/2c"
-                    }
-                },
-                "uuid": [
-                    {
-                        "value": "020a35da-5655-45ac-91e8-8898d83f2137"
-                    }
-                ],
-                "lang": "en",
-                "target_revision_id": "853"
-            }
-        ],
-        "http:\/\/drupal.org\/rest\/relation\/node\/landing_page\/field_header_content": [
-            {
-                "_links": {
-                    "self": {
-                        "href": ""
-                    },
-                    "type": {
-                        "href": "http:\/\/drupal.org\/rest\/type\/paragraph\/small_banner"
-                    }
-                },
-                "uuid": [
-                    {
-                        "value": "ab684c7d-4983-41ca-b229-f3377e944151"
-                    }
-                ],
-                "lang": "en",
-                "target_revision_id": "854"
-            }
-        ],
-        "http:\/\/drupal.org\/rest\/relation\/node\/landing_page\/field_sidebar_content": [
             {
                 "_links": {
                     "self": {
@@ -221,11 +125,11 @@
                 },
                 "uuid": [
                     {
-                        "value": "c7814fbc-6b07-41f1-8fdb-2a9106794bd0"
+                        "value": "03e6eb31-9071-426a-9ece-8afbddcd0efe"
                     }
                 ],
                 "lang": "en",
-                "target_revision_id": "855"
+                "target_revision_id": "863"
             }
         ]
     },
@@ -237,20 +141,20 @@
     ],
     "title": [
         {
-            "value": "Discounts",
+            "value": "Discount Details",
             "lang": "en"
         }
     ],
     "created": [
         {
-            "value": "2020-05-02T13:13:15+00:00",
+            "value": "2020-05-04T11:54:31+00:00",
             "lang": "en",
             "format": "Y-m-d\\TH:i:sP"
         }
     ],
     "changed": [
         {
-            "value": "2020-05-04T18:02:00+00:00",
+            "value": "2020-05-04T16:04:19+00:00",
             "lang": "en",
             "format": "Y-m-d\\TH:i:sP"
         }
@@ -273,11 +177,17 @@
             "lang": "en"
         }
     ],
+    "revision_translation_affected": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
     "metatag": [
         {
             "value": {
-                "title": "Discounts | Site-Install",
-                "og_title": "Discounts"
+                "title": "Discount Details | Site-Install",
+                "og_title": "Discount Details"
             }
         }
     ],
@@ -289,15 +199,15 @@
     ],
     "path": [
         {
-            "alias": "\/discounts",
-            "pid": 337,
+            "alias": "\/discount-details",
+            "pid": 338,
             "langcode": "en",
             "lang": "en"
         }
     ],
     "field_lp_layout": [
         {
-            "value": "two_column_left",
+            "value": "one_column",
             "lang": "en"
         }
     ]

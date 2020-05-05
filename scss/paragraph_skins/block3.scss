@@ -31,14 +31,14 @@
     }
 
     .field-fc-title {
-      font-family: "Cachet", Verdana, Geneva, sans-serif;
+      font-family: $font-family-cachet;
       font-size: 18px;
       line-height: 27px;
       padding: 5px;
     }
 
     .field-fc-body {
-      font-family: Verdana, Geneva, sans-serif;
+      font-family: $font-family-verdana;
       font-size: 12px;
       line-height: 18px;
       padding: 0 5px 5px;
@@ -48,7 +48,7 @@
       margin-top: auto;
       a.btn {
         margin: 0;
-        font-family: "Cachet", Verdana, Geneva, sans-serif;
+        font-family: $font-family-cachet;
         font-size: 14px;
         line-height: 21px;
         display: block;

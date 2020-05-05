@@ -83,3 +83,8 @@ openy_memberships.paragraph_skins:
     label: 'Memberships Free Trial Webform'
     paragraph_type: webform
     library: 'openy_memberships/free-trial'
+
+  - name: openy-memberships-accordion
+    label: 'Memberships Accordion'
+    paragraph_type: block_container
+    library: 'openy_memberships/accordion'
