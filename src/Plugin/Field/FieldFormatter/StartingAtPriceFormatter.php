@@ -23,7 +23,7 @@ class StartingAtPriceFormatter extends PriceDefaultFormatter {
     $elements = parent::viewElements($items, $langcode);
     foreach ($elements as $delta => $item) {
       $price = $elements[$delta]['#markup'];
-      $markup = t('Starting at <div>@price/mo.</div>', ['@price' => $price]);
+      $markup = $this->t('Starting at <div>@price/mo.</div>', ['@price' => $price]);
       $elements[$delta]['#markup'] = $markup;
     }
     return $elements;

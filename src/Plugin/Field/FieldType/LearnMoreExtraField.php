@@ -7,6 +7,12 @@ use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
 use Drupal\Core\Url;
 
+/**
+ *  Extends commerce_product.membership bundle with learn_more field
+ *  which is used to render a ajax dialog link to commerce_product route
+ *
+ * @package Drupal\openy_memberships\Plugin\Field\FieldType
+ */
 class LearnMoreExtraField {
 
   use StringTranslationTrait;
@@ -28,11 +34,11 @@ class LearnMoreExtraField {
         '#url' => Url::fromRoute('entity.commerce_product.canonical',
           ['commerce_product' => $entity->id()]
         ),
-        '#title' => t('Learn more'),
+        '#title' => $this->t('Learn more'),
         '#attributes' => [
           'class' => [
             'use-ajax',
-            'send-message-author',
+            'learn_more',
           ],
           'data-dialog-type' => 'modal',
           'data-dialog-options' => json_encode([

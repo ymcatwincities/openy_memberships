@@ -22,7 +22,7 @@ class BestValueFormatter extends FormatterBase {
     $elements = [];
     foreach ($items as $delta => $item) {
       if ($item->value) {
-        $elements[$delta]['#markup'] = '<div>' . t('Best value!') . '</div>';
+        $elements[$delta]['#markup'] = '<div>' . $this->t('Best value!') . '</div>';
       }
     }
     return $elements;
