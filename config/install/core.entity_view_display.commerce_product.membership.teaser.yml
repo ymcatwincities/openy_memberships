@@ -8,7 +8,6 @@ dependencies:
     - field.field.commerce_product.membership.field_description
     - field.field.commerce_product.membership.field_om_addons
     - field.field.commerce_product.membership.field_om_total_available
-    - field.field.commerce_product.membership.field_om_total_free
     - field.field.commerce_product.membership.field_product_branch
   module:
     - openy_memberships
@@ -27,15 +26,6 @@ content:
     region: content
   field_om_total_available:
     weight: 16
-    label: above
-    settings:
-      ar_link: true
-      link: true
-    third_party_settings: {  }
-    type: openy_memberships_multi_item_label
-    region: content
-  field_om_total_free:
-    weight: 17
     label: above
     settings:
       ar_link: true
