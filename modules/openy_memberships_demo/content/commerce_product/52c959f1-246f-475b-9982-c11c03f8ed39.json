@@ -103,7 +103,7 @@
                 },
                 "uuid": [
                     {
-                        "value": "9d2bedd6-9c35-4b3d-bd8a-5e429f22bacc"
+                        "value": "e9b0d2c3-a8f0-4f37-a802-d39cb6c437a3"
                     }
                 ],
                 "lang": "en"
@@ -257,7 +257,7 @@
     ],
     "changed": [
         {
-            "value": "2020-04-02T15:33:40+00:00",
+            "value": "2020-05-06T09:22:05+00:00",
             "lang": "en",
             "format": "Y-m-d\\TH:i:sP"
         }
@@ -271,8 +271,8 @@
     "metatag": [
         {
             "value": {
-                "title": "| OpenY",
-                "canonical_url": "http:\/\/default\/node\/37"
+                "title": "| Site-Install",
+                "canonical_url": "http:\/\/default\/membership-landing"
             }
         }
     ],

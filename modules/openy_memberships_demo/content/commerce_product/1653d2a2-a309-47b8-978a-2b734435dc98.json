@@ -86,28 +86,13 @@
                 },
                 "uuid": [
                     {
-                        "value": "2eedf4ac-518d-45df-94aa-c0ef4b15fd31"
+                        "value": "e9b0d2c3-a8f0-4f37-a802-d39cb6c437a3"
                     }
                 ],
                 "lang": "en"
             }
         ],
         "http:\/\/drupal.org\/rest\/relation\/commerce_product\/membership\/variations": [
-            {
-                "_links": {
-                    "self": {
-                        "href": ""
-                    },
-                    "type": {
-                        "href": "http:\/\/drupal.org\/rest\/type\/commerce_product_variation\/membership"
-                    }
-                },
-                "uuid": [
-                    {
-                        "value": "410f4567-1818-4e52-a9f5-f410bae7d63d"
-                    }
-                ]
-            },
             {
                 "_links": {
                     "self": {
@@ -137,6 +122,21 @@
                         "value": "fc7e873b-44a8-4af5-981d-8a4fb9d16aa7"
                     }
                 ]
+            },
+            {
+                "_links": {
+                    "self": {
+                        "href": ""
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/commerce_product_variation\/membership"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "410f4567-1818-4e52-a9f5-f410bae7d63d"
+                    }
+                ]
             }
         ]
     },
@@ -163,7 +163,7 @@
     ],
     "changed": [
         {
-            "value": "2020-03-13T09:37:47+00:00",
+            "value": "2020-05-06T09:22:05+00:00",
             "lang": "en",
             "format": "Y-m-d\\TH:i:sP"
         }
@@ -178,7 +178,7 @@
         {
             "value": {
                 "title": "| Site-Install",
-                "canonical_url": "http:\/\/default\/node\/36"
+                "canonical_url": "http:\/\/default\/membership-landing"
             }
         }
     ],

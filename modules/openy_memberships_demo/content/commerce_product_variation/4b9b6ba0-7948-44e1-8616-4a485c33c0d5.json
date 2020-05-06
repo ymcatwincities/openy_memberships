@@ -58,7 +58,7 @@
                 },
                 "uuid": [
                     {
-                        "value": "2eedf4ac-518d-45df-94aa-c0ef4b15fd31"
+                        "value": "e9b0d2c3-a8f0-4f37-a802-d39cb6c437a3"
                     }
                 ],
                 "lang": "en"
@@ -109,7 +109,7 @@
     ],
     "changed": [
         {
-            "value": "2020-03-13T09:45:01+00:00",
+            "value": "2020-05-06T09:22:05+00:00",
             "lang": "en",
             "format": "Y-m-d\\TH:i:sP"
         }
@@ -123,6 +123,11 @@
     "field_best_value": [
         {
             "value": false
+        }
+    ],
+    "field_enrollment_fee": [
+        {
+            "value": "No enrollment fee"
         }
     ]
 }
