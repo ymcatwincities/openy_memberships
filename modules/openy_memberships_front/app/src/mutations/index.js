@@ -9,7 +9,15 @@ export default {
     state.location = location
   },
   setFamily(state, family) {
-    state.family[family.key] = family.value
+    state.family[family.key].count = family.value
+  },
+  setFamilyTerm(state, family) {
+    if(!state.family[family.key] || !state.family[family.key].count ) {
+      state.family[family.key] = {
+        count: 0
+      }
+    }
+    state.family[family.key].term_id = family.value
   },
   deleteFamilyKey(state, key) {
     this._vm.$delete(state.family, key);

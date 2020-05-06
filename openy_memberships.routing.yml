@@ -62,3 +62,11 @@ openy_memberships.summary_pdf:
     _permission: 'access content'
   options:
     no_cache: TRUE
+openy_memberships.send_summary_email:
+  path: /memberships/send/summary/email/{order_uuid}
+  defaults:
+    _controller: '\Drupal\openy_memberships\Controller\OpenyMemberships::sendSummaryEmail'
+  requirements:
+    _permission: 'access content'
+  options:
+    no_cache: TRUE

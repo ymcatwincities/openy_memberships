@@ -38,5 +38,6 @@ settings:
       membership_addon: membership_addon
       default: 0
     ar_label: 'Related Add-on'
-    ar_weight: '-50'
+    quantity_label: 'Total Available'
+    ar_quantity_label: 'Total Free'
 field_type: openy_memberships_multi_item

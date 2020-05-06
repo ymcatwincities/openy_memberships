@@ -13,7 +13,7 @@
     <div class="family-wrapper">
       <div :key="index"  class="label-row" v-for="(group, index) in age_groups">
         <div class="label-row">
-          <div class="label">{{group.title}}</div><div class="value"><integer-minus-plus :value="$store.state.family[group.uuid]" @input="updateFamily(group.uuid, $event)" /></div>
+          <div class="label">{{group.title}}</div><div class="value"><integer-minus-plus :value="$store.state.family[group.uuid].count" @input="updateFamily(group.uuid, $event)" /></div>
         </div>
       </div>
     </div>
@@ -37,6 +37,10 @@ export default {
       let leave_items = {};
       this.age_groups = Object.keys(json).map((key) => {
         leave_items[json[key].uuid] = true;
+         this.$store.commit('setFamilyTerm', {
+            key: json[key].uuid,
+            value: key
+         })
         return {key: key, title: json[key].title, uuid: json[key].uuid};
       })
       Object.keys(this.$store.state.family).forEach((key) => {

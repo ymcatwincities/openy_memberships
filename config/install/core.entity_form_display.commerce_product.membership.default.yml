@@ -7,7 +7,6 @@ dependencies:
     - field.field.commerce_product.membership.field_description
     - field.field.commerce_product.membership.field_om_addons
     - field.field.commerce_product.membership.field_om_total_available
-    - field.field.commerce_product.membership.field_om_total_free
     - field.field.commerce_product.membership.field_product_branch
   module:
     - commerce
@@ -60,16 +59,6 @@ content:
     region: content
   field_om_total_available:
     weight: 13
-    settings:
-      match_operator: CONTAINS
-      match_limit: 10
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    type: openy_memberships_multi_item_autocomplete
-    region: content
-  field_om_total_free:
-    weight: 14
     settings:
       match_operator: CONTAINS
       match_limit: 10

@@ -44,9 +44,10 @@ class OpenyMembershipsMultiItem extends EntityReferenceItem {
     $settings = parent::defaultFieldSettings();
 
     $settings['pr_label'] = '';
+    $settings['added_reference']['quantity_label'] = '';
+    $settings['added_reference']['ar_quantity_label'] = '';
     $settings['added_reference']['ar_label'] = '';
     $settings['added_reference']['ar_bundles'] = [];
-    $settings['added_reference']['ar_weight'] = -50;
 
     return $settings;
   }
@@ -61,6 +62,11 @@ class OpenyMembershipsMultiItem extends EntityReferenceItem {
       ->setLabel(new TranslatableMarkup('Quantity'))
       ->setRequired(TRUE);
     $properties['quantity'] = $quantity_definition;
+
+    $ar_quantity_definition = DataDefinition::create('integer')
+      ->setLabel(new TranslatableMarkup('AR Quantity'))
+      ->setRequired(TRUE);
+    $properties['ar_quantity'] = $ar_quantity_definition;
 
     $settings = $field_definition->getSettings();
 
@@ -108,6 +114,12 @@ class OpenyMembershipsMultiItem extends EntityReferenceItem {
     $properties = static::propertyDefinitions($field_definition)['ar_target_id'];
 
     $schema['columns']['quantity'] = array(
+      'type' => 'int',
+      'size' => 'tiny',
+      'unsigned' => TRUE,
+    );
+
+    $schema['columns']['ar_quantity'] = array(
       'type' => 'int',
       'size' => 'tiny',
       'unsigned' => TRUE,
@@ -201,11 +213,16 @@ class OpenyMembershipsMultiItem extends EntityReferenceItem {
       '#description' => t('Label for the added reference field.'),
     ];
 
-    $form['added_reference']['ar_weight'] = [
+    $form['added_reference']['quantity_label'] = [
       '#type' => 'textfield',
-      '#title' => t('Added reference: Weight'),
-      '#default_value' => $settings['added_reference']['ar_weight'],
-      '#description' => t('Set a negative number to have the added reference come first or positive to have it come second.'),
+      '#title' => t('Quantity Label'),
+      '#default_value' => $settings['added_reference']['quantity_label'],
+    ];
+
+    $form['added_reference']['ar_quantity_label'] = [
+      '#type' => 'textfield',
+      '#title' => t('Added Quantity Label'),
+      '#default_value' => $settings['added_reference']['ar_quantity_label'],
     ];
 
     return $form;
