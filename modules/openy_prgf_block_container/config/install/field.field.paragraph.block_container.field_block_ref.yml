@@ -4,8 +4,6 @@ dependencies:
   config:
     - block_content.type.basic_block
     - block_content.type.feature_card
-    - block_content.type.featured_highlights_block
-    - block_content.type.flexible_content
     - block_content.type.modal_block
     - block_content.type.paragraph_container
     - block_content.type.simple_block
@@ -13,6 +11,7 @@ dependencies:
     - paragraphs.paragraphs_type.block_container
   module:
     - datalayer
+    - openy_block_modal
 third_party_settings:
   datalayer:
     expose: 0
@@ -33,8 +32,6 @@ settings:
     target_bundles:
       basic_block: basic_block
       feature_card: feature_card
-      featured_highlights_block: featured_highlights_block
-      flexible_content: flexible_content
       modal_block: modal_block
       paragraph_container: paragraph_container
       simple_block: simple_block
