@@ -4,39 +4,33 @@
             "href": ""
         },
         "type": {
-            "href": "http:\/\/drupal.org\/rest\/type\/paragraph\/banner"
+            "href": "http:\/\/drupal.org\/rest\/type\/paragraph\/membership_types_listing"
         },
-        "http:\/\/drupal.org\/rest\/relation\/paragraph\/banner\/uid": [
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/membership_types_listing\/uid": [
             {
                 "href": "http:\/\/default\/user\/1?_format=hal_json",
                 "lang": "en"
             }
         ],
-        "http:\/\/drupal.org\/rest\/relation\/paragraph\/banner\/revision_uid": [
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/membership_types_listing\/revision_uid": [
             {
                 "href": "http:\/\/default\/user\/1?_format=hal_json"
-            }
-        ],
-        "http:\/\/drupal.org\/rest\/relation\/paragraph\/banner\/field_prgf_color": [
-            {
-                "href": "http:\/\/default\/taxonomy\/term\/5?_format=hal_json",
-                "lang": "en"
             }
         ]
     },
     "id": [
         {
-            "value": 634
+            "value": 671
         }
     ],
     "uuid": [
         {
-            "value": "6100321c-6f75-4d0a-a9e2-982fd24f94a3"
+            "value": "f496783a-a1fe-4bc8-b35f-37889e96d86b"
         }
     ],
     "revision_id": [
         {
-            "value": 871
+            "value": 873
         }
     ],
     "langcode": [
@@ -47,11 +41,11 @@
     ],
     "type": [
         {
-            "target_id": "banner"
+            "target_id": "membership_types_listing"
         }
     ],
     "_embedded": {
-        "http:\/\/drupal.org\/rest\/relation\/paragraph\/banner\/uid": [
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/membership_types_listing\/uid": [
             {
                 "_links": {
                     "self": {
@@ -69,7 +63,7 @@
                 "lang": "en"
             }
         ],
-        "http:\/\/drupal.org\/rest\/relation\/paragraph\/banner\/revision_uid": [
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/membership_types_listing\/revision_uid": [
             {
                 "_links": {
                     "self": {
@@ -85,24 +79,6 @@
                     }
                 ]
             }
-        ],
-        "http:\/\/drupal.org\/rest\/relation\/paragraph\/banner\/field_prgf_color": [
-            {
-                "_links": {
-                    "self": {
-                        "href": "http:\/\/default\/taxonomy\/term\/5?_format=hal_json"
-                    },
-                    "type": {
-                        "href": "http:\/\/drupal.org\/rest\/type\/taxonomy_term\/color"
-                    }
-                },
-                "uuid": [
-                    {
-                        "value": "ce3ea418-29f0-4fae-95b5-731df16c33e9"
-                    }
-                ],
-                "lang": "en"
-            }
         ]
     },
     "status": [
@@ -113,7 +89,7 @@
     ],
     "created": [
         {
-            "value": "2020-05-02T13:09:00+00:00",
+            "value": "2020-05-06T09:38:33+00:00",
             "lang": "en",
             "format": "Y-m-d\\TH:i:sP"
         }
@@ -130,7 +106,7 @@
     ],
     "parent_field_name": [
         {
-            "value": "field_bottom_content"
+            "value": "field_content"
         }
     ],
     "behavior_settings": [
@@ -144,26 +120,28 @@
             "lang": "en"
         }
     ],
-    "field_prgf_description": [
+    "revision_translation_affected": [
         {
-            "value": "<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.<\/p>\r\n",
-            "format": "full_html",
-            "processed": "<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.<\/p>\n",
+            "value": true,
             "lang": "en"
         }
     ],
-    "field_prgf_headline": [
+    "skin": [
         {
-            "value": "Join the movement",
-            "lang": "en"
+            "value": "openy-memberships-types-listing"
         }
     ],
-    "field_prgf_link": [
+    "field_membership_types_listing": [
         {
-            "uri": "internal:\/free-trial",
-            "title": "free trial",
-            "options": [],
-            "lang": "en"
+            "plugin_id": "views_block:membership_types_listing-block_1",
+            "plugin_configuration": {
+                "id": "views_block:membership_types_listing-block_1",
+                "label": "",
+                "provider": "views",
+                "label_display": "0",
+                "views_label": "",
+                "items_per_page": "none"
+            }
         }
     ]
 }

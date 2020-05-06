@@ -27,6 +27,10 @@
             {
                 "href": "",
                 "lang": "en"
+            },
+            {
+                "href": "",
+                "lang": "en"
             }
         ],
         "http:\/\/drupal.org\/rest\/relation\/node\/landing_page\/field_header_content": [
@@ -54,7 +58,7 @@
     ],
     "vid": [
         {
-            "value": 513
+            "value": 538
         }
     ],
     "langcode": [
@@ -70,7 +74,7 @@
     ],
     "revision_timestamp": [
         {
-            "value": "2020-05-03T19:47:33+00:00",
+            "value": "2020-05-06T09:38:57+00:00",
             "format": "Y-m-d\\TH:i:sP"
         }
     ],
@@ -126,7 +130,7 @@
                     }
                 ],
                 "lang": "en",
-                "target_revision_id": "822"
+                "target_revision_id": "871"
             }
         ],
         "http:\/\/drupal.org\/rest\/relation\/node\/landing_page\/field_content": [
@@ -145,7 +149,24 @@
                     }
                 ],
                 "lang": "en",
-                "target_revision_id": "823"
+                "target_revision_id": "872"
+            },
+            {
+                "_links": {
+                    "self": {
+                        "href": ""
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/paragraph\/membership_types_listing"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "f496783a-a1fe-4bc8-b35f-37889e96d86b"
+                    }
+                ],
+                "lang": "en",
+                "target_revision_id": "873"
             }
         ],
         "http:\/\/drupal.org\/rest\/relation\/node\/landing_page\/field_header_content": [
@@ -164,7 +185,7 @@
                     }
                 ],
                 "lang": "en",
-                "target_revision_id": "651"
+                "target_revision_id": "869"
             }
         ],
         "http:\/\/drupal.org\/rest\/relation\/node\/landing_page\/field_sidebar_content": [
@@ -183,7 +204,7 @@
                     }
                 ],
                 "lang": "en",
-                "target_revision_id": "652"
+                "target_revision_id": "870"
             }
         ]
     },
@@ -208,7 +229,7 @@
     ],
     "changed": [
         {
-            "value": "2020-05-03T19:47:33+00:00",
+            "value": "2020-05-06T09:38:57+00:00",
             "lang": "en",
             "format": "Y-m-d\\TH:i:sP"
         }
@@ -231,6 +252,12 @@
             "lang": "en"
         }
     ],
+    "revision_translation_affected": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
     "metatag": [
         {
             "value": {
@@ -248,7 +275,7 @@
     "path": [
         {
             "alias": "\/membership-types",
-            "pid": 326,
+            "pid": 335,
             "langcode": "en",
             "lang": "en"
         }
