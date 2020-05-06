@@ -1,0 +1,161 @@
+.ui-dialog {
+  padding: 0;
+  z-index: 1500; }
+  .ui-dialog .ui-dialog-titlebar {
+    background-color: #ffffff;
+    font-family: "Cachet", Verdana, Geneva, sans-serif;
+    font-size: 18px;
+    line-height: 27px;
+    font-weight: normal;
+    padding: 12px 10px 11px;
+    text-transform: uppercase;
+    color: #636466;
+    border: initial;
+    border-bottom: 1px solid #636466;
+    border-radius: 0; }
+    .ui-dialog .ui-dialog-titlebar .ui-dialog-title {
+      margin: 0; }
+    .ui-dialog .ui-dialog-titlebar button {
+      color: white;
+      padding: 16px;
+      background-color: #0060af !important;
+      margin: 0;
+      opacity: 1;
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 51px;
+      width: 51px; }
+      .ui-dialog .ui-dialog-titlebar button .ui-icon {
+        background-image: url("/core/assets/vendor/jquery.ui/themes/base/images/ui-icons_ffffff_256x240.png"); }
+  .ui-dialog .ui-dialog-content {
+    padding: 10px;
+    height: initial !important;
+    max-height: initial !important; }
+    .ui-dialog .ui-dialog-content .banner {
+      display: none; }
+    .ui-dialog .ui-dialog-content .breadcrumbs-wrapper {
+      display: none !important; }
+    .ui-dialog .ui-dialog-content .openy-page-tabs {
+      display: none; }
+    .ui-dialog .ui-dialog-content > .container {
+      margin: 0;
+      padding: 0; }
+
+.ui-widget-overlay {
+  opacity: .5; }
+
+.ps-membership_types_listing-openy-memberships-types-listing {
+  color: #231f20; }
+  .ps-membership_types_listing-openy-memberships-types-listing .membership-types-listing .views-row article {
+    border: solid 1px #92278f;
+    border-top: solid 5px #92278f;
+    margin-bottom: 10px;
+    position: relative; }
+    .ps-membership_types_listing-openy-memberships-types-listing .membership-types-listing .views-row article > .title, .ps-membership_types_listing-openy-memberships-types-listing .membership-types-listing .views-row article > .price, .ps-membership_types_listing-openy-memberships-types-listing .membership-types-listing .views-row article > .field-enrollment-fee, .ps-membership_types_listing-openy-memberships-types-listing .membership-types-listing .views-row article > .field-best-value {
+      display: none; }
+    .ps-membership_types_listing-openy-memberships-types-listing .membership-types-listing .views-row article > .title:nth-child(1) {
+      font-family: "Cachet", Verdana, Geneva, sans-serif;
+      font-size: 24px;
+      line-height: 36px;
+      padding: 15px 15px 0; }
+    .ps-membership_types_listing-openy-memberships-types-listing .membership-types-listing .views-row article .field-description {
+      padding: 15px 15px 0;
+      font-family: Verdana, Geneva, sans-serif;
+      font-size: 14px;
+      line-height: 21px; }
+    .ps-membership_types_listing-openy-memberships-types-listing .membership-types-listing .views-row article .wrapper-variations {
+      display: flex;
+      padding: 15px 15px 0;
+      margin: 0 -15px; }
+      .ps-membership_types_listing-openy-memberships-types-listing .membership-types-listing .views-row article .wrapper-variations .variations {
+        flex-grow: 1;
+        padding: 0 15px; }
+        .ps-membership_types_listing-openy-memberships-types-listing .membership-types-listing .views-row article .wrapper-variations .variations .title {
+          font-family: Verdana, Geneva, sans-serif;
+          font-weight: bold;
+          font-size: 14px;
+          line-height: 21px; }
+        .ps-membership_types_listing-openy-memberships-types-listing .membership-types-listing .views-row article .wrapper-variations .variations .price {
+          font-family: Verdana, Geneva, sans-serif;
+          font-size: 12px;
+          line-height: 27px; }
+          .ps-membership_types_listing-openy-memberships-types-listing .membership-types-listing .views-row article .wrapper-variations .variations .price div {
+            display: inline;
+            font-size: 18px;
+            font-weight: bold; }
+        .ps-membership_types_listing-openy-memberships-types-listing .membership-types-listing .views-row article .wrapper-variations .variations .field-enrollment-fee {
+          font-family: Verdana, Geneva, sans-serif;
+          font-size: 12px;
+          line-height: 18px; }
+        .ps-membership_types_listing-openy-memberships-types-listing .membership-types-listing .views-row article .wrapper-variations .variations .field-best-value {
+          position: relative;
+          margin-top: 15px;
+          padding: 8px 0 7px;
+          width: 100%;
+          text-align: center;
+          font-family: "Cachet", Verdana, Geneva, sans-serif;
+          font-size: 8px;
+          line-height: 9px;
+          color: #ffffff;
+          background-color: #006600;
+          height: 24px;
+          text-transform: uppercase; }
+          .ps-membership_types_listing-openy-memberships-types-listing .membership-types-listing .views-row article .wrapper-variations .variations .field-best-value:before {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 0;
+            height: 0;
+            content: '';
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+            border-left: 12px solid #ffffff; }
+          .ps-membership_types_listing-openy-memberships-types-listing .membership-types-listing .views-row article .wrapper-variations .variations .field-best-value::after {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0;
+            content: '';
+            height: 0;
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+            border-right: 12px solid #ffffff; }
+          @media all and (min-width: 600px) {
+            .ps-membership_types_listing-openy-memberships-types-listing .membership-types-listing .views-row article .wrapper-variations .variations .field-best-value {
+              height: 33px;
+              font-size: 12px;
+              line-height: 18px; }
+              .ps-membership_types_listing-openy-memberships-types-listing .membership-types-listing .views-row article .wrapper-variations .variations .field-best-value:before {
+                border-top: 16.5px solid transparent;
+                border-bottom: 16.5px solid transparent;
+                border-left: 16.5px solid #ffffff; }
+              .ps-membership_types_listing-openy-memberships-types-listing .membership-types-listing .views-row article .wrapper-variations .variations .field-best-value::after {
+                border-top: 16.5px solid transparent;
+                border-bottom: 16.5px solid transparent;
+                border-right: 16.5px solid #ffffff; } }
+    .ps-membership_types_listing-openy-memberships-types-listing .membership-types-listing .views-row article a {
+      display: block;
+      margin-top: 15px;
+      padding: 14px 0;
+      font-family: "Cachet", Verdana, Geneva, sans-serif;
+      font-size: 18px;
+      line-height: 27px;
+      text-align: center;
+      color: #ffffff;
+      background-color: #0060af;
+      text-transform: uppercase; }
+      .ps-membership_types_listing-openy-memberships-types-listing .membership-types-listing .views-row article a:hover {
+        background-color: #006ec9; }
+    .ps-membership_types_listing-openy-memberships-types-listing .membership-types-listing .views-row article .ajax-progress {
+      position: absolute;
+      left: 50%;
+      bottom: 60px; }
+
+.ui-dialog {
+  padding: 0;
+  width: 680px !important; }
+  .ui-dialog .wrapper-price,
+  .ui-dialog .wrapper-field-enrollment-fee,
+  .ui-dialog .wrapper-field-best-value {
+    display: none; }

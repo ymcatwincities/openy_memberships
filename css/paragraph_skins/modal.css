@@ -1,3 +1,50 @@
+.ui-dialog {
+  padding: 0;
+  z-index: 1500; }
+  .ui-dialog .ui-dialog-titlebar {
+    background-color: #ffffff;
+    font-family: "Cachet", Verdana, Geneva, sans-serif;
+    font-size: 18px;
+    line-height: 27px;
+    font-weight: normal;
+    padding: 12px 10px 11px;
+    text-transform: uppercase;
+    color: #636466;
+    border: initial;
+    border-bottom: 1px solid #636466;
+    border-radius: 0; }
+    .ui-dialog .ui-dialog-titlebar .ui-dialog-title {
+      margin: 0; }
+    .ui-dialog .ui-dialog-titlebar button {
+      color: white;
+      padding: 16px;
+      background-color: #0060af !important;
+      margin: 0;
+      opacity: 1;
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 51px;
+      width: 51px; }
+      .ui-dialog .ui-dialog-titlebar button .ui-icon {
+        background-image: url("/core/assets/vendor/jquery.ui/themes/base/images/ui-icons_ffffff_256x240.png"); }
+  .ui-dialog .ui-dialog-content {
+    padding: 10px;
+    height: initial !important;
+    max-height: initial !important; }
+    .ui-dialog .ui-dialog-content .banner {
+      display: none; }
+    .ui-dialog .ui-dialog-content .breadcrumbs-wrapper {
+      display: none !important; }
+    .ui-dialog .ui-dialog-content .openy-page-tabs {
+      display: none; }
+    .ui-dialog .ui-dialog-content > .container {
+      margin: 0;
+      padding: 0; }
+
+.ui-widget-overlay {
+  opacity: .5; }
+
 .ps-2c-openy-memberships-modal {
   padding: 30px 0 0 0;
   margin: 0 !important;
@@ -81,49 +128,3 @@
 
 div.ps-2c-openy-memberships-modal:last-child {
   margin-bottom: 30px !important; }
-
-.ui-dialog {
-  padding: 0; }
-  .ui-dialog .ui-dialog-titlebar {
-    background-color: #ffffff;
-    font-family: "Cachet", Verdana, Geneva, sans-serif;
-    font-size: 18px;
-    line-height: 27px;
-    font-weight: normal;
-    padding: 12px 10px 11px 10px;
-    text-transform: uppercase;
-    color: #636466;
-    border: initial;
-    border-bottom: 1px solid #636466;
-    border-radius: 0; }
-    .ui-dialog .ui-dialog-titlebar .ui-dialog-title {
-      margin: 0; }
-    .ui-dialog .ui-dialog-titlebar button {
-      color: white;
-      padding: 16px;
-      background-color: #0060af !important;
-      margin: 0;
-      opacity: 1;
-      position: absolute;
-      top: 0;
-      right: 0;
-      height: 51px;
-      width: 51px;
-      line-height: 20px; }
-      .ui-dialog .ui-dialog-titlebar button:before {
-        content: 'X'; }
-  .ui-dialog .ui-dialog-content {
-    padding: 10px;
-    height: initial !important; }
-    .ui-dialog .ui-dialog-content .banner {
-      display: none; }
-    .ui-dialog .ui-dialog-content .breadcrumbs-wrapper {
-      display: none !important; }
-    .ui-dialog .ui-dialog-content .openy-page-tabs {
-      display: none; }
-    .ui-dialog .ui-dialog-content > .container {
-      margin: 0;
-      padding: 0; }
-
-.ui-widget-overlay {
-  opacity: .5; }

@@ -3,61 +3,53 @@ status: true
 dependencies:
   config:
     - commerce_product.commerce_product_variation_type.membership
+    - core.entity_view_mode.commerce_product_variation.teaser
     - field.field.commerce_product_variation.membership.field_best_value
     - field.field.commerce_product_variation.membership.field_description
     - field.field.commerce_product_variation.membership.field_enrollment_fee
   module:
-    - commerce_price
     - openy_memberships
-    - text
-id: commerce_product_variation.membership.default
+id: commerce_product_variation.membership.teaser
 targetEntityType: commerce_product_variation
 bundle: membership
-mode: default
+mode: teaser
 content:
   field_best_value:
-    weight: 1
-    label: above
+    weight: 3
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     type: openy_memberships_best_value_formatter
     region: content
-  field_description:
-    weight: 2
-    label: above
-    settings: {  }
-    third_party_settings: {  }
-    type: text_default
-    region: content
   field_enrollment_fee:
-    weight: 3
-    label: above
+    weight: 2
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
     type: string
     region: content
-  list_price:
-    label: above
-    type: commerce_price_default
-    weight: -1
+  price:
+    label: hidden
+    type: openy_memberships_price_formatter
+    weight: 1
     region: content
     settings:
-      strip_trailing_zeroes: false
+      strip_trailing_zeroes: true
       currency_display: symbol
     third_party_settings: {  }
-  price:
-    label: above
-    type: commerce_price_default
+  title:
+    type: string
     weight: 0
     region: content
+    label: hidden
     settings:
-      strip_trailing_zeroes: false
-      currency_display: symbol
+      link_to_entity: false
     third_party_settings: {  }
 hidden:
+  field_description: true
   langcode: true
+  list_price: true
   product_id: true
   search_api_excerpt: true
   sku: true
-  title: true

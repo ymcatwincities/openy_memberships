@@ -4,38 +4,33 @@
             "href": ""
         },
         "type": {
-            "href": "http:\/\/drupal.org\/rest\/type\/paragraph\/block_container"
+            "href": "http:\/\/drupal.org\/rest\/type\/paragraph\/simple_content"
         },
-        "http:\/\/drupal.org\/rest\/relation\/paragraph\/block_container\/uid": [
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/simple_content\/uid": [
             {
                 "href": "http:\/\/default\/user\/1?_format=hal_json",
                 "lang": "en"
             }
         ],
-        "http:\/\/drupal.org\/rest\/relation\/paragraph\/block_container\/revision_uid": [
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/simple_content\/revision_uid": [
             {
                 "href": "http:\/\/default\/user\/1?_format=hal_json"
-            }
-        ],
-        "http:\/\/drupal.org\/rest\/relation\/paragraph\/block_container\/field_block_ref": [
-            {
-                "href": "http:\/\/default\/block\/16?_format=hal_json"
             }
         ]
     },
     "id": [
         {
-            "value": 637
+            "value": 672
         }
     ],
     "uuid": [
         {
-            "value": "4252bf7f-e78d-45e3-ba2c-a554a4b03476"
+            "value": "e5b3cc2f-2238-4749-8fe4-386068afa617"
         }
     ],
     "revision_id": [
         {
-            "value": 870
+            "value": 874
         }
     ],
     "langcode": [
@@ -46,11 +41,11 @@
     ],
     "type": [
         {
-            "target_id": "block_container"
+            "target_id": "simple_content"
         }
     ],
     "_embedded": {
-        "http:\/\/drupal.org\/rest\/relation\/paragraph\/block_container\/uid": [
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/simple_content\/uid": [
             {
                 "_links": {
                     "self": {
@@ -68,7 +63,7 @@
                 "lang": "en"
             }
         ],
-        "http:\/\/drupal.org\/rest\/relation\/paragraph\/block_container\/revision_uid": [
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/simple_content\/revision_uid": [
             {
                 "_links": {
                     "self": {
@@ -84,23 +79,6 @@
                     }
                 ]
             }
-        ],
-        "http:\/\/drupal.org\/rest\/relation\/paragraph\/block_container\/field_block_ref": [
-            {
-                "_links": {
-                    "self": {
-                        "href": "http:\/\/default\/block\/16?_format=hal_json"
-                    },
-                    "type": {
-                        "href": "http:\/\/drupal.org\/rest\/type\/block_content\/paragraph_container"
-                    }
-                },
-                "uuid": [
-                    {
-                        "value": "863d00e3-f15b-488f-a25e-fa6fe67652c5"
-                    }
-                ]
-            }
         ]
     },
     "status": [
@@ -111,24 +89,24 @@
     ],
     "created": [
         {
-            "value": "2020-05-02T13:07:33+00:00",
+            "value": "2020-05-06T17:01:51+00:00",
             "lang": "en",
             "format": "Y-m-d\\TH:i:sP"
         }
     ],
     "parent_id": [
         {
-            "value": "447"
+            "value": "1"
         }
     ],
     "parent_type": [
         {
-            "value": "node"
+            "value": "commerce_product"
         }
     ],
     "parent_field_name": [
         {
-            "value": "field_sidebar_content"
+            "value": "field_content"
         }
     ],
     "behavior_settings": [
@@ -142,9 +120,23 @@
             "lang": "en"
         }
     ],
+    "revision_translation_affected": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
     "skin": [
         {
-            "value": "openy-memberships-desktop-sidebar"
+            "value": "openy-memberships-simple-content"
+        }
+    ],
+    "field_prgf_description": [
+        {
+            "value": "<h4>Household<\/h4>\r\n\r\n<p><span style=\"font-size:12px;\">A group membership that includes one Adult (18-54 yrs.) and all Youth (0-17 yrs.) in the same household.<\/span><\/p>\r\n",
+            "format": "full_html",
+            "processed": "<h4>Household<\/h4>\n\n<p><span style=\"font-size:12px;\">A group membership that includes one Adult (18-54 yrs.) and all Youth (0-17 yrs.) in the same household.<\/span><\/p>\n",
+            "lang": "en"
         }
     ]
 }

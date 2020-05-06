@@ -28,6 +28,14 @@
                 "href": ""
             }
         ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/membership\/field_content": [
+            {
+                "href": ""
+            },
+            {
+                "href": ""
+            }
+        ],
         "http:\/\/drupal.org\/rest\/relation\/commerce_product\/membership\/field_om_addons": [
             {
                 "href": ""
@@ -103,7 +111,7 @@
                 },
                 "uuid": [
                     {
-                        "value": "2eedf4ac-518d-45df-94aa-c0ef4b15fd31"
+                        "value": "e9b0d2c3-a8f0-4f37-a802-d39cb6c437a3"
                     }
                 ],
                 "lang": "en"
@@ -154,6 +162,40 @@
                         "value": "79a2d24d-cb5a-4fc7-b584-db610dce5b1d"
                     }
                 ]
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/commerce_product\/membership\/field_content": [
+            {
+                "_links": {
+                    "self": {
+                        "href": ""
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/paragraph\/simple_content"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "e5b3cc2f-2238-4749-8fe4-386068afa617"
+                    }
+                ],
+                "target_revision_id": "874"
+            },
+            {
+                "_links": {
+                    "self": {
+                        "href": ""
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/paragraph\/block_container"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "8de9a664-2dc6-4cb3-9d61-18125f35c056"
+                    }
+                ],
+                "target_revision_id": "875"
             }
         ],
         "http:\/\/drupal.org\/rest\/relation\/commerce_product\/membership\/field_om_addons": [
@@ -257,7 +299,7 @@
     ],
     "changed": [
         {
-            "value": "2020-04-23T04:46:57+00:00",
+            "value": "2020-05-06T17:27:22+00:00",
             "lang": "en",
             "format": "Y-m-d\\TH:i:sP"
         }
@@ -272,7 +314,7 @@
         {
             "value": {
                 "title": "| Site-Install",
-                "canonical_url": "http:\/\/default\/node\/36"
+                "canonical_url": "http:\/\/default\/membership-landing"
             }
         }
     ],

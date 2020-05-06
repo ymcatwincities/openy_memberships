@@ -5,6 +5,10 @@
  * Open Y Memberships module file.
  */
 
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\openy_memberships\Plugin\Field\FieldType\LearnMoreExtraField;
+
 /**
  * Implements hook_menu_links_discovered_alter().
  */
@@ -58,4 +62,34 @@ function openy_memberships_mail($key, &$message, $params) {
       break;
   }
 
+}
+
+/**
+ * Implements hook_entity_type_view().
+ */
+function openy_memberships_commerce_product_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+  if ($entity->bundle() != 'membership') {
+    return;
+  }
+
+  if ($view_mode != 'teaser') {
+    return;
+  }
+
+  \Drupal::service('class_resolver')
+    ->getInstanceFromDefinition(LearnMoreExtraField::class)
+    ->fieldAttach($build, $entity, $display);
+}
+
+/**
+ * Implements hook_entity_extra_field_info().
+ */
+function openy_memberships_entity_extra_field_info() {
+  $extra = [];
+
+  \Drupal::service('class_resolver')
+    ->getInstanceFromDefinition(LearnMoreExtraField::class)
+    ->addExtraField($extra);
+
+  return $extra;
 }

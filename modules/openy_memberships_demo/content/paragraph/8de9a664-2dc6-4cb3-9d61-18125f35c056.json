@@ -4,39 +4,41 @@
             "href": ""
         },
         "type": {
-            "href": "http:\/\/drupal.org\/rest\/type\/paragraph\/banner"
+            "href": "http:\/\/drupal.org\/rest\/type\/paragraph\/block_container"
         },
-        "http:\/\/drupal.org\/rest\/relation\/paragraph\/banner\/uid": [
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/block_container\/uid": [
             {
                 "href": "http:\/\/default\/user\/1?_format=hal_json",
                 "lang": "en"
             }
         ],
-        "http:\/\/drupal.org\/rest\/relation\/paragraph\/banner\/revision_uid": [
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/block_container\/revision_uid": [
             {
                 "href": "http:\/\/default\/user\/1?_format=hal_json"
             }
         ],
-        "http:\/\/drupal.org\/rest\/relation\/paragraph\/banner\/field_prgf_color": [
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/block_container\/field_block_ref": [
             {
-                "href": "http:\/\/default\/taxonomy\/term\/5?_format=hal_json",
-                "lang": "en"
+                "href": "http:\/\/default\/block\/55?_format=hal_json"
+            },
+            {
+                "href": "http:\/\/default\/block\/56?_format=hal_json"
             }
         ]
     },
     "id": [
         {
-            "value": 634
+            "value": 673
         }
     ],
     "uuid": [
         {
-            "value": "6100321c-6f75-4d0a-a9e2-982fd24f94a3"
+            "value": "8de9a664-2dc6-4cb3-9d61-18125f35c056"
         }
     ],
     "revision_id": [
         {
-            "value": 871
+            "value": 875
         }
     ],
     "langcode": [
@@ -47,11 +49,11 @@
     ],
     "type": [
         {
-            "target_id": "banner"
+            "target_id": "block_container"
         }
     ],
     "_embedded": {
-        "http:\/\/drupal.org\/rest\/relation\/paragraph\/banner\/uid": [
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/block_container\/uid": [
             {
                 "_links": {
                     "self": {
@@ -69,7 +71,7 @@
                 "lang": "en"
             }
         ],
-        "http:\/\/drupal.org\/rest\/relation\/paragraph\/banner\/revision_uid": [
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/block_container\/revision_uid": [
             {
                 "_links": {
                     "self": {
@@ -86,22 +88,36 @@
                 ]
             }
         ],
-        "http:\/\/drupal.org\/rest\/relation\/paragraph\/banner\/field_prgf_color": [
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/block_container\/field_block_ref": [
             {
                 "_links": {
                     "self": {
-                        "href": "http:\/\/default\/taxonomy\/term\/5?_format=hal_json"
+                        "href": "http:\/\/default\/block\/55?_format=hal_json"
                     },
                     "type": {
-                        "href": "http:\/\/drupal.org\/rest\/type\/taxonomy_term\/color"
+                        "href": "http:\/\/drupal.org\/rest\/type\/block_content\/feature_card"
                     }
                 },
                 "uuid": [
                     {
-                        "value": "ce3ea418-29f0-4fae-95b5-731df16c33e9"
+                        "value": "e24f5289-fdaf-4588-b469-53f0358a36cc"
                     }
-                ],
-                "lang": "en"
+                ]
+            },
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/block\/56?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/block_content\/feature_card"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "c4ebc398-39d3-4805-bee5-86220c9b7bf3"
+                    }
+                ]
             }
         ]
     },
@@ -113,24 +129,24 @@
     ],
     "created": [
         {
-            "value": "2020-05-02T13:09:00+00:00",
+            "value": "2020-05-06T17:02:50+00:00",
             "lang": "en",
             "format": "Y-m-d\\TH:i:sP"
         }
     ],
     "parent_id": [
         {
-            "value": "447"
+            "value": "1"
         }
     ],
     "parent_type": [
         {
-            "value": "node"
+            "value": "commerce_product"
         }
     ],
     "parent_field_name": [
         {
-            "value": "field_bottom_content"
+            "value": "field_content"
         }
     ],
     "behavior_settings": [
@@ -144,26 +160,15 @@
             "lang": "en"
         }
     ],
-    "field_prgf_description": [
+    "revision_translation_affected": [
         {
-            "value": "<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.<\/p>\r\n",
-            "format": "full_html",
-            "processed": "<p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.<\/p>\n",
+            "value": true,
             "lang": "en"
         }
     ],
-    "field_prgf_headline": [
+    "skin": [
         {
-            "value": "Join the movement",
-            "lang": "en"
-        }
-    ],
-    "field_prgf_link": [
-        {
-            "uri": "internal:\/free-trial",
-            "title": "free trial",
-            "options": [],
-            "lang": "en"
+            "value": "openy-memberships-accordion"
         }
     ]
 }

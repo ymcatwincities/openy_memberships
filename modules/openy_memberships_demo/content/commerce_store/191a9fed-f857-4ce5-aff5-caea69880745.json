@@ -46,7 +46,7 @@
                 },
                 "uuid": [
                     {
-                        "value": "2eedf4ac-518d-45df-94aa-c0ef4b15fd31"
+                        "value": "e9b0d2c3-a8f0-4f37-a802-d39cb6c437a3"
                     }
                 ]
             }
@@ -114,7 +114,7 @@
         {
             "value": {
                 "title": "| Site-Install",
-                "canonical_url": "http:\/\/default\/node\/36"
+                "canonical_url": "http:\/\/default\/membership-landing"
             }
         }
     ]
