@@ -1,0 +1,163 @@
+@import 'variables';
+@import 'drupal-modal';
+
+.ps-membership_types_listing-openy-memberships-types-listing {
+  color: $aubergine;
+
+  .membership-types-listing {
+    .views-row article {
+      border: solid 1px $dark-purple;
+      border-top: solid 5px $dark-purple;
+      margin-bottom: 10px;
+      position: relative;
+
+      > .title, > .price, > .field-enrollment-fee, > .field-best-value {
+        display: none;
+      }
+
+      > .title:nth-child(1) {
+        font-family: $font-family-cachet;
+        font-size: 24px;
+        line-height: 36px;
+        padding: 15px 15px 0;
+      }
+
+      .field-description {
+        padding: 15px 15px 0;
+        font-family: $font-family-verdana;
+        font-size: 14px;
+        line-height: 21px;
+      }
+
+      .wrapper-variations {
+        display: flex;
+        padding: 15px 15px 0;
+        margin:0 -15px;
+
+        .variations {
+          flex-grow: 1;
+          padding:0 15px;
+
+          .title {
+            font-family: $font-family-verdana;
+            font-weight: bold;
+            font-size: 14px;
+            line-height: 21px;
+          }
+
+          .price {
+            font-family: $font-family-verdana;
+            font-size: 12px;
+            line-height: 27px;
+
+            div {
+              display: inline;
+              font-size: 18px;
+              font-weight: bold;
+            }
+          }
+
+          .field-enrollment-fee {
+            font-family: $font-family-verdana;
+            font-size: 12px;
+            line-height: 18px;
+          }
+
+          .field-best-value {
+            position: relative;
+            margin-top: 15px;
+            padding: 8px 0 7px;
+            width: 100%;
+
+            text-align: center;
+            font-family: $font-family-cachet;
+            font-size: 8px;
+            line-height: 9px;
+            color: $white;
+            background-color: $green;
+            height: 24px;
+            text-transform: uppercase;
+
+            &:before {
+              position: absolute;
+              left: 0;
+              top: 0;
+              width: 0;
+              height: 0;
+              content: '';
+              border-top: 12px solid transparent;
+              border-bottom: 12px solid transparent;
+              border-left: 12px solid $white;
+            }
+
+            &::after {
+              position: absolute;
+              top: 0;
+              right: 0;
+              width: 0;
+              content: '';
+              height: 0;
+              border-top: 12px solid transparent;
+              border-bottom: 12px solid transparent;
+              border-right: 12px solid $white;
+            }
+
+            @media all and (min-width: 600px) {
+              height: 33px;
+              font-size: 12px;
+              line-height: 18px;
+
+              &:before {
+                border-top: 16.5px solid transparent;
+                border-bottom: 16.5px solid transparent;
+                border-left: 16.5px solid $white;
+              }
+
+              &::after {
+                border-top: 16.5px solid transparent;
+                border-bottom: 16.5px solid transparent;
+                border-right: 16.5px solid $white;
+              }
+            }
+          }
+        }
+      }
+
+      a {
+        display: block;
+        margin-top: 15px;
+        padding: 14px 0;
+        font-family: $font-family-cachet;
+        font-size: 18px;
+        line-height: 27px;
+        text-align: center;
+        color: $white;
+        background-color: $dark-blue;
+        text-transform: uppercase;
+
+        &:hover {
+          background-color: lighten($dark-blue, 5%);
+        }
+      }
+
+      .ajax-progress {
+        position: absolute;
+        //margin-top: -50px;
+        //display: none;
+        left: 50%;
+        bottom: 60px;
+      }
+    }
+  }
+}
+
+.ui-dialog {
+  padding: 0;
+  width: 680px !important;
+
+  .wrapper-price,
+  .wrapper-field-enrollment-fee,
+  .wrapper-field-best-value {
+    display: none;
+  }
+}

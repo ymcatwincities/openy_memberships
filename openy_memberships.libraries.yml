@@ -92,3 +92,10 @@ accordion:
       css/paragraph_skins/accordion.css: {}
   js:
     js/accordion.behaviors.js: {}
+
+membership_types_listing:
+  version: 1.x
+  css:
+    theme:
+      css/paragraph_skins/membership-types-listing.css: {}
+

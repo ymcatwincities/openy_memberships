@@ -11,7 +11,6 @@ dependencies:
     - field.field.commerce_product.membership.field_product_branch
   module:
     - entity_reference_revisions
-    - openy_memberships
 id: commerce_product.membership.default
 targetEntityType: commerce_product
 bundle: membership
@@ -19,61 +18,31 @@ mode: default
 content:
   field_content:
     type: entity_reference_revisions_entity_view
-    weight: 18
-    label: above
+    weight: 1
+    label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
     region: content
-  field_om_addons:
-    weight: 11
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-  field_om_total_available:
-    weight: 16
-    label: above
-    settings:
-      ar_link: true
-      link: true
-    third_party_settings: {  }
-    type: openy_memberships_multi_item_label
-    region: content
-  field_om_total_free:
-    weight: 17
-    label: above
-    settings:
-      ar_link: true
-      link: true
-    third_party_settings: {  }
-    type: openy_memberships_multi_item_label
-    region: content
   title:
     label: hidden
     type: string
-    weight: -5
+    weight: 0
     region: content
     settings:
       link_to_entity: false
     third_party_settings: {  }
-  variations:
-    type: entity_reference_entity_view
-    weight: 10
-    region: content
-    label: above
-    settings:
-      view_mode: default
-      link: false
-    third_party_settings: {  }
 hidden:
   created: true
   field_description: true
+  field_om_addons: true
+  field_om_total_available: true
+  field_om_total_free: true
   field_product_branch: true
   langcode: true
+  learn_more: true
   search_api_excerpt: true
   stores: true
   uid: true
+  variations: true
