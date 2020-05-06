@@ -3,28 +3,20 @@ status: true
 dependencies:
   config:
     - commerce_product.commerce_product_type.membership
+    - core.entity_view_mode.commerce_product.teaser
     - field.field.commerce_product.membership.field_content
     - field.field.commerce_product.membership.field_description
     - field.field.commerce_product.membership.field_om_addons
     - field.field.commerce_product.membership.field_om_total_available
+    - field.field.commerce_product.membership.field_om_total_free
     - field.field.commerce_product.membership.field_product_branch
   module:
-    - entity_reference_revisions
     - openy_memberships
-id: commerce_product.membership.default
+id: commerce_product.membership.teaser
 targetEntityType: commerce_product
 bundle: membership
-mode: default
+mode: teaser
 content:
-  field_content:
-    type: entity_reference_revisions_entity_view
-    weight: 18
-    label: above
-    settings:
-      view_mode: default
-      link: ''
-    third_party_settings: {  }
-    region: content
   field_om_addons:
     weight: 11
     label: above
@@ -35,6 +27,15 @@ content:
     region: content
   field_om_total_available:
     weight: 16
+    label: above
+    settings:
+      ar_link: true
+      link: true
+    third_party_settings: {  }
+    type: openy_memberships_multi_item_label
+    region: content
+  field_om_total_free:
+    weight: 17
     label: above
     settings:
       ar_link: true
@@ -61,6 +62,7 @@ content:
     third_party_settings: {  }
 hidden:
   created: true
+  field_content: true
   field_description: true
   field_product_branch: true
   langcode: true

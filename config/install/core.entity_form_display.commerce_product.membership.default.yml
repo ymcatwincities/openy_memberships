@@ -3,6 +3,7 @@ status: true
 dependencies:
   config:
     - commerce_product.commerce_product_type.membership
+    - field.field.commerce_product.membership.field_content
     - field.field.commerce_product.membership.field_description
     - field.field.commerce_product.membership.field_om_addons
     - field.field.commerce_product.membership.field_om_total_available
@@ -10,8 +11,11 @@ dependencies:
   module:
     - commerce
     - openy_memberships
+    - paragraphs
     - path
     - text
+_core:
+  default_config_hash: ylN4OWtoKvphGuO8BcTYRvk00z527B7sHUuEp5eQ2MA
 id: commerce_product.membership.default
 targetEntityType: commerce_product
 bundle: membership
@@ -23,6 +27,18 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  field_content:
+    type: entity_reference_paragraphs
+    weight: 15
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
   field_description:
     type: text_textarea
     weight: 2

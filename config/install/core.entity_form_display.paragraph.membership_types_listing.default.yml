@@ -1,0 +1,16 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.membership_types_listing.field_membership_types_listing
+    - paragraphs.paragraphs_type.membership_types_listing
+id: paragraph.membership_types_listing.default
+targetEntityType: paragraph
+bundle: membership_types_listing
+mode: default
+content: {  }
+hidden:
+  created: true
+  field_membership_types_listing: true
+  status: true
+  uid: true

@@ -1,0 +1,35 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_membership_types_listing
+    - paragraphs.paragraphs_type.membership_types_listing
+  module:
+    - datalayer
+    - plugin
+third_party_settings:
+  datalayer:
+    expose: 0
+    label: field_membership_types_listing
+id: paragraph.membership_types_listing.field_membership_types_listing
+field_name: field_membership_types_listing
+entity_type: paragraph
+bundle: membership_types_listing
+label: 'Membership Types Listing'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    plugin_id: 'views_block:membership_types_listing-block_1'
+    plugin_configuration:
+      id: 'views_block:membership_types_listing-block_1'
+      label: ''
+      provider: views
+      label_display: '0'
+      views_label: ''
+      items_per_page: none
+    plugin_configuration_schema_id: 'block.settings.views_block:membership_types_listing-block_1'
+default_value_callback: ''
+settings: {  }
+field_type: 'plugin:block'
