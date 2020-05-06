@@ -6,7 +6,7 @@ use Drupal\Core\Field\FieldItemListInterface;
 use Drupal\Core\Field\FormatterBase;
 
 /**
- * Provides a formatter for the openy_memberships_multi_item field.
+ * Provides a formatter for the boolean field.
  *
  * @FieldFormatter(
  *   id = "openy_memberships_best_value_formatter",

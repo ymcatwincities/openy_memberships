@@ -12,6 +12,7 @@ dependencies:
     - field.field.commerce_product.membership.field_product_branch
   module:
     - text
+    - openy_memberships
 id: commerce_product.membership.teaser
 targetEntityType: commerce_product
 bundle: membership

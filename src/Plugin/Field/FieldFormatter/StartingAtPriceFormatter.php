@@ -6,7 +6,7 @@ use Drupal\commerce_price\Plugin\Field\FieldFormatter\PriceDefaultFormatter;
 use Drupal\Core\Field\FieldItemListInterface;
 
 /**
- * Provides a formatter for the openy_memberships_multi_item field.
+ * Provides a formatter for the commerce_price field.
  *
  * @FieldFormatter(
  *   id = "openy_memberships_price_formatter",
