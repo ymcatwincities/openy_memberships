@@ -1,0 +1,212 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/memberships?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/node\/landing_page"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/node\/landing_page\/revision_uid": [
+            {
+                "href": "http:\/\/default\/user\/1?_format=hal_json"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/node\/landing_page\/uid": [
+            {
+                "href": "http:\/\/default\/user\/1?_format=hal_json",
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/node\/landing_page\/field_content": [
+            {
+                "href": "",
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/node\/landing_page\/field_sidebar_content": [
+            {
+                "href": "",
+                "lang": "en"
+            }
+        ]
+    },
+    "nid": [
+        {
+            "value": 451
+        }
+    ],
+    "uuid": [
+        {
+            "value": "8630f386-0078-4476-b0f4-4a3b528c54f7"
+        }
+    ],
+    "vid": [
+        {
+            "value": 524
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "type": [
+        {
+            "target_id": "landing_page"
+        }
+    ],
+    "revision_timestamp": [
+        {
+            "value": "2020-05-05T15:38:17+00:00",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/node\/landing_page\/revision_uid": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/user\/1?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "af2e0753-7a00-4c44-bd29-a89c44d5accd"
+                    }
+                ]
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/node\/landing_page\/uid": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/user\/1?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "af2e0753-7a00-4c44-bd29-a89c44d5accd"
+                    }
+                ],
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/node\/landing_page\/field_content": [
+            {
+                "_links": {
+                    "self": {
+                        "href": ""
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/paragraph\/memberships"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "a447a778-ab5b-4441-adf6-3ee5eda8251f"
+                    }
+                ],
+                "lang": "en",
+                "target_revision_id": "858"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/node\/landing_page\/field_sidebar_content": [
+            {
+                "_links": {
+                    "self": {
+                        "href": ""
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/paragraph\/block_container"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "f0d204cd-2ceb-4edb-a195-15379e7bafee"
+                    }
+                ],
+                "lang": "en",
+                "target_revision_id": "857"
+            }
+        ]
+    },
+    "status": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "title": [
+        {
+            "value": "Membership Builder",
+            "lang": "en"
+        }
+    ],
+    "created": [
+        {
+            "value": "2020-05-05T15:35:26+00:00",
+            "lang": "en",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "changed": [
+        {
+            "value": "2020-05-05T15:38:17+00:00",
+            "lang": "en",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "promote": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "sticky": [
+        {
+            "value": false,
+            "lang": "en"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "metatag": [
+        {
+            "value": {
+                "title": "Membership Builder | OpenY",
+                "og_title": "Membership Builder"
+            }
+        }
+    ],
+    "addthis": [
+        {
+            "value": false,
+            "lang": "en"
+        }
+    ],
+    "path": [
+        {
+            "alias": "\/memberships",
+            "pid": 105,
+            "langcode": "en",
+            "lang": "en"
+        }
+    ],
+    "field_lp_layout": [
+        {
+            "value": "two_column_left",
+            "lang": "en"
+        }
+    ]
+}

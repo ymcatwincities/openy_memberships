@@ -259,5 +259,12 @@ class Cart {
         data: {}
       })
   }
+  sendSummaryEmails = (order_uuid) => {
+    return window.jQuery.ajax({
+      url: "/memberships/send/summary/email/" + order_uuid,
+      dataType: "json",
+      data: {}
+    });
+  }
 }
 export default new Cart;

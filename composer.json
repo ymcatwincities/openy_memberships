@@ -23,6 +23,8 @@
         "openy/openy_prgf_sidebar_menu": "dev-master",
         "openy/openy_block_modal": "dev-master",
         "openy/paragraph_skins": "dev-master",
-        "drupal/commerce_cart_api": "1.x-dev"
+        "drupal/commerce_cart_api": "1.x-dev",
+        "drupal/swiftmailer": "^2.0",
+        "drupal/mailsystem": "^4.3"
     }
 }

@@ -33,6 +33,13 @@ class OpenyMembershipsAutocompleteWidget extends EntityReferenceAutocompleteWidg
       '#min' => 1,
       '#weight' => 10,
     );
+    $widget['ar_quantity'] = array(
+      '#title' => $this->t('AR Quantity'),
+      '#type' => 'number',
+      '#default_value' => isset($items[$delta]) ? $items[$delta]->quantity : 1,
+      '#min' => 1,
+      '#weight' => 11,
+    );
 
     // Get the reference target entity type from the storage settings.
     $ar_target_type = $this->getFieldSetting('ar_target_type');
@@ -49,6 +56,8 @@ class OpenyMembershipsAutocompleteWidget extends EntityReferenceAutocompleteWidg
     // Get the settings for the added reference field.
     $ar_bundles = $settings['added_reference']['ar_bundles'];
     $ar_label = !empty($settings['added_reference']['ar_label']) ? $settings['added_reference']['ar_label'] : '';
+    $quantity_label = !empty($settings['added_reference']['quantity_label']) ? $settings['added_reference']['quantity_label'] : '';
+    $ar_quantity_label = !empty($settings['added_reference']['ar_quantity_label']) ? $settings['added_reference']['ar_quantity_label'] : '';
 
     // Get the existing value, if any, for the added reference field.
     $default = isset($items[$delta]) ? $items[$delta]->ar_target_id : NULL;
@@ -72,6 +81,16 @@ class OpenyMembershipsAutocompleteWidget extends EntityReferenceAutocompleteWidg
     if (!empty($ar_label)) {
       $widget['ar_target_id']['#title'] = $ar_label;
       $widget['ar_target_id']['#title_display'] = 'before';
+    }
+
+    if (!empty($quantity_label)) {
+      $widget['quantity']['#title'] = $quantity_label;
+      $widget['quantity']['#title_display'] = 'before';
+    }
+
+    if (!empty($ar_quantity_label)) {
+      $widget['ar_quantity']['#title'] = $ar_quantity_label;
+      $widget['ar_quantity']['#title_display'] = 'before';
     }
 
     return $widget;
