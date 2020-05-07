@@ -25,9 +25,12 @@
       top: 0;
       right: 0;
       height: 51px;
-      width: 51px; }
+      width: 51px;
+      line-height: 20px; }
       .ui-dialog .ui-dialog-titlebar button .ui-icon {
         background-image: url("/core/assets/vendor/jquery.ui/themes/base/images/ui-icons_ffffff_256x240.png"); }
+      .ui-dialog .ui-dialog-titlebar button:before {
+        content: 'X'; }
   .ui-dialog .ui-dialog-content {
     padding: 10px;
     height: initial !important;
