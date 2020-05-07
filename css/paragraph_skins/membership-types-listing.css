@@ -25,9 +25,12 @@
       top: 0;
       right: 0;
       height: 51px;
-      width: 51px; }
+      width: 51px;
+      line-height: 20px; }
       .ui-dialog .ui-dialog-titlebar button .ui-icon {
         background-image: url("/core/assets/vendor/jquery.ui/themes/base/images/ui-icons_ffffff_256x240.png"); }
+      .ui-dialog .ui-dialog-titlebar button:before {
+        content: 'X'; }
   .ui-dialog .ui-dialog-content {
     padding: 10px;
     height: initial !important;
@@ -55,6 +58,7 @@
     .ps-membership_types_listing-openy-memberships-types-listing .membership-types-listing .views-row article > .title, .ps-membership_types_listing-openy-memberships-types-listing .membership-types-listing .views-row article > .price, .ps-membership_types_listing-openy-memberships-types-listing .membership-types-listing .views-row article > .field-enrollment-fee, .ps-membership_types_listing-openy-memberships-types-listing .membership-types-listing .views-row article > .field-best-value {
       display: none; }
     .ps-membership_types_listing-openy-memberships-types-listing .membership-types-listing .views-row article > .title:nth-child(1) {
+      display: block;
       font-family: "Cachet", Verdana, Geneva, sans-serif;
       font-size: 24px;
       line-height: 36px;
