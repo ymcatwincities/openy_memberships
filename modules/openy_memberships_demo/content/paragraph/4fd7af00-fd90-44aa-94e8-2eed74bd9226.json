@@ -30,7 +30,7 @@
     ],
     "revision_id": [
         {
-            "value": 849
+            "value": 899
         }
     ],
     "langcode": [
@@ -133,9 +133,9 @@
     ],
     "field_prgf_description": [
         {
-            "value": "<h1><span style=\"font-size:48px;\">Free Trial<\/span><\/h1>\r\n\r\n<p><span style=\"font-size:14px;\">Complete the form below and we'll contact you within 24 hours to schedule a visit and set-up your FREE five-day trial membership.<\/span><\/p>\r\n\r\n<p><em><span style=\"font-size:14px;\">Please note: You must provide a valid photo ID and be at least 18 years of age to activate your trial membership.<\/span><\/em><\/p>\r\n",
+            "value": "<h1>Free Trial<\/h1>\r\n\r\n<p>Complete the form below and we'll contact you within 24 hours to schedule a visit and set-up your FREE five-day trial membership.<\/p>\r\n\r\n<p><em><span style=\"font-size:14px;\">Please note: You must provide a valid photo ID and be at least 18 years of age to activate your trial membership.<\/span><\/em><\/p>\r\n",
             "format": "full_html",
-            "processed": "<h1><span style=\"font-size:48px;\">Free Trial<\/span><\/h1>\n\n<p><span style=\"font-size:14px;\">Complete the form below and we'll contact you within 24 hours to schedule a visit and set-up your FREE five-day trial membership.<\/span><\/p>\n\n<p><em><span style=\"font-size:14px;\">Please note: You must provide a valid photo ID and be at least 18 years of age to activate your trial membership.<\/span><\/em><\/p>\n",
+            "processed": "<h1>Free Trial<\/h1>\n\n<p>Complete the form below and we'll contact you within 24 hours to schedule a visit and set-up your FREE five-day trial membership.<\/p>\n\n<p><em><span style=\"font-size:14px;\">Please note: You must provide a valid photo ID and be at least 18 years of age to activate your trial membership.<\/span><\/em><\/p>\n",
             "lang": "en"
         }
     ]

@@ -12,7 +12,8 @@
   }
 
   .field-block-ref {
-    border: solid 1px $dark-purple;
+    border-left: solid 1px $shuttle-grey;
+    border-right: solid 1px $shuttle-grey;
     border-top: solid 5px $dark-purple;
     margin-bottom: 10px;
     width: 350px;
@@ -21,12 +22,14 @@
 
     .field-fc-image {
       width: 100%;
+      padding-right: 2px;
 
       > div {
         height: 170px;
         max-width: initial;
         max-height: initial;
         background-position: center;
+        background-size: cover;
       }
     }
 
@@ -44,9 +47,13 @@
       padding: 0 5px 5px;
     }
 
-    div:last-of-type {
+    div:last-of-type, .field-fc-link {
       margin-top: auto;
-      a.btn {
+      margin-left: -1px;
+      margin-right: -1px;
+      text-align: center;
+
+      a {
         margin: 0;
         font-family: $font-family-cachet;
         font-size: 14px;

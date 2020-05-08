@@ -6,7 +6,8 @@
 
   .membership-types-listing {
     .views-row article {
-      border: solid 1px $dark-purple;
+      border-left: solid 1px $shuttle-grey;
+      border-right: solid 1px $shuttle-grey;
       border-top: solid 5px $dark-purple;
       margin-bottom: 10px;
       position: relative;
@@ -26,8 +27,13 @@
       .field-description {
         padding: 15px 15px 0;
         font-family: $font-family-verdana;
-        font-size: 14px;
-        line-height: 21px;
+        font-size: 12px;
+        line-height: 18px;
+
+        @media all and (min-width: 1060px) {
+          font-size: 14px;
+          line-height: 21px;
+        }
       }
 
       .wrapper-variations {
@@ -48,20 +54,35 @@
 
           .price {
             font-family: $font-family-verdana;
-            font-size: 12px;
-            line-height: 27px;
+            font-size: 10px;
+            line-height: 21px;
 
             div {
               display: inline;
-              font-size: 18px;
+              font-size: 14px;
               font-weight: bold;
+            }
+
+            @media all and (min-width: 1060px) {
+              font-size: 12px;
+              line-height: 27px;
+
+              div {
+                font-size: 18px;
+                font-weight: bold;
+              }
             }
           }
 
           .field-enrollment-fee {
             font-family: $font-family-verdana;
-            font-size: 12px;
-            line-height: 18px;
+            font-size: 10px;
+            line-height: 15px;
+            font-style: italic;
+            @media all and (min-width: 1060px) {
+              font-size: 12px;
+              line-height: 18px;
+            }
           }
 
           .field-best-value {
@@ -125,16 +146,23 @@
       }
 
       a {
+        margin-left: -1px;
+        margin-right: -1px;
         display: block;
         margin-top: 15px;
         padding: 14px 0;
         font-family: $font-family-cachet;
-        font-size: 18px;
-        line-height: 27px;
+        font-size: 14px;
+        line-height: 21px;
         text-align: center;
         color: $white;
         background-color: $dark-blue;
         text-transform: uppercase;
+
+        @media all and (min-width: 1060px) {
+          font-size: 18px;
+          line-height: 27px;
+        }
 
         &:hover {
           background-color: lighten($dark-blue, 5%);
@@ -154,7 +182,7 @@
 
 .ui-dialog {
   padding: 0;
-  width: 680px !important;
+  max-width: 680px !important;
 
   .wrapper-price,
   .wrapper-field-enrollment-fee,

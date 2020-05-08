@@ -1,7 +1,7 @@
 {
     "_links": {
         "self": {
-            "href": "http:\/\/default\/media\/2\/edit?_format=hal_json"
+            "href": "http:\/\/default\/media\/5\/edit?_format=hal_json"
         },
         "type": {
             "href": "http:\/\/drupal.org\/rest\/type\/media\/image"
@@ -14,30 +14,30 @@
         ],
         "http:\/\/drupal.org\/rest\/relation\/media\/image\/thumbnail": [
             {
-                "href": "http:\/\/default\/sites\/default\/files\/anna-samoylova-w55spmmopge-unsplash.jpg",
+                "href": "http:\/\/default\/sites\/default\/files\/jesper-stechmann-nb2l7fmbsda-unsplash.jpg",
                 "lang": "en"
             }
         ],
         "http:\/\/drupal.org\/rest\/relation\/media\/image\/field_media_image": [
             {
-                "href": "http:\/\/default\/sites\/default\/files\/anna-samoylova-w55spmmopge-unsplash.jpg",
+                "href": "http:\/\/default\/sites\/default\/files\/jesper-stechmann-nb2l7fmbsda-unsplash.jpg",
                 "lang": "en"
             }
         ]
     },
     "mid": [
         {
-            "value": 2
+            "value": 5
         }
     ],
     "uuid": [
         {
-            "value": "15a12ed0-3d74-44c9-a7b9-a49257f9da94"
+            "value": "e57b5e6b-739b-42e0-89d1-04b013ee71b5"
         }
     ],
     "vid": [
         {
-            "value": 2
+            "value": 5
         }
     ],
     "langcode": [
@@ -86,7 +86,7 @@
             {
                 "_links": {
                     "self": {
-                        "href": "http:\/\/default\/sites\/default\/files\/anna-samoylova-w55spmmopge-unsplash.jpg"
+                        "href": "http:\/\/default\/sites\/default\/files\/jesper-stechmann-nb2l7fmbsda-unsplash.jpg"
                     },
                     "type": {
                         "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
@@ -94,7 +94,7 @@
                 },
                 "uuid": [
                     {
-                        "value": "d6d5dd00-93a2-424a-b2ce-3138e7b1c51e"
+                        "value": "28891ebc-f9a7-4988-9a01-b0e6269c27de"
                     }
                 ],
                 "lang": "en"
@@ -104,7 +104,7 @@
             {
                 "_links": {
                     "self": {
-                        "href": "http:\/\/default\/sites\/default\/files\/anna-samoylova-w55spmmopge-unsplash.jpg"
+                        "href": "http:\/\/default\/sites\/default\/files\/jesper-stechmann-nb2l7fmbsda-unsplash.jpg"
                     },
                     "type": {
                         "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
@@ -112,7 +112,7 @@
                 },
                 "uuid": [
                     {
-                        "value": "d6d5dd00-93a2-424a-b2ce-3138e7b1c51e"
+                        "value": "28891ebc-f9a7-4988-9a01-b0e6269c27de"
                     }
                 ],
                 "lang": "en"
@@ -121,7 +121,7 @@
     },
     "name": [
         {
-            "value": "News post image 2",
+            "value": "News post image 5",
             "lang": "en"
         }
     ],

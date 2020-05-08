@@ -9,9 +9,14 @@
 
   Drupal.behaviors.openy_memberships_mobile_menu = {
     attach: function (context) {
-      $('#block-memberships-mobile-menu h2').once('openy_memberships_mobile_menu').click(function(e) {
-        $('#block-memberships-mobile-menu h2').toggleClass('menu-open');
-        $('#block-memberships-mobile-menu .wrapper-field-paragraph').toggleClass('d-block');
+      var block_id = '#block-memberships-mobile-menu';
+      if ($('body').hasClass('rose_based_theme')) {
+        block_id = '#block-rose-memberships-mobile-menu';
+      }
+
+      $(block_id + ' h2').once('openy_memberships_mobile_menu').click(function(e) {
+        $(block_id + ' h2').toggleClass('menu-open');
+        $(block_id + ' .wrapper-field-paragraph').toggleClass('d-block');
       });
     }
   };

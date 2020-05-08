@@ -1,7 +1,7 @@
 {
     "_links": {
         "self": {
-            "href": "http:\/\/default\/media\/2\/edit?_format=hal_json"
+            "href": "http:\/\/default\/media\/10\/edit?_format=hal_json"
         },
         "type": {
             "href": "http:\/\/drupal.org\/rest\/type\/media\/image"
@@ -14,30 +14,30 @@
         ],
         "http:\/\/drupal.org\/rest\/relation\/media\/image\/thumbnail": [
             {
-                "href": "http:\/\/default\/sites\/default\/files\/anna-samoylova-w55spmmopge-unsplash.jpg",
+                "href": "http:\/\/default\/sites\/default\/files\/inspired-horizons-digital-marketing-kuflaipoili-unsplash.jpg",
                 "lang": "en"
             }
         ],
         "http:\/\/drupal.org\/rest\/relation\/media\/image\/field_media_image": [
             {
-                "href": "http:\/\/default\/sites\/default\/files\/anna-samoylova-w55spmmopge-unsplash.jpg",
+                "href": "http:\/\/default\/sites\/default\/files\/inspired-horizons-digital-marketing-kuflaipoili-unsplash.jpg",
                 "lang": "en"
             }
         ]
     },
     "mid": [
         {
-            "value": 2
+            "value": 10
         }
     ],
     "uuid": [
         {
-            "value": "15a12ed0-3d74-44c9-a7b9-a49257f9da94"
+            "value": "d5c4e127-c313-48dd-bb68-c5d2a0e459a4"
         }
     ],
     "vid": [
         {
-            "value": 2
+            "value": 10
         }
     ],
     "langcode": [
@@ -86,7 +86,7 @@
             {
                 "_links": {
                     "self": {
-                        "href": "http:\/\/default\/sites\/default\/files\/anna-samoylova-w55spmmopge-unsplash.jpg"
+                        "href": "http:\/\/default\/sites\/default\/files\/inspired-horizons-digital-marketing-kuflaipoili-unsplash.jpg"
                     },
                     "type": {
                         "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
@@ -94,7 +94,7 @@
                 },
                 "uuid": [
                     {
-                        "value": "d6d5dd00-93a2-424a-b2ce-3138e7b1c51e"
+                        "value": "2e0a2435-ef9c-45ff-b31c-f712442f3c78"
                     }
                 ],
                 "lang": "en"
@@ -104,7 +104,7 @@
             {
                 "_links": {
                     "self": {
-                        "href": "http:\/\/default\/sites\/default\/files\/anna-samoylova-w55spmmopge-unsplash.jpg"
+                        "href": "http:\/\/default\/sites\/default\/files\/inspired-horizons-digital-marketing-kuflaipoili-unsplash.jpg"
                     },
                     "type": {
                         "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
@@ -112,7 +112,7 @@
                 },
                 "uuid": [
                     {
-                        "value": "d6d5dd00-93a2-424a-b2ce-3138e7b1c51e"
+                        "value": "2e0a2435-ef9c-45ff-b31c-f712442f3c78"
                     }
                 ],
                 "lang": "en"
@@ -121,7 +121,7 @@
     },
     "name": [
         {
-            "value": "News post image 2",
+            "value": "News post image 10",
             "lang": "en"
         }
     ],

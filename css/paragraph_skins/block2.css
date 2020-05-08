@@ -5,7 +5,8 @@
   padding-top: 15px;
   color: #231f20; }
   .ps-block_container-openy-memberships-block2 .wrapper-field-block-ref .field-block-ref {
-    border: solid 1px #92278f;
+    border-left: solid 1px #636466;
+    border-right: solid 1px #636466;
     border-top: solid 5px #92278f;
     margin-bottom: 10px;
     display: flex;
@@ -23,9 +24,12 @@
       font-size: 12px;
       line-height: 18px;
       padding: 0 5px 5px; }
-    .ps-block_container-openy-memberships-block2 .wrapper-field-block-ref .field-block-ref div:last-of-type {
-      margin-top: auto; }
-      .ps-block_container-openy-memberships-block2 .wrapper-field-block-ref .field-block-ref div:last-of-type a.btn {
+    .ps-block_container-openy-memberships-block2 .wrapper-field-block-ref .field-block-ref div:last-of-type, .ps-block_container-openy-memberships-block2 .wrapper-field-block-ref .field-block-ref .field-fc-link {
+      margin-top: auto;
+      text-align: center;
+      margin-left: -1px;
+      margin-right: -1px; }
+      .ps-block_container-openy-memberships-block2 .wrapper-field-block-ref .field-block-ref div:last-of-type a, .ps-block_container-openy-memberships-block2 .wrapper-field-block-ref .field-block-ref .field-fc-link a {
         margin: 0;
         font-family: "Cachet", Verdana, Geneva, sans-serif;
         font-size: 14px;

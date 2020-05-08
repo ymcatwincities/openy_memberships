@@ -8,7 +8,8 @@
   color: $aubergine;
 
   .field-block-ref {
-    border: solid 1px $dark-purple;
+    border-left: solid 1px $shuttle-grey;
+    border-right: solid 1px $shuttle-grey;
     border-top: solid 5px $dark-purple;
     margin-bottom: 10px;
     display: flex;
@@ -33,9 +34,13 @@
       padding: 0 5px 5px;
     }
 
-    div:last-of-type {
+    div:last-of-type, .field-fc-link {
       margin-top: auto;
-      a.btn {
+      text-align: center;
+      margin-left: -1px;
+      margin-right: -1px;
+
+      a {
         margin: 0;
         font-family: $font-family-cachet;
         font-size: 14px;

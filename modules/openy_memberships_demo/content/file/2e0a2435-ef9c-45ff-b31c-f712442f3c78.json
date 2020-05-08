@@ -1,0 +1,87 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/sites\/default\/files\/inspired-horizons-digital-marketing-kuflaipoili-unsplash.jpg"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/file\/file\/uid": [
+            {
+                "href": "http:\/\/default\/user\/1?_format=hal_json"
+            }
+        ]
+    },
+    "fid": [
+        {
+            "value": 14
+        }
+    ],
+    "uuid": [
+        {
+            "value": "2e0a2435-ef9c-45ff-b31c-f712442f3c78"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en"
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/file\/file\/uid": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/user\/1?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/user\/user"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "e9b0d2c3-a8f0-4f37-a802-d39cb6c437a3"
+                    }
+                ]
+            }
+        ]
+    },
+    "filename": [
+        {
+            "value": "inspired-horizons-digital-marketing-kufLAiPoIlI-unsplash.jpg"
+        }
+    ],
+    "uri": [
+        {
+            "value": "public:\/\/inspired-horizons-digital-marketing-kuflaipoili-unsplash.jpg",
+            "url": "\/sites\/default\/files\/inspired-horizons-digital-marketing-kuflaipoili-unsplash.jpg"
+        }
+    ],
+    "filemime": [
+        {
+            "value": "image\/jpeg"
+        }
+    ],
+    "filesize": [
+        {
+            "value": 3497070
+        }
+    ],
+    "status": [
+        {
+            "value": true
+        }
+    ],
+    "created": [
+        {
+            "value": "2020-04-29T11:06:46+00:00",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "changed": [
+        {
+            "value": "2020-04-29T11:06:46+00:00",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ]
+}

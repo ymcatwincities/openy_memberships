@@ -30,7 +30,7 @@
     ],
     "revision_id": [
         {
-            "value": 865
+            "value": 900
         }
     ],
     "langcode": [
@@ -133,9 +133,9 @@
     ],
     "field_prgf_description": [
         {
-            "value": "<h3>Scholarships<\/h3>\r\n",
+            "value": "<h3><span style=\"font-size:24px;\">Scholarships<\/span><\/h3>\r\n",
             "format": "full_html",
-            "processed": "<h3>Scholarships<\/h3>\n",
+            "processed": "<h3><span style=\"font-size:24px;\">Scholarships<\/span><\/h3>\n",
             "lang": "en"
         }
     ]

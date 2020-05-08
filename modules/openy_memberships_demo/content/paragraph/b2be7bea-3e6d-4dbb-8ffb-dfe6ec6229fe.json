@@ -30,7 +30,7 @@
     ],
     "revision_id": [
         {
-            "value": 851
+            "value": 894
         }
     ],
     "langcode": [
@@ -133,9 +133,9 @@
     ],
     "field_prgf_description": [
         {
-            "value": "<h1><span style=\"font-size:48px;\">Discounts<\/span><\/h1>\r\n\r\n<p><span style=\"font-size:14px;\">The Y is about inclusivity, not exclusivity. That's why we make sure everybody can afford to be a Y member.<\/span><\/p>\r\n",
+            "value": "<h1>Discounts<\/h1>\r\n\r\n<p>The Y is about inclusivity, not exclusivity. That's why we make sure everybody can afford to be a Y member.<\/p>\r\n",
             "format": "full_html",
-            "processed": "<h1><span style=\"font-size:48px;\">Discounts<\/span><\/h1>\n\n<p><span style=\"font-size:14px;\">The Y is about inclusivity, not exclusivity. That's why we make sure everybody can afford to be a Y member.<\/span><\/p>\n",
+            "processed": "<h1>Discounts<\/h1>\n\n<p>The Y is about inclusivity, not exclusivity. That's why we make sure everybody can afford to be a Y member.<\/p>\n",
             "lang": "en"
         }
     ]
