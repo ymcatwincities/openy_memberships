@@ -20,7 +20,8 @@
   }
 
   .field-prgf-2c-left, .field-prgf-2c-right {
-    border: solid 1px $dark-purple;
+    border-left: solid 1px $shuttle-grey;
+    border-right: solid 1px $shuttle-grey;
     border-top: solid 5px $dark-purple;
 
     padding: 0;
@@ -36,28 +37,44 @@
 
       .field-title {
         font-family: $font-family-cachet;
-        font-size: 24px;
-        line-height: 36px;
+        font-size: 18px;
+        line-height: 27px;
         padding: 15px 15px 0 15px;
+        @media all and (min-width: 1060px) {
+          font-size: 24px;
+          line-height: 36px;
+        }
       }
 
       .field-description {
-        font-size: 14px;
-        line-height: 21px;
+        font-size: 12px;
+        line-height: 18px;
         padding: 15px;
         height: 100%;
+        @media all and (min-width: 1060px) {
+          font-size: 14px;
+          line-height: 21px;
+        }
       }
 
       .field-link-title {
         text-align: center;
+        margin-left: -1px;
+        margin-right: -1px;
 
         a, a:hover {
           display: block;
           background-color: $dark-blue;
           padding: 14px;
           color: white;
-          font: Medium 18px/27px Cachet;
           text-transform: uppercase;
+          font-family: $font-family-cachet;
+          font-size: 14px;
+          line-height: 21px;
+          @media all and (min-width: 1060px) {
+            font-size: 18px;
+            line-height: 27px;
+          }
         }
       }
 

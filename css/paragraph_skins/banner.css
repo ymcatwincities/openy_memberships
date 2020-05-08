@@ -35,10 +35,12 @@
       letter-spacing: 0; }
     @media all and (min-width: 1060px) {
       .ps-banner-openy-memberships-banner.banner .banner-cta {
-        padding-top: 80px; }
-        .ps-banner-openy-memberships-banner.banner .banner-cta .field-prgf-headline {
-          font-size: 60px; }
-        .ps-banner-openy-memberships-banner.banner .banner-cta .field-prgf-description {
+        padding-top: 80px;
+        min-height: 480px; }
+        .ps-banner-openy-memberships-banner.banner .banner-cta .banner-title .field-prgf-headline {
+          font-size: 60px;
+          letter-spacing: -3px; }
+        .ps-banner-openy-memberships-banner.banner .banner-cta .banner-description .field-prgf-description {
           font-size: 36px;
           line-height: 36px;
           letter-spacing: -0.9px; }

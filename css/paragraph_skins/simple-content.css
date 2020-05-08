@@ -1,6 +1,13 @@
 .ps-simple_content-openy-memberships-simple-content,
 .ps-2c-openy-memberships-simple-content {
-  color: #231f20; }
+  color: #231f20;
+  font-size: 12px;
+  line-height: 18px; }
+  @media all and (min-width: 1060px) {
+    .ps-simple_content-openy-memberships-simple-content,
+    .ps-2c-openy-memberships-simple-content {
+      font-size: 14px;
+      line-height: 21px; } }
   .ps-simple_content-openy-memberships-simple-content ul,
   .ps-2c-openy-memberships-simple-content ul {
     list-style-type: none; }
@@ -51,13 +58,50 @@
     .ps-2c-openy-memberships-simple-content a.btn:hover {
       background-color: #92278f;
       border-color: #92278f; }
+  .ps-simple_content-openy-memberships-simple-content a.btn-info,
+  .ps-2c-openy-memberships-simple-content a.btn-info {
+    border: 2px solid #0060af;
+    background-color: #ffffff;
+    color: #0060af;
+    font-size: 18px;
+    line-height: 27px; }
+    @media all and (min-width: 1060px) {
+      .ps-simple_content-openy-memberships-simple-content a.btn-info,
+      .ps-2c-openy-memberships-simple-content a.btn-info {
+        font-size: 24px;
+        line-height: 36px; } }
+    .ps-simple_content-openy-memberships-simple-content a.btn-info:hover,
+    .ps-2c-openy-memberships-simple-content a.btn-info:hover {
+      background-color: #e6e6e6;
+      border-color: #0060af; }
+  .ps-simple_content-openy-memberships-simple-content h1,
+  .ps-2c-openy-memberships-simple-content h1 {
+    font-size: 36px;
+    line-height: 54px; }
+    @media all and (min-width: 1060px) {
+      .ps-simple_content-openy-memberships-simple-content h1,
+      .ps-2c-openy-memberships-simple-content h1 {
+        font-size: 48px;
+        line-height: 72px; } }
   .ps-simple_content-openy-memberships-simple-content h2,
   .ps-2c-openy-memberships-simple-content h2 {
-    margin-bottom: 18px; }
+    margin-bottom: 18px;
+    font-size: 24px;
+    line-height: 36px; }
+    @media all and (min-width: 1060px) {
+      .ps-simple_content-openy-memberships-simple-content h2,
+      .ps-2c-openy-memberships-simple-content h2 {
+        font-size: 36px;
+        line-height: 48px; } }
   .ps-simple_content-openy-memberships-simple-content h3,
   .ps-2c-openy-memberships-simple-content h3 {
     font-size: 32px;
     line-height: 36px; }
+    @media all and (min-width: 1060px) {
+      .ps-simple_content-openy-memberships-simple-content h3,
+      .ps-2c-openy-memberships-simple-content h3 {
+        font-size: 32px;
+        line-height: 36px; } }
   .ps-simple_content-openy-memberships-simple-content h4,
   .ps-2c-openy-memberships-simple-content h4 {
     font-size: 28px;

@@ -1,7 +1,7 @@
 {
     "_links": {
         "self": {
-            "href": "http:\/\/default\/media\/2\/edit?_format=hal_json"
+            "href": "http:\/\/default\/media\/8\/edit?_format=hal_json"
         },
         "type": {
             "href": "http:\/\/drupal.org\/rest\/type\/media\/image"
@@ -14,30 +14,30 @@
         ],
         "http:\/\/drupal.org\/rest\/relation\/media\/image\/thumbnail": [
             {
-                "href": "http:\/\/default\/sites\/default\/files\/anna-samoylova-w55spmmopge-unsplash.jpg",
+                "href": "http:\/\/default\/sites\/default\/files\/eddy-billard-ejlpbc6ruv8-unsplash.jpg",
                 "lang": "en"
             }
         ],
         "http:\/\/drupal.org\/rest\/relation\/media\/image\/field_media_image": [
             {
-                "href": "http:\/\/default\/sites\/default\/files\/anna-samoylova-w55spmmopge-unsplash.jpg",
+                "href": "http:\/\/default\/sites\/default\/files\/eddy-billard-ejlpbc6ruv8-unsplash.jpg",
                 "lang": "en"
             }
         ]
     },
     "mid": [
         {
-            "value": 2
+            "value": 8
         }
     ],
     "uuid": [
         {
-            "value": "15a12ed0-3d74-44c9-a7b9-a49257f9da94"
+            "value": "110d0b22-9be0-4a0f-8165-89efe62cf296"
         }
     ],
     "vid": [
         {
-            "value": 2
+            "value": 8
         }
     ],
     "langcode": [
@@ -86,7 +86,7 @@
             {
                 "_links": {
                     "self": {
-                        "href": "http:\/\/default\/sites\/default\/files\/anna-samoylova-w55spmmopge-unsplash.jpg"
+                        "href": "http:\/\/default\/sites\/default\/files\/eddy-billard-ejlpbc6ruv8-unsplash.jpg"
                     },
                     "type": {
                         "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
@@ -94,7 +94,7 @@
                 },
                 "uuid": [
                     {
-                        "value": "d6d5dd00-93a2-424a-b2ce-3138e7b1c51e"
+                        "value": "028d5589-3e08-4822-9ad4-e99826b38bea"
                     }
                 ],
                 "lang": "en"
@@ -104,7 +104,7 @@
             {
                 "_links": {
                     "self": {
-                        "href": "http:\/\/default\/sites\/default\/files\/anna-samoylova-w55spmmopge-unsplash.jpg"
+                        "href": "http:\/\/default\/sites\/default\/files\/eddy-billard-ejlpbc6ruv8-unsplash.jpg"
                     },
                     "type": {
                         "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
@@ -112,7 +112,7 @@
                 },
                 "uuid": [
                     {
-                        "value": "d6d5dd00-93a2-424a-b2ce-3138e7b1c51e"
+                        "value": "028d5589-3e08-4822-9ad4-e99826b38bea"
                     }
                 ],
                 "lang": "en"
@@ -121,7 +121,7 @@
     },
     "name": [
         {
-            "value": "News post image 2",
+            "value": "News post image 8",
             "lang": "en"
         }
     ],

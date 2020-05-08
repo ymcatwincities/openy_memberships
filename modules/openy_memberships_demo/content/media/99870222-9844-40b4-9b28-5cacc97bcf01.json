@@ -1,7 +1,7 @@
 {
     "_links": {
         "self": {
-            "href": "http:\/\/default\/media\/2\/edit?_format=hal_json"
+            "href": "http:\/\/default\/media\/14\/edit?_format=hal_json"
         },
         "type": {
             "href": "http:\/\/drupal.org\/rest\/type\/media\/image"
@@ -14,30 +14,30 @@
         ],
         "http:\/\/drupal.org\/rest\/relation\/media\/image\/thumbnail": [
             {
-                "href": "http:\/\/default\/sites\/default\/files\/anna-samoylova-w55spmmopge-unsplash.jpg",
+                "href": "http:\/\/default\/sites\/default\/files\/jessica-wilson-s8juwudoyn0-unsplash.jpg",
                 "lang": "en"
             }
         ],
         "http:\/\/drupal.org\/rest\/relation\/media\/image\/field_media_image": [
             {
-                "href": "http:\/\/default\/sites\/default\/files\/anna-samoylova-w55spmmopge-unsplash.jpg",
+                "href": "http:\/\/default\/sites\/default\/files\/jessica-wilson-s8juwudoyn0-unsplash.jpg",
                 "lang": "en"
             }
         ]
     },
     "mid": [
         {
-            "value": 2
+            "value": 14
         }
     ],
     "uuid": [
         {
-            "value": "15a12ed0-3d74-44c9-a7b9-a49257f9da94"
+            "value": "99870222-9844-40b4-9b28-5cacc97bcf01"
         }
     ],
     "vid": [
         {
-            "value": 2
+            "value": 14
         }
     ],
     "langcode": [
@@ -86,7 +86,7 @@
             {
                 "_links": {
                     "self": {
-                        "href": "http:\/\/default\/sites\/default\/files\/anna-samoylova-w55spmmopge-unsplash.jpg"
+                        "href": "http:\/\/default\/sites\/default\/files\/jessica-wilson-s8juwudoyn0-unsplash.jpg"
                     },
                     "type": {
                         "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
@@ -94,7 +94,7 @@
                 },
                 "uuid": [
                     {
-                        "value": "d6d5dd00-93a2-424a-b2ce-3138e7b1c51e"
+                        "value": "eb40260a-977e-4cea-adf5-927f6c6d269e"
                     }
                 ],
                 "lang": "en"
@@ -104,7 +104,7 @@
             {
                 "_links": {
                     "self": {
-                        "href": "http:\/\/default\/sites\/default\/files\/anna-samoylova-w55spmmopge-unsplash.jpg"
+                        "href": "http:\/\/default\/sites\/default\/files\/jessica-wilson-s8juwudoyn0-unsplash.jpg"
                     },
                     "type": {
                         "href": "http:\/\/drupal.org\/rest\/type\/file\/file"
@@ -112,7 +112,7 @@
                 },
                 "uuid": [
                     {
-                        "value": "d6d5dd00-93a2-424a-b2ce-3138e7b1c51e"
+                        "value": "eb40260a-977e-4cea-adf5-927f6c6d269e"
                     }
                 ],
                 "lang": "en"
@@ -121,7 +121,7 @@
     },
     "name": [
         {
-            "value": "News post image 2",
+            "value": "Gallery image #2",
             "lang": "en"
         }
     ],

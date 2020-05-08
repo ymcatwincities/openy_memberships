@@ -22,6 +22,12 @@
                 "href": "http:\/\/default\/taxonomy\/term\/17?_format=hal_json",
                 "lang": "en"
             }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/banner\/field_prgf_image": [
+            {
+                "href": "http:\/\/default\/media\/10\/edit?_format=hal_json",
+                "lang": "en"
+            }
         ]
     },
     "id": [
@@ -36,7 +42,7 @@
     ],
     "revision_id": [
         {
-            "value": 641
+            "value": 906
         }
     ],
     "langcode": [
@@ -99,6 +105,24 @@
                 "uuid": [
                     {
                         "value": "4f3a2cac-3d48-4f65-b281-f99f652d6864"
+                    }
+                ],
+                "lang": "en"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/banner\/field_prgf_image": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/media\/10\/edit?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/media\/image"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "d5c4e127-c313-48dd-bb68-c5d2a0e459a4"
                     }
                 ],
                 "lang": "en"

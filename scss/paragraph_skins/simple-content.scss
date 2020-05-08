@@ -3,6 +3,13 @@
 .ps-simple_content-openy-memberships-simple-content,
 .ps-2c-openy-memberships-simple-content {
   color: $aubergine;
+  font-size: 12px;
+  line-height: 18px;
+
+  @media all and (min-width: 1060px) {
+    font-size: 14px;
+    line-height: 21px;
+  }
 
   ul {
     list-style-type: none;
@@ -62,13 +69,52 @@
     }
   }
 
+  a.btn-info {
+    border: 2px solid $dark-blue;
+    background-color: $white;
+    color: $dark-blue;
+    font-size: 18px;
+    line-height: 27px;
+    @media all and (min-width: 1060px) {
+      font-size: 24px;
+      line-height: 36px;
+    }
+
+    &:hover {
+      background-color: darken($white, 10%);
+      border-color: $dark-blue;
+    }
+  }
+
+  h1 {
+    font-size: 36px;
+    line-height: 54px;
+
+    @media all and (min-width: 1060px) {
+      font-size: 48px;
+      line-height: 72px;
+    }
+  }
+
   h2 {
     margin-bottom: 18px;
+    font-size: 24px;
+    line-height: 36px;
+
+    @media all and (min-width: 1060px) {
+      font-size: 36px;
+      line-height: 48px;
+    }
   }
 
   h3 {
     font-size: 32px;
     line-height: 36px;
+
+    @media all and (min-width: 1060px) {
+      font-size: 32px;
+      line-height: 36px;
+    }
   }
 
   h4 {

@@ -40,7 +40,7 @@
     ],
     "vid": [
         {
-            "value": 535
+            "value": 551
         }
     ],
     "langcode": [
@@ -56,7 +56,7 @@
     ],
     "revision_timestamp": [
         {
-            "value": "2020-05-04T16:04:19+00:00",
+            "value": "2020-05-08T13:59:57+00:00",
             "format": "Y-m-d\\TH:i:sP"
         }
     ],
@@ -112,7 +112,7 @@
                     }
                 ],
                 "lang": "en",
-                "target_revision_id": "865"
+                "target_revision_id": "900"
             },
             {
                 "_links": {
@@ -154,7 +154,7 @@
     ],
     "changed": [
         {
-            "value": "2020-05-04T16:04:19+00:00",
+            "value": "2020-05-08T13:59:57+00:00",
             "lang": "en",
             "format": "Y-m-d\\TH:i:sP"
         }
@@ -200,7 +200,7 @@
     "path": [
         {
             "alias": "\/discount-details",
-            "pid": 338,
+            "pid": 331,
             "langcode": "en",
             "lang": "en"
         }

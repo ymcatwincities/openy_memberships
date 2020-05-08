@@ -45,6 +45,10 @@
           font-size: 14px;
           line-height: 21px;
           color: $dark-blue;
+
+          &:hover {
+            color: lighten($dark-blue, 10%);
+          }
         }
       }
     }

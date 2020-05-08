@@ -30,4 +30,6 @@
           .ps-sidebar_menu-openy-memberships-sidebar-menu ul li a {
             font-size: 14px;
             line-height: 21px;
-            color: #0060af; } }
+            color: #0060af; }
+            .ps-sidebar_menu-openy-memberships-sidebar-menu ul li a:hover {
+              color: #007ce2; } }

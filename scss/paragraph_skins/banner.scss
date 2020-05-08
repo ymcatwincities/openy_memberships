@@ -47,20 +47,23 @@
       letter-spacing: 0;
     }
 
-    @media all and (min-width: 600px) {
-
-    }
-
     @media all and (min-width: 1060px) {
       padding-top: 80px;
+      min-height: 480px;
 
-      .field-prgf-headline {
-        font-size: 60px;
+      .banner-title {
+        .field-prgf-headline {
+          font-size: 60px;
+          letter-spacing: -3px;
+        }
       }
-      .field-prgf-description {
-        font-size: 36px;
-        line-height: 36px;
-        letter-spacing: -0.9px;
+
+      .banner-description {
+        .field-prgf-description {
+          font-size: 36px;
+          line-height: 36px;
+          letter-spacing: -0.9px;
+        }
       }
       a.btn {
         font-size: 24px;
