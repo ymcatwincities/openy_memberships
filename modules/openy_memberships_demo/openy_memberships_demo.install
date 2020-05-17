@@ -1,0 +1,52 @@
+<?php
+
+/**
+ * Fill custom field with demo data.
+ */
+function openy_memberships_demo_update_8001() {
+  $products = \Drupal::service('entity_type.manager')->getStorage('commerce_product')->loadMultiple();
+  $data = [
+    'Family II' => [
+      0 => [
+        'target_id' => 132,
+        'quantity' => 2,
+        'ar_quantity' => 1,
+        'ar_target_id' => 2
+      ],
+      1 => [
+        'target_id' => 130,
+        'quantity' => 1,
+        'ar_quantity' => 1,
+        'ar_target_id' => 3
+      ],
+    ],
+    'Family I' => [
+      0 => [
+        'target_id' => 132,
+        'quantity' => 4,
+        'ar_quantity' => 4,
+        'ar_target_id' => 2
+      ],
+      1 => [
+        'target_id' => 130,
+        'quantity' => 2,
+        'ar_quantity' => 2,
+        'ar_target_id' => 3
+      ],
+    ],
+    'Adult' => [
+      0 => [
+        'target_id' => 132,
+        'quantity' => 2,
+        'ar_quantity' => 2,
+        'ar_target_id' => 2
+      ]
+    ]
+  ];
+  foreach ($products as $product) {
+    if (isset($data[$product->getTitle()])) {
+      $product->set('field_om_total_available', $data[$product->getTitle()]);
+      $product->save();
+    }
+  }
+}
