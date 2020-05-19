@@ -16,7 +16,7 @@ class DefaultContentImportSubscriber implements EventSubscriberInterface {
   }
 
   /**
-   * Creates default content after config synchronization.
+   * Fixes broken blocks after default content import.
    *
    * @param ImportEvent $event
    *   The config importer event.
