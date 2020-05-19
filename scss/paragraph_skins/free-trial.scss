@@ -61,8 +61,18 @@
     .form-type-select {
       margin: 0;
 
+      select {
+        border-radius: 5px;
+      }
+
       @media all and (min-width: 700px) {
         padding-top: 30px;
+      }
+
+      .select-wrapper {
+        &:before {
+          top: 13px;
+        }
       }
     }
 
@@ -74,6 +84,7 @@
         font-weight: normal !important;
         text-transform: uppercase;
         background-color: $dark-purple;
+        border-color: $dark-purple;
         color: white;
         margin-top: 30px;
         padding: 15px 30px;

@@ -58,7 +58,7 @@
     ],
     "vid": [
         {
-            "value": 558
+            "value": 562
         }
     ],
     "langcode": [
@@ -74,7 +74,7 @@
     ],
     "revision_timestamp": [
         {
-            "value": "2020-05-08T15:02:16+00:00",
+            "value": "2020-05-18T15:15:36+00:00",
             "format": "Y-m-d\\TH:i:sP"
         }
     ],
@@ -130,7 +130,7 @@
                     }
                 ],
                 "lang": "en",
-                "target_revision_id": "921"
+                "target_revision_id": "928"
             }
         ],
         "http:\/\/drupal.org\/rest\/relation\/node\/landing_page\/field_content": [
@@ -149,7 +149,7 @@
                     }
                 ],
                 "lang": "en",
-                "target_revision_id": "922"
+                "target_revision_id": "929"
             },
             {
                 "_links": {
@@ -229,7 +229,7 @@
     ],
     "changed": [
         {
-            "value": "2020-05-08T15:02:16+00:00",
+            "value": "2020-05-18T15:15:36+00:00",
             "lang": "en",
             "format": "Y-m-d\\TH:i:sP"
         }
@@ -261,7 +261,7 @@
     "metatag": [
         {
             "value": {
-                "title": "Membership Types | Site-Install",
+                "title": "Membership Types | OpenY",
                 "og_title": "Membership Types"
             }
         }

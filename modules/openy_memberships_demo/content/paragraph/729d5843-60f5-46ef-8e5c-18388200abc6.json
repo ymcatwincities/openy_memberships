@@ -4,33 +4,39 @@
             "href": ""
         },
         "type": {
-            "href": "http:\/\/drupal.org\/rest\/type\/paragraph\/membership_types_listing"
+            "href": "http:\/\/drupal.org\/rest\/type\/paragraph\/small_banner"
         },
-        "http:\/\/drupal.org\/rest\/relation\/paragraph\/membership_types_listing\/uid": [
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/small_banner\/uid": [
             {
                 "href": "http:\/\/default\/user\/1?_format=hal_json",
                 "lang": "en"
             }
         ],
-        "http:\/\/drupal.org\/rest\/relation\/paragraph\/membership_types_listing\/revision_uid": [
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/small_banner\/revision_uid": [
             {
                 "href": "http:\/\/default\/user\/1?_format=hal_json"
+            }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/small_banner\/field_prgf_color": [
+            {
+                "href": "http:\/\/default\/taxonomy\/term\/2?_format=hal_json",
+                "lang": "en"
             }
         ]
     },
     "id": [
         {
-            "value": 671
+            "value": 675
         }
     ],
     "uuid": [
         {
-            "value": "f496783a-a1fe-4bc8-b35f-37889e96d86b"
+            "value": "729d5843-60f5-46ef-8e5c-18388200abc6"
         }
     ],
     "revision_id": [
         {
-            "value": 919
+            "value": 926
         }
     ],
     "langcode": [
@@ -41,11 +47,11 @@
     ],
     "type": [
         {
-            "target_id": "membership_types_listing"
+            "target_id": "small_banner"
         }
     ],
     "_embedded": {
-        "http:\/\/drupal.org\/rest\/relation\/paragraph\/membership_types_listing\/uid": [
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/small_banner\/uid": [
             {
                 "_links": {
                     "self": {
@@ -63,7 +69,7 @@
                 "lang": "en"
             }
         ],
-        "http:\/\/drupal.org\/rest\/relation\/paragraph\/membership_types_listing\/revision_uid": [
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/small_banner\/revision_uid": [
             {
                 "_links": {
                     "self": {
@@ -79,6 +85,24 @@
                     }
                 ]
             }
+        ],
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/small_banner\/field_prgf_color": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/taxonomy\/term\/2?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/taxonomy_term\/color"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "5965bea7-92ab-440b-85e1-2ca326954782"
+                    }
+                ],
+                "lang": "en"
+            }
         ]
     },
     "status": [
@@ -89,14 +113,14 @@
     ],
     "created": [
         {
-            "value": "2020-05-06T09:38:33+00:00",
+            "value": "2020-05-18T12:24:47+00:00",
             "lang": "en",
             "format": "Y-m-d\\TH:i:sP"
         }
     ],
     "parent_id": [
         {
-            "value": "447"
+            "value": "451"
         }
     ],
     "parent_type": [
@@ -106,7 +130,7 @@
     ],
     "parent_field_name": [
         {
-            "value": "field_content"
+            "value": "field_header_content"
         }
     ],
     "behavior_settings": [
@@ -126,22 +150,10 @@
             "lang": "en"
         }
     ],
-    "skin": [
+    "field_prgf_headline": [
         {
-            "value": "openy-memberships-types-listing"
-        }
-    ],
-    "field_membership_types_listing": [
-        {
-            "plugin_id": "views_block:membership_types_listing-block_1",
-            "plugin_configuration": {
-                "id": "views_block:membership_types_listing-block_1",
-                "label": "",
-                "provider": "views",
-                "label_display": "0",
-                "views_label": "",
-                "items_per_page": "none"
-            }
+            "value": "Membership Builder",
+            "lang": "en"
         }
     ]
 }
