@@ -51,7 +51,7 @@ class DefaultContentImportSubscriber implements EventSubscriberInterface {
         $query->condition('entity_id', $paragraph->entity_id);
         $query->condition('revision_id', $paragraph->revision_id);
         $query->condition('langcode', $paragraph->langcode);
-        $res = $query->execute();
+        $query->execute();
       }
     }
   }

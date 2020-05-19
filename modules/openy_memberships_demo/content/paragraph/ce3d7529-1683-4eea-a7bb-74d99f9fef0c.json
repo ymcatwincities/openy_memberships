@@ -30,7 +30,7 @@
     ],
     "revision_id": [
         {
-            "value": 925
+            "value": 930
         }
     ],
     "langcode": [
@@ -124,6 +124,11 @@
         {
             "value": true,
             "lang": "en"
+        }
+    ],
+    "skin": [
+        {
+            "value": "openy-memberships-app"
         }
     ],
     "field_prgf_block": [
