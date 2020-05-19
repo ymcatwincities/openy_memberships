@@ -4,15 +4,15 @@
             "href": ""
         },
         "type": {
-            "href": "http:\/\/drupal.org\/rest\/type\/paragraph\/membership_types_listing"
+            "href": "http:\/\/drupal.org\/rest\/type\/paragraph\/memberships"
         },
-        "http:\/\/drupal.org\/rest\/relation\/paragraph\/membership_types_listing\/uid": [
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/memberships\/uid": [
             {
                 "href": "http:\/\/default\/user\/1?_format=hal_json",
                 "lang": "en"
             }
         ],
-        "http:\/\/drupal.org\/rest\/relation\/paragraph\/membership_types_listing\/revision_uid": [
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/memberships\/revision_uid": [
             {
                 "href": "http:\/\/default\/user\/1?_format=hal_json"
             }
@@ -20,17 +20,17 @@
     },
     "id": [
         {
-            "value": 671
+            "value": 674
         }
     ],
     "uuid": [
         {
-            "value": "f496783a-a1fe-4bc8-b35f-37889e96d86b"
+            "value": "ce3d7529-1683-4eea-a7bb-74d99f9fef0c"
         }
     ],
     "revision_id": [
         {
-            "value": 919
+            "value": 925
         }
     ],
     "langcode": [
@@ -41,11 +41,11 @@
     ],
     "type": [
         {
-            "target_id": "membership_types_listing"
+            "target_id": "memberships"
         }
     ],
     "_embedded": {
-        "http:\/\/drupal.org\/rest\/relation\/paragraph\/membership_types_listing\/uid": [
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/memberships\/uid": [
             {
                 "_links": {
                     "self": {
@@ -63,7 +63,7 @@
                 "lang": "en"
             }
         ],
-        "http:\/\/drupal.org\/rest\/relation\/paragraph\/membership_types_listing\/revision_uid": [
+        "http:\/\/drupal.org\/rest\/relation\/paragraph\/memberships\/revision_uid": [
             {
                 "_links": {
                     "self": {
@@ -89,14 +89,14 @@
     ],
     "created": [
         {
-            "value": "2020-05-06T09:38:33+00:00",
+            "value": "2020-05-18T12:22:10+00:00",
             "lang": "en",
             "format": "Y-m-d\\TH:i:sP"
         }
     ],
     "parent_id": [
         {
-            "value": "447"
+            "value": "451"
         }
     ],
     "parent_type": [
@@ -126,22 +126,16 @@
             "lang": "en"
         }
     ],
-    "skin": [
+    "field_prgf_block": [
         {
-            "value": "openy-memberships-types-listing"
-        }
-    ],
-    "field_membership_types_listing": [
-        {
-            "plugin_id": "views_block:membership_types_listing-block_1",
+            "plugin_id": "memberships_block",
             "plugin_configuration": {
-                "id": "views_block:membership_types_listing-block_1",
-                "label": "",
-                "provider": "views",
-                "label_display": "0",
-                "views_label": "",
-                "items_per_page": "none"
-            }
+                "id": "memberships_block",
+                "label": "Memberships Block",
+                "provider": "openy_memberships_front",
+                "label_display": 0
+            },
+            "lang": "en"
         }
     ]
 }
