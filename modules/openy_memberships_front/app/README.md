@@ -1,4 +1,4 @@
-# app3
+# Memberships Builder app, powered by Vue.js
 
 ## Project setup
 ```
