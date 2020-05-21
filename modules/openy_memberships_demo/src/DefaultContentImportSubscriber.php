@@ -2,12 +2,13 @@
 
 namespace Drupal\openy_memberships_demo;
 
+use Drupal\commerce_product\Entity\Product as CommerceProduct;
 use Drupal\default_content\Event\DefaultContentEvents;
 use Drupal\default_content\Event\ImportEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
- * Reacts to configuration events for the Default Content module.
+ * Reacts to import event for the Default Content module.
  */
 class DefaultContentImportSubscriber implements EventSubscriberInterface {
 
@@ -27,8 +28,13 @@ class DefaultContentImportSubscriber implements EventSubscriberInterface {
     }
 
     $this->fixBrokenBlocks();
+    $this->updateProducts();
   }
 
+  /**
+   * Select all paragraphs that have "broken" as plugin_id
+   * Update to correct plugin_id based on data array
+   */
   public function fixBrokenBlocks() {
     $tables = ['paragraph__field_prgf_block', 'paragraph_revision__field_prgf_block'];
 
@@ -38,7 +44,6 @@ class DefaultContentImportSubscriber implements EventSubscriberInterface {
       $query->fields('ptable');
       $query->condition('ptable.field_prgf_block_plugin_id', 'broken');
       $broken_paragraphs = $query->execute()->fetchAll();
-      $str = print_r($broken_paragraphs, true);
 
       // Update to correct plugin_id based on data array.
       foreach ($broken_paragraphs as $paragraph) {
@@ -52,6 +57,57 @@ class DefaultContentImportSubscriber implements EventSubscriberInterface {
         $query->condition('revision_id', $paragraph->revision_id);
         $query->condition('langcode', $paragraph->langcode);
         $query->execute();
+      }
+    }
+  }
+
+  /**
+   * Update field_om_total_available values for products
+   */
+  public function updateProducts() {
+    $products = CommerceProduct::loadMultiple();
+    $data = [
+      'Family II' => [
+        0 => [
+          'target_id' => 132,
+          'quantity' => 2,
+          'ar_quantity' => 1,
+          'ar_target_id' => 2
+        ],
+        1 => [
+          'target_id' => 130,
+          'quantity' => 1,
+          'ar_quantity' => 1,
+          'ar_target_id' => 3
+        ],
+      ],
+      'Family I' => [
+        0 => [
+          'target_id' => 132,
+          'quantity' => 4,
+          'ar_quantity' => 4,
+          'ar_target_id' => 2
+        ],
+        1 => [
+          'target_id' => 130,
+          'quantity' => 2,
+          'ar_quantity' => 2,
+          'ar_target_id' => 3
+        ],
+      ],
+      'Adult' => [
+        0 => [
+          'target_id' => 132,
+          'quantity' => 2,
+          'ar_quantity' => 2,
+          'ar_target_id' => 2
+        ]
+      ]
+    ];
+    foreach ($products as $product) {
+      if (isset($data[$product->getTitle()])) {
+        $product->set('field_om_total_available', $data[$product->getTitle()]);
+        $product->save();
       }
     }
   }
