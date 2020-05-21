@@ -2,12 +2,13 @@
 
 namespace Drupal\openy_memberships_demo;
 
+use Drupal\commerce_product\Entity\Product as CommerceProduct;
 use Drupal\default_content\Event\DefaultContentEvents;
 use Drupal\default_content\Event\ImportEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
 /**
- * Reacts to configuration events for the Default Content module.
+ * Reacts to import event for the Default Content module.
  */
 class DefaultContentImportSubscriber implements EventSubscriberInterface {
 
@@ -30,6 +31,10 @@ class DefaultContentImportSubscriber implements EventSubscriberInterface {
     $this->updateProducts();
   }
 
+  /**
+   * Select all paragraphs that have "broken" as plugin_id
+   * Update to correct plugin_id based on data array
+   */
   public function fixBrokenBlocks() {
     $tables = ['paragraph__field_prgf_block', 'paragraph_revision__field_prgf_block'];
 
@@ -56,8 +61,11 @@ class DefaultContentImportSubscriber implements EventSubscriberInterface {
     }
   }
 
+  /**
+   * Update field_om_total_available values for products
+   */
   public function updateProducts() {
-    $products = \Drupal::service('entity_type.manager')->getStorage('commerce_product')->loadMultiple();
+    $products = CommerceProduct::loadMultiple();
     $data = [
       'Family II' => [
         0 => [
