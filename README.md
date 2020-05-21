@@ -7,7 +7,8 @@ It includes landing pages and application for memberships builder.
 
 ## Requirements
 
-PHP 7.2+
+PHP 7.2+,
+
 Open Y 2.5+
 
 ## Installation
