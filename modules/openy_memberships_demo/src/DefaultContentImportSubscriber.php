@@ -27,6 +27,7 @@ class DefaultContentImportSubscriber implements EventSubscriberInterface {
     }
 
     $this->fixBrokenBlocks();
+    $this->updateProducts();
   }
 
   public function fixBrokenBlocks() {
@@ -38,7 +39,6 @@ class DefaultContentImportSubscriber implements EventSubscriberInterface {
       $query->fields('ptable');
       $query->condition('ptable.field_prgf_block_plugin_id', 'broken');
       $broken_paragraphs = $query->execute()->fetchAll();
-      $str = print_r($broken_paragraphs, true);
 
       // Update to correct plugin_id based on data array.
       foreach ($broken_paragraphs as $paragraph) {
@@ -52,6 +52,54 @@ class DefaultContentImportSubscriber implements EventSubscriberInterface {
         $query->condition('revision_id', $paragraph->revision_id);
         $query->condition('langcode', $paragraph->langcode);
         $query->execute();
+      }
+    }
+  }
+
+  public function updateProducts() {
+    $products = \Drupal::service('entity_type.manager')->getStorage('commerce_product')->loadMultiple();
+    $data = [
+      'Family II' => [
+        0 => [
+          'target_id' => 132,
+          'quantity' => 2,
+          'ar_quantity' => 1,
+          'ar_target_id' => 2
+        ],
+        1 => [
+          'target_id' => 130,
+          'quantity' => 1,
+          'ar_quantity' => 1,
+          'ar_target_id' => 3
+        ],
+      ],
+      'Family I' => [
+        0 => [
+          'target_id' => 132,
+          'quantity' => 4,
+          'ar_quantity' => 4,
+          'ar_target_id' => 2
+        ],
+        1 => [
+          'target_id' => 130,
+          'quantity' => 2,
+          'ar_quantity' => 2,
+          'ar_target_id' => 3
+        ],
+      ],
+      'Adult' => [
+        0 => [
+          'target_id' => 132,
+          'quantity' => 2,
+          'ar_quantity' => 2,
+          'ar_target_id' => 2
+        ]
+      ]
+    ];
+    foreach ($products as $product) {
+      if (isset($data[$product->getTitle()])) {
+        $product->set('field_om_total_available', $data[$product->getTitle()]);
+        $product->save();
       }
     }
   }
