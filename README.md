@@ -1,6 +1,4 @@
-# openy_memberships
-
-Membership Framework for OpenY and Drupal.
+# Memberships Builder framework for OpenY.
 
 ## Description
 
