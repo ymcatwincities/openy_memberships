@@ -56,6 +56,11 @@ class OpenyMemberships extends ControllerBase {
   protected $currentUser;
 
   /**
+   * @var \Drupal\Core\Config\ImmutableConfig
+   */
+  protected $siteConfig;
+
+  /**
    * Constructs a new Memberships object.
    *
    * @param \Drupal\Core\Entity\Query\QueryFactory $entity_query
@@ -79,6 +84,7 @@ class OpenyMemberships extends ControllerBase {
     $this->configFactory = $config_factory;
     $this->cartProvider = $cart_provider;
     $this->currentUser = $current_user;
+    $this->siteConfig = $this->configFactory->get('system.site');
   }
 
   /**
@@ -354,7 +360,7 @@ class OpenyMemberships extends ControllerBase {
       'body' => [
         '#content' => [
           'logo_url' => drupal_get_path('module', 'openy_repeat') . '/img/ymca_logo_black.png',
-          'site_name' => \Drupal::config('system.site')->get('name'),
+          'site_name' => $this->siteConfig->get('name'),
           'result' => $this->getSummaryData($order_uuid),
         ],
         '#theme' => 'openy_memberships__pdf__summary',
@@ -493,14 +499,14 @@ class OpenyMemberships extends ControllerBase {
     $user_email = $order->get('mail')->getValue()[0]['value'];
 
     $to = implode(', ', [$store->getEmail(), $user_email]);
-    $from = \Drupal::config('system.site')->get('mail');
+    $from = $this->siteConfig->get('mail');
     $langcode = \Drupal::currentUser()->getPreferredLangcode();
     $subject = $this->t('Your Membership!');
 
     $body = [
       '#content' => [
         'logo_url' => drupal_get_path('module', 'openy_repeat') . '/img/ymca_logo_black.png',
-        'site_name' => \Drupal::config('system.site')->get('name'),
+        'site_name' => $this->siteConfig->get('name'),
         'result' => $this->getSummaryData($order_uuid),
       ],
       '#theme' => 'openy_memberships__pdf__summary',
