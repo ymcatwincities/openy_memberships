@@ -15,7 +15,7 @@ Open Y 2.5+
 
 You can install this module with help of composer. Please, use this command:
 
-`composer require ymcatwincities/openy_memberships`
+`composer require openy/openy_memberships`
 
 We strongly recomment to user composer, because OpenY Membership project requires a lot of dependencies.
 
