@@ -1,0 +1,35 @@
+.ps-sidebar_menu-openy-memberships-sidebar-menu {
+  margin-top: 10px; }
+  .ps-sidebar_menu-openy-memberships-sidebar-menu ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    list-style-type: none;
+    padding: 0;
+    margin: 0; }
+    .ps-sidebar_menu-openy-memberships-sidebar-menu ul li {
+      width: 49%;
+      border-top: 1px solid #636466;
+      padding: 15px 15px 15px 0; }
+      .ps-sidebar_menu-openy-memberships-sidebar-menu ul li a {
+        font-family: Verdana, Geneva, sans-serif;
+        font-size: 12px;
+        line-height: 18px;
+        font-weight: bold !important;
+        color: white; }
+  @media all and (min-width: 600px) {
+    .ps-sidebar_menu-openy-memberships-sidebar-menu {
+      margin-top: 20px; } }
+  @media all and (min-width: 1060px) {
+    .ps-sidebar_menu-openy-memberships-sidebar-menu {
+      margin-top: 30px; }
+      .ps-sidebar_menu-openy-memberships-sidebar-menu ul {
+        display: initial; }
+        .ps-sidebar_menu-openy-memberships-sidebar-menu ul li {
+          width: initial; }
+          .ps-sidebar_menu-openy-memberships-sidebar-menu ul li a {
+            font-size: 14px;
+            line-height: 21px;
+            color: #0060af; }
+            .ps-sidebar_menu-openy-memberships-sidebar-menu ul li a:hover {
+              color: #007ce2; } }

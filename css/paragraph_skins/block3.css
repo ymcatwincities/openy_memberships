@@ -1,0 +1,92 @@
+.ps-block_container-openy-memberships-block3 .wrapper-field-block-ref {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-top: 20px;
+  margin: 0;
+  color: #231f20; }
+  @media all and (min-width: 600px) {
+    .ps-block_container-openy-memberships-block3 .wrapper-field-block-ref {
+      justify-content: space-between; } }
+  .ps-block_container-openy-memberships-block3 .wrapper-field-block-ref .field-block-ref {
+    border-left: solid 1px #636466;
+    border-right: solid 1px #636466;
+    border-top: solid 5px #92278f;
+    margin-bottom: 10px;
+    width: 350px;
+    display: flex;
+    flex-direction: column; }
+    .ps-block_container-openy-memberships-block3 .wrapper-field-block-ref .field-block-ref .field-fc-image {
+      width: 100%;
+      padding-right: 2px; }
+      .ps-block_container-openy-memberships-block3 .wrapper-field-block-ref .field-block-ref .field-fc-image > div {
+        height: 170px;
+        max-width: initial;
+        max-height: initial;
+        background-position: center;
+        background-size: cover; }
+    .ps-block_container-openy-memberships-block3 .wrapper-field-block-ref .field-block-ref .field-fc-title {
+      font-family: "Cachet", Verdana, Geneva, sans-serif;
+      font-size: 18px;
+      line-height: 27px;
+      padding: 5px; }
+    .ps-block_container-openy-memberships-block3 .wrapper-field-block-ref .field-block-ref .field-fc-body {
+      font-family: Verdana, Geneva, sans-serif;
+      font-size: 12px;
+      line-height: 18px;
+      padding: 0 5px 5px; }
+    .ps-block_container-openy-memberships-block3 .wrapper-field-block-ref .field-block-ref div:last-of-type, .ps-block_container-openy-memberships-block3 .wrapper-field-block-ref .field-block-ref .field-fc-link {
+      margin-top: auto;
+      margin-left: -1px;
+      margin-right: -1px;
+      text-align: center; }
+      .ps-block_container-openy-memberships-block3 .wrapper-field-block-ref .field-block-ref div:last-of-type a, .ps-block_container-openy-memberships-block3 .wrapper-field-block-ref .field-block-ref .field-fc-link a {
+        margin: 0;
+        font-family: "Cachet", Verdana, Geneva, sans-serif;
+        font-size: 14px;
+        line-height: 21px;
+        display: block;
+        background-color: #0060af;
+        padding: 11px;
+        color: white;
+        text-transform: uppercase;
+        border-radius: 0; }
+  @media all and (min-width: 600px) {
+    .ps-block_container-openy-memberships-block3 .wrapper-field-block-ref {
+      margin-right: -20px; }
+      .ps-block_container-openy-memberships-block3 .wrapper-field-block-ref .field-block-ref {
+        width: 220px;
+        margin-bottom: 20px;
+        margin-right: 20px; }
+        .ps-block_container-openy-memberships-block3 .wrapper-field-block-ref .field-block-ref .field-fc-image {
+          width: 220px; }
+          .ps-block_container-openy-memberships-block3 .wrapper-field-block-ref .field-block-ref .field-fc-image > div {
+            height: 110px; } }
+  @media all and (min-width: 1060px) {
+    .ps-block_container-openy-memberships-block3 .wrapper-field-block-ref {
+      justify-content: flex-start; } }
+  @media all and (min-width: 1200px) {
+    .ps-block_container-openy-memberships-block3 .wrapper-field-block-ref {
+      justify-content: space-between;
+      margin-right: -30px; }
+      .ps-block_container-openy-memberships-block3 .wrapper-field-block-ref .field-block-ref {
+        width: 350px;
+        margin-bottom: 30px;
+        margin-right: 30px; }
+        .ps-block_container-openy-memberships-block3 .wrapper-field-block-ref .field-block-ref .field-fc-image {
+          width: 350px; }
+          .ps-block_container-openy-memberships-block3 .wrapper-field-block-ref .field-block-ref .field-fc-image > div {
+            height: 170px; }
+        .ps-block_container-openy-memberships-block3 .wrapper-field-block-ref .field-block-ref .field-fc-title {
+          font-size: 24px;
+          line-height: 36px;
+          padding: 15px; }
+        .ps-block_container-openy-memberships-block3 .wrapper-field-block-ref .field-block-ref .field-fc-body {
+          font-size: 14px;
+          line-height: 21px;
+          padding: 0 15px 15px; }
+        .ps-block_container-openy-memberships-block3 .wrapper-field-block-ref .field-block-ref div:last-of-type a.btn {
+          font-size: 18px;
+          line-height: 27px;
+          padding: 14px;
+          color: white; } }

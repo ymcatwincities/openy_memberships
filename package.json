@@ -8,7 +8,6 @@
     "node-sass": "^4.13.1"
   },
   "scripts": {
-    "scss": "node-sass --watch scss -o css",
-    "scss-build": "node-sass scss -o css"
+    "scss": "node-sass --watch scss -o css"
   }
 }
