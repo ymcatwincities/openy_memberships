@@ -13,12 +13,12 @@ Open Y 2.5+
 
 ## Installation
 
-You could install this module with help of composer. Please, use this command:
+You can install this module with help of composer. Please, use this command:
 
 `composer require ymcatwincities/openy_memberships`
 
-We are strongly recomment to user composer, bc this project require a lot of dependencies.
+We strongly recomment to user composer, because OpenY Membership project requires a lot of dependencies.
 
-Once you will enable this module, you will have predefined demo content and configuration installed.
+Once you enable this module, you will have predefined demo content and configuration installed.
 If you open /membership-types page, you will see predefined content and links to memberships builder application.
 
