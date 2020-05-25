@@ -8,8 +8,6 @@ dependencies:
     - field.field.profile.family_members.field_om_health_insurance
     - field.field.profile.family_members.field_om_military_service
     - profile.type.family_members
-_core:
-  default_config_hash: nfSJHZcAf12tiq10WSf1wzgy1mwVVyn0sy2uPT-IPlQ
 id: profile.family_members.default
 targetEntityType: profile
 bundle: family_members
