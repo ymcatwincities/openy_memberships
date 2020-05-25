@@ -16,6 +16,13 @@
             "url": "https://packages.drupal.org/8"
         }
     },
+    "extra": {
+        "patches": {
+            "drupal/default_content" : {
+                "2698425 - Do not reimport existing entities": "https://www.drupal.org/files/issues/2020-02-05/2698425--accept-content-updates--122.patch"
+            }
+        }
+    },
     "require": {
         "drupal/default_content": "^1.0@alpha",
         "drupal/commerce": "2.16",
