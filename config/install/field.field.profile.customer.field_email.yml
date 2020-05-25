@@ -16,7 +16,7 @@ field_name: field_email
 entity_type: profile
 bundle: customer
 label: Email
-description: ''
+description: 'Customer email'
 required: false
 translatable: false
 default_value: {  }
