@@ -5,6 +5,7 @@ namespace Drupal\openy_memberships\Controller;
 use Drupal\commerce_price\Price;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Entity\Query\QueryFactory;
+use Drupal\Core\Render\RendererInterface;
 use Drupal\taxonomy\Entity\Term;
 use Symfony\Component\HttpFoundation\Request;
 use Drupal\Core\Config\ConfigFactoryInterface;
@@ -61,6 +62,11 @@ class OpenyMemberships extends ControllerBase {
   protected $siteConfig;
 
   /**
+   * @var \Drupal\Core\Render\RendererInterface
+   */
+  protected $renderer;
+
+  /**
    * Constructs a new Memberships object.
    *
    * @param \Drupal\Core\Entity\Query\QueryFactory $entity_query
@@ -71,13 +77,16 @@ class OpenyMemberships extends ControllerBase {
    *   The config factory.
    * @param \Drupal\commerce_cart\CartProviderInterface $cart_provider
    *   The cart provider.
+   * @param \Drupal\Core\Session\AccountProxyInterface $current_user
+   * @param \Drupal\Core\Render\RendererInterface $renderer
    */
   public function __construct(
       QueryFactory $entity_query,
       EntityTypeManagerInterface $entity_type_manager,
       ConfigFactoryInterface $config_factory,
       CartProviderInterface $cart_provider,
-      AccountProxyInterface $current_user
+      AccountProxyInterface $current_user,
+      RendererInterface $renderer
     ) {
     $this->entityQuery = $entity_query;
     $this->entityTypeManager = $entity_type_manager;
@@ -85,6 +94,7 @@ class OpenyMemberships extends ControllerBase {
     $this->cartProvider = $cart_provider;
     $this->currentUser = $current_user;
     $this->siteConfig = $this->configFactory->get('system.site');
+    $this->renderer = $renderer;
   }
 
   /**
@@ -96,7 +106,8 @@ class OpenyMemberships extends ControllerBase {
       $container->get('entity_type.manager'),
       $container->get('config.factory'),
       $container->get('commerce_cart.cart_provider'),
-      $container->get('current_user')
+      $container->get('current_user'),
+      $container->get('renderer')
     );
   }
 
@@ -511,8 +522,7 @@ class OpenyMemberships extends ControllerBase {
       ],
       '#theme' => 'openy_memberships__pdf__summary',
     ];
-    $renderer = \Drupal::service('renderer');
-    $body = $renderer->renderRoot($body);
+    $body = $this->renderer->renderRoot($body);
 
     $params = array(
       'subject' => $subject,
