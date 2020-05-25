@@ -11,7 +11,7 @@ field_name: address
 entity_type: profile
 bundle: customer
 label: Address
-description: ''
+description: 'Customer address'
 required: true
 translatable: false
 default_value: {  }
