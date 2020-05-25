@@ -14,8 +14,6 @@ dependencies:
     - paragraphs
     - path
     - text
-_core:
-  default_config_hash: ylN4OWtoKvphGuO8BcTYRvk00z527B7sHUuEp5eQ2MA
 id: commerce_product.membership.default
 targetEntityType: commerce_product
 bundle: membership
@@ -29,7 +27,7 @@ content:
     third_party_settings: {  }
   field_content:
     type: entity_reference_paragraphs
-    weight: 15
+    weight: 11
     settings:
       title: Paragraph
       title_plural: Paragraphs
@@ -58,7 +56,7 @@ content:
     type: entity_reference_autocomplete
     region: content
   field_om_total_available:
-    weight: 13
+    weight: 9
     settings:
       match_operator: CONTAINS
       match_limit: 10
@@ -67,6 +65,12 @@ content:
     third_party_settings: {  }
     type: openy_memberships_multi_item_autocomplete
     region: content
+  field_product_branch:
+    type: options_select
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   langcode:
     type: language_select
     weight: 3
@@ -116,5 +120,4 @@ content:
       placeholder: ''
     third_party_settings: {  }
 hidden:
-  field_product_branch: true
   variations: true
