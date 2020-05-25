@@ -22,3 +22,10 @@ We strongly recomment to user composer, because OpenY Membership project require
 Once you enable this module, you will have predefined demo content and configuration installed.
 If you open /membership-types page, you will see predefined content and links to memberships builder application.
 
+You need to build styles using this commands
+
+`cd modules/openy_memberships_front/app`
+`npm install`
+`cd ../../..`
+`npm install`
+`npm run scss-build`

@@ -1,2 +1,6 @@
 .idea
 node_modules
+css
+
+composer.lock
+package-lock.json
