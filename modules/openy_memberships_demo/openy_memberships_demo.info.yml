@@ -4,8 +4,5 @@ type: module
 core: 8.x
 dependencies:
   - openy_memberships
-  - openy_block_modal
-  - paragraph_skins
-  - openy_prgf_sidebar_menu
   - default_content
 core_incompatible: false
