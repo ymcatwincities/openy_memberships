@@ -500,7 +500,7 @@ class OpenyMemberships extends ControllerBase {
 
     $to = implode(', ', [$store->getEmail(), $user_email]);
     $from = $this->siteConfig->get('mail');
-    $langcode = \Drupal::currentUser()->getPreferredLangcode();
+    $langcode = $this->currentUser->getPreferredLangcode();
     $subject = $this->t('Your Membership!');
 
     $body = [
