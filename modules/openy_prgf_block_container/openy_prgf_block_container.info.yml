@@ -8,4 +8,5 @@ dependencies:
   - openy_prgf
   - paragraphs
   - plugin
+  - openy_block_modal
 core_incompatible: false
