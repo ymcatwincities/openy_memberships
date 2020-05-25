@@ -12,8 +12,6 @@ dependencies:
       - commerce_order
   module:
     - address
-_core:
-  default_config_hash: 3LyHGK7R4HxqejbxONet1S9j9ekqLJuFpwT-MNJygvo
 id: profile.customer.default
 targetEntityType: profile
 bundle: customer

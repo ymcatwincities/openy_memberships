@@ -16,7 +16,7 @@ field_name: field_phone
 entity_type: profile
 bundle: customer
 label: Phone
-description: ''
+description: 'Customer phone'
 required: false
 translatable: false
 default_value: {  }

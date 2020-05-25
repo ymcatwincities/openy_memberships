@@ -9,8 +9,6 @@ dependencies:
   module:
     - commerce_price
     - text
-_core:
-  default_config_hash: QjwmYLbwaoTikYrlAB6fmVObYBzTk-BEeIqnUxWK2Wk
 id: commerce_product_variation.membership.default
 targetEntityType: commerce_product_variation
 bundle: membership
