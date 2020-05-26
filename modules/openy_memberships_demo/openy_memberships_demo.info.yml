@@ -1,8 +1,0 @@
-name: 'Open Y Memberships Demo'
-description: Provides demo content for Open Y Memberships.
-type: module
-core: 8.x
-dependencies:
-  - openy_memberships
-  - default_content
-core_incompatible: false

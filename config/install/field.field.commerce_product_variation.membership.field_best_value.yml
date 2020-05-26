@@ -15,7 +15,7 @@ field_name: field_best_value
 entity_type: commerce_product_variation
 bundle: membership
 label: 'Best Value'
-description: ''
+description: 'Visually highlight product variation with Best Value badge'
 required: false
 translatable: false
 default_value:

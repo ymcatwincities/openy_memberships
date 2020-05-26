@@ -1,5 +1,0 @@
-services:
-  openy_memberships_demo.default_content_import_subscriber:
-    class: Drupal\openy_memberships_demo\DefaultContentImportSubscriber
-    arguments: []
-    tags: [{ name: event_subscriber }]

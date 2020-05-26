@@ -15,7 +15,7 @@ field_name: field_age
 entity_type: profile
 bundle: family_members
 label: Age
-description: ''
+description: 'Family members age'
 required: false
 translatable: false
 default_value: {  }

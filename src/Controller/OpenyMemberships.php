@@ -5,6 +5,9 @@ namespace Drupal\openy_memberships\Controller;
 use Drupal\commerce_price\Price;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Entity\Query\QueryFactory;
+use Drupal\Core\Mail\MailManagerInterface;
+use Drupal\Core\Render\RendererInterface;
+use Drupal\openy_memberships\OmPDFGenerator;
 use Drupal\taxonomy\Entity\Term;
 use Symfony\Component\HttpFoundation\Request;
 use Drupal\Core\Config\ConfigFactoryInterface;
@@ -56,6 +59,26 @@ class OpenyMemberships extends ControllerBase {
   protected $currentUser;
 
   /**
+   * @var \Drupal\Core\Config\ImmutableConfig
+   */
+  protected $siteConfig;
+
+  /**
+   * @var \Drupal\Core\Render\RendererInterface
+   */
+  protected $renderer;
+
+  /**
+   * @var \Drupal\Core\Mail\MailManagerInterface
+   */
+  protected $mailManager;
+
+  /**
+   * @var \Drupal\openy_memberships\OmPDFGenerator
+   */
+  protected $pdfGenerator;
+
+  /**
    * Constructs a new Memberships object.
    *
    * @param \Drupal\Core\Entity\Query\QueryFactory $entity_query
@@ -66,19 +89,30 @@ class OpenyMemberships extends ControllerBase {
    *   The config factory.
    * @param \Drupal\commerce_cart\CartProviderInterface $cart_provider
    *   The cart provider.
+   * @param \Drupal\Core\Session\AccountProxyInterface $current_user
+   * @param \Drupal\Core\Render\RendererInterface $renderer
+   * @param \Drupal\Core\Mail\MailManagerInterface $mail_manager
+   * @param \Drupal\openy_memberships\OmPDFGenerator $pdf_generator
    */
   public function __construct(
       QueryFactory $entity_query,
       EntityTypeManagerInterface $entity_type_manager,
       ConfigFactoryInterface $config_factory,
       CartProviderInterface $cart_provider,
-      AccountProxyInterface $current_user
+      AccountProxyInterface $current_user,
+      RendererInterface $renderer,
+      MailManagerInterface $mail_manager,
+      OmPDFGenerator $pdf_generator
     ) {
     $this->entityQuery = $entity_query;
     $this->entityTypeManager = $entity_type_manager;
     $this->configFactory = $config_factory;
     $this->cartProvider = $cart_provider;
     $this->currentUser = $current_user;
+    $this->siteConfig = $this->configFactory->get('system.site');
+    $this->renderer = $renderer;
+    $this->mailManager = $mail_manager;
+    $this->pdfGenerator = $pdf_generator;
   }
 
   /**
@@ -90,7 +124,10 @@ class OpenyMemberships extends ControllerBase {
       $container->get('entity_type.manager'),
       $container->get('config.factory'),
       $container->get('commerce_cart.cart_provider'),
-      $container->get('current_user')
+      $container->get('current_user'),
+      $container->get('renderer'),
+      $container->get('plugin.manager.mail'),
+      $container->get('openy_memberships_pdf_generator')
     );
   }
 
@@ -354,7 +391,7 @@ class OpenyMemberships extends ControllerBase {
       'body' => [
         '#content' => [
           'logo_url' => drupal_get_path('module', 'openy_repeat') . '/img/ymca_logo_black.png',
-          'site_name' => \Drupal::config('system.site')->get('name'),
+          'site_name' => $this->siteConfig->get('name'),
           'result' => $this->getSummaryData($order_uuid),
         ],
         '#theme' => 'openy_memberships__pdf__summary',
@@ -367,7 +404,7 @@ class OpenyMemberships extends ControllerBase {
         'max-age' => 0,
       ],
     ];
-    \Drupal::service('openy_memberships_pdf_generator')->generatePDF($settings);
+    $this->pdfGenerator->generatePDF($settings);
   }
 
   /**
@@ -493,27 +530,26 @@ class OpenyMemberships extends ControllerBase {
     $user_email = $order->get('mail')->getValue()[0]['value'];
 
     $to = implode(', ', [$store->getEmail(), $user_email]);
-    $from = \Drupal::config('system.site')->get('mail');
-    $langcode = \Drupal::currentUser()->getPreferredLangcode();
+    $from = $this->siteConfig->get('mail');
+    $langcode = $this->currentUser->getPreferredLangcode();
     $subject = $this->t('Your Membership!');
 
     $body = [
       '#content' => [
         'logo_url' => drupal_get_path('module', 'openy_repeat') . '/img/ymca_logo_black.png',
-        'site_name' => \Drupal::config('system.site')->get('name'),
+        'site_name' => $this->siteConfig->get('name'),
         'result' => $this->getSummaryData($order_uuid),
       ],
       '#theme' => 'openy_memberships__pdf__summary',
     ];
-    $renderer = \Drupal::service('renderer');
-    $body = $renderer->renderRoot($body);
+    $body = $this->renderer->renderRoot($body);
 
     $params = array(
       'subject' => $subject,
       'message' => $body,
     );
 
-    $result = \Drupal::service('plugin.manager.mail')->mail('openy_memberships', 'openy_memberships_summary_email', $to, $langcode, $params, $from, TRUE);
+    $result = $this->mailManager->mail('openy_memberships', 'openy_memberships_summary_email', $to, $langcode, $params, $from, TRUE);
 
     return new JsonResponse(['status' => $result['result']]);
   }
