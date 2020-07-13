@@ -123,6 +123,7 @@ export default {
       })
       .then((json) => {
         return Cart.sendSummaryEmails(json[0].uuid).then(() => {
+          return json;
         })
       })
       .then((json) => {
