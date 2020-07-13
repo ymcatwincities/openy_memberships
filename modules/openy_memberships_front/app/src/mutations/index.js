@@ -40,6 +40,7 @@ export default {
       youth: 0,
       seniors: 0
     }
+    state.familyTotalCount = 0
     state.location = null
     // state.product = null
     state.keepCart = false

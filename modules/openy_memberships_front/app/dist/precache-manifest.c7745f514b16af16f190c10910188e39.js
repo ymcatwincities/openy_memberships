@@ -4,7 +4,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/assets/css/chunk-vendors.css"
   },
   {
-    "revision": "bd6186b8a3f44d5160cc",
+    "revision": "7e4248c479154837228b",
     "url": "/assets/js/app.js"
   },
   {
