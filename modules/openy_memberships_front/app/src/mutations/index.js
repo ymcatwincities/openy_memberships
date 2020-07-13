@@ -10,6 +10,12 @@ export default {
   },
   setFamily(state, family) {
     state.family[family.key].count = family.value
+
+    let totalCount = 0;
+    Object.keys(state.family).forEach(element => {
+      totalCount = totalCount + state.family[element].count;
+    });
+    state.familyTotalCount = totalCount;
   },
   setFamilyTerm(state, family) {
     if(!state.family[family.key] || !state.family[family.key].count ) {

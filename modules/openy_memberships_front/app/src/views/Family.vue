@@ -17,7 +17,7 @@
         </div>
       </div>
     </div>
-    <div class="navigation" v-if="totalCount">
+    <div class="navigation" v-if="totalCount > 0">
       <div class="container">
         <button class="btn btn-next" @click="$emit('go-next')">Next</button>
       </div>
@@ -45,7 +45,7 @@ export default {
       })
       Object.keys(this.$store.state.family).forEach((key) => {
         if (!leave_items[key]) {
-          this.$store.commit('deleteFamilyKey', key); 
+          this.$store.commit('deleteFamilyKey', key);
         }
       })
       this.isLoading = false;
@@ -55,11 +55,7 @@ export default {
   },
   computed: {
     totalCount() {
-      let count = 0;
-      Object.keys(this.$store.state.family).forEach(element => {
-        count = count + this.$store.state.family[element]
-      });
-      return count;
+      return this.$store.state.familyTotalCount;
     },
     family() {
       return this.$store.state.family;
