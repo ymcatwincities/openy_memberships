@@ -292,6 +292,7 @@ class OpenyMemberships extends ControllerBase {
     if ($branch) {
       $orGroup->condition('field_product_branch', $branch->id());
     }
+    $query->condition($orGroup);
     $ids = $query->execute();
     $products = [];
     foreach ($ids as $id) {
