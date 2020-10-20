@@ -19,9 +19,9 @@
     "require": {
         "drupal/commerce": "~2.17",
         "openy/commerce_addon": "dev-8.x-1.x",
-        "openy/openy_prgf_sidebar_menu": "dev-master",
-        "openy/openy_block_modal": "dev-master",
-        "openy/paragraph_skins": "dev-master",
+        "openy/openy_prgf_sidebar_menu": "9.x-dev",
+        "openy/openy_block_modal": "9.x-dev",
+        "openy/paragraph_skins": "9.x-dev",
         "openy/commerce_cart_api": "dev-8.x-1.x",
         "drupal/swiftmailer": "~2.0@beta",
         "drupal/mailsystem": "~4.3"
