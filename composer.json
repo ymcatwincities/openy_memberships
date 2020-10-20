@@ -17,13 +17,21 @@
         }
     },
     "require": {
-        "drupal/commerce": "2.16",
-        "drupal/commerce_addon": "^1.0@alpha",
+        "drupal/commerce": "~2.17",
+        "drupal/commerce_addon": "~1.0@alpha",
         "openy/openy_prgf_sidebar_menu": "dev-master",
         "openy/openy_block_modal": "dev-master",
         "openy/paragraph_skins": "dev-master",
-        "drupal/commerce_cart_api": "1.x-dev",
-        "drupal/swiftmailer": "^2.0",
-        "drupal/mailsystem": "^4.3"
-    }
+        "drupal/commerce_cart_api": "~1.x-dev",
+        "drupal/swiftmailer": "~2.0@beta",
+        "drupal/mailsystem": "~4.3"
+    },
+    "extra": {
+        "patches": {
+            "drupal/commerce_cart_api": {
+                "Support Drupal 9": "https://www.drupal.org/files/issues/2020-10-15/3176972--support-D9-2.patch"
+            }
+        },
+        "enable-patching": true
+    },
 }
