@@ -28,7 +28,7 @@
     },
     "extra": {
         "patches": {
-            "drupal/commerce_cart_api": {
+            "openy/commerce_cart_api": {
                 "Support Drupal 9": "https://www.drupal.org/files/issues/2020-10-15/3176972--support-D9-2.patch"
             }
         },
