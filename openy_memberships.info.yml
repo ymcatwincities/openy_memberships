@@ -1,7 +1,7 @@
 name: 'Open Y Memberships'
 description: 'Provides the functionality of Open Y Memberships.'
 type: module
-core: 8.x
+core_version_requirement: ^8 || ^9
 dependencies:
   - address
   - commerce
