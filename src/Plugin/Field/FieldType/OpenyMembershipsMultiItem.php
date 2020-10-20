@@ -70,11 +70,11 @@ class OpenyMembershipsMultiItem extends EntityReferenceItem {
 
     $settings = $field_definition->getSettings();
 
-    $ar_target_type_info = \Drupal::entityManager()->getDefinition($settings['ar_target_type']);
+    $ar_target_type_info = \Drupal::service('entity_type.manager')->getDefinition($settings['ar_target_type']);
 
     $ar_target_id_data_type = 'string';
     if ($ar_target_type_info->entityClassImplements(FieldableEntityInterface::class)) {
-      $id_definition = \Drupal::entityManager()->getBaseFieldDefinitions($settings['ar_target_type'])[$ar_target_type_info->getKey('id')];
+      $id_definition = \Drupal::service('entity_field.manager')->getBaseFieldDefinitions($settings['ar_target_type'])[$ar_target_type_info->getKey('id')];
       if ($id_definition->getType() === 'integer') {
         $ar_target_id_data_type = 'integer';
       }
@@ -110,7 +110,7 @@ class OpenyMembershipsMultiItem extends EntityReferenceItem {
     $schema = parent::schema($field_definition);
 
     $ar_target_type = $field_definition->getSetting('ar_target_type');
-    $ar_target_type_info = \Drupal::entityManager()->getDefinition($ar_target_type);
+    $ar_target_type_info = \Drupal::service('entity_type.manager')->getDefinition($ar_target_type);
     $properties = static::propertyDefinitions($field_definition)['ar_target_id'];
 
     $schema['columns']['quantity'] = array(
