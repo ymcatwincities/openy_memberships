@@ -4,7 +4,6 @@ namespace Drupal\openy_memberships\Controller;
 
 use Drupal\commerce_price\Price;
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\Core\Entity\Query\QueryFactory;
 use Drupal\Core\Mail\MailManagerInterface;
 use Drupal\Core\Render\RendererInterface;
 use Drupal\openy_memberships\OmPDFGenerator;
@@ -25,12 +24,6 @@ use Drupal\node\Entity\Node;
  */
 class OpenyMemberships extends ControllerBase {
 
-  /**
-   * The entity query factory.
-   *
-   * @var \Drupal\Core\Entity\Query\QueryFactory
-   */
-  protected $entityQuery;
 
   /**
    * The entityTypeManager.
@@ -81,8 +74,6 @@ class OpenyMemberships extends ControllerBase {
   /**
    * Constructs a new Memberships object.
    *
-   * @param \Drupal\Core\Entity\Query\QueryFactory $entity_query
-   *   Query Factory service.
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
    *   The entity type manager.
    * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
@@ -95,7 +86,6 @@ class OpenyMemberships extends ControllerBase {
    * @param \Drupal\openy_memberships\OmPDFGenerator $pdf_generator
    */
   public function __construct(
-      QueryFactory $entity_query,
       EntityTypeManagerInterface $entity_type_manager,
       ConfigFactoryInterface $config_factory,
       CartProviderInterface $cart_provider,
@@ -104,7 +94,6 @@ class OpenyMemberships extends ControllerBase {
       MailManagerInterface $mail_manager,
       OmPDFGenerator $pdf_generator
     ) {
-    $this->entityQuery = $entity_query;
     $this->entityTypeManager = $entity_type_manager;
     $this->configFactory = $config_factory;
     $this->cartProvider = $cart_provider;
@@ -120,7 +109,6 @@ class OpenyMemberships extends ControllerBase {
    */
   public static function create(ContainerInterface $container) {
     return new static(
-      $container->get('entity.query'),
       $container->get('entity_type.manager'),
       $container->get('config.factory'),
       $container->get('commerce_cart.cart_provider'),
@@ -136,8 +124,8 @@ class OpenyMemberships extends ControllerBase {
    */
   public function getAgesGroupsInfo(Request $request) {
     $data = [];
-    $tids = $this->entityQuery
-      ->get('taxonomy_term')
+    $tids = $this->entityTypeManager->getStorage('taxonomy_term')
+      ->getQuery()
       ->condition('vid', 'memberships_ages_groups')
       ->condition('status', 1)
       ->sort('weight', 'ASC')
