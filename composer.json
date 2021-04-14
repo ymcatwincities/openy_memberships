@@ -17,13 +17,24 @@
         }
     },
     "require": {
-        "drupal/commerce": "2.16",
-        "drupal/commerce_addon": "^1.0@alpha",
-        "openy/openy_prgf_sidebar_menu": "dev-master",
-        "openy/openy_block_modal": "dev-master",
+        "drupal/commerce": "~2.17",
+        "openy/commerce_addon": "dev-8.x-1.x",
+        "openy/openy_prgf_sidebar_menu": "9.x-dev",
+        "openy/openy_block_modal": "9.x-dev",
         "drupal/paragraph_skins": "^2.0",
-        "drupal/commerce_cart_api": "1.x-dev",
-        "drupal/swiftmailer": "^2.0",
-        "drupal/mailsystem": "^4.3"
+        "openy/commerce_cart_api": "dev-8.x-1.x",
+        "drupal/swiftmailer": "~2.0@beta",
+        "drupal/mailsystem": "~4.3"
+    },
+    "extra": {
+        "patches": {
+            "openy/commerce_cart_api": {
+                "Support Drupal 9 - issue 3176972": "https://www.drupal.org/files/issues/2020-10-21/3176972-4.patch"
+            },
+            "openy/commerce_addon": {
+                "Support Drupal 9 - issue 3139887": "https://www.drupal.org/files/issues/2020-05-23/commerce_addon.1.x-dev.rector.patch"
+            }
+        },
+        "enable-patching": true
     }
 }
