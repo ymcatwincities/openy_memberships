@@ -1,6 +1,6 @@
 import mutations from '../mutations'
 import actions from '../actions'
-const defaultSteps = ['BranchSelectorHome', 'Family', 'Results', 'DiscountFinder', 'Summary']
+const defaultSteps = ['BranchSelectorHome', 'Family', 'Results', 'Summary']
 export default {
     state: {
       step: 0,
