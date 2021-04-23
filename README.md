@@ -50,3 +50,4 @@ Steps for installation - CI sources https://github.com/ymcatwincities/openy-cibo
 
 ## Add-ons
 To have Discount Finder step included in Membership builder revert code from this pr https://github.com/ymcatwincities/openy_memberships/pull/60 
+And add DiscountFinder step here /admin/openy/memberships/settings (after "Results" step)
