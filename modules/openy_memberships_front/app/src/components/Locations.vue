@@ -1,7 +1,7 @@
 <template>
   <div class="locations">
-
-      <location @input="updateLocation" :value="loc" :val="location.value" :key="key" v-for="(location, key) in locations" :name="location.name" :address="location.address" class="location-wrapper" />
+    <location @input="updateLocation" :value="loc" :val="'all'" :name="'- All branches -'" class="location-wrapper" v-if="this.allBranchesBtnEnabled"/>
+    <location @input="updateLocation" :value="loc" :val="location.value" :key="key" v-for="(location, key) in locations" :name="location.name" :address="location.address" class="location-wrapper" />
   </div>
 </template>
 <script>
@@ -18,7 +18,8 @@ export default {
   },
   data() {
     return {
-      value: null
+      value: null,
+      allBranchesBtnEnabled: 0
     }
   },
   methods: {
@@ -26,6 +27,9 @@ export default {
       this.value = e;
       this.$store.commit('setLocation', this.value);
     }
+  },
+  mounted() {
+    this.allBranchesBtnEnabled = window.drupalSettings.openy_memberships_front && window.drupalSettings.openy_memberships_front.all_branches_btn ? window.drupalSettings.openy_memberships_front.all_branches_btn : 0;
   }
 }
 </script>

@@ -269,32 +269,40 @@ class OpenyMemberships extends ControllerBase {
           continue;
         }
         $group = explode('_', $agesGroup);
-        $agesGroups[$group[0]] = $group[1];
+        if ($group[1] > 0) {
+          $agesGroups[$group[0]] = $group[1];
+        }
       }
     }
     $storage = $this->entityTypeManager->getStorage('commerce_product');
     $query = $storage->getQuery();
-    // Filter products by provided Ages Groups first.
-    $orGroup = $query->orConditionGroup()
-      ->condition('field_product_branch', NULL, 'IS NULL');
-    if ($branch) {
-      $orGroup->condition('field_product_branch', $branch->id());
+    if (!empty($agesGroups)) {
+      // Filter products by provided Ages Groups.
+      $query->condition('field_om_total_available.target_id', array_keys($agesGroups), 'IN');
     }
-    $query->condition($orGroup);
+    // Filter products by branch.
+    if ($branch && $branch !== 'all') {
+      $orGroup = $query->orConditionGroup()
+        ->condition('field_product_branch', NULL, 'IS NULL');
+      $orGroup->condition('field_product_branch', $branch);
+      $query->condition($orGroup);
+    }
     $ids = $query->execute();
     $products = [];
     foreach ($ids as $id) {
       $product = $storage->load($id);
+      // Remove product if it doesn't have variations.
+      if (!$product->hasVariations()) {
+        continue;
+      }
       if ($product) {
         $filter_product = FALSE;
         $field_om_total_available = $product->field_om_total_available->getValue();
-        $ages_data = $agesGroups;
         foreach ($field_om_total_available as $value) {
-          $requsted_quantity = $ages_data[$value['target_id']];
+          $requested_quantity = $agesGroups[$value['target_id']];
           $total_available = $value['quantity'];
-          $total_free = $value['ar_quantity'];
-          // 1. Ignore product if total available of any age group is more than requested count per group.
-          if ($total_available < $requsted_quantity) {
+          // Ignore product if total available of any age group is more than requested count per group.
+          if ($total_available < $requested_quantity) {
             $filter_product = TRUE;
           }
         }

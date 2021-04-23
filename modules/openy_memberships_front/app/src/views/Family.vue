@@ -17,7 +17,7 @@
         </div>
       </div>
     </div>
-    <div class="navigation" v-if="totalCount > 0">
+    <div class="navigation" v-if="totalCount">
       <div class="container">
         <button class="btn btn-next" @click="$emit('go-next')">Next</button>
       </div>
@@ -33,6 +33,7 @@ import Cart from '../helpers/Cart';
 export default {
   mounted() {
     this.isLoading = true;
+    this.totalCount = this.totalCountCalc();
     Cart.getAgeGroups().then(json => {
       let leave_items = {};
       this.age_groups = Object.keys(json).map((key) => {
@@ -54,9 +55,6 @@ export default {
     });
   },
   computed: {
-    totalCount() {
-      return this.$store.state.familyTotalCount;
-    },
     family() {
       return this.$store.state.family;
     }
@@ -69,6 +67,7 @@ export default {
     return {
       isLoading: false,
       age_groups: [],
+      totalCount: 0,
     }
   },
   methods: {
@@ -76,7 +75,15 @@ export default {
       this.$store.commit('setFamily', {
         key,
         value
-      })
+      });
+      this.totalCount = this.totalCountCalc();
+    },
+    totalCountCalc() {
+      let count = 0;
+      Object.keys(this.$store.state.family).forEach(element => {
+        count = count + this.$store.state.family[element].count
+      });
+      return count;
     }
   }
 }
