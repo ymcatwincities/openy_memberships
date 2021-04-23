@@ -16,10 +16,6 @@
         </div>
       </div>
       <div>
-        <div class="title">Discounts & Add-Ons</div>
-        <div class="options">Select a membership to update discounts and add-ons.</div>
-      </div>
-      <div>
         <div class="title">Cost Summary</div>
         <div class="options">
           <div class="item">

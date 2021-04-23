@@ -47,3 +47,7 @@ Steps for installation - CI sources https://github.com/ymcatwincities/openy-cibo
 - run ```drush mim --group=openy_demo_nbranch```
 
 - Visit /membership-builder page to check how it works. Step 6 installs demo branches. You can skip it if you are adding Membership Framework to currently installed Open Y.
+
+## Add-ons
+To have Discount Finder step included in Membership builder revert code from this pr https://github.com/ymcatwincities/openy_memberships/pull/60 
+And add DiscountFinder step here /admin/openy/memberships/settings (after "Results" step)

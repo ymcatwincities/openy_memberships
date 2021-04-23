@@ -34,7 +34,8 @@
             >Best value</div>
           </div>
         </div>
-        <div>
+        <!-- Remove condition if Discounts & Add-Ons is needed. -->
+        <div v-if="false">
           <div class="title">Discounts & Add-Ons</div>
           <div class="options">
             <div :key="index" v-for="(discount, index) in discounts" class="item discount">

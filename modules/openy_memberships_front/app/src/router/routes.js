@@ -1,6 +1,5 @@
 import BranchSelector from '../views/BranchSelector.vue'
 import Summary from '../views/Summary.vue'
-import DiscountFinder from '../views/DiscountFinder.vue'
 import Family from '../views/Family.vue'
 import Results from '../views/Results.vue'
 import JoinNow from '../views/JoinNow.vue'
@@ -11,11 +10,6 @@ export default [
     path: '/branch-selector',
     name: 'BranchSelectorHome',
     component: BranchSelector
-  },
-  {
-    path: '/discount-finder',
-    name: 'DiscountFinder',
-    component: DiscountFinder
   },
   {
     path: '/family',
