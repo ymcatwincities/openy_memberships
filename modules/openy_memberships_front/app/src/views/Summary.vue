@@ -126,20 +126,50 @@ export default {
   },
   mounted() {
     this.isLoading = true;
-
-    Cart.getSummary()
+    // Ensure cart has been created and create if not (when Discount Finder step is disabled).
+    Cart.getCart()
       .then(json => {
-        this.discounts = json.discounts.filter(item => {
-          return item.title != null;
-        });
-        this.addons = json.addons;
-        this.total_price = json.total_price;
-        this.currency = json.currency;
-        this.isLoading = false;
-      })
-      .catch(() => {
-        this.isLoading = false;
-      });
+        if (typeof json[0] == 'undefined') {
+          let variant = this.$store.state.product.variant;
+          let variant_entity = this.$store.state.product.variations[variant];
+          Cart.createOrder(variant_entity.id)
+            .then(() => {
+              Cart.getCart()
+                .then(() => {
+                  Cart.getSummary()
+                    .then(json => {
+                      this.discounts = json.discounts.filter(item => {
+                        return item.title != null;
+                      });
+                      this.addons = json.addons;
+                      this.total_price = json.total_price;
+                      this.currency = json.currency;
+                      this.isLoading = false;
+                    }
+                  )
+                }
+              )
+            }
+          )
+        }
+        else {
+          Cart.getSummary()
+            .then(json => {
+              this.discounts = json.discounts.filter(item => {
+                return item.title != null;
+              });
+              this.addons = json.addons;
+              this.total_price = json.total_price;
+              this.currency = json.currency;
+              this.isLoading = false;
+            }
+          )
+        }
+      }
+    )
+    .catch(() => {
+      this.isLoading = false;
+    });
   },
   components: {
     Loading,

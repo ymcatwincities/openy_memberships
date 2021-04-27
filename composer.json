@@ -29,7 +29,8 @@
     "extra": {
         "patches": {
             "openy/commerce_cart_api": {
-                "Support Drupal 9 - issue 3176972": "https://www.drupal.org/files/issues/2020-10-21/3176972-4.patch"
+                "Support Drupal 9 - issue 3176972": "https://www.drupal.org/files/issues/2020-10-21/3176972-4.patch",
+                "missing \"$body\" argument for POST (D9)": "https://www.drupal.org/files/issues/2020-11-06/3149540-6.patch"
             },
             "openy/commerce_addon": {
                 "Support Drupal 9 - issue 3139887": "https://www.drupal.org/files/issues/2020-05-23/commerce_addon.1.x-dev.rector.patch"

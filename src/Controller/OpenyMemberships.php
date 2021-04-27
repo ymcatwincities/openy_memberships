@@ -299,6 +299,9 @@ class OpenyMemberships extends ControllerBase {
         $filter_product = FALSE;
         $field_om_total_available = $product->field_om_total_available->getValue();
         foreach ($field_om_total_available as $value) {
+          if (!isset($agesGroups[$value['target_id']])) {
+            continue;
+          }
           $requested_quantity = $agesGroups[$value['target_id']];
           $total_available = $value['quantity'];
           // Ignore product if total available of any age group is more than requested count per group.
@@ -481,7 +484,7 @@ class OpenyMemberships extends ControllerBase {
     ];
 
     // Load family members from order and address discounts.
-    if ($cart->hasField('field_family')) {
+    if (isset($cart) && $cart->hasField('field_family')) {
       $profiles = $cart->field_family->referencedEntities();
       foreach ($profiles as $profile) {
         if ($profile->hasField('field_om_health_insurance')) {
