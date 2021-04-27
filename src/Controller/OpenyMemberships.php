@@ -274,6 +274,7 @@ class OpenyMemberships extends ControllerBase {
         }
       }
     }
+    $agesGroupType = count($agesGroups) == 1 ? 'individual' : 'family';
     $storage = $this->entityTypeManager->getStorage('commerce_product');
     $query = $storage->getQuery();
     if (!empty($agesGroups)) {
@@ -298,15 +299,37 @@ class OpenyMemberships extends ControllerBase {
       if ($product) {
         $filter_product = FALSE;
         $field_om_total_available = $product->field_om_total_available->getValue();
-        foreach ($field_om_total_available as $value) {
-          if (!isset($agesGroups[$value['target_id']])) {
-            continue;
-          }
-          $requested_quantity = $agesGroups[$value['target_id']];
-          $total_available = $value['quantity'];
-          // Ignore product if total available of any age group is more than requested count per group.
-          if ($total_available < $requested_quantity) {
+        if (!empty($field_om_total_available)) {
+          // Filter product if type is not the same.
+          $productType = count($field_om_total_available) == 1 ? 'individual' : 'family';
+          // Filter product by type.
+          if ($productType != $agesGroupType) {
             $filter_product = TRUE;
+          }
+          $productAgeGroups = [];
+          foreach ($field_om_total_available as $value) {
+            $productAgeGroups[$value['target_id']] = $value['quantity'];
+          }
+          // Filter product if it contains Age Groups that are not requested.
+          foreach (array_keys($agesGroups) as $agesGroup) {
+            if (!isset($productAgeGroups[$agesGroup])) {
+              $filter_product = TRUE;
+            }
+          }
+          // Filter product if it contains more Age Groups than requested.
+          if (count($productAgeGroups) > count($agesGroups)) {
+            $filter_product = TRUE;
+          }
+          foreach ($field_om_total_available as $value) {
+            if (!isset($agesGroups[$value['target_id']])) {
+              continue;
+            }
+            $requested_quantity = $agesGroups[$value['target_id']];
+            $total_available = $value['quantity'];
+            // Filter product if total available of any Age Group is more than requested count per group.
+            if ($total_available < $requested_quantity) {
+              $filter_product = TRUE;
+            }
           }
         }
         if (!$filter_product) {
