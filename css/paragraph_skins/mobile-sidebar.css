@@ -53,7 +53,8 @@
 #block-lily-memberships-mobile-menu .wrapper-field-paragraph.d-block {
   padding: 10px 5px;
   background-color: black;
-  color: white; }
+  color: white;
+  display: block; }
   @media all and (min-width: 600px) {
     #block-memberships-mobile-menu .wrapper-field-paragraph.d-block,
     #block-rose-memberships-mobile-menu .wrapper-field-paragraph.d-block,
