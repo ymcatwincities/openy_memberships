@@ -53,12 +53,10 @@
   }
 
   .wrapper-field-paragraph.d-block {
-    padding: 10px 5px;
-
     background-color: black;
     color: white;
-
-
+    display: block;
+    padding: 10px 5px;
 
     @media all and (min-width: 600px) {
       padding: 20px 35px;
