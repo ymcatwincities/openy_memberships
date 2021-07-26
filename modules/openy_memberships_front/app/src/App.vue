@@ -6,6 +6,7 @@
 </template>
 
 <script>
+import VueCookies from 'vue-cookies';
 
 export default {
   name: 'App',
@@ -27,6 +28,14 @@ export default {
     if (!this.$route.name) {
       this.$router.replace({ name:  steps[0] })
     }
+    // Check if user has selected Home Branch and set location.
+    if (VueCookies.get('home_branch') !== null) {
+      this.$store.commit('setLocation', VueCookies.get('home_branch').id);
+      // Move to next step if we still on initial step.
+      if (step == 0 && VueCookies.get('home_branch').id !== null) {
+        this.$store.commit('setStep', 1);
+      }
+    }
   },
   data: () => ({
     //
@@ -42,8 +51,14 @@ export default {
   watch: {
     '$route' (to) {
       let step = this.$store.state.step;
+      let steps = this.$store.state.steps;
       let currentStep = this.$store.state.steps.indexOf(to.name);
-      if (currentStep != -1 && step != currentStep) {
+      // Check if user has selected Home Branch, and avoid redirect to BranchSelector.
+      if (VueCookies.get('home_branch') !== null && this.$store.state.location && to.name == 'BranchSelectorHome') {
+        this.$store.commit('setStep', 1);
+        this.$router.push({ name:  steps[1] });
+      }
+      else if (currentStep != -1 && step != currentStep) {
         this.$store.commit('setStep', currentStep)
       }
     },

@@ -6,4 +6,14 @@
   }
 
   padding-bottom: 30px;
+  padding-top: 15px;
+}
+
+#block-openy-lily-content,
+#block-openy-rose-content {
+  .ps-block_container-openy-memberships-desktop-sidebar {
+    @media (min-width: 992px) and (max-width: 1059px) {
+      display: block;
+    }
+  }
 }

@@ -1,5 +1,11 @@
 .ps-block_container-openy-memberships-desktop-sidebar {
-  padding-bottom: 30px; }
+  padding-bottom: 30px;
+  padding-top: 15px; }
   @media all and (max-width: 1059px) {
     .ps-block_container-openy-memberships-desktop-sidebar {
       display: none; } }
+
+@media (min-width: 992px) and (max-width: 1059px) {
+  #block-openy-lily-content .ps-block_container-openy-memberships-desktop-sidebar,
+  #block-openy-rose-content .ps-block_container-openy-memberships-desktop-sidebar {
+    display: block; } }

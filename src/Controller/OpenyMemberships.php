@@ -4,7 +4,6 @@ namespace Drupal\openy_memberships\Controller;
 
 use Drupal\commerce_price\Price;
 use Drupal\Core\Controller\ControllerBase;
-use Drupal\Core\Entity\Query\QueryFactory;
 use Drupal\Core\Mail\MailManagerInterface;
 use Drupal\Core\Render\RendererInterface;
 use Drupal\openy_memberships\OmPDFGenerator;
@@ -25,12 +24,6 @@ use Drupal\node\Entity\Node;
  */
 class OpenyMemberships extends ControllerBase {
 
-  /**
-   * The entity query factory.
-   *
-   * @var \Drupal\Core\Entity\Query\QueryFactory
-   */
-  protected $entityQuery;
 
   /**
    * The entityTypeManager.
@@ -81,8 +74,6 @@ class OpenyMemberships extends ControllerBase {
   /**
    * Constructs a new Memberships object.
    *
-   * @param \Drupal\Core\Entity\Query\QueryFactory $entity_query
-   *   Query Factory service.
    * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
    *   The entity type manager.
    * @param \Drupal\Core\Config\ConfigFactoryInterface $config_factory
@@ -95,7 +86,6 @@ class OpenyMemberships extends ControllerBase {
    * @param \Drupal\openy_memberships\OmPDFGenerator $pdf_generator
    */
   public function __construct(
-      QueryFactory $entity_query,
       EntityTypeManagerInterface $entity_type_manager,
       ConfigFactoryInterface $config_factory,
       CartProviderInterface $cart_provider,
@@ -104,7 +94,6 @@ class OpenyMemberships extends ControllerBase {
       MailManagerInterface $mail_manager,
       OmPDFGenerator $pdf_generator
     ) {
-    $this->entityQuery = $entity_query;
     $this->entityTypeManager = $entity_type_manager;
     $this->configFactory = $config_factory;
     $this->cartProvider = $cart_provider;
@@ -120,7 +109,6 @@ class OpenyMemberships extends ControllerBase {
    */
   public static function create(ContainerInterface $container) {
     return new static(
-      $container->get('entity.query'),
       $container->get('entity_type.manager'),
       $container->get('config.factory'),
       $container->get('commerce_cart.cart_provider'),
@@ -136,8 +124,8 @@ class OpenyMemberships extends ControllerBase {
    */
   public function getAgesGroupsInfo(Request $request) {
     $data = [];
-    $tids = $this->entityQuery
-      ->get('taxonomy_term')
+    $tids = $this->entityTypeManager->getStorage('taxonomy_term')
+      ->getQuery()
       ->condition('vid', 'memberships_ages_groups')
       ->condition('status', 1)
       ->sort('weight', 'ASC')
@@ -281,32 +269,67 @@ class OpenyMemberships extends ControllerBase {
           continue;
         }
         $group = explode('_', $agesGroup);
-        $agesGroups[$group[0]] = $group[1];
+        if ($group[1] > 0) {
+          $agesGroups[$group[0]] = $group[1];
+        }
       }
     }
+    $agesGroupType = count($agesGroups) == 1 ? 'individual' : 'family';
     $storage = $this->entityTypeManager->getStorage('commerce_product');
     $query = $storage->getQuery();
-    // Filter products by provided Ages Groups first.
-    $orGroup = $query->orConditionGroup()
-      ->condition('field_product_branch', NULL, 'IS NULL');
-    if ($branch) {
-      $orGroup->condition('field_product_branch', $branch->id());
+    if (!empty($agesGroups)) {
+      // Filter products by provided Ages Groups.
+      $query->condition('field_om_total_available.target_id', array_keys($agesGroups), 'IN');
+    }
+    // Filter products by branch.
+    if ($branch && $branch !== 'all') {
+      $orGroup = $query->orConditionGroup()
+        ->condition('field_product_branch', NULL, 'IS NULL');
+      $orGroup->condition('field_product_branch', $branch);
+      $query->condition($orGroup);
     }
     $ids = $query->execute();
     $products = [];
     foreach ($ids as $id) {
       $product = $storage->load($id);
+      // Remove product if it doesn't have variations.
+      if (!$product->hasVariations()) {
+        continue;
+      }
       if ($product) {
         $filter_product = FALSE;
         $field_om_total_available = $product->field_om_total_available->getValue();
-        $ages_data = $agesGroups;
-        foreach ($field_om_total_available as $value) {
-          $requsted_quantity = $ages_data[$value['target_id']];
-          $total_available = $value['quantity'];
-          $total_free = $value['ar_quantity'];
-          // 1. Ignore product if total available of any age group is more than requested count per group.
-          if ($total_available < $requsted_quantity) {
+        if (!empty($field_om_total_available)) {
+          // Filter product if type is not the same.
+          $productType = count($field_om_total_available) == 1 ? 'individual' : 'family';
+          // Filter product by type.
+          if ($productType != $agesGroupType) {
             $filter_product = TRUE;
+          }
+          $productAgeGroups = [];
+          foreach ($field_om_total_available as $value) {
+            $productAgeGroups[$value['target_id']] = $value['quantity'];
+          }
+          // Filter product if it contains Age Groups that are not requested.
+          foreach (array_keys($agesGroups) as $agesGroup) {
+            if (!isset($productAgeGroups[$agesGroup])) {
+              $filter_product = TRUE;
+            }
+          }
+          // Filter product if it contains more Age Groups than requested.
+          if (count($productAgeGroups) > count($agesGroups)) {
+            $filter_product = TRUE;
+          }
+          foreach ($field_om_total_available as $value) {
+            if (!isset($agesGroups[$value['target_id']])) {
+              continue;
+            }
+            $requested_quantity = $agesGroups[$value['target_id']];
+            $total_available = $value['quantity'];
+            // Filter product if total available of any Age Group is more than requested count per group.
+            if ($total_available < $requested_quantity) {
+              $filter_product = TRUE;
+            }
           }
         }
         if (!$filter_product) {
@@ -484,7 +507,7 @@ class OpenyMemberships extends ControllerBase {
     ];
 
     // Load family members from order and address discounts.
-    if ($cart->hasField('field_family')) {
+    if (isset($cart) && $cart->hasField('field_family')) {
       $profiles = $cart->field_family->referencedEntities();
       foreach ($profiles as $profile) {
         if ($profile->hasField('field_om_health_insurance')) {

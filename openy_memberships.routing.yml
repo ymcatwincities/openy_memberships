@@ -31,9 +31,6 @@ openy_memberships.products:
     _permission: 'access content'
   options:
     no_cache: TRUE
-    parameters:
-      branch:
-        type: 'entity:node'
 openy_memberships.summary:
   path: /memberships/api/summary
   defaults:

@@ -1,9 +1,19 @@
 @import 'variables';
 
-#block-memberships-mobile-menu, #block-rose-memberships-mobile-menu {
-  @media all and (min-width: 1060px) {
+#block-memberships-mobile-menu {
+ @media all and (min-width: 1060px) {
+   display: none;
+  }
+}
+#block-rose-memberships-mobile-menu,
+#block-lily-memberships-mobile-menu {
+  @media all and (min-width: 992px) {
     display: none;
   }
+}
+#block-memberships-mobile-menu,
+#block-rose-memberships-mobile-menu,
+#block-lily-memberships-mobile-menu {
 
   > .wrapper-field-paragraph {
     display: none;
@@ -43,12 +53,10 @@
   }
 
   .wrapper-field-paragraph.d-block {
-    padding: 10px 5px;
-
     background-color: black;
     color: white;
-
-
+    display: block;
+    padding: 10px 5px;
 
     @media all and (min-width: 600px) {
       padding: 20px 35px;
@@ -72,14 +80,13 @@
   }
 }
 
-.rose_based_theme {
-  #block-rose-memberships-mobile-menu {
-    h2:before {
-      display: inline-block;
-      font: normal normal normal 14px/1 FontAwesome;
-      text-rendering: auto;
-      -webkit-font-smoothing: antialiased;
-      font-size: 17px;
-    }
+#block-rose-memberships-mobile-menu,
+#block-lily-memberships-mobile-menu {
+  h2:before {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    font-size: 17px;
   }
 }

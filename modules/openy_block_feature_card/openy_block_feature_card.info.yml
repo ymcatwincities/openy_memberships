@@ -1,7 +1,7 @@
 name: 'OpenY Block Feature Card'
 description: 'Feature with Memberships block.'
 type: module
-core: 8.x
+core_version_requirement: ^8 || ^9
 dependencies:
   - datalayer
   - field

@@ -55,10 +55,14 @@ class MembershipsBlock extends BlockBase implements ContainerFactoryPluginInterf
    */
   public function build() {
     $attachments['library'][] = 'openy_memberships_front/openy_memberships_front';
-    $config = array_map(function ($component) {
+    $config = $this->configFactory->getEditable('openy_memberships_front.settings');
+    $steps = array_map(function ($component) {
       return trim($component);
-    }, explode(PHP_EOL, $this->configFactory->getEditable('openy_memberships_front.settings')->get('steps')));
-    $attachments['drupalSettings']['openy_memberships_front']['steps'] = $config;
+    }, explode(PHP_EOL, $config->get('steps')));
+    $attachments['drupalSettings']['openy_memberships_front'] = [
+      'steps' =>  $steps,
+      'all_branches_btn' => $config->get('all_branches_btn'),
+    ];
     return [
       '#id' => 'app',
       '#theme' => 'openy_memberships_front',
