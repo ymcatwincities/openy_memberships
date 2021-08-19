@@ -2,8 +2,9 @@
 
 .ps-block_container-openy-memberships-feature-card .wrapper-field-block-ref {
   .field-block-ref {
+    border: 1px solid #000;
     margin-top: 30px;
-    padding: 0 !important;
+    padding: 0 0 15px !important;
 
     display: grid;
     grid-template-columns: auto;
@@ -27,7 +28,6 @@
     }
 
     > .field-fc-title {
-      color: white;
       font-size: 18px;
       font-weight: bold;
 
@@ -40,7 +40,6 @@
     }
 
     > .field-fc-body {
-      color: white;
       font-size: 14px;
 
       grid-column: 1;
@@ -51,20 +50,25 @@
       z-index: 2;
     }
 
-    > div:nth-child(4) {
-      background-color: royalblue;
-      border: 0;
-      border-radius: 0 0 10px 10px;
-      grid-column: 1;
-      grid-row: 3;
-      text-align: center;
-      width: 100%;
-      z-index: 1;
-
+    .field-fc-link {
+      padding-bottom: 15px;
       a {
+        background-color: royalblue;
+        border-radius: 3px;
         border: 0;
         color: white;
+        display: block;
+        font-size: 16px;
+        grid-column: 1;
+        grid-row: 3;
+        padding: 13px 25px;
+        font-family: $font-family-cachet;
+        font-weight: bold;
+        text-align: center;
+        text-decoration: none;
+        text-transform: uppercase;
         width: 100%;
+        z-index: 1;
       }
     }
   }
