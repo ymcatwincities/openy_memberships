@@ -1,3 +1,7 @@
+.ps-webform-openy-memberships-free-trial.container,
+.ps-webform-openy-memberships-free-trial .container {
+  width: auto; }
+
 .ps-webform-openy-memberships-free-trial form {
   padding-top: 0; }
   .ps-webform-openy-memberships-free-trial form label {
@@ -45,6 +49,9 @@
         padding-top: 30px; } }
     .ps-webform-openy-memberships-free-trial form .form-type-select .select-wrapper:before {
       top: 13px; }
+  @media all and (min-width: 700px) {
+    .ps-webform-openy-memberships-free-trial form .form-item-preferred-branch {
+      padding-top: 30px; } }
   .ps-webform-openy-memberships-free-trial form .input-wrapper {
     text-align: center; }
     .ps-webform-openy-memberships-free-trial form .input-wrapper .button {

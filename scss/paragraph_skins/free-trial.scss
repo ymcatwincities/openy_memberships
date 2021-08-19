@@ -1,6 +1,10 @@
 @import 'variables';
 
 .ps-webform-openy-memberships-free-trial {
+  &.container,
+  .container {
+    width: auto;
+  }
   form {
     padding-top: 0;
 
@@ -73,6 +77,12 @@
         &:before {
           top: 13px;
         }
+      }
+    }
+
+    .form-item-preferred-branch {
+      @media all and (min-width: 700px) {
+        padding-top: 30px;
       }
     }
 
