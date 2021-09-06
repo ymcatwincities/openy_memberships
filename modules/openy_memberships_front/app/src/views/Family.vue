@@ -12,9 +12,7 @@
 
     <div class="family-wrapper">
       <div :key="index"  class="label-row" v-for="(group, index) in age_groups">
-        <div class="label-row">
-          <div class="label">{{group.title}}</div><div class="value"><integer-minus-plus :value="$store.state.family[group.uuid].count" @input="updateFamily(group.uuid, $event)" /></div>
-        </div>
+        <div class="label">{{group.title}}</div><div class="value"><integer-minus-plus :value="$store.state.family[group.uuid].count" @input="updateFamily(group.uuid, $event)" /></div>
       </div>
     </div>
     <div class="navigation" v-if="totalCount">
