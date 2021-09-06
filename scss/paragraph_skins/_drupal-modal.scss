@@ -72,10 +72,10 @@ div.ui-dialog.ui-widget {
   // Overrides for Openy Lily theme.
   &.openy-lily-dialog-theme {
     .ui-dialog-titlebar {
-      background-color: #92278f;
+      background-color: $dark-purple;
 
       .ui-dialog-title {
-        color: #fff;
+        color: $white;
       }
     }
   }
