@@ -28,6 +28,9 @@ class LearnMoreExtraField {
    *   Dislpay interface.
    */
   public function fieldAttach(array &$build, ProductInterface $entity, EntityViewDisplayInterface $display) {
+    $active_theme = \Drupal::service('theme.manager')->getActiveTheme()->getName();
+    $active_theme = str_replace('_', '-', $active_theme);
+
     $build['learn_more'] = [
       'link' => [
         '#type' => 'link',
@@ -42,7 +45,7 @@ class LearnMoreExtraField {
           ],
           'data-dialog-type' => 'modal',
           'data-dialog-options' => json_encode([
-            'dialogClass' => 'learn_more',
+            'dialogClass' => 'learn_more ' . "$active_theme-dialog-theme",
             'width' => 'auto',
             'height' => 'auto',
           ]),

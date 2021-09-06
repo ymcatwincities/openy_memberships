@@ -1,40 +1,40 @@
 div.ui-dialog.ui-widget {
-  padding: 0;
   z-index: 1500;
+  padding: 0;
 
   .ui-dialog-titlebar {
+    font-family:      $font-family-cachet;
+    font-size:        18px;
+    font-weight:      normal;
+    line-height:      27px;
+    padding:          12px 10px 11px;
+    text-transform:   uppercase;
+    color:            $shuttle-grey;
+    border:           initial;
+    border-bottom:    1px solid $shuttle-grey;
+    border-radius:    0;
     background-color: $white;
-    font-family: $font-family-cachet;
-    font-size: 18px;
-    line-height: 27px;
-    font-weight: normal;
-    padding: 12px 10px 11px;
-    text-transform: uppercase;
-    color: $shuttle-grey;
-    border: initial;
-    border-bottom: 1px solid $shuttle-grey;
-    border-radius: 0;
 
     .ui-dialog-title {
-      margin: 0;
-      color: $shuttle-grey;
-      font-size: 18px;
+      font-size:   18px;
       line-height: 27px;
+      margin:      0;
+      color:       $shuttle-grey;
     }
 
     .ui-dialog-titlebar-close,
     button {
-      color: white;
-      padding: 16px;
+      line-height:      20px;
+      position:         absolute;
+      top:              0;
+      right:            0;
+      width:            51px;
+      height:           51px;
+      margin:           0;
+      padding:          16px;
+      opacity:          1;
+      color:            white;
       background-color: $dark-blue !important;
-      margin: 0;
-      opacity: 1;
-      position: absolute;
-      top: 0;
-      right: 0;
-      height: 51px;
-      width: 51px;
-      line-height: 20px;
 
       .ui-icon {
         background-image: url("/core/assets/vendor/jquery.ui/themes/base/images/ui-icons_ffffff_256x240.png");
@@ -45,10 +45,11 @@ div.ui-dialog.ui-widget {
       }
     }
   }
+
   .ui-dialog-content {
-    padding: 10px;
-    height: initial !important;
+    height:     initial !important;
     max-height: initial !important;
+    padding:    10px;
 
     .banner {
       display: none;
@@ -63,8 +64,25 @@ div.ui-dialog.ui-widget {
     }
 
     > .container {
-      margin: 0;
+      margin:  0;
       padding: 0;
+    }
+  }
+
+  // Overrides for Openy Lily theme.
+  &.openy-lily-dialog-theme {
+    .ui-dialog-titlebar {
+      background-color: #92278f;
+
+      .ui-dialog-title {
+        color: #fff;
+      }
+    }
+  }
+
+  &.openy-rose-dialog-theme {
+    .paragraph--type--simple-content {
+      padding-top: 0;
     }
   }
 }
