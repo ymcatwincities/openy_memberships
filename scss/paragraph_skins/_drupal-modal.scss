@@ -1,4 +1,4 @@
-.ui-dialog {
+div.ui-dialog.ui-widget {
   padding: 0;
   z-index: 1500;
 
@@ -17,8 +17,12 @@
 
     .ui-dialog-title {
       margin: 0;
+      color: $shuttle-grey;
+      font-size: 18px;
+      line-height: 27px;
     }
 
+    .ui-dialog-titlebar-close,
     button {
       color: white;
       padding: 16px;

@@ -1,7 +1,7 @@
-.ui-dialog {
+div.ui-dialog.ui-widget {
   padding: 0;
   z-index: 1500; }
-  .ui-dialog .ui-dialog-titlebar {
+  div.ui-dialog.ui-widget .ui-dialog-titlebar {
     background-color: #ffffff;
     font-family: "Cachet", Verdana, Geneva, sans-serif;
     font-size: 18px;
@@ -13,9 +13,13 @@
     border: initial;
     border-bottom: 1px solid #636466;
     border-radius: 0; }
-    .ui-dialog .ui-dialog-titlebar .ui-dialog-title {
-      margin: 0; }
-    .ui-dialog .ui-dialog-titlebar button {
+    div.ui-dialog.ui-widget .ui-dialog-titlebar .ui-dialog-title {
+      margin: 0;
+      color: #636466;
+      font-size: 18px;
+      line-height: 27px; }
+    div.ui-dialog.ui-widget .ui-dialog-titlebar .ui-dialog-titlebar-close,
+    div.ui-dialog.ui-widget .ui-dialog-titlebar button {
       color: white;
       padding: 16px;
       background-color: #0060af !important;
@@ -27,21 +31,23 @@
       height: 51px;
       width: 51px;
       line-height: 20px; }
-      .ui-dialog .ui-dialog-titlebar button .ui-icon {
+      div.ui-dialog.ui-widget .ui-dialog-titlebar .ui-dialog-titlebar-close .ui-icon,
+      div.ui-dialog.ui-widget .ui-dialog-titlebar button .ui-icon {
         background-image: url("/core/assets/vendor/jquery.ui/themes/base/images/ui-icons_ffffff_256x240.png"); }
-      .ui-dialog .ui-dialog-titlebar button:before {
+      div.ui-dialog.ui-widget .ui-dialog-titlebar .ui-dialog-titlebar-close:before,
+      div.ui-dialog.ui-widget .ui-dialog-titlebar button:before {
         content: 'X'; }
-  .ui-dialog .ui-dialog-content {
+  div.ui-dialog.ui-widget .ui-dialog-content {
     padding: 10px;
     height: initial !important;
     max-height: initial !important; }
-    .ui-dialog .ui-dialog-content .banner {
+    div.ui-dialog.ui-widget .ui-dialog-content .banner {
       display: none; }
-    .ui-dialog .ui-dialog-content .breadcrumbs-wrapper {
+    div.ui-dialog.ui-widget .ui-dialog-content .breadcrumbs-wrapper {
       display: none !important; }
-    .ui-dialog .ui-dialog-content .openy-page-tabs {
+    div.ui-dialog.ui-widget .ui-dialog-content .openy-page-tabs {
       display: none; }
-    .ui-dialog .ui-dialog-content > .container {
+    div.ui-dialog.ui-widget .ui-dialog-content > .container {
       margin: 0;
       padding: 0; }
 
