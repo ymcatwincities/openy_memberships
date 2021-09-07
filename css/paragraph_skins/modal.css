@@ -1,36 +1,36 @@
 div.ui-dialog.ui-widget {
-  padding: 0;
-  z-index: 1500; }
+  z-index: 1500;
+  padding: 0; }
   div.ui-dialog.ui-widget .ui-dialog-titlebar {
-    background-color: #ffffff;
     font-family: "Cachet", Verdana, Geneva, sans-serif;
     font-size: 18px;
-    line-height: 27px;
     font-weight: normal;
+    line-height: 27px;
     padding: 12px 10px 11px;
     text-transform: uppercase;
     color: #636466;
     border: initial;
     border-bottom: 1px solid #636466;
-    border-radius: 0; }
+    border-radius: 0;
+    background-color: #ffffff; }
     div.ui-dialog.ui-widget .ui-dialog-titlebar .ui-dialog-title {
-      margin: 0;
-      color: #636466;
       font-size: 18px;
-      line-height: 27px; }
+      line-height: 27px;
+      margin: 0;
+      color: #636466; }
     div.ui-dialog.ui-widget .ui-dialog-titlebar .ui-dialog-titlebar-close,
     div.ui-dialog.ui-widget .ui-dialog-titlebar button {
-      color: white;
-      padding: 16px;
-      background-color: #0060af !important;
-      margin: 0;
-      opacity: 1;
+      line-height: 20px;
       position: absolute;
       top: 0;
       right: 0;
-      height: 51px;
       width: 51px;
-      line-height: 20px; }
+      height: 51px;
+      margin: 0;
+      padding: 16px;
+      opacity: 1;
+      color: white;
+      background-color: #0060af !important; }
       div.ui-dialog.ui-widget .ui-dialog-titlebar .ui-dialog-titlebar-close .ui-icon,
       div.ui-dialog.ui-widget .ui-dialog-titlebar button .ui-icon {
         background-image: url("/core/assets/vendor/jquery.ui/themes/base/images/ui-icons_ffffff_256x240.png"); }
@@ -38,9 +38,9 @@ div.ui-dialog.ui-widget {
       div.ui-dialog.ui-widget .ui-dialog-titlebar button:before {
         content: 'X'; }
   div.ui-dialog.ui-widget .ui-dialog-content {
-    padding: 10px;
     height: initial !important;
-    max-height: initial !important; }
+    max-height: initial !important;
+    padding: 10px; }
     div.ui-dialog.ui-widget .ui-dialog-content .banner {
       display: none; }
     div.ui-dialog.ui-widget .ui-dialog-content .breadcrumbs-wrapper {
@@ -49,58 +49,65 @@ div.ui-dialog.ui-widget {
       display: none; }
     div.ui-dialog.ui-widget .ui-dialog-content > .container {
       margin: 0;
-      padding: 0; }
+      padding: 0;
+      width: 100%; }
+  div.ui-dialog.ui-widget.openy-lily-dialog-theme .ui-dialog-titlebar {
+    background-color: #92278f; }
+    div.ui-dialog.ui-widget.openy-lily-dialog-theme .ui-dialog-titlebar .ui-dialog-title {
+      color: #ffffff; }
+  div.ui-dialog.ui-widget.openy-rose-dialog-theme .paragraph--type--simple-content {
+    padding-top: 0; }
 
 .ui-widget-overlay {
   opacity: .5; }
 
-.ps-2c-openy-memberships-modal {
+.block-description--wrapper.ps-2c-openy-memberships-modal {
   padding: 30px 0 0 0;
-  margin: 0 !important;
-  display: grid !important;
+  margin: 0;
+  display: grid;
   grid-gap: 30px;
   grid-template-columns: 1fr 1fr;
   color: #231f20; }
   @media all and (max-width: 1000px) {
-    .ps-2c-openy-memberships-modal {
+    .block-description--wrapper.ps-2c-openy-memberships-modal {
       grid-gap: 20px; } }
   @media all and (max-width: 1000px) {
-    .ps-2c-openy-memberships-modal {
+    .block-description--wrapper.ps-2c-openy-memberships-modal {
       grid-gap: 20px; } }
-  .ps-2c-openy-memberships-modal .field-prgf-2c-left, .ps-2c-openy-memberships-modal .field-prgf-2c-right {
+  .block-description--wrapper.ps-2c-openy-memberships-modal .field-prgf-2c-left, .block-description--wrapper.ps-2c-openy-memberships-modal .field-prgf-2c-right {
     border-left: solid 1px #636466;
     border-right: solid 1px #636466;
     border-top: solid 5px #92278f;
     padding: 0; }
-    .ps-2c-openy-memberships-modal .field-prgf-2c-left h4, .ps-2c-openy-memberships-modal .field-prgf-2c-right h4 {
+    .block-description--wrapper.ps-2c-openy-memberships-modal .field-prgf-2c-left h4, .block-description--wrapper.ps-2c-openy-memberships-modal .field-prgf-2c-right h4 {
       display: none; }
-    .ps-2c-openy-memberships-modal .field-prgf-2c-left .container, .ps-2c-openy-memberships-modal .field-prgf-2c-right .container {
+    .block-description--wrapper.ps-2c-openy-memberships-modal .field-prgf-2c-left .container, .block-description--wrapper.ps-2c-openy-memberships-modal .field-prgf-2c-right .container {
       padding: 0;
       display: flex;
       flex-direction: column; }
-      .ps-2c-openy-memberships-modal .field-prgf-2c-left .container .field-title, .ps-2c-openy-memberships-modal .field-prgf-2c-right .container .field-title {
+      .block-description--wrapper.ps-2c-openy-memberships-modal .field-prgf-2c-left .container .field-title, .block-description--wrapper.ps-2c-openy-memberships-modal .field-prgf-2c-right .container .field-title {
         font-family: "Cachet", Verdana, Geneva, sans-serif;
         font-size: 18px;
         line-height: 27px;
         padding: 15px 15px 0 15px; }
         @media all and (min-width: 1060px) {
-          .ps-2c-openy-memberships-modal .field-prgf-2c-left .container .field-title, .ps-2c-openy-memberships-modal .field-prgf-2c-right .container .field-title {
+          .block-description--wrapper.ps-2c-openy-memberships-modal .field-prgf-2c-left .container .field-title, .block-description--wrapper.ps-2c-openy-memberships-modal .field-prgf-2c-right .container .field-title {
             font-size: 24px;
             line-height: 36px; } }
-      .ps-2c-openy-memberships-modal .field-prgf-2c-left .container .field-description, .ps-2c-openy-memberships-modal .field-prgf-2c-right .container .field-description {
+      .block-description--wrapper.ps-2c-openy-memberships-modal .field-prgf-2c-left .container .field-description, .block-description--wrapper.ps-2c-openy-memberships-modal .field-prgf-2c-right .container .field-description {
         font-size: 12px;
         line-height: 18px;
         padding: 15px;
         height: 100%; }
         @media all and (min-width: 1060px) {
-          .ps-2c-openy-memberships-modal .field-prgf-2c-left .container .field-description, .ps-2c-openy-memberships-modal .field-prgf-2c-right .container .field-description {
+          .block-description--wrapper.ps-2c-openy-memberships-modal .field-prgf-2c-left .container .field-description, .block-description--wrapper.ps-2c-openy-memberships-modal .field-prgf-2c-right .container .field-description {
             font-size: 14px;
             line-height: 21px; } }
-      .ps-2c-openy-memberships-modal .field-prgf-2c-left .container .field-link-title, .ps-2c-openy-memberships-modal .field-prgf-2c-right .container .field-link-title {
+      .block-description--wrapper.ps-2c-openy-memberships-modal .field-prgf-2c-left .container .field-link-title, .block-description--wrapper.ps-2c-openy-memberships-modal .field-prgf-2c-right .container .field-link-title {
         text-align: center;
         margin-left: -1px;
         margin-right: -1px; }
-        .ps-2c-openy-memberships-modal .field-prgf-2c-left .container .field-link-title a, .ps-2c-openy-memberships-modal .field-prgf-2c-left .container .field-link-title a:hover, .ps-2c-openy-memberships-modal .field-prgf-2c-right .container .field-link-title a, .ps-2c-openy-memberships-modal .field-prgf-2c-right .container .field-link-title a:hover {
+        .block-description--wrapper.ps-2c-openy-memberships-modal .field-prgf-2c-left .container .field-link-title a, .block-description--wrapper.ps-2c-openy-memberships-modal .field-prgf-2c-left .container .field-link-title a:hover, .block-description--wrapper.ps-2c-openy-memberships-modal .field-prgf-2c-right .container .field-link-title a, .block-description--wrapper.ps-2c-openy-memberships-modal .field-prgf-2c-right .container .field-link-title a:hover {
           display: block;
           background-color: #0060af;
           padding: 14px;
@@ -110,47 +117,59 @@ div.ui-dialog.ui-widget {
           font-size: 14px;
           line-height: 21px; }
           @media all and (min-width: 1060px) {
-            .ps-2c-openy-memberships-modal .field-prgf-2c-left .container .field-link-title a, .ps-2c-openy-memberships-modal .field-prgf-2c-left .container .field-link-title a:hover, .ps-2c-openy-memberships-modal .field-prgf-2c-right .container .field-link-title a, .ps-2c-openy-memberships-modal .field-prgf-2c-right .container .field-link-title a:hover {
+            .block-description--wrapper.ps-2c-openy-memberships-modal .field-prgf-2c-left .container .field-link-title a, .block-description--wrapper.ps-2c-openy-memberships-modal .field-prgf-2c-left .container .field-link-title a:hover, .block-description--wrapper.ps-2c-openy-memberships-modal .field-prgf-2c-right .container .field-link-title a, .block-description--wrapper.ps-2c-openy-memberships-modal .field-prgf-2c-right .container .field-link-title a:hover {
               font-size: 18px;
               line-height: 27px; } }
-      .ps-2c-openy-memberships-modal .field-prgf-2c-left .container .modal, .ps-2c-openy-memberships-modal .field-prgf-2c-right .container .modal {
+      .block-description--wrapper.ps-2c-openy-memberships-modal .field-prgf-2c-left .container .modal, .block-description--wrapper.ps-2c-openy-memberships-modal .field-prgf-2c-right .container .modal {
         opacity: 1; }
-        .ps-2c-openy-memberships-modal .field-prgf-2c-left .container .modal .modal-backdrop, .ps-2c-openy-memberships-modal .field-prgf-2c-right .container .modal .modal-backdrop {
+        .block-description--wrapper.ps-2c-openy-memberships-modal .field-prgf-2c-left .container .modal .modal-backdrop, .block-description--wrapper.ps-2c-openy-memberships-modal .field-prgf-2c-right .container .modal .modal-backdrop {
           opacity: .5; }
-        .ps-2c-openy-memberships-modal .field-prgf-2c-left .container .modal .modal-dialog, .ps-2c-openy-memberships-modal .field-prgf-2c-right .container .modal .modal-dialog {
+        .block-description--wrapper.ps-2c-openy-memberships-modal .field-prgf-2c-left .container .modal .modal-dialog, .block-description--wrapper.ps-2c-openy-memberships-modal .field-prgf-2c-right .container .modal .modal-dialog {
           z-index: 1050;
           width: fit-content; }
-          .ps-2c-openy-memberships-modal .field-prgf-2c-left .container .modal .modal-dialog .modal-content, .ps-2c-openy-memberships-modal .field-prgf-2c-right .container .modal .modal-dialog .modal-content {
+          .block-description--wrapper.ps-2c-openy-memberships-modal .field-prgf-2c-left .container .modal .modal-dialog .modal-content, .block-description--wrapper.ps-2c-openy-memberships-modal .field-prgf-2c-right .container .modal .modal-dialog .modal-content {
             border-radius: 0; }
-            .ps-2c-openy-memberships-modal .field-prgf-2c-left .container .modal .modal-dialog .modal-content .modal-header, .ps-2c-openy-memberships-modal .field-prgf-2c-right .container .modal .modal-dialog .modal-content .modal-header {
+            .block-description--wrapper.ps-2c-openy-memberships-modal .field-prgf-2c-left .container .modal .modal-dialog .modal-content .modal-header, .block-description--wrapper.ps-2c-openy-memberships-modal .field-prgf-2c-right .container .modal .modal-dialog .modal-content .modal-header {
               padding: 0;
               border-radius: 0; }
-              .ps-2c-openy-memberships-modal .field-prgf-2c-left .container .modal .modal-dialog .modal-content .modal-header .modal-title, .ps-2c-openy-memberships-modal .field-prgf-2c-right .container .modal .modal-dialog .modal-content .modal-header .modal-title {
+              .block-description--wrapper.ps-2c-openy-memberships-modal .field-prgf-2c-left .container .modal .modal-dialog .modal-content .modal-header .modal-title, .block-description--wrapper.ps-2c-openy-memberships-modal .field-prgf-2c-right .container .modal .modal-dialog .modal-content .modal-header .modal-title {
                 font-size: 18px;
                 padding: 14px 10px;
                 text-transform: uppercase;
                 color: #636466; }
-              .ps-2c-openy-memberships-modal .field-prgf-2c-left .container .modal .modal-dialog .modal-content .modal-header .close, .ps-2c-openy-memberships-modal .field-prgf-2c-right .container .modal .modal-dialog .modal-content .modal-header .close {
+              .block-description--wrapper.ps-2c-openy-memberships-modal .field-prgf-2c-left .container .modal .modal-dialog .modal-content .modal-header .close, .block-description--wrapper.ps-2c-openy-memberships-modal .field-prgf-2c-right .container .modal .modal-dialog .modal-content .modal-header .close {
                 color: white;
                 padding: 16px;
                 background-color: #0060af !important;
                 margin: 0;
                 opacity: 1; }
-            .ps-2c-openy-memberships-modal .field-prgf-2c-left .container .modal .modal-dialog .modal-content .modal-body, .ps-2c-openy-memberships-modal .field-prgf-2c-right .container .modal .modal-dialog .modal-content .modal-body {
+            .block-description--wrapper.ps-2c-openy-memberships-modal .field-prgf-2c-left .container .modal .modal-dialog .modal-content .modal-body, .block-description--wrapper.ps-2c-openy-memberships-modal .field-prgf-2c-right .container .modal .modal-dialog .modal-content .modal-body {
               padding: 10px; }
-            .ps-2c-openy-memberships-modal .field-prgf-2c-left .container .modal .modal-dialog .modal-content .modal-footer, .ps-2c-openy-memberships-modal .field-prgf-2c-right .container .modal .modal-dialog .modal-content .modal-footer {
+            .block-description--wrapper.ps-2c-openy-memberships-modal .field-prgf-2c-left .container .modal .modal-dialog .modal-content .modal-footer, .block-description--wrapper.ps-2c-openy-memberships-modal .field-prgf-2c-right .container .modal .modal-dialog .modal-content .modal-footer {
               border-radius: 0;
               border: 0;
               padding: 0 10px 10px 10px; }
-              .ps-2c-openy-memberships-modal .field-prgf-2c-left .container .modal .modal-dialog .modal-content .modal-footer .btn, .ps-2c-openy-memberships-modal .field-prgf-2c-right .container .modal .modal-dialog .modal-content .modal-footer .btn {
+              .block-description--wrapper.ps-2c-openy-memberships-modal .field-prgf-2c-left .container .modal .modal-dialog .modal-content .modal-footer .btn, .block-description--wrapper.ps-2c-openy-memberships-modal .field-prgf-2c-right .container .modal .modal-dialog .modal-content .modal-footer .btn {
                 background-color: #92278f;
                 color: white;
                 width: 100%;
                 height: 48px; }
-              .ps-2c-openy-memberships-modal .field-prgf-2c-left .container .modal .modal-dialog .modal-content .modal-footer .btn-blue, .ps-2c-openy-memberships-modal .field-prgf-2c-right .container .modal .modal-dialog .modal-content .modal-footer .btn-blue {
+              .block-description--wrapper.ps-2c-openy-memberships-modal .field-prgf-2c-left .container .modal .modal-dialog .modal-content .modal-footer .btn-blue, .block-description--wrapper.ps-2c-openy-memberships-modal .field-prgf-2c-right .container .modal .modal-dialog .modal-content .modal-footer .btn-blue {
                 background-color: #0060af; }
-            .ps-2c-openy-memberships-modal .field-prgf-2c-left .container .modal .modal-dialog .modal-content .modal-footer > *, .ps-2c-openy-memberships-modal .field-prgf-2c-right .container .modal .modal-dialog .modal-content .modal-footer > * {
+            .block-description--wrapper.ps-2c-openy-memberships-modal .field-prgf-2c-left .container .modal .modal-dialog .modal-content .modal-footer > *, .block-description--wrapper.ps-2c-openy-memberships-modal .field-prgf-2c-right .container .modal .modal-dialog .modal-content .modal-footer > * {
               margin: 0; }
+  #block-openy-rose-content .block-description--wrapper.ps-2c-openy-memberships-modal .block-description--text,
+  #block-openy-lily-content .block-description--wrapper.ps-2c-openy-memberships-modal .block-description--text {
+    display: flex;
+    margin: 0;
+    width: 100%; }
+    #block-openy-rose-content .block-description--wrapper.ps-2c-openy-memberships-modal .block-description--text .container,
+    #block-openy-lily-content .block-description--wrapper.ps-2c-openy-memberships-modal .block-description--text .container {
+      width: 100%; }
+  #block-openy-rose-content .block-description--wrapper.ps-2c-openy-memberships-modal.clearfix:before, #block-openy-rose-content .block-description--wrapper.ps-2c-openy-memberships-modal.clearfix:after,
+  #block-openy-lily-content .block-description--wrapper.ps-2c-openy-memberships-modal.clearfix:before,
+  #block-openy-lily-content .block-description--wrapper.ps-2c-openy-memberships-modal.clearfix:after {
+    display: none; }
 
 div.ps-2c-openy-memberships-modal:last-child {
   margin-bottom: 30px !important; }

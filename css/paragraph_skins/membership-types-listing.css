@@ -1,36 +1,36 @@
 div.ui-dialog.ui-widget {
-  padding: 0;
-  z-index: 1500; }
+  z-index: 1500;
+  padding: 0; }
   div.ui-dialog.ui-widget .ui-dialog-titlebar {
-    background-color: #ffffff;
     font-family: "Cachet", Verdana, Geneva, sans-serif;
     font-size: 18px;
-    line-height: 27px;
     font-weight: normal;
+    line-height: 27px;
     padding: 12px 10px 11px;
     text-transform: uppercase;
     color: #636466;
     border: initial;
     border-bottom: 1px solid #636466;
-    border-radius: 0; }
+    border-radius: 0;
+    background-color: #ffffff; }
     div.ui-dialog.ui-widget .ui-dialog-titlebar .ui-dialog-title {
-      margin: 0;
-      color: #636466;
       font-size: 18px;
-      line-height: 27px; }
+      line-height: 27px;
+      margin: 0;
+      color: #636466; }
     div.ui-dialog.ui-widget .ui-dialog-titlebar .ui-dialog-titlebar-close,
     div.ui-dialog.ui-widget .ui-dialog-titlebar button {
-      color: white;
-      padding: 16px;
-      background-color: #0060af !important;
-      margin: 0;
-      opacity: 1;
+      line-height: 20px;
       position: absolute;
       top: 0;
       right: 0;
-      height: 51px;
       width: 51px;
-      line-height: 20px; }
+      height: 51px;
+      margin: 0;
+      padding: 16px;
+      opacity: 1;
+      color: white;
+      background-color: #0060af !important; }
       div.ui-dialog.ui-widget .ui-dialog-titlebar .ui-dialog-titlebar-close .ui-icon,
       div.ui-dialog.ui-widget .ui-dialog-titlebar button .ui-icon {
         background-image: url("/core/assets/vendor/jquery.ui/themes/base/images/ui-icons_ffffff_256x240.png"); }
@@ -38,9 +38,9 @@ div.ui-dialog.ui-widget {
       div.ui-dialog.ui-widget .ui-dialog-titlebar button:before {
         content: 'X'; }
   div.ui-dialog.ui-widget .ui-dialog-content {
-    padding: 10px;
     height: initial !important;
-    max-height: initial !important; }
+    max-height: initial !important;
+    padding: 10px; }
     div.ui-dialog.ui-widget .ui-dialog-content .banner {
       display: none; }
     div.ui-dialog.ui-widget .ui-dialog-content .breadcrumbs-wrapper {
@@ -49,7 +49,14 @@ div.ui-dialog.ui-widget {
       display: none; }
     div.ui-dialog.ui-widget .ui-dialog-content > .container {
       margin: 0;
-      padding: 0; }
+      padding: 0;
+      width: 100%; }
+  div.ui-dialog.ui-widget.openy-lily-dialog-theme .ui-dialog-titlebar {
+    background-color: #92278f; }
+    div.ui-dialog.ui-widget.openy-lily-dialog-theme .ui-dialog-titlebar .ui-dialog-title {
+      color: #ffffff; }
+  div.ui-dialog.ui-widget.openy-rose-dialog-theme .paragraph--type--simple-content {
+    padding-top: 0; }
 
 .ui-widget-overlay {
   opacity: .5; }

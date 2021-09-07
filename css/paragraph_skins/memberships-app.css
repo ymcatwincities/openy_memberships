@@ -327,7 +327,7 @@
     margin-bottom: 10px; }
   .membership-app .label-row {
     display: flex;
-    padding: 10px;
+    padding: 20px;
     align-items: center; }
     .membership-app .label-row .label {
       width: 200px;
@@ -570,17 +570,15 @@
     clear: both;
     color: #333;
     /* Overrides most CSS frameworks */
-    white-space: nowrap; }
-    .membership-app .vs__dropdown-option:hover {
-      cursor: pointer; }
+    white-space: nowrap;
+    cursor: pointer; }
   .membership-app .vs__dropdown-option--highlight {
     background: #0060af;
     color: #fff; }
   .membership-app .vs__dropdown-option--disabled {
     background: inherit;
-    color: rgba(60, 60, 60, 0.5); }
-    .membership-app .vs__dropdown-option--disabled:hover {
-      cursor: inherit; }
+    color: rgba(60, 60, 60, 0.5);
+    cursor: inherit; }
   .membership-app .vs__selected {
     display: flex;
     align-items: center;
