@@ -1,5 +1,5 @@
 openy_memberships_front.settings:
-  path: /admin/openy/memberships/settings'
+  path: /admin/openy/memberships/settings
   defaults:
     _form: '\Drupal\openy_memberships_front\Form\MembershipSettingsForm'
     _title: 'Settings'
