@@ -3,7 +3,7 @@
     <div class="product-title"><h2>{{product.title}}</h2></div>
     <div class="product-description" v-html="product.field_description"></div>
     <div class="product-columns">
-      <div>
+      <div v-if="this.product.variations.length > 1">
         <div class="title">Purchase Options</div>
         <div class="options">
           <div class="branch">
