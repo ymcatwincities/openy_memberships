@@ -10,7 +10,16 @@
 #block-memberships-mobile-menu > .wrapper-field-paragraph,
 #block-rose-memberships-mobile-menu > .wrapper-field-paragraph,
 #block-lily-memberships-mobile-menu > .wrapper-field-paragraph {
-  display: none; }
+  padding: 10px 5px; }
+  #block-memberships-mobile-menu > .wrapper-field-paragraph > div:not(:first-child),
+  #block-rose-memberships-mobile-menu > .wrapper-field-paragraph > div:not(:first-child),
+  #block-lily-memberships-mobile-menu > .wrapper-field-paragraph > div:not(:first-child) {
+    display: none; }
+
+#block-memberships-mobile-menu > .wrapper-field-paragraph.d-block > div:not(:first-child),
+#block-rose-memberships-mobile-menu > .wrapper-field-paragraph.d-block > div:not(:first-child),
+#block-lily-memberships-mobile-menu > .wrapper-field-paragraph.d-block > div:not(:first-child) {
+  display: block; }
 
 #block-memberships-mobile-menu h2,
 #block-rose-memberships-mobile-menu h2,
