@@ -1,3 +1,6 @@
+.ps-simple_content-openy-memberships-button .grayed-out {
+  opacity: 0.65; }
+
 .ps-simple_content-openy-memberships-button a {
   width: 100%;
   font-family: "Cachet", Verdana, Geneva, sans-serif !important;

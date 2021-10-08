@@ -1,6 +1,9 @@
 @import 'variables';
 
 .ps-simple_content-openy-memberships-button {
+  .grayed-out {
+    opacity: 0.65;
+  }
   a {
     width: 100%;
     font-family: $font-family-cachet !important;

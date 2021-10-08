@@ -36,6 +36,8 @@ button:
   css:
     theme:
       css/paragraph_skins/button.css: {}
+  js:
+    js/button.js: {}
 
 feature-card:
   version: 1.x
