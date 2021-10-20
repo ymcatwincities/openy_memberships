@@ -1,0 +1,140 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - openy_memberships_demo
+id: openy_block_feature_card
+migration_tags: {  }
+migration_group: openy_demo
+label: 'Create feature card block(s) for OpenY'
+source:
+  plugin: embedded_data
+  data_rows:
+    -
+      id: feature_card_1
+      description: 'State-of-the-Art Fitness Centers'
+      title: 'State-of-the-Art Fitness Centers'
+      icon: 'fas fa-dumbbell'
+      link_url: '<front>'
+      link_title: 'View Amenities'
+      body: |
+        <p>YMCA branches include exercise machines, stretching areas, free weights, classrooms, and much more.</p>
+    -
+      id: feature_card_2
+      description: 'Pools, Gyms, and Running Tracks'
+      title: 'Pools, Gyms, and Running Tracks'
+      icon: 'fas fa-swimmer'
+      body: |
+        <p>The Y provides a environment for swimming, fitness, and running for all ages and abilities.</p>
+    -
+      id: feature_card_3
+      description: 'FREE Exercise Classes'
+      title: 'FREE Exercise Classes'
+      icon: 'fas fa-volleyball-ball'
+      body: |
+        <p>The Y has over 60 types of group exercise and water exercise classes to choose from.</p>
+    -
+      id: feature_card_4
+      description: 'FREE Childcare While You Workout'
+      title: 'FREE Childcare While You Workout'
+      icon: 'fas fa-child'
+      body: |
+        <p>We provide free play, Kids Gym, arts and crafts, story times, and more.</p>
+    -
+      id: feature_card_5
+      description: 'Nationwide Access'
+      title: 'Nationwide Access'
+      icon: 'fas fa-flag'
+      body: |
+        <p>Membership gives you free access to all participating YMCA locations across the United States.</p>
+    -
+      id: feature_card_6
+      description: 'Savings on Swim Lessons, Day Camp, and More'
+      title: 'Savings on Swim Lessons, Day Camp, and More'
+      icon: 'fas fa-hand-holding-usd'
+      body: |
+        <p>The Y is all about helping you and your family learn new skills, discover unknown talents, and make friends.</p>
+    -
+      id: feature_card_7
+      description: 'Building Inclusive Communities'
+      title: 'Building Inclusive Communities'
+      icon: 'fas fa-user-friends'
+      body: |
+        <p>The Y brings people together from all abilities, ages, ethnicities, financial circumstances, genders, races, religions, and sexual orientations.</p>
+    -
+      id: feature_card_8
+      description: 'Free Swim Lessons and Camp Access'
+      title: 'Free Swim Lessons and Camp Access'
+      icon: 'fas fa-smile-beam'
+      body: |
+        <p>Every year, the YMCA provides free swimming lessons and access to the great outdoors for people living in underserved communities.</p>
+    -
+      id: feature_card_9
+      description: 'Remove Financial Barriers'
+      title: 'Remove Financial Barriers'
+      icon: 'fas fa-money-bill-wave-alt'
+      body: |
+        <p>The Y provides scholarships to those that have less so that everyone can be part of the community.</p>
+    -
+      id: feature_card_10
+      description: 'Community Outreach'
+      title: 'Community Outreach'
+      icon: 'fas fa-globe-americas'
+      body: |
+        <p>The Y reaches out to support the vulnerable, including immigrant communities and those experiencing homelessness.</p>
+    -
+      id: feature_card_11
+      description: 'Help Kids Thrive'
+      title: 'Help Kids Thrive'
+      icon: 'fas fa-child'
+      body: |
+        <p>Through Y activities, local kids and teens are cultivating values, skills, and relationships that will help them grow and succeed.</p>
+    -
+      id: feature_card_12
+      description: 'Community Events & Date Nights'
+      title: 'Community Events & Date Nights'
+      icon: 'fas fa-calendar-alt'
+      body: |
+        <p>The Y hosts events and activities designed to build communities, bring people together, and even gives parents a night off!</p>
+    -
+      id: feature_card_builder_1
+      description: 'free-trial Feature Card'
+      title: 'Try before you buy'
+      link_url: '/free-trial'
+      link_title: 'Free trial'
+      body: |
+        <p>Sed ut perspiciatis unde omnis iste natus error sit</p>
+    -
+      id: feature_card_builder_2
+      description: 'Custom promo'
+      title: 'Custom promo'
+      link_url: '<front>'
+      link_title: 'Button title'
+      body: |
+        <p>What will you pay after all is said and done?</p>
+  ids:
+    id:
+      type: string
+process:
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: en
+  type:
+    plugin: default_value
+    default_value: feature_card
+  info: description
+  field_fc_icon_class: icon
+  field_fc_title: title
+  field_fc_link/uri: link_url
+  field_fc_link/title:
+    plugin: default_value
+    default_value: link_title
+  field_fc_body/value: body
+  field_fc_body/format:
+    plugin: default_value
+    default_value: full_html
+destination:
+  plugin: 'entity:block_content'
+migration_dependencies: {  }

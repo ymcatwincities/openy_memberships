@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: open_y
+label: 'Open Y Migration group'
+description: 'Imports landing page demo content for Open Y.'
+module: openy_demo

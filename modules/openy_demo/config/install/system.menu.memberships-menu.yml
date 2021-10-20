@@ -1,0 +1,10 @@
+uuid: 048c46a8-27e6-4525-80b5-68906acf5fa7
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: wreKwMvCBLTEYlv8rz3C1TEVGIACr0HT3XDcsDTk4Ks
+id: memberships-menu
+label: 'Memberships Menu'
+description: 'Membership sidebar'
+locked: false

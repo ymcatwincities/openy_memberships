@@ -1,0 +1,121 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - openy_demo
+id: openy_paragraph_simple_content
+migration_tags: {  }
+migration_group: openy_demo
+label: 'Create simple content paragraph(s) for Open Y'
+source:
+  plugin: embedded_data
+  data_rows:
+    -
+      id: openy_join_the_y_button
+      description: |
+        <p><a class="btn btn-primary" href="/membership-builder">
+        <span class="text">Join</span></a></p>
+    -
+      id: openy_membership_types_content
+      description: |
+        <h1>Membership Types</h1>
+
+        <p>Membership types are just a starting point.
+        Your actual membership (and costs) will vary based on actual needs,
+        including the needs of <strong>
+        <a href="/corporate-wellness">organizations</a></strong>.</p>
+
+        <p class="text-align-center">
+        <a class="btn btn-info" href="/membership-builder">
+        <span class="text">MEMBERSHIP BUILDER</span></a></p>
+
+        <p class="text-align-center">&nbsp;</p>
+    -
+      id: openy_membership_benefits_content_1
+      description: |
+        <h1>Member Benefits</h1>
+
+        <p>The Y is much more than a 'swim and gym.'
+        We're also the world's most recognized charitable organization.
+        As a result, your membership not only benefits you,
+        it benefits your community as well.</p>
+
+        <h2>Personal Benefits</h2>
+
+        <p><span style="font-size:12px;">The Y is a great place to workout,
+        learn new life skills, and spend quality time with friends and family.
+        </span></p>
+    -
+      id: openy_membership_benefits_content_2
+      description: |
+        <h2><span style="font-size:36px;">Community Benefits</span></h2>
+
+        <p><span style="font-size:14px;">The Y is committed to helping everyone
+        thrive at each stage of life. And your membership dollars help make it
+        possible for us to pursue this mission.</span></p>
+    -
+      id: openy_membership_discount_content
+      description: |
+        <h1>Discounts</h1>
+
+        <p>The Y is about inclusivity, not exclusivity.
+        That's why we make sure everybody can afford to be a Y member.</p>
+    -
+      id: openy_membership_corporate_wellness_content_1
+      description: |
+        <h1>Corporate wellness</h1>
+
+        <p>Access to exercise facilities and healthy lifestyle resources
+        is a great way for people to decompress, relieve stress, and
+        re-energize. It's also a incredible employee benefit.</p>
+    -
+      id: openy_membership_corporate_wellness_content_2
+      description: |
+        <p>&nbsp;</p>
+
+        <h2><span style="font-size:36px;">Get Started</span></h2>
+
+        <p><span style="font-size:14px;">Complete our no-obligation form to
+        learn more about YMCA Corporate Wellness programs.</span></p>
+
+        <p class="text-align-center"><span style="font-size:14px;">
+        <a class="btn btn-default" href="/free-trial"><span class="text">
+        CONTACT US</span></a></span></p>
+
+        <p>&nbsp;</p>
+
+        <p>&nbsp;</p>
+    -
+      id: openy_membership_free_trial_content
+      description: |
+        <h1>Free Trial</h1>
+
+        <p>Complete the form below and we'll contact you within 24 hours
+        to schedule a visit and set-up your FREE five-day trial membership.</p>
+
+        <p><em><span style="font-size:14px;">Please note: You must provide
+        a valid photo ID and be at least 18 years of age to activate your
+        trial membership.</span></em></p>
+
+  ids:
+    id:
+      type: string
+process:
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: en
+  status:
+    plugin: default_value
+    default_value: 1
+  uid:
+    plugin: default_value
+    default_value: 1
+  field_prgf_description/value: description
+  field_prgf_description/format:
+    plugin: default_value
+    default_value: full_html
+destination:
+  plugin: 'entity:paragraph'
+  default_bundle: simple_content

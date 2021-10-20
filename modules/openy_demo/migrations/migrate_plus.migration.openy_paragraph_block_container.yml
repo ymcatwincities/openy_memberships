@@ -1,0 +1,93 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - openy_gc_demo
+id: openy_paragraph_block_container
+migration_tags: {  }
+migration_group: openy_demo
+label: 'Create block container paragraph(s) for Virtual Y'
+source:
+  plugin: embedded_data
+  data_rows:
+    -
+      id: openy_membership_blocks_benefits_1
+      content:
+        -
+          content_id: feature_card_1
+        -
+          content_id: feature_card_2
+        -
+          content_id: feature_card_3
+        -
+          content_id: feature_card_4
+        -
+          content_id: feature_card_5
+        -
+          content_id: feature_card_6
+    -
+      id: openy_membership_blocks_benefits_2
+      content:
+        -
+          content_id: feature_card_7
+        -
+          content_id: feature_card_8
+        -
+          content_id: feature_card_9
+        -
+          content_id: feature_card_10
+        -
+          content_id: feature_card_11
+        -
+          content_id: feature_card_12
+    -
+      id: openy_memberships_builder_blocks
+      content:
+        -
+          content_id: feature_card_builder_1
+        -
+          content_id: feature_card_builder_2
+    -
+      id: openy_memberships_sidebar_blocks
+      content:
+        -
+          content_id: membership_menu
+  ids:
+    id:
+      type: string
+process:
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: en
+  status:
+    plugin: default_value
+    default_value: 1
+  uid:
+    plugin: default_value
+    default_value: 1
+  field_block_ref:
+    plugin: sub_process
+    source: content
+    process:
+      target_id:
+        plugin: migration_lookup
+        migration:
+          - openy_block_feature_card
+          - openy_block_paragraph_container
+        source: content_id
+      target_revision_id:
+        plugin: migration_lookup
+        migration:
+          - openy_block_feature_card
+          - openy_block_paragraph_container
+        source: content_id
+destination:
+  plugin: 'entity:paragraph'
+  default_bundle: block_container
+migration_dependencies:
+  required:
+    - openy_block_feature_card
+    - openy_block_paragraph_container
+  optional: {  }

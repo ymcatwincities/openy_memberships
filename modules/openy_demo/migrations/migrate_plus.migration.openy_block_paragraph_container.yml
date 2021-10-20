@@ -1,0 +1,61 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - openy_demo
+id: openy_block_paragraph_container
+migration_tags: {  }
+migration_group: openy_demo
+label: 'Create paragraph container block(s) for OpenY'
+source:
+  plugin: embedded_data
+  data_rows:
+    -
+      id: membership_menu
+      description: 'Memberships Menu Container'
+      paragraphs:
+        -
+          paragraph_id: openy_join_the_y_button
+        -
+          paragraph_id: openy_memberships_sidebar_menu
+        -
+          paragraph_id: openy_memberships_builder_blocks
+  ids:
+    id:
+      type: string
+process:
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: en
+  type:
+    plugin: default_value
+    default_value: feature_card
+  info: description
+  field_paragraph:
+    plugin: sub_process
+    source: paragraphs
+    process:
+      target_id:
+        plugin: migration_lookup
+        migration:
+          - openy_paragraph_simple_content
+          - openy_paragraph_sidebar_menu
+          - openy_block_feature_card
+        source: paragraph_id
+      target_revision_id:
+        plugin: migration_lookup
+        migration:
+          - openy_paragraph_simple_content
+          - openy_paragraph_sidebar_menu
+          - openy_block_feature_card
+        source: paragraph_id
+destination:
+  plugin: 'entity:block_content'
+migration_dependencies:
+  required:
+    - openy_paragraph_simple_content
+    - openy_paragraph_sidebar_menu
+    - openy_block_feature_card
+  optional: {  }

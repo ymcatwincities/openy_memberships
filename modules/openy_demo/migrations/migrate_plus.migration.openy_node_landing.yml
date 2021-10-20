@@ -1,0 +1,253 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - openy_gc_demo
+id: openy_landing_pages
+migration_tags: {  }
+migration_group: openy_demo
+label: 'Create demo landing page nodes for Open Y'
+source:
+  plugin: embedded_data
+  data_rows:
+    -
+      id: openy_membership_builder
+      title: 'Membership Builder'
+      alias: '/membership-builder'
+      layout: two_column_left
+      header_content:
+        -
+          header_content_id: openy_membership_small_banner
+      content:
+        -
+          content_id: openy_memberships_app
+      sidebar_content:
+        -
+          sidebar_content_id: openy_memberships_sidebar_blocks
+    -
+      id: openy_membership_types
+      title: 'Membership Types'
+      alias: '/membership-types'
+      layout: two_column_left
+      header_content:
+        -
+          header_content_id: openy_membership_types_small_banner
+      content:
+        -
+          content_id: openy_membership_types_content
+        -
+          content_id: openy_membership_types_listing
+      sidebar_content:
+        -
+          sidebar_content_id: openy_memberships_sidebar_blocks # TODO
+      bottom_content:
+        -
+          bottom_content_id: openy_membership_bottom_banner
+    -
+      id: openy_membership_benefits
+      title: 'Member Benefits'
+      alias: '/member-benefits'
+      layout: two_column_left
+      header_content:
+        -
+          header_content_id: openy_membership_benefits_small_banner
+      content:
+        -
+          content_id: openy_membership_benefits_content_1
+        -
+          content_id: openy_membership_blocks_benefits_1
+        -
+          content_id: openy_membership_benefits_content_2
+        -
+          content_id: openy_membership_blocks_benefits_2
+      sidebar_content:
+        -
+          sidebar_content_id: openy_memberships_sidebar_blocks # TODO
+    -
+      id: openy_discounts # DONE
+      title: 'Discounts'
+      alias: '/discounts'
+      layout: two_column_left
+      header_content:
+        -
+          header_content_id: openy_membership_discount_small_banner
+      content:
+        -
+          content_id: openy_membership_discount_content
+        -
+          content_id: openy_membership_discount_two_column_1
+        -
+          content_id: openy_membership_discount_two_column_2
+      sidebar_content:
+        -
+          sidebar_content_id: openy_memberships_sidebar_blocks
+      bottom_content:
+        -
+          bottom_content_id: openy_membership_bottom_banner
+    -
+      id: openy_corporate_wellness
+      title: 'Corporate wellness'
+      alias: '/corporate-wellness'
+      layout: two_column_left
+      header_content:
+        -
+          header_content_id: openy_membership_сorporate_wellness_small_banner
+      content:
+        -
+          content_id: openy_membership_corporate_wellness_content_1
+        -
+          content_id: openy_membership_corporate_wellness_two_column
+        -
+          content_id: openy_membership_corporate_wellness_content_2
+      sidebar_content:
+        -
+          sidebar_content_id: openy_memberships_sidebar_blocks
+      bottom_content:
+        -
+          bottom_content_id: openy_membership_bottom_banner
+    -
+      id: openy_free_trial
+      title: 'Free Trial'
+      alias: '/free-trial'
+      layout: two_column_left
+      header_content:
+        -
+          header_content_id: openy_membership_free_trial_small_banner
+      content:
+        -
+          content_id: openy_membership_free_trial_content
+        -
+          content_id: openy_membership_free_trial_webform
+      sidebar_content:
+        -
+          sidebar_content_id: openy_memberships_sidebar_blocks
+      bottom_content:
+        -
+          bottom_content_id: openy_membership_bottom_banner
+  ids:
+    id:
+      type: string
+process:
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: en
+  status:
+    -
+      plugin: get
+      source: publish_status
+    -
+      plugin: default_value
+      default_value: 1
+  publish_on:
+    -
+      plugin: get
+      source: publish_date
+    -
+      plugin: callback
+      callable: strtotime
+    -
+      plugin: default_value
+      default_value: null
+  unpublish_on:
+    -
+      plugin: get
+      source: unpublish_date
+    -
+      plugin: callback
+      callable: strtotime
+    -
+      plugin: default_value
+      default_value: null
+  uid:
+    plugin: default_value
+    default_value: 1
+  title: title
+  path/pathauto:
+    plugin: default_value
+    default_value: 0
+  path/alias:
+    plugin: get
+    source: alias
+  field_lp_layout:
+    plugin: default_value
+    source: layout
+  field_header_content:
+    plugin: sub_process
+    source: header_content
+    process:
+      target_id:
+        plugin: migration_lookup
+        migration:
+          - openy_paragraph_small_banner
+        source: header_content_id
+      target_revision_id:
+        plugin: migration_lookup
+        migration:
+          - openy_paragraph_small_banner
+        source: header_content_id
+  field_content:
+    plugin: sub_process
+    source: content
+    process:
+      target_id:
+        plugin: migration_lookup
+        migration:
+          - openy_paragraph_memberships
+          - openy_paragraph_simple_content
+          - openy_paragraph_membership_types_listing
+          - openy_paragraph_two_column
+          - openy_paragraph_webform
+        source: content_id
+      target_revision_id:
+        plugin: migration_lookup
+        migration:
+          - openy_paragraph_memberships
+          - openy_paragraph_simple_content
+          - openy_paragraph_membership_types_listing
+          - openy_paragraph_two_column
+          - openy_paragraph_webform
+        source: content_id
+  field_sidebar_content:
+    plugin: sub_process
+    source: sidebar_content
+    process:
+      target_id:
+        plugin: migration_lookup
+        migration:
+          - openy_paragraph_block_container
+        source: sidebar_content_id
+      target_revision_id:
+        plugin: migration_lookup
+        migration:
+          - openy_paragraph_block_container
+        source: sidebar_content_id
+  field_bottom_content:
+    plugin: sub_process
+    source: bottom_content
+    process:
+      target_id:
+        plugin: migration_lookup
+        migration:
+          - openy_paragraph_banner
+        source: bottom_content_id
+      target_revision_id:
+        plugin: migration_lookup
+        migration:
+          - openy_paragraph_banner
+        source: bottom_content_id
+destination:
+  plugin: 'entity:node'
+  default_bundle: landing_page
+migration_dependencies:
+  required:
+    - openy_paragraph_banner
+    - openy_paragraph_small_banner
+    - openy_paragraph_sidebar_menu
+    - openy_paragraph_memberships
+    - openy_paragraph_simple_content
+    - openy_paragraph_membership_types_listing
+    - openy_paragraph_two_column
+    - openy_paragraph_webform
+  optional: {  }

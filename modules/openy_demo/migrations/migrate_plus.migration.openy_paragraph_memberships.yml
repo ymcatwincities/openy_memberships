@@ -1,0 +1,44 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - openy_demo
+id: openy_paragraph_memberships
+migration_tags: {  }
+migration_group: openy_demo
+label: 'Create memberships paragraph(s) for Open Y'
+source:
+  plugin: embedded_data
+  data_rows:
+    -
+      id: openy_memberships_app
+      memberships_app: 'paragraph.memberships.field_prgf_block'
+  ids:
+    id:
+      type: string
+process:
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: en
+  status:
+    plugin: default_value
+    default_value: 1
+  uid:
+    plugin: default_value
+    default_value: 1
+  field_prgf_block:
+    plugin: default_value
+    default_value:
+      -
+        plugin_id: memberships_block
+        plugin_configuration:
+          id: memberships_block
+          label: 'Memberships Block'
+          provider: openy_memberships_front
+          label_display: '0'
+        plugin_configuration_schema_id: block.settings.memberships_blockmemberships_app
+destination:
+  plugin: 'entity:paragraph'
+  default_bundle: memberships
