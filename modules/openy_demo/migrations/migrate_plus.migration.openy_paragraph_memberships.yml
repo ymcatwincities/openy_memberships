@@ -13,7 +13,14 @@ source:
   data_rows:
     -
       id: openy_memberships_app
-      memberships_app: 'paragraph.memberships.field_prgf_block'
+      skin: 'openy-memberships-app'
+      app_config:
+        -
+          id: 'memberships_block'
+          label: 'Memberships Block'
+          label_display: 0
+          provider: 'openy_memberships_front'
+      plugin_id: 'memberships_block'
   ids:
     id:
       type: string
@@ -28,17 +35,30 @@ process:
   uid:
     plugin: default_value
     default_value: 1
-  field_prgf_block:
-    plugin: default_value
-    default_value:
-      -
-        plugin_id: memberships_block
-        plugin_configuration:
-          id: memberships_block
-          label: 'Memberships Block'
-          provider: openy_memberships_front
-          label_display: '0'
-        plugin_configuration_schema_id: block.settings.memberships_blockmemberships_app
+  skin: skin
+  field_prgf_block/plugin_id: plugin_id
+  field_prgf_block/plugin_configuration:
+    plugin: sub_process
+    source: app_config
+    process:
+      depth:
+        plugin: default_value
+        default_value: depth
+      expand_all_items:
+        plugin: default_value
+        default_value: expand_all_items
+      id:
+        plugin: default_value
+        default_value: id
+      label:
+        plugin: default_value
+        default_value: label
+      level:
+        plugin: default_value
+        default_value: level
+      provider:
+        plugin: default_value
+        default_value: provider
 destination:
   plugin: 'entity:paragraph'
   default_bundle: memberships

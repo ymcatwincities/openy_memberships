@@ -13,7 +13,17 @@ source:
   data_rows:
     -
       id: openy_memberships_sidebar_menu
-      menu: 'paragraph.sidebar_menu.default'
+      skin: 'openy-memberships-sidebar-menu'
+      menu:
+        -
+          id: 'system_menu_block:memberships-menu'
+          depth: 1
+          expand_all_items: 0
+          label: 'Sidebar Menu'
+          label_display: 0
+          level: 1
+          provider: 'system'
+      plugin_id: 'system_menu_block:memberships-menu'
   ids:
     id:
       type: string
@@ -28,7 +38,30 @@ process:
   uid:
     plugin: default_value
     default_value: 1
-  field_prgf_sidebar_menu_ref: menu
+  skin: skin
+  field_prgf_sidebar_menu_ref/plugin_id: plugin_id
+  field_prgf_sidebar_menu_ref/plugin_configuration:
+    plugin: sub_process
+    source: menu
+    process:
+      depth:
+        plugin: default_value
+        default_value: depth
+      expand_all_items:
+        plugin: default_value
+        default_value: expand_all_items
+      id:
+        plugin: default_value
+        default_value: id
+      label:
+        plugin: default_value
+        default_value: expand_all_items
+      level:
+        plugin: default_value
+        default_value: level
+      provider:
+        plugin: default_value
+        default_value: provider
 destination:
   plugin: 'entity:paragraph'
   default_bundle: sidebar_menu

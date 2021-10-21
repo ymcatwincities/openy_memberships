@@ -1,4 +1,4 @@
-name: Open Y Demo content
+name: Open Y Demo (for Memberships)
 type: module
 description: 'Provides a Landing page node for development purposes.'
 package: Open Y
@@ -13,9 +13,17 @@ dependencies:
   - drupal:openy_demo_tcolor
   - drupal:jsonapi
   - drupal:openy_gated_content
-  - drupal:openy_gc_storage
-  - drupal:openy_gc_auth_example
-  - drupal:openy_demo_tcolor
+  - drupal:openy_memberships
+  - drupal:openy_block_feature_card
+  - drupal:openy_block_modal
+  - drupal:openy_block_paragraph_container
+  - drupal:openy_block_custom_simple
   - drupal:openy_node_landing
   - drupal:openy_prgf_banner
+  - drupal:openy_prgf_block_container
+  - drupal:openy_prgf_memberships
+  - drupal:openy_prgf_sidebar_menu
   - drupal:openy_prgf_simple_content
+  - drupal:openy_prgf_small_banner
+  - drupal:openy_prgf_2c
+  - drupal:openy_prgf_webform

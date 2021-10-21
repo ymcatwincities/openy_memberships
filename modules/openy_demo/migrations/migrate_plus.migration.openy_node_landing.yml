@@ -3,7 +3,7 @@ status: true
 dependencies:
   enforced:
     module:
-      - openy_gc_demo
+      - openy_demo
 id: openy_landing_pages
 migration_tags: {  }
 migration_group: openy_demo
@@ -63,9 +63,9 @@ source:
           content_id: openy_membership_blocks_benefits_2
       sidebar_content:
         -
-          sidebar_content_id: openy_memberships_sidebar_blocks # TODO
+          sidebar_content_id: openy_memberships_sidebar_blocks
     -
-      id: openy_discounts # DONE
+      id: openy_discounts
       title: 'Discounts'
       alias: '/discounts'
       layout: two_column_left
@@ -194,6 +194,7 @@ process:
       target_id:
         plugin: migration_lookup
         migration:
+          - openy_paragraph_block_container
           - openy_paragraph_memberships
           - openy_paragraph_simple_content
           - openy_paragraph_membership_types_listing
@@ -203,6 +204,7 @@ process:
       target_revision_id:
         plugin: migration_lookup
         migration:
+          - openy_paragraph_block_container
           - openy_paragraph_memberships
           - openy_paragraph_simple_content
           - openy_paragraph_membership_types_listing
@@ -242,12 +244,12 @@ destination:
   default_bundle: landing_page
 migration_dependencies:
   required:
-    - openy_paragraph_banner
     - openy_paragraph_small_banner
-    - openy_paragraph_sidebar_menu
+    - openy_paragraph_block_container
     - openy_paragraph_memberships
     - openy_paragraph_simple_content
     - openy_paragraph_membership_types_listing
     - openy_paragraph_two_column
     - openy_paragraph_webform
+    - openy_paragraph_banner
   optional: {  }

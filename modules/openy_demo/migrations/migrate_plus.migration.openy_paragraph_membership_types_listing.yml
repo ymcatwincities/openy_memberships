@@ -13,7 +13,14 @@ source:
   data_rows:
     -
       id: openy_membership_types_listing
-      block_id: 'paragraph.membership_types_listing.field_membership_types_listing'
+      skin: 'openy-memberships-types-listing'
+      listing_config:
+        -
+          id: 'views_block:membership_types_listing-block_1'
+          item_per_page: 'none'
+          label_display: 0
+          provider: 'views'
+      plugin_id: 'views_block:membership_types_listing-block_1'
   ids:
     id:
       type: string
@@ -28,7 +35,24 @@ process:
   uid:
     plugin: default_value
     default_value: 1
-  field_membership_types_listing: block_id
+  skin: skin
+  field_membership_types_listing/plugin_id: plugin_id
+  field_membership_types_listing/plugin_configuration:
+    plugin: sub_process
+    source: listing_config
+    process:
+      id:
+        plugin: default_value
+        default_value: id
+      items_per_page:
+        plugin: default_value
+        default_value: items_per_page
+      label:
+        plugin: default_value
+        default_value: label
+      provider:
+        plugin: default_value
+        default_value: provider
 destination:
   plugin: 'entity:paragraph'
   default_bundle: membership_types_listing

@@ -3,7 +3,7 @@ status: true
 dependencies:
   enforced:
     module:
-      - openy_gc_demo
+      - openy_demo
 id: openy_paragraph_two_column
 migration_tags: {  }
 migration_group: openy_demo
@@ -13,6 +13,7 @@ source:
   data_rows:
     -
       id: openy_membership_discount_two_column_1
+      skin: 'openy-memberships-modal'
       left_column:
         -
           modal_block: modal_block_1
@@ -21,6 +22,7 @@ source:
           modal_block: modal_block_2
     -
       id: openy_membership_discount_two_column_2
+      skin: 'openy-memberships-modal'
       left_column:
         -
           modal_block: modal_block_3
@@ -29,6 +31,7 @@ source:
           modal_block: modal_block_4
     -
       id: openy_membership_corporate_wellness_two_column
+      skin: 'openy-memberships-simple-content'
       left_column:
         -
           modal_block: simple_block_1
@@ -49,6 +52,7 @@ process:
   uid:
     plugin: default_value
     default_value: 1
+  skin: skin
   field_prgf_2c_left:
     plugin: sub_process
     source: left_column
@@ -90,3 +94,5 @@ destination:
 migration_dependencies:
   required:
     - openy_block_modal_block
+    - openy_block_simple_block
+  optional: {  }

@@ -8,7 +8,7 @@ id: openy_tt_memberships_ages_groups
 migration_tags:
   - openy_complete_installation
 migration_group: openy_demo
-label: 'Memberships Ages Group'
+label: 'Update Memberships Ages Group vocabulary for Open Y'
 source:
   plugin: embedded_data
   data_rows:

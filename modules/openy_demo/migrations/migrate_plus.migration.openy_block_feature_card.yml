@@ -7,7 +7,7 @@ dependencies:
 id: openy_block_feature_card
 migration_tags: {  }
 migration_group: openy_demo
-label: 'Create feature card block(s) for OpenY'
+label: 'Create feature card block(s) for Open Y'
 source:
   plugin: embedded_data
   data_rows:
@@ -16,8 +16,10 @@ source:
       description: 'State-of-the-Art Fitness Centers'
       title: 'State-of-the-Art Fitness Centers'
       icon: 'fas fa-dumbbell'
-      link_url: '<front>'
-      link_title: 'View Amenities'
+      links:
+        -
+          uri: 'internal:/'
+          title: 'View Amenities'
       body: |
         <p>YMCA branches include exercise machines, stretching areas, free weights, classrooms, and much more.</p>
     -
@@ -101,16 +103,20 @@ source:
       id: feature_card_builder_1
       description: 'free-trial Feature Card'
       title: 'Try before you buy'
-      link_url: '/free-trial'
-      link_title: 'Free trial'
+      links:
+        -
+          uri: 'internal:/free-trial'
+          title: 'Free trial'
       body: |
         <p>Sed ut perspiciatis unde omnis iste natus error sit</p>
     -
       id: feature_card_builder_2
       description: 'Custom promo'
       title: 'Custom promo'
-      link_url: '<front>'
-      link_title: 'Button title'
+      links:
+        -
+          uri: 'internal:/'
+          title: 'Button title'
       body: |
         <p>What will you pay after all is said and done?</p>
   ids:
@@ -127,10 +133,16 @@ process:
   info: description
   field_fc_icon_class: icon
   field_fc_title: title
-  field_fc_link/uri: link_url
-  field_fc_link/title:
-    plugin: default_value
-    default_value: link_title
+  field_fc_link:
+    plugin: sub_process
+    source: links
+    process:
+      uri:
+        plugin: get
+        source: uri
+      title:
+        plugin: get
+        source: title
   field_fc_body/value: body
   field_fc_body/format:
     plugin: default_value

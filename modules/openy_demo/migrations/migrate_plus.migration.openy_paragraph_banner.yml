@@ -3,7 +3,7 @@ status: true
 dependencies:
   enforced:
     module:
-      - openy_gc_demo
+      - openy_demo
 id: openy_paragraph_banner
 migration_tags: {  }
 migration_group: openy_demo
@@ -19,6 +19,10 @@ source:
         accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
         ab illo inventore veritatis et quasi architecto beatae vitae dicta
         sunt explicabo.</p>
+      links:
+        -
+          uri: 'internal:/free-trial'
+          title: 'Free trial'
     -
       id: openy_membership_free_trial_bottom_banner
       headline: 'Join the movement'
@@ -47,14 +51,16 @@ process:
     plugin: migration_lookup
     migration: openy_demo_taxonomy_term_color
     source: color
-  field_prgf_image:
-    plugin: migration_lookup
-    migration: virtual_y_media_image
-    source: image
   field_prgf_link:
-    plugin: migration_lookup
-    migration:
-    source: link
+    plugin: sub_process
+    source: links
+    process:
+      uri:
+        plugin: get
+        source: uri
+      title:
+        plugin: get
+        source: title
   field_prgf_description/value: description
   field_prgf_description/format:
     plugin: default_value
@@ -62,8 +68,7 @@ process:
 destination:
   plugin: 'entity:paragraph'
   default_bundle: banner
-
 migration_dependencies:
   required:
-    - openy_demo_lp_media_image
     - openy_demo_taxonomy_term_color
+  optional: {  }

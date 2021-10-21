@@ -3,16 +3,17 @@ status: true
 dependencies:
   enforced:
     module:
-      - openy_gc_demo
+      - openy_demo
 id: openy_paragraph_block_container
 migration_tags: {  }
 migration_group: openy_demo
-label: 'Create block container paragraph(s) for Virtual Y'
+label: 'Create block container paragraph(s) for Open Y'
 source:
   plugin: embedded_data
   data_rows:
     -
       id: openy_membership_blocks_benefits_1
+      skin: 'openy-memberships-block2-benefits'
       content:
         -
           content_id: feature_card_1
@@ -28,6 +29,7 @@ source:
           content_id: feature_card_6
     -
       id: openy_membership_blocks_benefits_2
+      skin: 'openy-memberships-block2-benefits'
       content:
         -
           content_id: feature_card_7
@@ -42,17 +44,11 @@ source:
         -
           content_id: feature_card_12
     -
-      id: openy_memberships_builder_blocks
-      content:
-        -
-          content_id: feature_card_builder_1
-        -
-          content_id: feature_card_builder_2
-    -
       id: openy_memberships_sidebar_blocks
+      skin: 'openy-memberships-desktop-sidebar'
       content:
         -
-          content_id: membership_menu
+          content_id: membership_menu_container
   ids:
     id:
       type: string
@@ -67,6 +63,7 @@ process:
   uid:
     plugin: default_value
     default_value: 1
+  skin: skin
   field_block_ref:
     plugin: sub_process
     source: content
@@ -74,20 +71,20 @@ process:
       target_id:
         plugin: migration_lookup
         migration:
-          - openy_block_feature_card
           - openy_block_paragraph_container
+          - openy_block_feature_card
         source: content_id
       target_revision_id:
         plugin: migration_lookup
         migration:
-          - openy_block_feature_card
           - openy_block_paragraph_container
+          - openy_block_feature_card
         source: content_id
 destination:
   plugin: 'entity:paragraph'
   default_bundle: block_container
 migration_dependencies:
   required:
-    - openy_block_feature_card
     - openy_block_paragraph_container
+    - openy_block_feature_card
   optional: {  }

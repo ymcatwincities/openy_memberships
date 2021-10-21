@@ -7,7 +7,7 @@ dependencies:
 id: openy_block_simple_block
 migration_tags: {  }
 migration_group: openy_demo
-label: 'Create simple block(s) for OpenY'
+label: 'Create simple block(s) for Open Y'
 source:
   plugin: embedded_data
   data_rows:

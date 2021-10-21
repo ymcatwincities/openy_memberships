@@ -7,7 +7,7 @@ dependencies:
 id: openy_block_modal_block
 migration_tags: {  }
 migration_group: openy_demo
-label: 'Create modal block(s) for OpenY'
+label: 'Create modal block(s) for Open Y'
 source:
   plugin: embedded_data
   data_rows:
