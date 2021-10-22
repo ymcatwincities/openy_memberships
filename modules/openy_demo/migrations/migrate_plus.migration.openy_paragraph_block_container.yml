@@ -49,6 +49,14 @@ source:
       content:
         -
           content_id: membership_menu_container
+    -
+      id: cp_family_2_block_contrainer
+      skin: 'openy-memberships-accordion'
+      content:
+        -
+          content_id: cp_feature_card_1
+        -
+          content_id: cp_feature_card_2
   ids:
     id:
       type: string

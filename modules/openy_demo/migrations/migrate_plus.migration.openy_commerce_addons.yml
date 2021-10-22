@@ -1,0 +1,88 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - openy_demo
+id: openy_commerce_addons
+migration_tags: {  }
+migration_group: openy_demo
+label: 'Create commerce add-on(s) for Open Y'
+source:
+  plugin: embedded_data
+  data_rows:
+    -
+      id: adult_add_on
+      title: 'Adult'
+      type: 'members'
+      price:
+        -
+          number: '10.00'
+          currency_code: 'USD'
+      frequency: 'mo'
+    -
+      id: senior_add_on
+      title: 'Senior'
+      type: 'members'
+      price:
+        -
+          number: '10.00'
+          currency_code: 'USD'
+      frequency: 'mo'
+    -
+      id: free_towels_add_on
+      title: 'Free Towels'
+      type: 'members'
+      price:
+        -
+          number: '10.00'
+          currency_code: 'USD'
+      frequency: 'mo'
+    -
+      id: premium_add_on
+      title: 'Premium'
+      type: 'benefits_packages'
+      price:
+        -
+          number: '500.00'
+          currency_code: 'USD'
+      frequency: 'mo'
+    -
+      id: fitness_assessment_add_on
+      title: 'Fitness Assessment'
+      type: 'benefits'
+      price:
+        -
+          number: '10.00'
+          currency_code: 'USD'
+      frequency: 'one-time'
+  ids:
+    id:
+      type: string
+process:
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: en
+  status:
+    plugin: default_value
+    default_value: 1
+  type:
+    plugin: default_value
+    default_value: membership_addon
+  title: title
+  field_om_addon_type: type
+  price:
+    plugin: sub_process
+    source: price
+    process:
+      number: number
+      currency_code: currency_code
+  field_om_frequency: frequency
+  field_om_addon_description/value: description
+  field_om_addon_description/format:
+    plugin: default_value
+    default_value: full_html
+destination:
+  plugin: 'entity:commerce_addon'
+  default_bundle: membership_addon

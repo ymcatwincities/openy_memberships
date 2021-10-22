@@ -105,6 +105,14 @@ source:
         <p><em><span style="font-size:14px;">Please note: You must provide
         a valid photo ID and be at least 18 years of age to activate your
         trial membership.</span></em></p>
+    -
+      id: cp_family_2_simple_content
+      skin: 'openy-memberships-simple-content'
+      description: |
+        <h4><span style="font-size:24px;">Household</span></h4>
+
+        <p><span style="font-size:12px;">A group membership that includes one
+        Adult (18-54 yrs.) and all Youth (0-17 yrs.) in the same household.</span></p>
   ids:
     id:
       type: string

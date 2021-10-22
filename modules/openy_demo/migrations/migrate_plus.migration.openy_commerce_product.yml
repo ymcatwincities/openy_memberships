@@ -1,0 +1,305 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - openy_demo
+id: openy_commerce_product
+migration_tags: {  }
+migration_group: openy_demo
+label: 'Create demo commerce product for Open Y'
+source:
+  plugin: embedded_data
+  data_rows:
+    -
+      id: openy_cp_family_2
+      title: 'Family II'
+      stores:
+        -
+          store_id: demo_online_store
+      description: |
+        <p>Two adults and all children under 18 in household</p>
+      add_ons:
+        -
+          add_on: adult_add_on
+        -
+          add_on: senior_add_on
+        -
+          add_on: free_towels_add_on
+        -
+          add_on: premium_add_on
+        -
+          add_on: fitness_assessment_add_on
+      total_availables:
+        -
+          related_addons: adult_add_on
+          ages_group: 1
+          total_available: 4
+          total_free: 4
+        -
+          related_addons: senior_add_on
+          ages_group: 2
+          total_available: 4
+          total_free: 4
+        -
+          ages_group: 3
+          total_available: 8
+          total_free: 8
+      branches:
+        -
+          branch_id: 1
+        -
+          branch_id: 2
+        -
+          branch_id: 3
+        -
+          branch_id: 4
+      content:
+        -
+          content_id: cp_family_2_simple_content
+        -
+          content_id: cp_family_2_block_contrainer
+      variations:
+        -
+          variation_id: family_2_annualy
+        -
+          variation_id: family_2_monthly
+        -
+          variation_id: family_2_six_moths
+    -
+      id: openy_cp_family_1
+      title: 'Family I'
+      stores:
+        -
+          store_id: demo_online_store
+      description: |
+        <p>Either two adults in the same household OR one adult and all children under 18 in household</p>
+      total_availables:
+        -
+          related_addons: adult_add_on
+          ages_group: 1
+          total_available: 4
+          total_free: 4
+        -
+          ages_group: 3
+          total_available: 8
+          total_free: 8
+      branches:
+        -
+          branch_id: 1
+        -
+          branch_id: 2
+        -
+          branch_id: 3
+        -
+          branch_id: 4
+      variations:
+        -
+          variation_id: family_1_six_months
+        -
+          variation_id: family_1_monthly
+        -
+          variation_id: family_1_annualy
+    -
+      id: openy_cp_senior
+      title: 'Senior'
+      stores:
+        -
+          store_id: demo_online_store
+      description: |
+        <p>Individuals 62 years and over. The YMCA is a SilverSneakers provider</p>
+      total_availables:
+        -
+          ages_group: 3
+          total_available: 10
+          total_free: 10
+      branches:
+        -
+          branch_id: 1
+        -
+          branch_id: 2
+        -
+          branch_id: 3
+        -
+          branch_id: 4
+      variations:
+        -
+          variation_id: senior_six_months
+        -
+          variation_id: senior_monthly
+        -
+          variation_id: senior_annually
+    -
+      id: openy_cp_adult
+      title: 'Adult'
+      stores:
+        -
+          store_id: demo_online_store
+      description: |
+        <p>Individuals 18 - 61 years.</p>
+      add_ons:
+        -
+          add_on: adult_add_on
+        -
+          add_on: premium_add_on
+        -
+          add_on: free_towels_add_on
+        -
+          add_on: fitness_assessment_add_on
+        -
+          add_on: senior_add_on
+      total_availables:
+        -
+          related_addons: adult_add_on
+          ages_group: 1
+          total_available: 10
+          total_free: 10
+      branches:
+        -
+          branch_id: 1
+        -
+          branch_id: 2
+        -
+          branch_id: 3
+        -
+          branch_id: 4
+      variations:
+        -
+          variation_id: adult_annually
+        -
+          variation_id: adult_monthly
+        -
+          variation_id: adult_six_months
+    -
+      id: openy_cp_student
+      title: 'Student'
+      stores:
+        -
+          store_id: demo_online_store
+      description: |
+        <p>Membership at all San Antonio YMCA Facilities for full-time students ages 13-25.</p>
+      total_availables:
+        -
+          ages_group: 3
+          total_available: 10
+          total_free: 10
+      branches:
+        -
+          branch_id: 1
+        -
+          branch_id: 2
+        -
+          branch_id: 3
+        -
+          branch_id: 4
+      variations:
+        -
+          variation_id: student_annually
+        -
+          variation_id: student_monthly
+        -
+          variation_id: student_six_months
+  ids:
+    id:
+      type: string
+process:
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: en
+  uid:
+    plugin: default_value
+    default_value: 1
+  title: title
+  field_description/value: description
+  field_description/format:
+    plugin: default_value
+    default_value: full_html
+  stores:
+    plugin: sub_process
+    source: stores
+    process:
+      target_id:
+        plugin: migration_lookup
+        migration: openy_commerce_store
+        source: store_id
+      target_revision_id:
+        plugin: migration_lookup
+        migration: openy_commerce_store
+        source: store_id
+  field_om_addons:
+    plugin: sub_process
+    source: add_ons
+    process:
+      target_id:
+        plugin: migration_lookup
+        migration: openy_commerce_addons
+        source: add_on
+      target_revision_id:
+        plugin: migration_lookup
+        migration: openy_commerce_addons
+        source: add_on
+  field_om_total_available:
+    plugin: sub_process
+    source: total_availables
+    process:
+      ar_target_id:
+        plugin: migration_lookup
+        migration: openy_commerce_addons
+        source: related_addons
+      target_id:
+        plugin: migration_lookup
+        migration: openy_tt_memberships_ages_groups
+        source: ages_group
+      quantity: total_available
+      ar_quantity: total_free
+  field_product_branch:
+    plugin: sub_process
+    source: branches
+    process:
+      target_id:
+        plugin: migration_lookup
+        migration: openy_demo_node_branch
+        source: branch_id
+      target_revision_id:
+        plugin: migration_lookup
+        migration: openy_demo_node_branch
+        source: branch_id
+  field_content:
+    plugin: sub_process
+    source: content
+    process:
+      target_id:
+        plugin: migration_lookup
+        migration:
+          - openy_paragraph_simple_content
+          - openy_paragraph_block_container
+        source: content_id
+      target_revision_id:
+        plugin: migration_lookup
+        migration:
+          - openy_paragraph_simple_content
+          - openy_paragraph_block_container
+        source: content_id
+  variations:
+    plugin: sub_process
+    source: variations
+    process:
+      target_id:
+        plugin: migration_lookup
+        migration: openy_commerce_product_variations
+        source: variation_id
+      target_revision_id:
+        plugin: migration_lookup
+        migration: openy_commerce_product_variations
+        source: variation_id
+destination:
+  plugin: 'entity:commerce_product'
+  default_bundle: membership
+migration_dependencies:
+  required:
+    - openy_commerce_addons
+    - openy_tt_memberships_ages_groups
+    - openy_paragraph_simple_content
+    - openy_paragraph_block_container
+  optional: {  }
