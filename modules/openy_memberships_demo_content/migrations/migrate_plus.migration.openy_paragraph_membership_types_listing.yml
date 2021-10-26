@@ -1,0 +1,58 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - openy_memberships_demo_content
+id: openy_paragraph_membership_types_listing
+migration_tags: {  }
+migration_group: openy_memberships_demo_content
+label: 'Create membership types listing paragraph(s) for Open Y'
+source:
+  plugin: embedded_data
+  data_rows:
+    -
+      id: openy_membership_types_listing
+      skin: 'openy-memberships-types-listing'
+      listing_config:
+        -
+          id: 'views_block:membership_types_listing-block_1'
+          item_per_page: 'none'
+          label_display: 0
+          provider: 'views'
+      plugin_id: 'views_block:membership_types_listing-block_1'
+  ids:
+    id:
+      type: string
+process:
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: en
+  status:
+    plugin: default_value
+    default_value: 1
+  uid:
+    plugin: default_value
+    default_value: 1
+  skin: skin
+  field_membership_types_listing/plugin_id: plugin_id
+  field_membership_types_listing/plugin_configuration:
+    plugin: sub_process
+    source: listing_config
+    process:
+      id:
+        plugin: default_value
+        default_value: id
+      items_per_page:
+        plugin: default_value
+        default_value: items_per_page
+      label:
+        plugin: default_value
+        default_value: label
+      provider:
+        plugin: default_value
+        default_value: provider
+destination:
+  plugin: 'entity:paragraph'
+  default_bundle: membership_types_listing

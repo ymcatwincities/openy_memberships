@@ -1,0 +1,29 @@
+name: Open Y Demo (for Memberships)
+type: module
+description: 'Provides a Landing page node for development purposes.'
+package: Open Y
+version: 0.1
+core: 8.x
+core_version_requirement: ^8 || ^9
+dependencies:
+  - drupal:migrate
+  - openy_migrate
+  - migrate_plus:migrate_plus
+  - migrate_tools:migrate_tools
+  - openy_demo_tcolor
+  - drupal:jsonapi
+  - openy_gated_content
+  - openy_memberships
+  - openy_block_feature_card
+  - openy_block_modal
+  - openy_block_paragraph_container
+  - openy_block_custom_simple
+  - openy_node_landing
+  - openy_prgf_banner
+  - openy_prgf_block_container
+  - openy_prgf_memberships
+  - openy_prgf_sidebar_menu
+  - openy_prgf_simple_content
+  - openy_prgf_small_banner
+  - openy_prgf_2c
+  - openy_prgf_webform

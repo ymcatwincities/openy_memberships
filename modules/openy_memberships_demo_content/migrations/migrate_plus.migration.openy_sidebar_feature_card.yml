@@ -1,0 +1,57 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - openy_memberships_demo_content
+id: openy_sidebar_feature_cards
+migration_tags: {  }
+migration_group: openy_memberships_demo_content
+label: 'Create block container paragraph(s) (for sidebar) for Open Y'
+source:
+  plugin: embedded_data
+  data_rows:
+    -
+      id: openy_memberships_builder_blocks
+      skin: 'openy-memberships-feature-card'
+      content:
+        -
+          content_id: feature_card_builder_1
+        -
+          content_id: feature_card_builder_2
+  ids:
+    id:
+      type: string
+process:
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: en
+  status:
+    plugin: default_value
+    default_value: 1
+  uid:
+    plugin: default_value
+    default_value: 1
+  skin: skin
+  field_block_ref:
+    plugin: sub_process
+    source: content
+    process:
+      target_id:
+        plugin: migration_lookup
+        migration:
+          - openy_block_feature_card
+        source: content_id
+      target_revision_id:
+        plugin: migration_lookup
+        migration:
+          - openy_block_feature_card
+        source: content_id
+destination:
+  plugin: 'entity:paragraph'
+  default_bundle: block_container
+migration_dependencies:
+  required:
+    - openy_block_feature_card
+  optional: {  }

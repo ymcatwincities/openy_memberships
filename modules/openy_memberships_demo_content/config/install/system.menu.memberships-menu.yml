@@ -1,0 +1,7 @@
+langcode: en
+status: true
+dependencies: {  }
+id: memberships-menu
+label: 'Memberships Menu'
+description: 'Membership sidebar'
+locked: false

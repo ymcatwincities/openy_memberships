@@ -1,0 +1,74 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - openy_memberships_demo_content
+id: openy_paragraph_banner
+migration_tags: {  }
+migration_group: openy_memberships_demo_content
+label: 'Create banner paragraph(s) for Open Y'
+source:
+  plugin: embedded_data
+  data_rows:
+    -
+      id: openy_membership_bottom_banner
+      headline: 'Join the movement'
+      description: |
+        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+        accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
+        ab illo inventore veritatis et quasi architecto beatae vitae dicta
+        sunt explicabo.</p>
+      links:
+        -
+          uri: 'internal:/free-trial'
+          title: 'Free trial'
+    -
+      id: openy_membership_free_trial_bottom_banner
+      headline: 'Join the movement'
+      description: |
+        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+        accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
+        ab illo inventore veritatis et quasi architecto beatae vitae dicta
+        sunt explicabo.</p>
+      color: 8
+  ids:
+    id:
+      type: string
+process:
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: en
+  status:
+    plugin: default_value
+    default_value: 1
+  uid:
+    plugin: default_value
+    default_value: 1
+  field_prgf_headline: headline
+  field_prgf_color:
+    plugin: migration_lookup
+    migration: openy_demo_taxonomy_term_color
+    source: color
+  field_prgf_link:
+    plugin: sub_process
+    source: links
+    process:
+      uri:
+        plugin: get
+        source: uri
+      title:
+        plugin: get
+        source: title
+  field_prgf_description/value: description
+  field_prgf_description/format:
+    plugin: default_value
+    default_value: full_html
+destination:
+  plugin: 'entity:paragraph'
+  default_bundle: banner
+migration_dependencies:
+  required:
+    - openy_demo_taxonomy_term_color
+  optional: {  }
