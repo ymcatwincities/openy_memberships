@@ -1,0 +1,78 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - openy_memberships_demo_content
+id: openy_block_simple_block
+migration_tags: {  }
+migration_group: openy_memberships_demo_content
+label: 'Create simple block(s) for Open Y'
+source:
+  plugin: embedded_data
+  data_rows:
+    -
+      id: simple_block_1
+      description: 'Employers'
+      title: 'Employers'
+      body: |
+        <p><span style="font-size:14px;">Your people are you most valuable asset.
+        By helping your employees stay healthy, your company can:</span></p>
+
+        <ul><li><span style="font-size:14px;"><strong>Improve overall productivity.</strong>
+        More than 90% of business leaders say that promoting wellness can affect employee
+        productivity and performance, according to the Society for Human Resource Management.</span>
+        </li>
+        	<li><span style="font-size:14px;"><strong>Save money on healthcare costs.</strong>
+        Companies that have wellness programs see an average reduction of 26% in healthcare costs,
+        according to the Partnership for Prevention.</span></li>
+        	<li><span style="font-size:14px;"><strong>Return on investment.</strong>
+        The average ROI for employee wellness programs across industries and company sizes is 3:1,
+        according to Forbes.</span></li>
+        </ul>
+
+        <p><span style="font-size:14px;">At the YMCA, our corporate wellness programs are custom-designed for each company.</span></p>
+
+        <ul>
+        	<li><span style="font-size:14px;">Any number of employees can participate.</span></li>
+        	<li><span style="font-size:14px;">Annual fee is based on the size of your organization.</span></li>
+        	<li><span style="font-size:14px;">All corporate programs include a free trial period.</span></li>
+        	<li><span style="font-size:14px;">Additional resources, like our monthly wellness newsletter, are included.</span></li>
+        	<li><span style="font-size:14px;">Corporate Wellness membership also includes access to meeting space at Y locations.</span></li>
+        </ul>
+    -
+      id: simple_block_2
+      description: 'Employees'
+      title: 'Employees'
+      body: |
+        <p><span style="font-size:14px;">If your company has part of a YMCA Corporate Wellness program, it may include:</span></p>
+
+        <ul>
+        	<li><span style="font-size:14px;">A trial period to try the Y for FREE!</span></li>
+        	<li><span style="font-size:14px;">A free or reduced enrollment fee.</span></li>
+        	<li><span style="font-size:14px;">Company-sponsored fitness, wellness, and safety classes.</span></li>
+        	<li><span style="font-size:14px;">A discount on your monthly dues if you workout a the Y 12 times a month (restrictions may apply).</span></li>
+        	<li><span style="font-size:14px;">Free towel service (valued at $132 annually).</span></li>
+        </ul>
+
+        <p>&nbsp;</p>
+  ids:
+    id:
+      type: string
+process:
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: en
+  type:
+    plugin: default_value
+    default_value: simple_block
+  info: description
+  field_sb_title: title
+  field_sb_body/value: body
+  field_sb_body/format:
+    plugin: default_value
+    default_value: full_html
+destination:
+  plugin: 'entity:block_content'
+migration_dependencies: {  }

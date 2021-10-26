@@ -1,0 +1,75 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - openy_memberships_demo_content
+id: openy_block_modal_block
+migration_tags: {  }
+migration_group: openy_memberships_demo_content
+label: 'Create modal block(s) for Open Y'
+source:
+  plugin: embedded_data
+  data_rows:
+    -
+      id: modal_block_1
+      description: 'Health Insurance'
+      title: 'Health Insurance'
+      mode: 'node'
+      link_url: '/node/453'
+      link_title: 'LEARN MORE'
+      body: |
+        <p>Several health insurance programs offer reimbursement for part of your monthly dues.</p>
+    -
+      id: modal_block_2
+      description: 'Scholarships'
+      title: 'Scholarships'
+      mode: 'node'
+      link_url: '/node/453'
+      link_title: 'LEARN MORE'
+      body: |
+        <p>Several health insurance programs offer reimbursement for part of your monthly dues.</p>
+    -
+      id: modal_block_3
+      description: 'Military Service'
+      title: 'Military Service'
+      mode: 'node'
+      link_url: '/node/453'
+      link_title: 'LEARN MORE'
+      body: |
+        <p>To thank those who served our country, we offer a military discount for active service members and veterans.</p>
+    -
+      id: modal_block_4
+      description: 'Refer a Friend'
+      title: 'Refer a Friend'
+      mode: 'node'
+      link_url: '/node/453'
+      link_title: 'LEARN MORE'
+      body: |
+        <p>To thank those who served our country, we offer a military discount for active service members and veterans.</p>
+  ids:
+    id:
+      type: string
+process:
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: en
+  type:
+    plugin: default_value
+    default_value: modal_block
+  info: description
+  field_title: title
+  field_link_title: link_title
+  field_link: link_url
+  field_mode/value: body
+  field_mode/format:
+    plugin: default_value
+    default_value: full_html
+  field_description/value: body
+  field_description/format:
+    plugin: default_value
+    default_value: full_html
+destination:
+  plugin: 'entity:block_content'
+migration_dependencies: {  }

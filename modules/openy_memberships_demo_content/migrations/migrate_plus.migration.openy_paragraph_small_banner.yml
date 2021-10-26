@@ -1,0 +1,59 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - openy_memberships_demo_content
+id: openy_paragraph_small_banner
+migration_tags: {  }
+migration_group: openy_memberships_demo_content
+label: 'Create small banner paragraph(s) for Open Y'
+source:
+  plugin: embedded_data
+  data_rows:
+    -
+      id: openy_membership_small_banner
+      headline: 'Membership Builder'
+      color: 2
+    -
+      id: openy_membership_types_small_banner
+      headline: 'Membership Types'
+    -
+      id: openy_membership_benefits_small_banner
+      headline: 'Member Benefits'
+    -
+      id: openy_membership_discount_small_banner
+      headline: 'Discounts'
+    -
+      id: openy_membership_сorporate_wellness_small_banner
+      headline: 'Corporate wellness'
+    -
+      id: openy_membership_free_trial_small_banner
+      headline: 'Free Trial'
+      color: 8
+  ids:
+    id:
+      type: string
+process:
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: en
+  status:
+    plugin: default_value
+    default_value: 1
+  uid:
+    plugin: default_value
+    default_value: 1
+  field_prgf_headline: headline
+  field_prgf_color:
+    plugin: migration_lookup
+    migration: openy_demo_taxonomy_term_color
+    source: color
+destination:
+  plugin: 'entity:paragraph'
+  default_bundle: small_banner
+migration_dependencies:
+  required:
+    - openy_demo_taxonomy_term_color
+  optional: {  }

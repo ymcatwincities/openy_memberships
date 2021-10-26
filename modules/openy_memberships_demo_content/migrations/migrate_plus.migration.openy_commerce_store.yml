@@ -1,0 +1,56 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - openy_memberships_demo_content
+id: openy_commerce_store
+migration_tags: {  }
+migration_group: openy_memberships_demo_content
+label: 'Create demo store for Open Y'
+source:
+  plugin: embedded_data
+  data_rows:
+    -
+      id: demo_online_store
+      name: 'Open Y'
+      mail: 'craig.paulnock@ymcamn.org'
+      default_currency: 'USD'
+      timezone: 'America/New_York'
+      address:
+        -
+          country_code: 'US'
+          administrative_area: 'MN'
+          locality: 'Minneapolis'
+          postal_code: '55402'
+          address_line1: '651 Nicollet mall suite 500'
+  ids:
+    id:
+      type: string
+process:
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: en
+  status:
+    plugin: default_value
+    default_value: 1
+  type:
+    plugin: default_value
+    default_value: online
+  name: name
+  mail: mail
+  default_currency: default_currency
+  timezone: timezone
+  address:
+    plugin: sub_process
+    source: address
+    process:
+      country_code: country_code
+      administrative_area: administrative_area
+      locality: locality
+      postal_code: postal_code
+      address_line1: address_line1
+destination:
+  plugin: 'entity:commerce_store'
+  default_bundle: online

@@ -1,0 +1,36 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - openy_memberships_demo_content
+id: openy_paragraph_webform
+migration_tags: {  }
+migration_group: openy_memberships_demo_content
+label: 'Create webform paragraph(s) for Open Y'
+source:
+  plugin: embedded_data
+  data_rows:
+    -
+      id: openy_membership_free_trial_webform
+      skin: 'openy-memberships-free-trial'
+      webform: 'memberships_free_trial'
+  ids:
+    id:
+      type: string
+process:
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: en
+  status:
+    plugin: default_value
+    default_value: 1
+  uid:
+    plugin: default_value
+    default_value: 1
+  skin: skin
+  field_prgf_webform: webform
+destination:
+  plugin: 'entity:paragraph'
+  default_bundle: webform

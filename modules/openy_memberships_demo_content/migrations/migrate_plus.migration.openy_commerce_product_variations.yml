@@ -1,0 +1,162 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - openy_memberships_demo_content
+id: openy_commerce_product_variations
+migration_tags: {  }
+migration_group: openy_memberships_demo_content
+label: 'Create commerce product variation(s) for Open Y'
+source:
+  plugin: embedded_data
+  data_rows:
+    -
+      id: family_2_annualy
+      title: 'Annually'
+      best_value: 1
+      sku: 'family_2_annualy'
+      price:
+        -
+          number: '85.00'
+          currency_code: 'USD'
+    -
+      id: family_2_monthly
+      title: 'Month-to-Month'
+      sku: 'family_2_monthly'
+      price:
+        -
+          number: '95.00'
+          currency_code: 'USD'
+    -
+      id: family_2_six_moths
+      title: 'Six Months'
+      sku: 'family_2_six_moths'
+      price:
+        -
+          number: '90.00'
+          currency_code: 'USD'
+    -
+      id: family_1_six_months
+      title: 'Six Months'
+      sku: 'family_1_six_months'
+      price:
+        -
+          number: '75.00'
+          currency_code: 'USD'
+    -
+      id: family_1_monthly
+      title: 'Month-to-Month'
+      sku: 'family_1_monthly'
+      price:
+        -
+          number: '80.00'
+          currency_code: 'USD'
+    -
+      id: family_1_annualy
+      title: 'Annually'
+      sku: 'family_1_annualy'
+      price:
+        -
+          number: '70.00'
+          currency_code: 'USD'
+    -
+      id: senior_six_months
+      title: 'Six Months'
+      sku: 'senior_six_months'
+      price:
+        -
+          number: '30.00'
+          currency_code: 'USD'
+    -
+      id: senior_monthly
+      title: 'Month-to-Month'
+      sku: 'senior_monthly'
+      price:
+        -
+          number: '45.00'
+          currency_code: 'USD'
+    -
+      id: senior_annually
+      title: 'Annually'
+      sku: 'senior_annually'
+      price:
+        -
+          number: '35.00'
+          currency_code: 'USD'
+    -
+      id: adult_annually
+      title: 'Annually'
+      sku: 'adult_annually'
+      price:
+        -
+          number: '40.00'
+          currency_code: 'USD'
+    -
+      id: adult_monthly
+      title: 'Month-to-Month'
+      sku: 'adult_monthly'
+      price:
+        -
+          number: '50.00'
+          currency_code: 'USD'
+    -
+      id: adult_six_months
+      title: 'Six Months'
+      sku: 'adult_six_months'
+      price:
+        -
+          number: '45.00'
+          currency_code: 'USD'
+    -
+      id: student_annually
+      title: 'Annually'
+      sku: 'student_annually'
+      price:
+        -
+          number: '30.00'
+          currency_code: 'USD'
+    -
+      id: student_monthly
+      title: 'Month-to-Month'
+      sku: 'student_monthly'
+      price:
+        -
+          number: '40.00'
+          currency_code: 'USD'
+    -
+      id: student_six_months
+      title: 'Six Months'
+      sku: 'student_six_months'
+      price:
+        -
+          number: '35.00'
+          currency_code: 'USD'
+  ids:
+    id:
+      type: string
+process:
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: en
+  status:
+    plugin: default_value
+    default_value: 1
+  type:
+    plugin: default_value
+    default_value: membership
+  title: title
+  sku: sku
+  price:
+    plugin: sub_process
+    source: price
+    process:
+      number: number
+      currency_code: currency_code
+  field_best_value:
+    plugin: default_value
+    default_value: best_value
+destination:
+  plugin: 'entity:commerce_product_variation'
+  default_bundle: membership
