@@ -3,10 +3,10 @@ status: true
 dependencies:
   enforced:
     module:
-      - openy_demo
+      - openy_memberships_demo_content
 id: openy_commerce_store
 migration_tags: {  }
-migration_group: openy_demo
+migration_group: openy_memberships_demo_content
 label: 'Create demo store for Open Y'
 source:
   plugin: embedded_data

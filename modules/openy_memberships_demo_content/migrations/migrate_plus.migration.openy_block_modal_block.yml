@@ -3,10 +3,10 @@ status: true
 dependencies:
   enforced:
     module:
-      - openy_demo
+      - openy_memberships_demo_content
 id: openy_block_modal_block
 migration_tags: {  }
-migration_group: openy_demo
+migration_group: openy_memberships_demo_content
 label: 'Create modal block(s) for Open Y'
 source:
   plugin: embedded_data

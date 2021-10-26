@@ -3,10 +3,10 @@ status: true
 dependencies:
   enforced:
     module:
-      - openy_demo
+      - openy_memberships_demo_content
 id: openy_landing_pages
 migration_tags: {  }
-migration_group: openy_demo
+migration_group: openy_memberships_demo_content
 label: 'Create demo landing page nodes for Open Y'
 source:
   plugin: embedded_data

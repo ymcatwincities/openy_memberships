@@ -3,11 +3,11 @@ status: true
 dependencies:
   enforced:
     module:
-      - openy_demo
+      - openy_memberships_demo_content
 id: openy_menu_link_memberships_menu
 migration_tags:
   - openy_complete_installation
-migration_group: openy_demo
+migration_group: openy_memberships_demo_content
 label: 'Create memberships menu links'
 source:
   plugin: embedded_data
