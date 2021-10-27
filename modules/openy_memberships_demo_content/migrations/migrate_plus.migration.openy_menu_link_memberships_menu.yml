@@ -14,15 +14,6 @@ source:
   data_rows:
     -
       id: 1
-      title: 'Membership Builder'
-      menu_name: 'memberships-menu'
-      link: 'internal:/membership-builder'
-      weight: 1
-      parent_id: 0
-      expanded: 0
-      parent_link_path: ''
-    -
-      id: 2
       title: 'Membership Types'
       menu_name: 'memberships-menu'
       link: 'internal:/membership-types'
@@ -31,7 +22,7 @@ source:
       expanded: 0
       parent_link_path: ''
     -
-      id: 3
+      id: 2
       title: 'Member Benefits'
       menu_name: 'memberships-menu'
       link: 'internal:/member-benefits'
@@ -40,7 +31,7 @@ source:
       expanded: 0
       parent_link_path: ''
     -
-      id: 4
+      id: 3
       title: 'Discounts'
       menu_name: 'memberships-menu'
       link: 'internal:/discounts'
@@ -49,7 +40,7 @@ source:
       expanded: 0
       parent_link_path: ''
     -
-      id: 5
+      id: 4
       title: 'Corporate wellness'
       menu_name: 'memberships-menu'
       link: 'internal:/corporate-wellness'
@@ -58,7 +49,7 @@ source:
       expanded: 0
       parent_link_path: ''
     -
-      id: 6
+      id: 5
       title: 'Free Trial'
       menu_name: 'memberships-menu'
       link: 'internal:/free-trial'
