@@ -12,7 +12,6 @@ dependencies:
   - migrate_tools:migrate_tools
   - openy_demo_tcolor
   - drupal:jsonapi
-  - openy_gated_content
   - openy_memberships
   - openy_block_feature_card
   - openy_block_modal
