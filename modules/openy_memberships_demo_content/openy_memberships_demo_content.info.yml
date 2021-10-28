@@ -11,6 +11,7 @@ dependencies:
   - migrate_plus:migrate_plus
   - migrate_tools:migrate_tools
   - openy_demo_tcolor
+  - openy_demo_nbranch
   - drupal:jsonapi
   - openy_memberships
   - openy_block_feature_card

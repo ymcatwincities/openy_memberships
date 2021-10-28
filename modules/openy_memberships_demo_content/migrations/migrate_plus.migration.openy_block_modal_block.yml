@@ -16,7 +16,7 @@ source:
       description: 'Health Insurance'
       title: 'Health Insurance'
       mode: 'node'
-      link_url: '/node/453'
+      link_url: 'internal:/node/453'
       link_title: 'LEARN MORE'
       body: |
         <p>Several health insurance programs offer reimbursement for part of your monthly dues.</p>
@@ -25,7 +25,7 @@ source:
       description: 'Scholarships'
       title: 'Scholarships'
       mode: 'node'
-      link_url: '/node/453'
+      link_url: 'internal:/node/453'
       link_title: 'LEARN MORE'
       body: |
         <p>Several health insurance programs offer reimbursement for part of your monthly dues.</p>
@@ -34,7 +34,7 @@ source:
       description: 'Military Service'
       title: 'Military Service'
       mode: 'node'
-      link_url: '/node/453'
+      link_url: 'internal:/node/453'
       link_title: 'LEARN MORE'
       body: |
         <p>To thank those who served our country, we offer a military discount for active service members and veterans.</p>
@@ -43,7 +43,7 @@ source:
       description: 'Refer a Friend'
       title: 'Refer a Friend'
       mode: 'node'
-      link_url: '/node/453'
+      link_url: 'internal:/node/453'
       link_title: 'LEARN MORE'
       body: |
         <p>To thank those who served our country, we offer a military discount for active service members and veterans.</p>
@@ -60,12 +60,11 @@ process:
     default_value: modal_block
   info: description
   field_title: title
+  field_link/uri:
+    plugin: link_uri
+    source: link_url
   field_link_title: link_title
-  field_link: link_url
-  field_mode/value: body
-  field_mode/format:
-    plugin: default_value
-    default_value: full_html
+  field_mode: mode
   field_description/value: body
   field_description/format:
     plugin: default_value
