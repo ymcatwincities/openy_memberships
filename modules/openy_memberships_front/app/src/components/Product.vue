@@ -3,7 +3,7 @@
     <div class="product-title"><h2>{{product.title}}</h2></div>
     <div class="product-description" v-html="product.field_description"></div>
     <div class="product-columns">
-      <div v-if="this.product.variations.length > 1>
+      <div v-if="this.product.variations.length > 1">
         <div class="title">Purchase Options</div>
         <div class="options">
           <div class="branch">
@@ -20,7 +20,7 @@
         <div class="options">
           <div class="item">
             <div class="price-title"><b>Dues</b></div>
-            <div class="price-value text-align-right"><b>${{ price | numFormat('0.00') }} / mo</b></div>
+            <div class="price-value text-align-right"><b>${{ price | numFormat('0.00') }} / {{ duration }}</b></div>
           </div>
         </div>
       </div>
@@ -55,6 +55,10 @@ export default {
     price() {
       let price = this.product.variations && this.product.variations[this.variant] ? this.product.variations[this.variant].price : 'NaN';
       return price
+    },
+    duration() {
+      let duration = this.product.variations && this.product.variations[this.variant] && this.product.variations[this.variant].title === 'Annually' ? 'a' : 'mo'
+      return duration
     }
   },
   methods: {
