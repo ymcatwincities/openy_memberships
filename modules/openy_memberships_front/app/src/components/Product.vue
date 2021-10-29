@@ -20,7 +20,7 @@
         <div class="options">
           <div class="item">
             <div class="price-title"><b>Dues</b></div>
-            <div class="price-value text-align-right"><b>${{ price | numFormat('0.00') }} / mo</b></div>
+            <div class="price-value text-align-right"><b>${{ price | numFormat('0.00') }} / {{ duration }}</b></div>
           </div>
         </div>
       </div>
@@ -55,6 +55,10 @@ export default {
     price() {
       let price = this.product.variations && this.product.variations[this.variant] ? this.product.variations[this.variant].price : 'NaN';
       return price
+    },
+    duration() {
+      let duration = this.product.variations && this.product.variations[this.variant] && this.product.variations[this.variant].title === 'Annually' ? 'a' : 'mo'
+      return duration
     }
   },
   methods: {
