@@ -17,6 +17,7 @@
         }
     },
     "require": {
+        "php": ">=7.4",
         "drupal/commerce": "~2.17",
         "openy/commerce_addon": "dev-8.x-1.x",
         "openy/openy_prgf_sidebar_menu": "9.x-dev",

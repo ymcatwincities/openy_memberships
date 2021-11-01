@@ -2,12 +2,12 @@
 
 ## Description
 
-By installing this module, you will have completed solution for membership search and select functionality for you Open Y website.
+By installing this module, you will have completed solution for the membership search and select functionality for you Open Y website.
 It includes landing pages and application for memberships builder.
 
 ## Requirements
 
-PHP 7.2+ with ini_set function enabled,
+PHP 7.4+ with ini_set function enabled,
 
 Open Y 2.5+
 
@@ -28,17 +28,21 @@ You need to build styles using this commands
 `npm install`
 `npm run scss-build`
 
-To have demo content you need to install additional package:
+## Demo content for Memberships framework
 
-`composer require openy/openy_memberships_demo`
+To install the demo content, please do next steps:
+1. Enable an additional module:
+`drush en openy_memberships_demo_content -y`
+2. [Run demo content migrations from the module description](https://github.com/ymcatwincities/openy_memberships/tree/master/modules/openy_memberships_demo_content)
+
 
 Steps for installation - CI sources https://github.com/ymcatwincities/openy-cibox-build/blob/master/devops/reinstall/vars/environments/membership_framework_env.yml
 
-- Install Open Y standard - no demo content!
+- Install Open Y standard *without demo content*
 
-- run ```drush en openy_carnation```
+- run ```drush en openy_carnation -y```
 
-- run ```drush en openy_addthis openy_demo_bfooter openy_demo_tarea openy_demo_nbranch migrate_tools openy_memberships_demo```
+- run ```drush en openy_memberships_demo_content -y```
 
 - run ```drush mim --group=openy_demo_fblock```
 
@@ -46,10 +50,16 @@ Steps for installation - CI sources https://github.com/ymcatwincities/openy-cibo
 
 - run ```drush mim --group=openy_demo_nbranch```
 
+- run ```drush mim --group=openy_memberships_demo_content```
+
 - Visit /membership-builder page to check how it works. Step 6 installs demo branches. You can skip it if you are adding Membership Framework to currently installed Open Y.
 
 ## Add-ons
-To have Discount Finder step included in Membership builder revert code from this pr https://github.com/ymcatwincities/openy_memberships/pull/60 
+
+In the initial build of the Memberships framework we had a robust Addons/Discounts functionality. Application had a separate step for that feature.
+Since that step was very complex for many organisations, dev team hided it from the application.
+
+To have Discount Finder step included in Membership builder, please revert code from this pr https://github.com/ymcatwincities/openy_memberships/pull/60 
 And add DiscountFinder step here /admin/openy/memberships/settings (after "Results" step)
 
 ## Documentation
