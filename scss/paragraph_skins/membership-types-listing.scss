@@ -183,10 +183,16 @@
 .ui-dialog {
   padding: 0;
   max-width: 680px !important;
+  min-width: 300px;
 
   .wrapper-price,
   .wrapper-field-enrollment-fee,
   .wrapper-field-best-value {
     display: none;
+  }
+  .wait-information {
+    font-size: 14px;
+    font-family: $font-family-verdana;
+    text-align: center;
   }
 }

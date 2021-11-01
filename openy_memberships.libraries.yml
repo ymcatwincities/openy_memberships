@@ -24,6 +24,7 @@ library:
       css/paragraph_skins/mobile-sidebar.css: {}
   js:
     js/mobile-menu.behaviors.js: {}
+    js/modal-windows.behaviors.js: {}
 
 sidebar-menu:
   version: 1.x
