@@ -68,6 +68,12 @@ block2benefits:
     theme:
       css/paragraph_skins/block2-benefits.css: {}
 
+fontawesome_themes:
+  version: 1.x
+  css:
+    theme:
+      //use.fontawesome.com/releases/v5.1.0/css/all.css: {type: external}
+
 memberships-app:
   version: 1.x
   css:
