@@ -15,7 +15,7 @@
           var $article = $modal_block.children('.ui-dialog-content').children('article');
           var height = $article.height();
           if (height === 0) {
-            $article.html("<p class='wait-information'>We are still waiting for information..</p>" );
+            $article.html("<p class='wait-information'>Content is loading, please wait..</p>");
           }
         }
       });
