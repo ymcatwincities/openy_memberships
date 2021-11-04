@@ -16,7 +16,7 @@ source:
       description: 'Health Insurance'
       title: 'Health Insurance'
       mode: 'node'
-      link_url: 'internal:/node/453'
+      link_url: 'internal:/product/1'
       link_title: 'LEARN MORE'
       body: |
         <p>Several health insurance programs offer reimbursement for part of your monthly dues.</p>
@@ -25,7 +25,7 @@ source:
       description: 'Scholarships'
       title: 'Scholarships'
       mode: 'node'
-      link_url: 'internal:/node/453'
+      link_url: 'internal:/product/1'
       link_title: 'LEARN MORE'
       body: |
         <p>Several health insurance programs offer reimbursement for part of your monthly dues.</p>
@@ -34,7 +34,7 @@ source:
       description: 'Military Service'
       title: 'Military Service'
       mode: 'node'
-      link_url: 'internal:/node/453'
+      link_url: 'internal:/product/1'
       link_title: 'LEARN MORE'
       body: |
         <p>To thank those who served our country, we offer a military discount for active service members and veterans.</p>
@@ -43,7 +43,7 @@ source:
       description: 'Refer a Friend'
       title: 'Refer a Friend'
       mode: 'node'
-      link_url: 'internal:/node/453'
+      link_url: 'internal:/product/1'
       link_title: 'LEARN MORE'
       body: |
         <p>To thank those who served our country, we offer a military discount for active service members and veterans.</p>
