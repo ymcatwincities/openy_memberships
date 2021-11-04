@@ -93,6 +93,11 @@ source:
           branch_id: 3
         -
           branch_id: 4
+      content:
+        -
+          content_id: cp_family_2_simple_content
+        -
+          content_id: cp_family_2_block_contrainer
       variations:
         -
           variation_id: family_1_six_months
@@ -122,6 +127,11 @@ source:
           branch_id: 3
         -
           branch_id: 4
+      content:
+        -
+          content_id: cp_family_2_simple_content
+        -
+          content_id: cp_family_2_block_contrainer
       variations:
         -
           variation_id: senior_six_months
@@ -163,6 +173,11 @@ source:
           branch_id: 3
         -
           branch_id: 4
+      content:
+        -
+          content_id: cp_family_2_simple_content
+        -
+          content_id: cp_family_2_block_contrainer
       variations:
         -
           variation_id: adult_annually
@@ -192,6 +207,11 @@ source:
           branch_id: 3
         -
           branch_id: 4
+      content:
+        -
+          content_id: cp_family_2_simple_content
+        -
+          content_id: cp_family_2_block_contrainer
       variations:
         -
           variation_id: student_annually
