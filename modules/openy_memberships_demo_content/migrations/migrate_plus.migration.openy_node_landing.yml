@@ -76,9 +76,7 @@ source:
         -
           content_id: openy_membership_discount_content
         -
-          content_id: openy_membership_discount_two_column_1
-        -
-          content_id: openy_membership_discount_two_column_2
+          content_id: openy_membership_teasers
       sidebar_content:
         -
           sidebar_content_id: openy_memberships_sidebar_blocks
@@ -200,6 +198,7 @@ process:
           - openy_paragraph_membership_types_listing
           - openy_paragraph_two_column
           - openy_paragraph_webform
+          - openy_paragraph_teasers
         source: content_id
       target_revision_id:
         plugin: migration_lookup
@@ -210,6 +209,7 @@ process:
           - openy_paragraph_membership_types_listing
           - openy_paragraph_two_column
           - openy_paragraph_webform
+          - openy_paragraph_teasers
         source: content_id
   field_sidebar_content:
     plugin: sub_process
@@ -252,4 +252,5 @@ migration_dependencies:
     - openy_paragraph_two_column
     - openy_paragraph_webform
     - openy_paragraph_banner
+    - openy_paragraph_teasers
   optional: {  }

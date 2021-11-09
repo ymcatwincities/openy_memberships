@@ -12,24 +12,6 @@ source:
   plugin: embedded_data
   data_rows:
     -
-      id: openy_membership_discount_two_column_1
-      skin: 'openy-memberships-modal'
-      left_column:
-        -
-          modal_block: modal_block_1
-      right_column:
-        -
-          modal_block: modal_block_2
-    -
-      id: openy_membership_discount_two_column_2
-      skin: 'openy-memberships-modal'
-      left_column:
-        -
-          modal_block: modal_block_3
-      right_column:
-        -
-          modal_block: modal_block_4
-    -
       id: openy_membership_corporate_wellness_two_column
       skin: 'openy-memberships-simple-content'
       left_column:
@@ -60,13 +42,11 @@ process:
       target_id:
         plugin: migration_lookup
         migration:
-          - openy_block_modal_block
           - openy_block_simple_block
         source: modal_block
       target_revision_id:
         plugin: migration_lookup
         migration:
-          - openy_block_modal_block
           - openy_block_simple_block
         source: modal_block
   field_prgf_2c_right:
@@ -76,13 +56,11 @@ process:
       target_id:
         plugin: migration_lookup
         migration:
-          - openy_block_modal_block
           - openy_block_simple_block
         source: modal_block
       target_revision_id:
         plugin: migration_lookup
         migration:
-          - openy_block_modal_block
           - openy_block_simple_block
         source: modal_block
   field_prfg_display_line_above:
@@ -93,6 +71,5 @@ destination:
   default_bundle: 2c
 migration_dependencies:
   required:
-    - openy_block_modal_block
     - openy_block_simple_block
   optional: {  }

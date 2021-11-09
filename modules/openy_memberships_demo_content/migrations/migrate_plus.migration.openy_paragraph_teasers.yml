@@ -1,0 +1,61 @@
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - openy_memberships_demo_content
+id: openy_paragraph_teasers
+migration_tags: {  }
+migration_group: openy_memberships_demo_content
+label: 'Create teasers paragraph(s) for Open Y'
+source:
+  plugin: embedded_data
+  data_rows:
+    -
+      id: openy_membership_teasers
+      skin: 'openy-memberships-modal'
+      content:
+        -
+          content_id: modal_content_1
+        -
+          content_id: modal_content_2
+        -
+          content_id: modal_content_3
+        -
+          content_id: modal_content_4
+  ids:
+    id:
+      type: string
+process:
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: en
+  status:
+    plugin: default_value
+    default_value: 1
+  uid:
+    plugin: default_value
+    default_value: 1
+  skin: skin
+  field_prgf_mc:
+    plugin: sub_process
+    source: content
+    process:
+      target_id:
+        plugin: migration_lookup
+        migration:
+          - openy_paragraph_modal_content
+        source: content_id
+      target_revision_id:
+        plugin: migration_lookup
+        migration:
+          - openy_paragraph_modal_content
+        source: content_id
+destination:
+  plugin: 'entity:paragraph'
+  default_bundle: teasers
+migration_dependencies:
+  required:
+    - openy_paragraph_modal_content
+  optional: {  }

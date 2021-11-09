@@ -27,3 +27,5 @@ dependencies:
   - openy_prgf_small_banner
   - openy_prgf_2c
   - openy_prgf_webform
+  - openy_prgf_modal_content
+  - openy_prgf_teasers
