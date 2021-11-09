@@ -1,0 +1,24 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.teasers.field_prgf_mc
+    - paragraphs.paragraphs_type.teasers
+  module:
+    - entity_reference_revisions
+id: paragraph.teasers.default
+targetEntityType: paragraph
+bundle: teasers
+mode: default
+content:
+  field_prgf_mc:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

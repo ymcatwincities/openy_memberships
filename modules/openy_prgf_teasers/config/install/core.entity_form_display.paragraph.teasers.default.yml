@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.teasers.field_prgf_mc
+    - paragraphs.paragraphs_type.teasers
+  module:
+    - paragraphs
+id: paragraph.teasers.default
+targetEntityType: paragraph
+bundle: teasers
+mode: default
+content:
+  field_prgf_mc:
+    type: entity_reference_paragraphs
+    weight: -4
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
