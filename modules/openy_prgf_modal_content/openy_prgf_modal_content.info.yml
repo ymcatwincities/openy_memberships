@@ -1,0 +1,12 @@
+name: Open Y Modal Content paragraph
+description: Implements Modal Content paragraph with a body and title that will be used to display modal windows.
+type: module
+core_version_requirement: ^8 || ^9
+package: Open Y
+dependencies:
+  - datalayer
+  - field
+  - openy_prgf
+  - openy_prgf_teasers
+  - paragraphs
+  - plugin

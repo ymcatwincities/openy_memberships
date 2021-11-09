@@ -1,0 +1,27 @@
+{#
+/**
+ * @file
+ * Modal block template.
+ *
+ * Available variables:
+ * - title: Title.
+ * - description: Description.
+ * - ajax_link: Link Uri
+ * - ajax_link_title: Link Title
+ *
+ * @ingroup themeable
+ */
+#}
+<div class="container">
+  <div class="field-title field-item">
+    {{ title }}
+  </div>
+  <div class="field-description field-item">
+    {{ description }}
+  </div>
+  <div class="field-link-title field-item">
+    <a class="use-ajax" data-dialog-type="modal"
+       data-dialog-options="{&quot;width&quot;:&quot;auto&quot;&comma; &quot;height&quot;:&quot;auto&quot;}"
+       href="{{ modal_link }}">{{ modal_link_title }}</a>
+  </div>
+</div>

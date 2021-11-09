@@ -1,0 +1,145 @@
+.fade.in {
+  background: rgba(0, 0, 0, 1);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  opacity: 1;
+}
+.modal-body {
+  padding: 0;
+}
+
+.modal-body .content_group {
+  padding: 15px;
+}
+
+.modal-body .sub_header {
+  padding: 10px;
+}
+
+.address .plaintext:before {
+  position: relative;
+  top: -0.1em;
+  margin-right: .3em;
+  content: "\e062";
+  vertical-align: middle;
+  text-transform: none;
+  font-weight: normal;
+  font-size: 1em;
+  font-family: 'Glyphicons Halflings';
+}
+
+.phone .plaintext:before {
+  position: relative;
+  top: -0.1em;
+  margin-right: .3em;
+  content: "\e182";
+  vertical-align: middle;
+  text-transform: none;
+  font-weight: normal;
+  font-size: 1em;
+  font-family: 'Glyphicons Halflings';
+}
+
+.modal-body .sub_header a.directions {
+  overflow: hidden;
+  border-radius: 3px;
+  color: #333;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+  -webkit-transition: background-color .2s ease-out;
+  -moz-transition: background-color .2s ease-out;
+  -ms-transition: background-color .2s ease-out;
+  transition: background-color .2s ease-out;
+  float: none;
+  display: inline-block;
+  vertical-align: middle;
+  padding: 4px 10px;
+  background: rgba(255,255,255,0.1);
+  top: -2px;
+  position: relative;
+}
+
+.modal-body .sub_header  a.directions:after {
+  position: relative;
+  top: -0.1em;
+  margin-left: .3em;
+  content: "\e066";
+  vertical-align: middle;
+  text-transform: none;
+  font-weight: normal;
+  font-size: 1em;
+  font-family: 'Glyphicons Halflings';
+}
+
+.close {
+  opacity: 1 !important;
+  background: #fff !important;
+}
+
+@media screen and (max-width: 767px) {
+  .modal-dialog {
+    width: 100% !important;
+  }
+}
+
+.ui-dialog {
+  z-index: 1500 !important;
+}
+
+.wrapper-field-prgf-mc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+.wrapper-field-prgf-mc .field-prgf-mc {
+  flex: 0 1 48%;
+}
+.wrapper-field-prgf-mc .field-prgf-mc .paragraph--type--modal-content {
+  display: flex;
+  margin: 0;
+  width: 100%;
+  border-left: solid 1px #636466;
+  border-right: solid 1px #636466;
+  border-top: solid 5px #92278f;
+  padding: 0;
+}
+.wrapper-field-prgf-mc .field-prgf-mc .paragraph--type--modal-content .container {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.wrapper-field-prgf-mc .field-prgf-mc .paragraph--type--modal-content .container .field-title {
+  font-family: "Cachet", Verdana, Geneva, sans-serif;
+  font-size: 24px;
+  line-height: 36px;
+  padding: 15px 15px 0 15px;
+}
+.wrapper-field-prgf-mc .field-prgf-mc .paragraph--type--modal-content .container .field-description {
+  font-size: 14px;
+  line-height: 21px;
+  padding: 15px;
+  height: 100%;
+}
+.wrapper-field-prgf-mc .field-prgf-mc .paragraph--type--modal-content .container .field-description p {
+  font-size: 14px;
+}
+.wrapper-field-prgf-mc .field-prgf-mc .paragraph--type--modal-content .container .field-link-title {
+  text-align: center;
+  margin-left: -1px;
+  margin-right: -1px;
+}
+.wrapper-field-prgf-mc .field-prgf-mc .paragraph--type--modal-content .container .field-link-title a {
+  display: block;
+  background-color: #0060af;
+  padding: 14px;
+  color: white;
+  text-transform: uppercase;
+  font-family: "Cachet", Verdana, Geneva, sans-serif;
+  font-size: 18px;
+  line-height: 27px;
+}
