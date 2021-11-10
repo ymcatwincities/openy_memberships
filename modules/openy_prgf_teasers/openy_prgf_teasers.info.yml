@@ -6,6 +6,7 @@ dependencies:
   - datalayer
   - field
   - openy_prgf
+  - openy_prgf_modal_content
   - paragraphs
   - plugin
   - openy_memberships_front
