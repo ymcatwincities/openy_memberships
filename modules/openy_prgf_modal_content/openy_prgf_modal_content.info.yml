@@ -7,6 +7,5 @@ dependencies:
   - datalayer
   - field
   - openy_prgf
-  - openy_prgf_teasers
   - paragraphs
   - plugin

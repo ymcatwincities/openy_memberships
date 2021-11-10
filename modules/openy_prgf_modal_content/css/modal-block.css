@@ -94,9 +94,10 @@
   display: flex;
   flex-wrap: wrap;
   gap: 30px;
+  margin: 20px 0;
 }
 .wrapper-field-prgf-mc .field-prgf-mc {
-  flex: 0 1 48%;
+  flex: 0 1 47%;
 }
 .wrapper-field-prgf-mc .field-prgf-mc .paragraph--type--modal-content {
   display: flex;
@@ -142,4 +143,10 @@
   font-family: "Cachet", Verdana, Geneva, sans-serif;
   font-size: 18px;
   line-height: 27px;
+}
+
+@media (max-width: 425px) {
+  .wrapper-field-prgf-mc .field-prgf-mc {
+    flex: initial;
+  }
 }
