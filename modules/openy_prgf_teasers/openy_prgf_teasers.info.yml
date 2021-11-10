@@ -1,0 +1,12 @@
+name: 'OpenY Paragraph Teasers'
+description: 'Feature with Teasers paragraph.'
+type: module
+core_version_requirement: ^8 || ^9
+dependencies:
+  - datalayer
+  - field
+  - openy_prgf
+  - paragraphs
+  - plugin
+  - openy_memberships_front
+core_incompatible: false

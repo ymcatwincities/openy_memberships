@@ -1,0 +1,5 @@
+modal-content:
+  version: 1.x
+  css:
+    theme:
+      css/modal-block.css: {}

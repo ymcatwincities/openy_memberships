@@ -1,0 +1,25 @@
+<?php
+
+/**
+ * @file
+ * Open Y Block Modal install file.
+ */
+
+/**
+ * Update configs for Drupal Core upgrade.
+ */
+function openy_prgf_modal_content_update_8001() {
+  $config_dir = \Drupal::service('extension.path.resolver')->getPath('module', 'openy_prgf_modal_content') . '/config/install/';
+  $configs = [
+    'core.entity_form_display.paragraph.modal_content.default',
+    'core.entity_view_display.paragraph.modal_content.default',
+    'field.field.paragraph.modal_content.field_prgf_description',
+    'field.field.paragraph.modal_content.field_prgf_link',
+    'field.field.paragraph.modal_content.field_prgf_title',
+  ];
+
+  // Import new configuration.
+  $config_importer = \Drupal::service('openy_upgrade_tool.importer');
+  $config_importer->setDirectory($config_dir);
+  $config_importer->importConfigs($configs);
+}

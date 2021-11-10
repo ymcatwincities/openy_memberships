@@ -1,0 +1,69 @@
+<?php
+
+/**
+ * @file
+ * Contains openy_block_modal.module.
+ */
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+
+/**
+ * Implements hook_theme().
+ */
+function openy_prgf_modal_content_theme($existing, $type, $theme, $path) {
+  return [
+    'modal_block' => [
+      'variables' => [
+        'modalId' => NULL,
+        'title' => NULL,
+        'description' => NULL,
+        'modal_header' => NULL,
+        'modal_content' => NULL,
+        'modal_link_title' => NULL,
+        'modal_link' => NULL,
+        'mode' => NULL,
+        'entity' => NULL,
+      ],
+      'template' => 'modal-block',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_entity_view_alter().
+ */
+function openy_prgf_modal_content_entity_view_alter(array &$build, \Drupal\Core\Entity\EntityInterface $entity, \Drupal\Core\Entity\Display\EntityViewDisplayInterface $display) {
+
+  if ($entity->bundle() == 'modal_content') {
+    $link_url = NULL;
+    $link_title = t('Learn more');
+    $link = $entity->get('field_prgf_link')->first();
+    if ($link) {
+      $uri = $link->get('uri')->getValue();
+      $link_url = \Drupal\Core\Url::fromUri($uri)->toString();
+      $link_title = $link->get('title')->getValue();
+    }
+
+    $build['modal'] = [
+      '#theme' => 'modal_block',
+      '#modalId' => $entity->id(),
+      '#title' => $entity->field_prgf_title->value,
+      '#description' => [
+        '#type' => 'processed_text',
+        '#text' => $entity->field_prgf_description->value,
+        '#format' => $entity->field_prgf_description->format,
+      ],
+      '#modal_link' => $link_url,
+      '#modal_link_title' => $link_title,
+      '#mode' => $entity->field_prgf_mode->value,
+      '#entity' => $entity,
+      '#cache' => [
+        'tags' => ['openy_cron'],
+      ],
+    ];
+
+    $build['#attached']['library'][] = 'openy_prgf_modal_content/modal-content';
+    $build['#attached']['library'][] = 'core/drupal.ajax';
+  }
+}

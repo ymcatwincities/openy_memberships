@@ -1,0 +1,44 @@
+uuid: 2a73383e-987c-4b34-b3cd-2b8ea3dfabfe
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.modal_content.field_prgf_description
+    - field.field.paragraph.modal_content.field_prgf_link
+    - field.field.paragraph.modal_content.field_prgf_title
+    - paragraphs.paragraphs_type.modal_content
+  module:
+    - link
+    - text
+id: paragraph.modal_content.default
+targetEntityType: paragraph
+bundle: modal_content
+mode: default
+content:
+  field_prgf_description:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_prgf_link:
+    type: link_default
+    weight: 5
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_prgf_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
