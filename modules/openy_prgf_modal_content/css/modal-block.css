@@ -87,7 +87,7 @@
 }
 
 @media screen and (max-width: 425px) {
-  .ui-dialog {
+  .ui-dialog.ui-widget-content {
     width: 100% !important;
   }
 }
