@@ -86,8 +86,15 @@
   }
 }
 
+@media screen and (max-width: 425px) {
+  .ui-dialog {
+    width: 100% !important;
+  }
+}
+
 .ui-dialog {
   z-index: 1500 !important;
+  width: 600px !important;
 }
 
 .wrapper-field-prgf-mc {
