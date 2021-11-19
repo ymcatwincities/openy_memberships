@@ -7,7 +7,7 @@
     font-weight: normal !important;
     text-transform: uppercase;
     background-color: $dark-purple;
-    border: none;
+    border: 2px solid $dark-purple;
 
     padding: 19px;
     font-size: 18px;
@@ -19,9 +19,24 @@
       padding: 15px;
     }
 
-    &:hover {
+    &:hover,
+    &:active,
+    &:focus {
       background-color: lighten($dark-purple, 10%);
       border-color: lighten($dark-purple, 10%);
+    }
+  }
+  .btn-list {
+    display: flex;
+  }
+  .free-trial {
+    margin-left: 10px;
+    background: white;
+    color: $dark-purple;
+    &:hover,
+    &:focus {
+      background: white;
+      color: $dark-purple;
     }
   }
 }

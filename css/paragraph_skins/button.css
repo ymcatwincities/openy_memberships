@@ -4,7 +4,7 @@
   font-weight: normal !important;
   text-transform: uppercase;
   background-color: #92278f;
-  border: none;
+  border: 2px solid #92278f;
   padding: 19px;
   font-size: 18px;
   line-height: 27px; }
@@ -13,6 +13,17 @@
       font-size: 24px;
       line-height: 36px;
       padding: 15px; } }
-  .ps-simple_content-openy-memberships-button a:hover {
+  .ps-simple_content-openy-memberships-button a:hover, .ps-simple_content-openy-memberships-button a:active, .ps-simple_content-openy-memberships-button a:focus {
     background-color: #ba32b6;
     border-color: #ba32b6; }
+
+.ps-simple_content-openy-memberships-button .btn-list {
+  display: flex; }
+
+.ps-simple_content-openy-memberships-button .free-trial {
+  margin-left: 10px;
+  background: white;
+  color: #92278f; }
+  .ps-simple_content-openy-memberships-button .free-trial:hover, .ps-simple_content-openy-memberships-button .free-trial:focus {
+    background: white;
+    color: #92278f; }
