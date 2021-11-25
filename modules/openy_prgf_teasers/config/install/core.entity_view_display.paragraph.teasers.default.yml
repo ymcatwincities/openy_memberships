@@ -2,7 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.paragraph.teasers.field_prgf_mc
+    - field.field.paragraph.teasers.field_prgf_teaser_content
     - paragraphs.paragraphs_type.teasers
   module:
     - entity_reference_revisions
@@ -11,14 +11,14 @@ targetEntityType: paragraph
 bundle: teasers
 mode: default
 content:
-  field_prgf_mc:
+  field_prgf_teaser_content:
     type: entity_reference_revisions_entity_view
     label: hidden
     settings:
       view_mode: default
       link: ''
     third_party_settings: {  }
-    weight: 0
+    weight: 1
     region: content
 hidden:
   search_api_excerpt: true
