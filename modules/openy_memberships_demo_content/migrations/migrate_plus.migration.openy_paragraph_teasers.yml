@@ -23,6 +23,17 @@ source:
           content_id: modal_content_3
         -
           content_id: modal_content_4
+    -
+      id: openy_membership_sidebar_menu
+      skin: 'openy-memberships-desktop-sidebar'
+      title: 'Memberships'
+      content:
+        -
+          content_id: openy_join_the_y_button
+        -
+          content_id: openy_memberships_sidebar_menu
+        -
+          content_id: openy_memberships_builder_blocks
   ids:
     id:
       type: string
@@ -38,7 +49,8 @@ process:
     plugin: default_value
     default_value: 1
   skin: skin
-  field_prgf_mc:
+  field_prgf_title: title
+  field_prgf_teaser_content:
     plugin: sub_process
     source: content
     process:
@@ -46,11 +58,17 @@ process:
         plugin: migration_lookup
         migration:
           - openy_paragraph_modal_content
+          - openy_paragraph_simple_content
+          - openy_paragraph_sidebar_menu
+          - openy_sidebar_feature_cards
         source: content_id
       target_revision_id:
         plugin: migration_lookup
         migration:
           - openy_paragraph_modal_content
+          - openy_paragraph_simple_content
+          - openy_paragraph_sidebar_menu
+          - openy_sidebar_feature_cards
         source: content_id
 destination:
   plugin: 'entity:paragraph'
@@ -58,4 +76,7 @@ destination:
 migration_dependencies:
   required:
     - openy_paragraph_modal_content
+    - openy_paragraph_simple_content
+    - openy_paragraph_sidebar_menu
+    - openy_sidebar_feature_cards
   optional: {  }
