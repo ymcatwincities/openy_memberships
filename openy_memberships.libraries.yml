@@ -10,12 +10,6 @@ modal:
     theme:
       css/paragraph_skins/modal.css: {}
 
-desktop-sidebar:
-  version: 1.x
-  css:
-    theme:
-      css/paragraph_skins/desktop-sidebar.css: {}
-
 library:
   version: 1.x
   css:
@@ -106,3 +100,8 @@ membership_types_listing:
     theme:
       css/paragraph_skins/membership-types-listing.css: {}
 
+teasers:
+  version: 1.x
+  css:
+    theme:
+      css/paragraph_skins/teasers.css: {}
