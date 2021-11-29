@@ -2,8 +2,7 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.storage.paragraph.field_prgf_mc
-    - paragraphs.paragraphs_type.modal_content
+    - field.storage.paragraph.field_prgf_teaser_content
     - paragraphs.paragraphs_type.teasers
   module:
     - datalayer
@@ -11,12 +10,12 @@ dependencies:
 third_party_settings:
   datalayer:
     expose: 0
-    label: field_prgf_mc
-id: paragraph.teasers.field_prgf_mc
-field_name: field_prgf_mc
+    label: field_prgf_teaser_content
+id: paragraph.teasers.field_prgf_teaser_content
+field_name: field_prgf_teaser_content
 entity_type: paragraph
 bundle: teasers
-label: 'Modal content'
+label: 'Teaser content'
 description: ''
 required: false
 translatable: false
@@ -25,147 +24,146 @@ default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
-    target_bundles:
-      modal_content: modal_content
+    target_bundles: null
     negate: 0
     target_bundles_drag_drop:
       1c:
-        weight: 74
+        weight: 73
         enabled: false
       2c:
-        weight: 75
+        weight: 74
         enabled: false
       3c:
-        weight: 76
+        weight: 75
         enabled: false
       4c:
-        weight: 77
+        weight: 76
         enabled: false
       activity_finder:
-        weight: 78
+        weight: 77
         enabled: false
       activity_finder_search:
-        weight: 79
+        weight: 78
         enabled: false
       addthis:
-        weight: 80
+        weight: 79
         enabled: false
       all_amenities:
-        weight: 81
+        weight: 80
         enabled: false
       banner:
-        weight: 82
+        weight: 81
         enabled: false
       block_container:
-        weight: 83
+        weight: 82
         enabled: false
       block_date:
-        weight: 84
+        weight: 83
         enabled: false
       blog_posts_listing:
-        weight: 85
+        weight: 84
         enabled: false
       branch_amenities:
-        weight: 86
-        enabled: false
-      branch_amenities_with_icons:
         weight: 87
         enabled: false
-      branch_contacts_info:
+      branch_amenities_with_icons:
         weight: 88
         enabled: false
-      branches_popup_all:
+      branch_contacts_info:
         weight: 89
         enabled: false
+      branches_popup_all:
+        weight: 85
+        enabled: false
       branches_popup_class:
-        weight: 90
+        weight: 86
         enabled: false
       camp_menu:
-        weight: 91
+        weight: 90
         enabled: false
       categories_listing:
-        weight: 92
+        weight: 91
         enabled: false
       class_location:
-        weight: 93
-        enabled: false
-      class_sessions:
         weight: 94
         enabled: false
-      classes_listing:
+      class_sessions:
         weight: 95
         enabled: false
+      classes_listing:
+        weight: 92
+        enabled: false
       classes_listing_filters:
-        weight: 96
+        weight: 93
         enabled: false
       code:
-        weight: 97
+        weight: 96
         enabled: false
       embedded_groupexpro_schedule:
-        weight: 98
+        weight: 97
         enabled: false
       event_posts_listing:
-        weight: 99
+        weight: 98
         enabled: false
       faq:
-        weight: 100
+        weight: 99
         enabled: false
       featured_blogs:
-        weight: 101
+        weight: 100
         enabled: false
       featured_content:
-        weight: 102
+        weight: 101
         enabled: false
       featured_highlights:
-        weight: 103
+        weight: 102
         enabled: false
       featured_news:
-        weight: 104
+        weight: 103
         enabled: false
       gallery:
-        weight: 105
+        weight: 104
         enabled: false
       gated_content:
-        weight: 106
+        weight: 105
         enabled: false
       gated_content_login:
-        weight: 107
+        weight: 106
         enabled: false
       google_search:
-        weight: 108
+        weight: 107
         enabled: false
       grid_columns:
-        weight: 109
+        weight: 108
         enabled: false
       grid_content:
-        weight: 110
+        weight: 109
         enabled: false
       group_schedules:
-        weight: 111
+        weight: 110
         enabled: false
       latest_blog_posts:
-        weight: 112
+        weight: 111
         enabled: false
       latest_blog_posts_branch:
-        weight: 113
+        weight: 112
         enabled: false
       latest_blog_posts_camp:
-        weight: 114
+        weight: 113
         enabled: false
       latest_news_posts:
-        weight: 115
+        weight: 114
         enabled: false
       latest_news_posts_branch:
-        weight: 116
+        weight: 115
         enabled: false
       latest_news_posts_camp:
-        weight: 117
+        weight: 116
         enabled: false
       location_filter_by_amenities:
-        weight: 118
+        weight: 117
         enabled: false
       lto:
-        weight: 119
+        weight: 118
         enabled: false
       membership_info:
         weight: 120
@@ -174,70 +172,70 @@ settings:
         weight: 121
         enabled: false
       memberships:
-        weight: 122
+        weight: 119
         enabled: false
       microsites_menu:
-        weight: 123
+        weight: 122
         enabled: false
       modal_content:
-        weight: 124
-        enabled: true
+        weight: 123
+        enabled: false
       news_posts_listing:
-        weight: 125
+        weight: 124
         enabled: false
       openy_prgf_mbrshp_calc:
-        weight: 126
+        weight: 125
         enabled: false
       prgf_location_finder:
-        weight: 127
+        weight: 126
         enabled: false
       prgf_location_finder_filters:
-        weight: 128
+        weight: 127
         enabled: false
       program_registration:
-        weight: 129
+        weight: 128
         enabled: false
       promo_card:
-        weight: 130
+        weight: 129
         enabled: false
       repeat_schedules:
-        weight: 131
+        weight: 130
         enabled: false
       repeat_schedules_loc:
-        weight: 132
+        weight: 131
         enabled: false
       schedule_search_form:
-        weight: 133
+        weight: 132
         enabled: false
       schedule_search_list:
-        weight: 134
+        weight: 133
         enabled: false
       secondary_description_sidebar:
-        weight: 135
+        weight: 134
         enabled: false
       session_time:
-        weight: 136
+        weight: 135
         enabled: false
       sidebar_menu:
-        weight: 137
+        weight: 136
         enabled: false
       simple_content:
-        weight: 138
+        weight: 137
         enabled: false
       small_banner:
-        weight: 139
+        weight: 138
         enabled: false
       social_list:
-        weight: 140
+        weight: 139
         enabled: false
       story_card:
-        weight: 141
+        weight: 140
         enabled: false
       teaser:
-        weight: 142
+        weight: 141
         enabled: false
       teasers:
-        weight: 73
+        weight: 142
         enabled: false
       upcoming_events:
         weight: 143

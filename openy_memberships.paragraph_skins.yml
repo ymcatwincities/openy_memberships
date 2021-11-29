@@ -21,13 +21,13 @@ openy_memberships.paragraph_skins:
 
   - name: openy-memberships-modal
     label: 'Memberships Modal'
-    paragraph_type: 2c
-    library: 'openy_memberships/modal'
+    paragraph_type: teasers
+    library: 'openy_memberships/teasers'
 
   - name: openy-memberships-desktop-sidebar
     label: 'Memberships Desktop Sidebar'
-    paragraph_type: block_container
-    library: 'openy_memberships/desktop-sidebar'
+    paragraph_type: teasers
+    library: 'openy_memberships/teasers'
 
   - name: openy-memberships-sidebar-menu
     label: 'Memberships Sidebar Menu'

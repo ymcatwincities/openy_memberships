@@ -16,7 +16,6 @@ dependencies:
   - openy_memberships
   - openy_block_feature_card
   - openy_block_modal
-  - openy_block_paragraph_container
   - openy_block_custom_simple
   - openy_node_landing
   - openy_prgf_banner
