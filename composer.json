@@ -25,7 +25,7 @@
         "drupal/paragraph_skins": "^2.0",
         "openy/commerce_cart_api": "dev-8.x-1.x",
         "drupal/swiftmailer": "^2.0",
-        "egulias/email-validator": "3.1.2 as 2.0",
+        "egulias/email-validator": "2.1.25 as 3.1.2",
         "drupal/mailsystem": "~4.3"
     },
     "extra": {
