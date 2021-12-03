@@ -67,6 +67,8 @@ fontawesome_themes:
   css:
     theme:
       //use.fontawesome.com/releases/v5.1.0/css/all.css: {type: external}
+  js:
+    https://use.fontawesome.com/95fd5fcc01.js: {type: external, attributes: { defer: true, async: true} }
 
 memberships-app:
   version: 1.x

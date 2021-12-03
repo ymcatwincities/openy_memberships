@@ -28,6 +28,10 @@ openy_memberships.paragraph_skins:
     label: 'Memberships Desktop Sidebar'
     paragraph_type: teasers
     library: 'openy_memberships/teasers'
+    theme_library:
+      openy_carnation: 'openy_memberships/fontawesome_themes'
+      openy_lily: 'openy_memberships/fontawesome_themes'
+      openy_rose: 'openy_memberships/fontawesome_themes'
 
   - name: openy-memberships-sidebar-menu
     label: 'Memberships Sidebar Menu'
