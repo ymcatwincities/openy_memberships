@@ -11,10 +11,10 @@
     attach: function (context) {
       var block_id = '.ps-teasers-openy-memberships-desktop-sidebar';
 
-      $(block_id + ' .field-prgf-title h2').click(function(e) {
+      $(block_id + ' h2').click(function(e) {
         $(this).toggleClass('menu-open');
         $('.sidebar-region').toggleClass('menu-open');
-        $(this).parent().parent().children('.wrapper-field-prgf-teaser-content').toggle();
+        $(block_id).children('.wrapper-field-prgf-teaser-content').toggle();
       });
     }
   };
