@@ -1,0 +1,11 @@
+uuid: 6e018f12-6ce4-483d-846c-4a42b354869f
+langcode: en
+status: true
+dependencies:
+  module:
+    - openy_memberships
+id: openy_memberships
+configuration:
+  mailer_default_headers: {  }
+  mailer_inline_css: {  }
+  mailer_url_to_absolute: {  }
