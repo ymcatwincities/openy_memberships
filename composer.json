@@ -27,6 +27,10 @@
         "drupal/symfony_mailer": "^1.0@alpha || ^1.0",
         "drupal/webform:": "^6.0 || ^ 6.1"
     },
+    "require-dev": {
+        "drupal/swiftmailer": "^2.0",
+        "drupal/mailsystem": "~4.3"
+    },
     "extra": {
         "patches": {
             "openy/commerce_cart_api": {
