@@ -38,6 +38,6 @@ dependencies:
   - openy_prgf_block_container
   - openy_prgf_sidebar_menu
   - paragraph_skins
-  #- mailsystem
+  - mailsystem
   - symfony_mailer
 core_incompatible: false
