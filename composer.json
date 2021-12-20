@@ -24,8 +24,12 @@
         "openy/openy_block_modal": "^1.0",
         "drupal/paragraph_skins": "^2.0",
         "openy/commerce_cart_api": "dev-8.x-1.x",
-        "drupal/swiftmailer": "^2.0",
+        "drupal/symfony_mailer": "^1.0@alpha || ^1.0",
+        "drupal/webform": "^6.1",
         "drupal/mailsystem": "~4.3"
+    },
+    "require-dev": {
+        "drupal/swiftmailer": "^2.0"
     },
     "extra": {
         "patches": {
