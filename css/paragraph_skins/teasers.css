@@ -153,3 +153,18 @@
 @media (min-width: 1025px) {
   .wrapper-field-prgf-teaser-content {
     display: block !important; } }
+
+.ui-widget.ui-dialog .ui-dialog-titlebar .ui-dialog-titlebar-close::before {
+  content: "X";
+  font-family: "Cachet", Verdana, Geneva, sans-serif;
+  font-weight: bold;
+  text-decoration: none; }
+.rose_based_theme .ui-widget.ui-dialog .ui-dialog-titlebar .ui-dialog-titlebar-close::before,
+.openy_carnation .ui-widget.ui-dialog .ui-dialog-titlebar .ui-dialog-titlebar-close::before {
+  position: absolute; }
+.rose_based_theme .ui-widget.ui-dialog .ui-dialog-titlebar .ui-dialog-titlebar-close::before {
+  top: -1px;
+  right: 2px; }
+.openy_carnation .ui-widget.ui-dialog .ui-dialog-titlebar .ui-dialog-titlebar-close::before {
+  top: -4px;
+  right: 1.5px; }

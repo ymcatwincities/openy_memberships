@@ -318,3 +318,30 @@
     display: block !important;
   }
 }
+
+.ui-widget {
+  &.ui-dialog {
+    .ui-dialog-titlebar {
+      .ui-dialog-titlebar-close {
+        &::before {
+          content: "X";
+          font-family: "Cachet", Verdana, Geneva, sans-serif;
+          font-weight: bold;
+          text-decoration: none;
+          .rose_based_theme &,
+          .openy_carnation & {
+            position: absolute;
+          }
+          .rose_based_theme & {
+            top: -1px;
+            right: 2px;
+          }
+          .openy_carnation & {
+            top: -4px;
+            right: 1.5px;
+          }
+        }
+      }
+    }
+  }
+}
