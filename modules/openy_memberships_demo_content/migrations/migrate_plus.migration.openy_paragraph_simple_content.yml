@@ -15,8 +15,9 @@ source:
       id: openy_join_the_y_button
       skin: 'openy-memberships-button'
       description: |
-        <p><a class="btn btn-primary" href="/membership-builder">
-        <span class="text">Join</span></a></p>
+        <div class="buttons"><a class="btn btn-primary btn-join" href="/membership-builder">
+        <span class="text">Join the Y</span></a><a class="btn btn-primary" href="/free-trial">
+        <span class="text">Free Trial</span></a></div>
     -
       id: openy_membership_types_content
       skin: 'openy-memberships-simple-content'

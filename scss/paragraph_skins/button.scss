@@ -1,13 +1,21 @@
 @import 'variables';
 
 .ps-simple_content-openy-memberships-button {
+  .field-prgf-description {
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+  }
   a {
     width: 100%;
     font-family: $font-family-cachet !important;
     font-weight: normal !important;
     text-transform: uppercase;
-    background-color: $dark-purple;
-    border: 2px solid $dark-purple;
+    background-color: $dark-blue;
+    color: $white;
+    border: 2px solid $dark-blue;
 
     padding: 19px;
     font-size: 18px;
@@ -19,11 +27,17 @@
       padding: 15px;
     }
 
-    &:hover,
-    &:active,
-    &:focus {
-      background-color: lighten($dark-purple, 10%);
-      border-color: lighten($dark-purple, 10%);
+    &.btn-join {
+      color: $white;
+      background-color: $dark-purple;
+      border: 2px solid $dark-purple;
+
+      &:hover,
+      &:active,
+      &:focus {
+        background-color: lighten($dark-purple, 10%);
+        border-color: lighten($dark-purple, 10%);
+      }
     }
   }
   .btn-list {

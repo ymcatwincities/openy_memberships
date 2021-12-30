@@ -1,21 +1,31 @@
+.ps-simple_content-openy-memberships-button .field-prgf-description .buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 5px; }
+
 .ps-simple_content-openy-memberships-button a {
   width: 100%;
   font-family: "Cachet", Verdana, Geneva, sans-serif !important;
   font-weight: normal !important;
   text-transform: uppercase;
-  background-color: #92278f;
-  border: 2px solid #92278f;
+  background-color: #0060af;
+  color: #ffffff;
+  border: 2px solid #0060af;
   padding: 19px;
   font-size: 18px;
   line-height: 27px; }
-  @media all and (min-width: 1060px) {
-    .ps-simple_content-openy-memberships-button a {
-      font-size: 24px;
-      line-height: 36px;
-      padding: 15px; } }
-  .ps-simple_content-openy-memberships-button a:hover, .ps-simple_content-openy-memberships-button a:active, .ps-simple_content-openy-memberships-button a:focus {
-    background-color: #ba32b6;
-    border-color: #ba32b6; }
+@media all and (min-width: 1060px) {
+  .ps-simple_content-openy-memberships-button a {
+    font-size: 24px;
+    line-height: 36px;
+    padding: 15px; } }
+.ps-simple_content-openy-memberships-button a.btn-join {
+  color: #ffffff;
+  background-color: #92278f;
+  border: 2px solid #92278f; }
+.ps-simple_content-openy-memberships-button a.btn-join:hover, .ps-simple_content-openy-memberships-button a.btn-join:active, .ps-simple_content-openy-memberships-button a.btn-join:focus {
+  background-color: #ba32b6;
+  border-color: #ba32b6; }
 
 .ps-simple_content-openy-memberships-button .btn-list {
   display: flex; }
@@ -24,6 +34,6 @@
   margin-left: 10px;
   background: white;
   color: #92278f; }
-  .ps-simple_content-openy-memberships-button .free-trial:hover, .ps-simple_content-openy-memberships-button .free-trial:focus {
-    background: white;
-    color: #92278f; }
+.ps-simple_content-openy-memberships-button .free-trial:hover, .ps-simple_content-openy-memberships-button .free-trial:focus {
+  background: white;
+  color: #92278f; }
