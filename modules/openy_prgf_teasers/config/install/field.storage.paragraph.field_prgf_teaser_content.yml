@@ -4,8 +4,8 @@ dependencies:
   module:
     - entity_reference_revisions
     - paragraphs
-id: paragraph.field_prgf_mc
-field_name: field_prgf_mc
+id: paragraph.field_prgf_teaser_content
+field_name: field_prgf_teaser_content
 entity_type: paragraph
 type: entity_reference_revisions
 settings:

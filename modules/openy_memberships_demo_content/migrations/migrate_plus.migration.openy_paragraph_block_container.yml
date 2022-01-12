@@ -44,12 +44,6 @@ source:
         -
           content_id: feature_card_12
     -
-      id: openy_memberships_sidebar_blocks
-      skin: 'openy-memberships-desktop-sidebar'
-      content:
-        -
-          content_id: membership_menu_container
-    -
       id: cp_family_2_block_contrainer
       skin: 'openy-memberships-accordion'
       content:

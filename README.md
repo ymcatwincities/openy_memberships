@@ -28,6 +28,12 @@ You need to build styles using this commands
 `npm install`
 `npm run scss-build`
 
+## Upgrade to 2.4 version
+
+Release 2.3 (https://github.com/ymcatwincities/openy_memberships/releases/tag/2.3) is needed as an intermediate state for the upgrade path.
+In order to uninstall swiftmailer - upgrade to the 2.3 release and uninstall the module from your Drupal.
+Once uninstalled - proceed with upgrading to the 2.4 version of Open Y Memberships
+
 ## Demo content for Memberships framework
 
 To install the demo content, please do next steps:

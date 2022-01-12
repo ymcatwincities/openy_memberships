@@ -1,0 +1,320 @@
+@import 'variables';
+
+.ps-teasers-openy-memberships-modal {
+  .wrapper-field-prgf-teaser-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin: 20px 0;
+  }
+}
+
+.ps-teasers-openy-memberships-desktop-sidebar {
+  h2 {
+    display: none;
+  }
+}
+
+.wrapper-field-prgf-teaser-content {
+  .field-prgf-teaser-content {
+    flex: 0 1 47%;
+
+    @media (max-width: 425px) {
+      flex: initial;
+    }
+
+    .paragraph--type--modal-content {
+      display: flex;
+      margin: 0;
+      width: 100%;
+      border-left: solid 1px $shuttle-grey;
+      border-right: solid 1px $shuttle-grey;
+      border-top: solid 5px $dark-purple;
+      padding: 0;
+
+      .container {
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        .field-title {
+          font-family: "Cachet", Verdana, Geneva, sans-serif;
+          font-size: 24px;
+          line-height: 36px;
+          padding: 15px 15px 0 15px;
+        }
+
+        .field-description {
+          font-size: 14px;
+          line-height: 21px;
+          padding: 15px;
+          height: 100%;
+
+          p {
+            font-size: 14px;
+          }
+        }
+
+        .field-link-title {
+          text-align: center;
+          margin-left: -1px;
+          margin-right: -1px;
+
+          a {
+            display: block;
+            background-color: $dark-blue;
+            padding: 14px;
+            color: white;
+            text-transform: uppercase;
+            font-family: "Cachet", Verdana, Geneva, sans-serif;
+            font-size: 18px;
+            line-height: 27px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .openy_carnation {
+    .layout-container {
+      .viewport {
+        margin-top: 65px !important;
+        .two-column {
+          .sidebar-region {
+            top: 70px;
+          }
+        }
+      }
+    }
+  }
+
+  .rose_based_theme {
+    .layout-container {
+      .viewport {
+        margin-top: 0 !important;
+        padding-top: 65px;
+        .landing-content {
+          .two-column {
+            .sidebar-region {
+              top: 0 !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .layout-container {
+    .viewport {
+      margin-top: 64px;
+      .two-column {
+        .sidebar-region {
+          top: 70px;
+          margin: 0;
+
+          .ps-sidebar_menu-openy-memberships-sidebar-menu {
+            ul {
+              flex-direction: column;
+
+              li {
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .user-logged-in {
+    &.openy_carnation {
+      .layout-container {
+        .viewport {
+          .two-column {
+            .sidebar-region {
+              top: 117px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .openy_carnation {
+    .layout-container {
+      .viewport {
+        margin-top: 142px;
+        .container {
+          max-width: 100%;
+          padding: 0 15px !important;
+        }
+        .two-column {
+          .sidebar-region {
+            top: 78px !important;
+            .ps-teasers-openy-memberships-desktop-sidebar {
+              .field-prgf-title {
+                display: block;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .rose_based_theme {
+    .layout-container {
+      .viewport {
+        margin-top: 65px;
+        .two-column {
+          .sidebar-region {
+            position: absolute;
+            top: -65px !important;
+            .ps-teasers-openy-memberships-desktop-sidebar {
+              .field-prgf-title {
+                display: block;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .layout-container {
+    .viewport {
+      .container {
+        width: 100%;
+      }
+      .two-column {
+        .sidebar-region,
+        .main-region {
+          width: 100%;
+        }
+        .sidebar-region {
+          position: fixed;
+          top: 80px;
+          z-index: 39;
+          background-color: black;
+          height: auto;
+          max-height: 100%;
+          overflow-y: scroll;
+
+          &.menu-open {
+            height: 100vh;
+          }
+
+          .ps-teasers-openy-memberships-desktop-sidebar {
+            h2 {
+              display: block;
+              font-family: $font-family-cachet;
+              font-size: 18px;
+              line-height: 27px;
+              text-transform: uppercase;
+              color: white;
+              background-color: black;
+              margin: 0;
+              padding: 19px 36px;
+              cursor: pointer;
+              text-align: left;
+              width: 100%;
+              &:before {
+                display: inline-block;
+                font: normal normal normal 14px/1 FontAwesome;
+                text-rendering: auto;
+                font-size: 17px;
+                content: "\f00a";
+                padding-right: 17px;
+              }
+              &.menu-open {
+                &:before {
+                  content: "\f00d";
+                }
+              }
+            }
+
+            .wrapper-field-prgf-teaser-content {
+              display: none;
+              overflow-y: scroll;
+            }
+          }
+
+          .ps-block_container-openy-memberships-feature-card {
+            .wrapper-field-block-ref {
+              .field-block-ref {
+                grid-template-rows: 70px 80px 50px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 769px) and (max-width: 991px) {
+  .rose_based_theme {
+    .layout-container {
+      .viewport {
+        .two-column {
+          .sidebar-region {
+            position: fixed;
+            top: 70px !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .openy_carnation {
+    .layout-container {
+      .viewport {
+        margin-top: 142px !important;
+      }
+    }
+  }
+
+  .rose_based_theme {
+    .layout-container {
+      .viewport {
+        .two-column {
+          .sidebar-region {
+            &.menu-open {
+              height: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 993px) and (max-width: 1024px) {
+  .layout-container {
+    .viewport {
+      .breadcrumb-container {
+        margin-top: 65px;
+      }
+      .landing-content {
+        .two-column {
+          .sidebar-region {
+            top: 162px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 1025px) {
+  .wrapper-field-prgf-teaser-content {
+    display: block !important;
+  }
+}
