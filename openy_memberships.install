@@ -1,4 +1,4 @@
-<?php 
+<?php
 use Drupal\user\Entity\Role;
 use Drupal\Core\Field\BaseFieldDefinition;
 
@@ -114,4 +114,14 @@ function openy_memberships_update_8004() {
       'field.storage.profile.field_age_group.yml',
       'field.field.profile.family_members.field_age_group.yml',
     ]);
+}
+
+/**
+ * Update config for front app after removing DiscountFinder step.
+ */
+function openy_memberships_update_8005() {
+  $config_factory = \Drupal::configFactory();
+  $config = $config_factory->getEditable('openy_memberships_front.settings');
+  $config->set("steps", "BranchSelectorHome\r\nFamily\r\nResults\r\nSummary\r\nJoinNow\r\nSuccess")
+    ->save();
 }
