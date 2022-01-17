@@ -5,7 +5,10 @@
     .buttons {
       display: flex;
       flex-direction: column;
-      gap: 5px;
+      margin: 10px 0;
+      & > * {
+        margin: 3px 0;
+      }
     }
   }
   a {

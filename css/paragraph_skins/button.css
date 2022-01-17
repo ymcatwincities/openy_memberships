@@ -1,7 +1,9 @@
 .ps-simple_content-openy-memberships-button .field-prgf-description .buttons {
   display: flex;
   flex-direction: column;
-  gap: 5px; }
+  margin: 10px 0; }
+.ps-simple_content-openy-memberships-button .field-prgf-description .buttons > * {
+  margin: 3px 0; }
 
 .ps-simple_content-openy-memberships-button a {
   width: 100%;
