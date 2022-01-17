@@ -38,6 +38,7 @@ function openy_memberships_install() {
 
   openy_memberships_update_8002();
   openy_memberships_update_8003();
+  openy_memberships_update_8005();
 }
 
 
