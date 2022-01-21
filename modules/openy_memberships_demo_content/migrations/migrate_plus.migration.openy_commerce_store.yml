@@ -14,7 +14,7 @@ source:
     -
       id: demo_online_store
       name: 'Open Y'
-      mail: 'craig.paulnock@ymcamn.org'
+      mail: 'noreply@ymcamn.org'
       default_currency: 'USD'
       timezone: 'America/New_York'
       address:
