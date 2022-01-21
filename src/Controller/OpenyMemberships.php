@@ -558,10 +558,10 @@ class OpenyMemberships extends ControllerBase {
     $user_email = $order->get('mail')->getValue()[0]['value'];
     $store_email = $store->getEmail();
     
-    if ($this->emailValidator->isValid($user_email) && $this->emailValidator->isValid($store_email)) {
+    if ($user_email && $this->emailValidator->isValid($user_email) && $store_email && $this->emailValidator->isValid($store_email)) {
       $to = implode(', ', [$store_email, $user_email]);
     }
-    elseif ($this->emailValidator->isValid($store_email)) {
+    elseif ($store_email && $this->emailValidator->isValid($store_email)) {
       $to = $store->getEmail();
     }
     else {
