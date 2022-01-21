@@ -18,6 +18,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\commerce_product\Entity\Product;
 use Drupal\commerce_promotion\Entity\Promotion;
 use Drupal\node\Entity\Node;
+use Drupal\Component\Utility\EmailValidator;
 
 /**
  * Provides OpenyMemberships controller.
@@ -84,6 +85,7 @@ class OpenyMemberships extends ControllerBase {
    * @param \Drupal\Core\Render\RendererInterface $renderer
    * @param \Drupal\Core\Mail\MailManagerInterface $mail_manager
    * @param \Drupal\openy_memberships\OmPDFGenerator $pdf_generator
+   * @param \Drupal\Component\Utility\EmailValidator $email_validator
    */
   public function __construct(
       EntityTypeManagerInterface $entity_type_manager,
@@ -92,7 +94,8 @@ class OpenyMemberships extends ControllerBase {
       AccountProxyInterface $current_user,
       RendererInterface $renderer,
       MailManagerInterface $mail_manager,
-      OmPDFGenerator $pdf_generator
+      OmPDFGenerator $pdf_generator,
+      EmailValidator $email_validator
     ) {
     $this->entityTypeManager = $entity_type_manager;
     $this->configFactory = $config_factory;
@@ -102,6 +105,7 @@ class OpenyMemberships extends ControllerBase {
     $this->renderer = $renderer;
     $this->mailManager = $mail_manager;
     $this->pdfGenerator = $pdf_generator;
+    $this->emailValidator = $email_validator;
   }
 
   /**
@@ -115,7 +119,8 @@ class OpenyMemberships extends ControllerBase {
       $container->get('current_user'),
       $container->get('renderer'),
       $container->get('plugin.manager.mail'),
-      $container->get('openy_memberships_pdf_generator')
+      $container->get('openy_memberships_pdf_generator'),
+      $container->get('email.validator)
     );
   }
 
@@ -551,8 +556,19 @@ class OpenyMemberships extends ControllerBase {
     $order = reset($order);
     $store = $this->entityTypeManager->getStorage('commerce_store')->loadDefault();
     $user_email = $order->get('mail')->getValue()[0]['value'];
+    $store_email = $store->getEmail();
+    
+    if ($this->emailValidator->isValid($user_email) && $this->emailValidator->isValid($store_email)) {
+      $to = implode(', ', [$store_email, $user_email]);
+    }
+    elseif ($this->emailValidator->isValid($store_email)) {
+      $to = $store->getEmail();
+    }
+    else {
+      // You need to setup store email at least. Using site email as a backup.
+      $to = \Drupal::config('system.site')->get('mail');
+    }
 
-    $to = implode(', ', [$store->getEmail(), $user_email]);
     $from = $this->siteConfig->get('mail');
     $langcode = $this->currentUser->getPreferredLangcode();
     $subject = $this->t('Your Membership!');
