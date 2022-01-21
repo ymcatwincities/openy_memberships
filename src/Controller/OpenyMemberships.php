@@ -120,7 +120,7 @@ class OpenyMemberships extends ControllerBase {
       $container->get('renderer'),
       $container->get('plugin.manager.mail'),
       $container->get('openy_memberships_pdf_generator'),
-      $container->get('email.validator)
+      $container->get('email.validator')
     );
   }
 
