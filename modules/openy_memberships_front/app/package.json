@@ -10,7 +10,7 @@
     "watch": "vue-cli-service build --watch --mode development --hmr"
   },
   "dependencies": {
-    "@mdi/font": "^5.0.45",
+    "@mdi/font": "^6.5.95",
     "@mdi/js": "^5.0.45",
     "core-js": "^3.6.4",
     "leaflet": "^1.6.0",
