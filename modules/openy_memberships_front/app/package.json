@@ -14,7 +14,7 @@
     "@mdi/js": "^5.0.45",
     "core-js": "^3.6.4",
     "leaflet": "^1.6.0",
-    "mdi-vue": "^1.4.6",
+    "mdi-vue": "^3.0.12",
     "numeral": "^2.0.6",
     "pretty-checkbox": "^3.0.3",
     "pretty-checkbox-vue": "^1.1.9",
