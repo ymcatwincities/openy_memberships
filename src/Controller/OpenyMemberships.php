@@ -351,13 +351,15 @@ class OpenyMemberships extends ControllerBase {
             'variations' => [],
           ];
           foreach ($product->variations as $variant) {
-            $products[$product->uuid()]['variations'][] = [
-              'uuid' => $variant->entity->uuid(),
-              'id' => $variant->entity->id(),
-              'price' => $variant->entity->getPrice()->toArray()['number'],
-              'field_best_value' => $variant->entity->field_best_value->value,
-              'title' => $variant->entity->label(),
-            ];
+            if ($variant->entity) {
+              $products[$product->uuid()]['variations'][] = [
+                'uuid' => $variant->entity->uuid(),
+                'id' => $variant->entity->id(),
+                'price' => $variant->entity->getPrice()->toArray()['number'],
+                'field_best_value' => $variant->entity->field_best_value->value,
+                'title' => $variant->entity->label(),
+              ];
+            }
           }
         }
       }
