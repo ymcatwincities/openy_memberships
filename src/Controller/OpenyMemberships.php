@@ -19,6 +19,7 @@ use Drupal\commerce_product\Entity\Product;
 use Drupal\commerce_promotion\Entity\Promotion;
 use Drupal\node\Entity\Node;
 use Drupal\Component\Utility\EmailValidator;
+use Drupal\Core\Url;
 
 /**
  * Provides OpenyMemberships controller.
@@ -557,7 +558,7 @@ class OpenyMemberships extends ControllerBase {
     $store = $this->entityTypeManager->getStorage('commerce_store')->loadDefault();
     $user_email = $order->get('mail')->getValue()[0]['value'];
     $store_email = $store->getEmail();
-    
+
     if ($user_email && $this->emailValidator->isValid($user_email) && $store_email && $this->emailValidator->isValid($store_email)) {
       $to = implode(', ', [$store_email, $user_email]);
     }
@@ -575,7 +576,7 @@ class OpenyMemberships extends ControllerBase {
 
     $body = [
       '#content' => [
-        'logo_url' => drupal_get_path('module', 'openy_repeat') . '/img/ymca_logo_black.png',
+        'logo_url' => Url::fromUri('internal:/' . drupal_get_path('module', 'openy_repeat') . '/img/ymca_logo_black.png', ['absolute' => TRUE]),
         'site_name' => $this->siteConfig->get('name'),
         'result' => $this->getSummaryData($order_uuid),
       ],
