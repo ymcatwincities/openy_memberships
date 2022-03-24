@@ -351,7 +351,7 @@ class OpenyMemberships extends ControllerBase {
             'variations' => [],
           ];
           foreach ($product->variations as $variant) {
-            if ($variant->entity) {
+            if ($variant->entity instance of ProductVariationInterface) {
               $products[$product->uuid()]['variations'][] = [
                 'uuid' => $variant->entity->uuid(),
                 'id' => $variant->entity->id(),
