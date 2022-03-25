@@ -16,6 +16,7 @@ use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\commerce_product\Entity\Product;
+use Drupal\commerce_product\Entity\ProductVariationInterface;
 use Drupal\commerce_promotion\Entity\Promotion;
 use Drupal\node\Entity\Node;
 use Drupal\Component\Utility\EmailValidator;
@@ -351,7 +352,7 @@ class OpenyMemberships extends ControllerBase {
             'variations' => [],
           ];
           foreach ($product->variations as $variant) {
-            if ($variant->entity instance of ProductVariationInterface) {
+            if ($variant->entity instanceof ProductVariationInterface) {
               $products[$product->uuid()]['variations'][] = [
                 'uuid' => $variant->entity->uuid(),
                 'id' => $variant->entity->id(),
@@ -559,7 +560,7 @@ class OpenyMemberships extends ControllerBase {
     $store = $this->entityTypeManager->getStorage('commerce_store')->loadDefault();
     $user_email = $order->get('mail')->getValue()[0]['value'];
     $store_email = $store->getEmail();
-    
+
     if ($user_email && $this->emailValidator->isValid($user_email) && $store_email && $this->emailValidator->isValid($store_email)) {
       $to = implode(', ', [$store_email, $user_email]);
     }
