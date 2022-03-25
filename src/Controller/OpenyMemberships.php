@@ -16,6 +16,7 @@ use Drupal\Core\Entity\EntityTypeManagerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\commerce_product\Entity\Product;
+use Drupal\commerce_product\Entity\ProductVariationInterface;
 use Drupal\commerce_promotion\Entity\Promotion;
 use Drupal\node\Entity\Node;
 use Drupal\Component\Utility\EmailValidator;
@@ -352,13 +353,15 @@ class OpenyMemberships extends ControllerBase {
             'variations' => [],
           ];
           foreach ($product->variations as $variant) {
-            $products[$product->uuid()]['variations'][] = [
-              'uuid' => $variant->entity->uuid(),
-              'id' => $variant->entity->id(),
-              'price' => $variant->entity->getPrice()->toArray()['number'],
-              'field_best_value' => $variant->entity->field_best_value->value,
-              'title' => $variant->entity->label(),
-            ];
+            if ($variant->entity instanceof ProductVariationInterface) {
+              $products[$product->uuid()]['variations'][] = [
+                'uuid' => $variant->entity->uuid(),
+                'id' => $variant->entity->id(),
+                'price' => $variant->entity->getPrice()->toArray()['number'],
+                'field_best_value' => $variant->entity->field_best_value->value,
+                'title' => $variant->entity->label(),
+              ];
+            }
           }
         }
       }
