@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@mdi/font": "^5.0.45",
-    "@mdi/js": "^5.0.45",
+    "@mdi/js": "^7.2.96",
     "core-js": "^3.6.4",
     "leaflet": "^1.6.0",
     "mdi-vue": "^1.4.6",
